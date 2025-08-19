@@ -33,7 +33,7 @@ Each theme package consists of the following:
 ## Install using NPM
 
 ```
-npm install --save classic-stylehseets
+npm install --save classic-stylesheets
 ```
 
 When using a bundler like Vite you can include a theme and skin into your CSS or SCSS file like this:
