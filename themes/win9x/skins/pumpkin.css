@@ -5,7 +5,7 @@
   --window-fg: #000000;
 
   --lightest: #F8EACF;
-  --lighter: var(--lightest);
+  
   --light: var(--window-bg);
   --medium: var(--window-bg);
   --dark: #DE9F2C;
