@@ -8,7 +8,7 @@
   --light: #DFDFDF;
   --medium: var(--window-bg);
   --dark: #808080;
-  --darker: #404040;
+  
   --darkest: #000000;
   --button-bg: var(--window-bg);
   --button-fg: var(--window-fg);
@@ -972,7 +972,7 @@ progress:not([value])::-webkit-progress-value {
   border: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   border-right: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--light);
+  box-shadow: inset 1px 1px 0 var(
   padding: 1px;
   overflow: auto;
   cursor: default;
