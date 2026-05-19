@@ -972,7 +972,7 @@ progress:not([value])::-webkit-progress-value {
   border: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   border-right: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
   padding: 1px;
   overflow: auto;
   cursor: default;
