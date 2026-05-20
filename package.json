@@ -11,7 +11,7 @@
     "url": "git+https://github.com/nielssp/classic-stylesheets.git"
   },
   "license": "MIT",
-  "main": "layout.css",
+  "style": "layout.css",
   "files": [
     "LICENSE",
     "layout.css",
@@ -19,6 +19,15 @@
     "modules"
   ],
   "scripts": {
-    "build": "make all"
+    "dev": "vite",
+    "old-build": "make all",
+    "build": "vite build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "glob": "^13.0.6",
+    "sass": "^1.99.0",
+    "vite": "^8.0.13",
+    "vite-plugin-static-copy": "^4.1.0"
   }
 }

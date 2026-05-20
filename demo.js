@@ -74,11 +74,15 @@ let defaultTheme = 'cde';
 let defaultSkin = 'crimson-4';
 let activeTheme = defaultTheme;
 let activeSkin = defaultSkin;
+const themeExt =
+  import.meta.env.DEV
+    ? 'scss'
+    : 'css';
 
 function setTheme(theme) {
   activeTheme = theme;
   activeSkin = null;
-  themeLink.href = 'themes/' + theme + '/theme.css';
+  themeLink.href = 'themes/' + theme + `/theme.${themeExt}`;
   themeSelect.value = theme;
   skinSelect.innerHTML = '';
   if (skins.hasOwnProperty(theme)) {
