@@ -56,6 +56,99 @@ select,
     inset 2px 2px 0 var(--input-bg), inset -2px -2px 0 var(--input-bg);
 }
 
+
+select{
+
+    // width:220px;
+
+    // padding:
+    //     3px
+    //     24px
+    //     3px
+    //     6px;
+
+    // font-size:13px;
+
+    // color:black;
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    // border:none;
+
+    background:
+
+        /* =========================
+           ARROW ▼
+        ========================= */
+
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            black 50%
+        )
+        right 9px top 8px /
+        5px 5px
+        no-repeat,
+
+        linear-gradient(
+            -45deg,
+            transparent 50%,
+            black 50%
+        )
+        right 5px top 8px /
+        5px 5px
+        no-repeat,
+
+        /* =========================
+           BUTTON FACE
+        ========================= */
+
+        linear-gradient(
+            var(--window-bg),
+            var(--window-bg)
+        )
+        top 2px right 2px /
+        18px calc(100% - 4px)
+        no-repeat,
+
+        /* =========================
+           SEPARATOR DARK
+        ========================= */
+
+        linear-gradient(
+            var(--darkest),
+            var(--darkest)
+        )
+        top 2px right 20px /
+        1px calc(100% - 4px)
+        no-repeat,
+
+        /* =========================
+           SEPARATOR LIGHT
+        ========================= */
+
+        linear-gradient(
+            var(--light),
+            var(--light)
+        )
+        top 2px right 19px /
+        1px calc(100% - 4px)
+        no-repeat,
+
+        /* =========================
+           MAIN FACE
+        ========================= */
+
+        linear-gradient(
+            var(--window-bg),
+            var(--window-bg)
+        );
+
+    background-color:var(--window-bg);
+}
+
 .dropdown {
   display: inline-grid;
   padding: 0;
