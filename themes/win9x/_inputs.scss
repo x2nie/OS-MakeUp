@@ -79,27 +79,85 @@ select{
 
     background:
 
+        /* INNER TOP */
+        linear-gradient(to right, var(--lightest),var(--lightest))
+        top 2px right 3px /
+        12px 1px
+        no-repeat
+        ,
+        /* INNER BOTTOM */
+        linear-gradient(
+            var(--darkest),
+            var(--darkest)
+        )
+        bottom 1px right 0px /
+        16px 1px
+        no-repeat
+        ,
+        /* outer BOTTOM */
+        linear-gradient(
+            var(--dark),
+            var(--dark)
+        )
+        bottom 2px right 0px /
+        16px 1px
+        no-repeat
+        ,
+        /* outer rgiht */
+        linear-gradient(
+            var(--dark),
+            var(--dark)
+        )
+        top 2px right 2px /
+        1px calc(100% - 2px)
+        no-repeat
+        ,
         /* =========================
            ARROW ▼
         ========================= */
-
+        // left part
         linear-gradient(
             45deg,
             transparent 50%,
             black 50%
         )
-        right 9px top 8px /
-        5px 5px
+        right 9px center /
+        3px 3px
         no-repeat,
 
+        // right part
         linear-gradient(
             -45deg,
             transparent 50%,
             black 50%
         )
-        right 5px top 8px /
-        5px 5px
+        right 6px center /
+        3px 3px
         no-repeat,
+
+        /* =========================
+           SEPARATOR DARK
+        ========================= */
+        linear-gradient(
+            var(--darkest),
+            var(--darkest)
+        )
+        top 1px right 1px /
+        1px calc(100% - 2px)
+        no-repeat,
+
+        /* =========================
+           SEPARATOR LIGHT
+        ========================= */
+
+        linear-gradient(
+            var(--lightest),
+            var(--lightest)
+        )
+        top 2px right 14px /
+        1px calc(100% - 4px)
+        no-repeat
+        ,
 
         /* =========================
            BUTTON FACE
@@ -109,44 +167,19 @@ select{
             var(--window-bg),
             var(--window-bg)
         )
-        top 2px right 2px /
-        18px calc(100% - 4px)
-        no-repeat,
+        top 1px right 2px /
+        14px calc(100% - 4px)
+        no-repeat
 
-        /* =========================
-           SEPARATOR DARK
-        ========================= */
 
-        linear-gradient(
-            var(--darkest),
-            var(--darkest)
-        )
-        top 2px right 20px /
-        1px calc(100% - 4px)
-        no-repeat,
-
-        /* =========================
-           SEPARATOR LIGHT
-        ========================= */
-
-        linear-gradient(
-            var(--light),
-            var(--light)
-        )
-        top 2px right 19px /
-        1px calc(100% - 4px)
-        no-repeat,
 
         /* =========================
            MAIN FACE
         ========================= */
 
-        linear-gradient(
-            var(--window-bg),
-            var(--window-bg)
-        );
+        ;
 
-    background-color:var(--window-bg);
+    background-color:var(--input-bg);
 }
 
 .dropdown {
