@@ -1,0 +1,52 @@
+ICONMETRICSA structure (winuser.h)
+
+Summarize this article for me
+Contains the scalable metrics associated with icons. This structure is used with the SystemParametersInfo function when the SPI_GETICONMETRICS or SPI_SETICONMETRICS action is specified.
+
+Syntax
+C++
+typedef struct tagICONMETRICSW {
+  UINT     cbSize;
+  int      iHorzSpacing;
+  int      iVertSpacing;
+  int      iTitleWrap;
+  LOGFONTW lfFont;
+} ICONMETRICSW, *PICONMETRICSW, *LPICONMETRICSW;
+
+typedef struct tagICONMETRICSA {
+  UINT     cbSize;
+  int      iHorzSpacing;
+  int      iVertSpacing;
+  int      iTitleWrap;
+  LOGFONTA lfFont;
+} ICONMETRICSA, *PICONMETRICSA, *LPICONMETRICSA;
+Members
+cbSize
+
+Type: UINT
+
+The size of the structure, in bytes.
+
+iHorzSpacing
+
+Type: int
+
+The horizontal space, in pixels, for each arranged icon.
+
+iVertSpacing
+
+Type: int
+
+The vertical space, in pixels, for each arranged icon.
+
+iTitleWrap
+
+Type: int
+
+If this member is nonzero, icon titles wrap to a new line. If this member is zero, titles do not wrap.
+
+lfFont
+
+Type: LOGFONT
+
+The font to use for icon titles.

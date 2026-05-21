@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NONCLIENTMETRICS Parser</title>
+
+<style>
+body{
+    background:#111;
+    color:#ddd;
+    font-family:monospace;
+    padding:20px;
+}
+
+textarea{
+    width:100%;
+    height:240px;
+    background:#1b1b1b;
+    color:#0f0;
+    border:1px solid #444;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+button{
+    padding:10px 20px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+pre{
+    background:#1b1b1b;
+    border:1px solid #333;
+    padding:15px;
+    overflow:auto;
+}
+</style>
+</head>
+<body>
+
+<h1>Windows ThemePack Metrics Parser</h1>
+
+<textarea id="input"></textarea>
+
+<br>
+
+<button onclick="run()">
+PARSE
+</button>
+
+<pre id="out"></pre>
+
+<script>
+
+function toBytes(str){
+
+    return Uint8Array.from(
+
+        str
+            .trim()
+            .split(/\s+/)
+            .map(v => parseInt(v,10))
+    );
+}
+
+function i32(dv,o){
+    return dv.getInt32(o,true);
+}
+
+function u32(dv,o){
+    return dv.getUint32(o,true);
+}
+
+function parseLOGFONTA(dv,o){
+
+    let face = "";
+
+    for(let i=0;i<32;i++){
+
+        const c = dv.getUint8(o + 28 + i);
+
+        if(c === 0)
+            break;
+
+        face += String.fromCharCode(c);
+    }
+
+    return {
+
+        lfHeight:
+            i32(dv,o + 0),
+
+        lfWidth:
+            i32(dv,o + 4),
+
+        lfEscapement:
+            i32(dv,o + 8),
+
+        lfOrientation:
+            i32(dv,o + 12),
+
+        lfWeight:
+            i32(dv,o + 16),
+
+        lfItalic:
+            dv.getUint8(o + 20),
+
+        lfUnderline:
+            dv.getUint8(o + 21),
+
+        lfStrikeOut:
+            dv.getUint8(o + 22),
+
+        lfCharSet:
+            dv.getUint8(o + 23),
+
+        lfOutPrecision:
+            dv.getUint8(o + 24),
+
+        lfClipPrecision:
+            dv.getUint8(o + 25),
+
+        lfQuality:
+            dv.getUint8(o + 26),
+
+        lfPitchAndFamily:
+            dv.getUint8(o + 27),
+
+        lfFaceName:
+            face
+    };
+}
+
+function parseNONCLIENTMETRICS(text){
+
+    const bytes =
+        toBytes(text);
+
+    const dv =
+        new DataView(bytes.buffer);
+
+    let o = 0;
+
+    const out = {
+
+        cbSize:
+            u32(dv,o),
+
+        iBorderWidth:
+            i32(dv,o += 4),
+
+        iScrollWidth:
+            i32(dv,o += 4),
+
+        iScrollHeight:
+            i32(dv,o += 4),
+
+        iCaptionWidth:
+            i32(dv,o += 4),
+
+        iCaptionHeight:
+            i32(dv,o += 4)
+    };
+
+    o += 4;
+
+    out.lfCaptionFont =
+        parseLOGFONTA(dv,o);
+
+    o += 60;
+
+    out.iSmCaptionWidth =
+        i32(dv,o);
+
+    o += 4;
+
+    out.iSmCaptionHeight =
+        i32(dv,o);
+
+    o += 4;
+
+    out.lfSmCaptionFont =
+        parseLOGFONTA(dv,o);
+
+    o += 60;
+
+    out.iMenuWidth =
+        i32(dv,o);
+
+    o += 4;
+
+    out.iMenuHeight =
+        i32(dv,o);
+
+    o += 4;
+
+    out.lfMenuFont =
+        parseLOGFONTA(dv,o);
+
+    o += 60;
+
+    out.lfStatusFont =
+        parseLOGFONTA(dv,o);
+
+    o += 60;
+
+    out.lfMessageFont =
+        parseLOGFONTA(dv,o);
+
+    o += 60;
+
+    if(o + 4 <= bytes.length){
+
+        out.iPaddedBorderWidth =
+            i32(dv,o);
+    }
+
+    return out;
+}
+
+function run(){
+
+    try{
+
+        const txt =
+            document.getElementById("input").value;
+
+        const result =
+            parseNONCLIENTMETRICS(txt);
+
+        document.getElementById("out").textContent =
+            JSON.stringify(result,null,4);
+
+    }catch(err){
+
+        document.getElementById("out").textContent =
+            err.stack;
+    }
+}
+
+document.getElementById("input").value =
+`88 1 0 0 1 0 0 0 16 0 0 0 16 0 0 0 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 0 0 0 15 0 0 0`;
+
+run();
+
+</script>
+
+</body>
+</html>

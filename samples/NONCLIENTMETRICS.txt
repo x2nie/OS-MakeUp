@@ -1,0 +1,82 @@
+NONCLIENTMETRICS Structure
+
+Summarize this article for me
+Contains the scalable metrics associated with the nonclient area of a nonminimized window. This structure is used by the SPI_GETNONCLIENTMETRICS and SPI_SETNONCLIENTMETRICS actions of the SystemParametersInfo function.
+
+Syntax
+c++
+typedef struct tagNONCLIENTMETRICS {
+  UINT    cbSize;
+  int     iBorderWidth;
+  int     iScrollWidth;
+  int     iScrollHeight;
+  int     iCaptionWidth;
+  int     iCaptionHeight;
+  LOGFONT lfCaptionFont;
+  int     iSmCaptionWidth;
+  int     iSmCaptionHeight;
+  LOGFONT lfSmCaptionFont;
+  int     iMenuWidth;
+  int     iMenuHeight;
+  LOGFONT lfMenuFont;
+  LOGFONT lfStatusFont;
+  LOGFONT lfMessageFont;
+#if (WINVER >= 0x0600)
+  int     iPaddedBorderWidth;
+#endif 
+} NONCLIENTMETRICS, *LPNONCLIENTMETRICS;
+Members
+cbSize
+The size of the structure, in bytes. The caller must set this to sizeof(NONCLIENTMETRICS). For information about application compatibility, see Remarks.
+
+iBorderWidth
+The thickness of the sizing border, in pixels. The default is 1 pixel.
+
+iScrollWidth
+The width of a standard vertical scroll bar, in pixels.
+
+iScrollHeight
+The height of a standard horizontal scroll bar, in pixels.
+
+iCaptionWidth
+The width of caption buttons, in pixels.
+
+iCaptionHeight
+The height of caption buttons, in pixels.
+
+lfCaptionFont
+A pointer to a LOGFONT structure that contains information about the caption font.
+
+iSmCaptionWidth
+The width of small caption buttons, in pixels.
+
+iSmCaptionHeight
+The height of small captions, in pixels.
+
+lfSmCaptionFont
+A pointer to a LOGFONT structure that contains information about the small caption font.
+
+iMenuWidth
+The width of menu-bar buttons, in pixels.
+
+iMenuHeight
+The height of a menu bar, in pixels.
+
+lfMenuFont
+A pointer to a LOGFONT structure that contains information about the font used in menu bars.
+
+lfStatusFont
+A pointer to a LOGFONT structure that contains information about the font used in status bars and tooltips.
+
+lfMessageFont
+A pointer to a LOGFONT structure that contains information about the font used in message boxes.
+
+iPaddedBorderWidth
+The thickness of the padded border, in pixels. The default value is 4 pixels. The iPaddedBorderWidth and iBorderWidth members are combined for both resizable and nonresizable windows in the Windows Aero desktop experience. To compile an application that uses this member, define _WIN32_WINNT as 0x0600 or later. For more information, see Remarks.
+
+**Windows Server 2003 and Windows XP/2000:  **This member is not supported.
+
+Remarks
+If the iPaddedBorderWidth member of the NONCLIENTMETRICS structure is present, this structure is 4 bytes larger than for an application that is compiled with _WIN32_WINNT less than or equal to 0x0502. For more information about conditional compilation, see Using the Windows Headers.
+
+**Windows Server 2003 and Windows XP/2000:  **If an application that is compiled for Windows Server 2008 or Windows Vista must also run on Windows Server 2003 or Windows XP/2000, use the GetVersionEx function to check the operating system version at run time and, if the application is running on Windows Server 2003 or Windows XP/2000, subtract the size of the iPaddedBorderWidth member from the cbSize member of the NONCLIENTMETRICS structure before calling the SystemParametersInfo function.

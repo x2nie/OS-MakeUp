@@ -1,0 +1,91 @@
+
+[Theme]
+; Windows Classic - IDS_THEME_DISPLAYNAME_CLASSIC
+DisplayName=Vista-esque v1.02
+BrandImage=tpenguinltg.png
+
+; Computer - SHIDI_SERVER
+[CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-109
+
+; UsersFiles - SHIDI_USERFILES
+[CLSID\{59031A47-3F72-44A7-89C5-5595FE6B30EE}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-123
+
+; Network - SHIDI_MYNETWORK
+[CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-25
+
+; Recycle Bin - SHIDI_RECYCLERFULL SHIDI_RECYCLER
+[CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\DefaultIcon]
+Full=%SystemRoot%\System32\imageres.dll,-54
+Empty=%SystemRoot%\System32\imageres.dll,-55
+
+[Control Panel\Cursors]
+DefaultValue=
+
+[Control Panel\Desktop]
+Wallpaper=DesktopBackground\new_aurora.jpg
+TileWallpaper=0
+WallpaperStyle=10
+Pattern=
+
+[Control Panel\Desktop\WindowMetrics]
+
+[Metrics]
+NonclientMetrics=88 1 0 0 1 0 0 0 16 0 0 0 16 0 0 0 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 0 0 0 15 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18 0 0 0 18 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    
+LangID=1033
+IconMetrics=76 0 0 0 75 0 0 0 75 0 0 0 1 0 0 0 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 1 0 0 0 0 84 97 104 111 109 97 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0    
+
+[VisualStyles]
+Path=
+ColorStyle=Windows Classic
+Size=Normal
+Transparency=0
+ColorizationColor=0XF7000000
+Composition=0
+VisualStyleVersion=10
+
+[boot]
+SCRNSAVE.EXE=%SystemRoot%\system32\Mystify.scr
+
+[MasterThemeSelector]
+MTSM=DABJDKT
+
+[Sounds]
+; IDS_SCHEME_DEFAULT
+SchemeName=@mmres.dll,-800
+
+[Control Panel\Colors]
+ActiveTitle=81 132 188
+Background=58 110 165
+Hilight=49 106 197
+; Hilight=1 124 224 ; 1 113 216
+HilightText=255 255 255
+TitleText=255 255 255
+Window=255 255 255
+WindowText=0 0 0
+Scrollbar=240 240 240
+InactiveTitle=22 46 101
+Menu=224 224 224
+WindowFrame=0 0 0
+MenuText=0 0 0
+ActiveBorder=224 224 224
+InactiveBorder=224 224 224
+AppWorkspace=148 148 148
+ButtonFace=224 224 224
+ButtonShadow=148 148 148
+GrayText=148 148 148
+ButtonText=0 0 0
+InactiveTitleText=192 192 192
+ButtonHilight=240 240 240
+ButtonDkShadow=0 0 0
+ButtonLight=224 224 224
+InfoText=0 0 0
+InfoWindow=255 255 225
+GradientActiveTitle=115 193 69
+GradientInactiveTitle=18 91 30
+ButtonAlternateFace=192 192 192
+HotTrackingColor=0 0 128
+MenuHilight=0 0 128
+MenuBar=192 192 192
