@@ -99,8 +99,8 @@ select{
             var(--dark),
             var(--dark)
         )
-        bottom 2px right 0px /
-        16px 1px
+        bottom 2px right 2px /
+        12px 1px
         no-repeat
         ,
         /* outer rgiht */
@@ -147,7 +147,7 @@ select{
         no-repeat,
 
         /* =========================
-           SEPARATOR LIGHT
+           btn LIGHT
         ========================= */
 
         linear-gradient(
@@ -168,7 +168,7 @@ select{
             var(--window-bg)
         )
         top 1px right 2px /
-        14px calc(100% - 4px)
+        14px calc(100% - 2px)
         no-repeat
 
 
