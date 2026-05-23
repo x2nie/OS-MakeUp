@@ -1,7 +1,7 @@
-@use '../../util/util';
+@use '../../util/util' as *;
 
 
-#{util.$singleSelects}{
+#{$singleSelects}{
 
     // width:220px;
 
@@ -26,138 +26,197 @@
 
 
     background:
-      // border around text
-      linear-gradient(to right, var(--focus-outline),var(--focus-outline))
-        top 1px left 1px /
-        calc(100% - var(--bw) - 2px) 1px
-        no-repeat,
+  /* =========================
+     BORDER AROUND TEXT
+  ========================= */
 
-      linear-gradient(to right, var(--focus-outline),var(--focus-outline))
-        bottom 1px left 1px /
-        calc(100% - var(--bw) - 2px) 1px
-        no-repeat,
+  hline(var(--focus-outline),
+    top 1px left 1px,
+    calc(100% - var(--bw) - 2px)
+  ),
 
-      linear-gradient(to right, var(--focus-outline),var(--focus-outline))
-        top 1px left 1px /
-        1px calc(100% - 2px)
-        no-repeat,
-      linear-gradient(to right, var(--focus-outline),var(--focus-outline))
-        top 2px right calc(var(--bw) + 1px) /
-        1px calc(100% - 4px)
-        no-repeat,
+  hline(var(--focus-outline),
+    bottom 1px left 1px,
+    calc(100% - var(--bw) - 2px)
+  ),
 
-        /* INNER TOP */
-        linear-gradient(to right, var(--lightest),var(--lightest))
-        top 2px right 3px /
-        12px 1px
-        no-repeat
-        ,
-        /* INNER BOTTOM */
-        linear-gradient(
-            var(--darkest),
-            var(--darkest)
-        )
-        bottom 1px right 0px /
-        calc(var(--bw) + 1px) 1px
-        no-repeat
-        ,
-        /* outer BOTTOM */
-        linear-gradient(
-            var(--dark),
-            var(--dark)
-        )
-        bottom 2px right 2px /
-        calc(var(--bw) - 2px) 1px
-        no-repeat
-        ,
-        /* outer rgiht */
-        linear-gradient(
-            var(--dark),
-            var(--dark)
-        )
-        top 2px right 2px /
-        1px calc(100% - 2px)
-        no-repeat
-        ,
-        /* =========================
-           ARROW ▼
-        ========================= */
-        // left part
-        linear-gradient(
-            45deg,
-            transparent 50%,
-            black 50%
-        )
-        right 9px center /
-        3px 3px
-        no-repeat,
+  vline(var(--focus-outline),
+    top 1px left 1px,
+    calc(100% - 2px)
+  ),
 
-        // right part
-        linear-gradient(
-            -45deg,
-            transparent 50%,
-            black 50%
-        )
-        right 6px center /
-        3px 3px
-        no-repeat,
+  vline(var(--focus-outline),
+    top 2px right calc(var(--bw) + 1px),
+    calc(100% - 4px)
+  ),
 
-        /* =========================
-           SEPARATOR DARK
-        ========================= */
-        linear-gradient(
-            var(--darkest),
-            var(--darkest)
-        )
-        top 1px right 1px /
-        1px calc(100% - 2px)
-        no-repeat,
+  /* =========================
+     SHADOW TOP
+  ========================= */
 
-        /* =========================
-           btn LIGHT
-        ========================= */
+  // hline(var(--darkest),
+  //   top -1px left -1px,
+  //   calc(100% + 2px)
+  // ),
 
-        linear-gradient(
-            var(--lightest),
-            var(--lightest)
-        )
-        top 2px right calc(var(--bw) - 1px ) /
-        1px calc(100% - 4px)
-        no-repeat
-        ,
+  /* =========================
+     SHADOW LEFT
+  ========================= */
 
-        /* =========================
-           BUTTON FACE
-        ========================= */
+  // vline(var(--darkest),
+  //   top -1px left -1px,
+  //   calc(100% + 2px)
+  // ),
 
-        linear-gradient(
-            var(--window-bg),
-            var(--window-bg)
-        )
-        top 1px right 2px /
-        calc(var(--bw) - 1px) calc(100% - 2px)
-        no-repeat
+  /* =========================
+     OUTER BORDER
+  ========================= */
+
+  hline(var(--dark),
+    top -2px left -2px,
+    calc(100% + 3px)
+  ),
+  vline(var(--dark),
+    top -2px left -2px,
+    calc(100% + 3px)
+  ),
+
+  hline(var(--lightest),
+    bottom -2px left -2px,
+    calc(100% + 3px)
+  ),
+  vline(var(--lightest),
+    top -2px right -2px,
+    calc(100% + 4px)
+  ),
+
+  /* =========================
+     INNER SHADOW
+  ========================= */
+
+  hline(var(--darkest),
+    top -1px left -1px,
+    calc(100% + 1px)
+  ),
+
+  vline(var(--darkest),
+    top -1px left -1px,
+    calc(100% + 1px)
+  ),
+
+  hline(var(--light),
+    bottom -1px left -1px,
+    calc(100% + 2px)
+  ),
+
+  vline(var(--light),
+    top -1px right -1px,
+    calc(100% + 2px)
+  ),
+
+  /* =========================
+     INNER TOP
+  ========================= */
+
+  hline(var(--lightest),
+    top 1px right 2px,
+    calc(var(--bw) - 4px)
+  ),
+
+  /* =========================
+     INNER BOTTOM
+  ========================= */
+  hline(var(--dark),
+    bottom 1px right 1px,
+    calc(var(--bw) - 2px)
+  ),
+
+  /* =========================
+  OUTER BOTTOM
+  ========================= */
+  
+  hline(var(--darkest),
+    bottom right,
+    var(--bw) 
+  ),
 
 
+  /* =========================
+     OUTER RIGHT
+  ========================= */
 
-        /* =========================
-           MAIN FACE
-        ========================= */
+  vline(var(--dark),
+    top 2px right 1px,
+    calc(100% - 2px)
+  ),
 
-        ;
+  /* =========================
+     ARROW ▼ LEFT
+  ========================= */
+
+  linear-gradient(
+    45deg,
+    transparent 50%,
+    black 50%
+  )
+  right calc(var(--bw) / 2 ) center /
+  3px 3px
+  no-repeat,
+
+  /* =========================
+     ARROW ▼ RIGHT
+  ========================= */
+
+  linear-gradient(
+    -45deg,
+    transparent 50%,
+    black 50%
+  )
+  right calc(var(--bw) / 2 - 3px) center /
+  3px 3px
+  no-repeat,
+
+  /* =========================
+     button DARK
+  ========================= */
+
+  vline(var(--darkest),
+    top right ,
+    100%
+  ),
+
+  /* =========================
+     BUTTON LIGHT
+  ========================= */
+
+  vline(var(--lightest),
+    top 1px right calc(var(--bw) - 2px),
+    calc(100% - 3px)
+  ),
+
+  /* =========================
+     BUTTON FACE
+  ========================= */
+
+  linear-gradient( var(--window-bg), var(--window-bg0, lime))
+  top right /
+  calc(var(--bw) ) 100% 
+  no-repeat;
 
     // background-color:var(--base-bg);
     background-color: var(--input-bg);
 }
 
-#{util.$textInputs},
+#{$textInputs},
 select /*,.dropdown */ {
   background-color: var(--input-bg);
   color: var(--input-fg);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
-  box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--darkest);
+  border: 2px solid var(--dark);
+  // border: 2px solid rgba(0,0,0,0.3);
+  border: 2px solid transparent;
+  // border-bottom-color:  var(--lightest);
+  // border-right-color: var(--lightest);
+  // box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--darkest);
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
@@ -188,7 +247,7 @@ select /*,.dropdown */ {
   }
 }
 
-#{util.$multiSelects} {
+#{$multiSelects} {
   padding: 1px;
 
   & > option {
@@ -207,7 +266,7 @@ select /*,.dropdown */ {
   }
 }
 
-#{util.$singleSelects}:not(:active):focus {
+#{$singleSelects}:not(:active):focus {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
   --focus-outline: var(--lightest);
