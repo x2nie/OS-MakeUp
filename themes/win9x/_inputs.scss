@@ -1,31 +1,20 @@
 @use '../../util/util' as *;
 
-
+:scope{
+  --inset-depth2: #{inset-depth()};
+}
 #{$singleSelects}{
 
-    // width:220px;
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  
+  padding-right: calc( var(--bw) + 3px);
+  // border:none;
+  --bw: 16px; //? button width
 
 
-    // padding:
-    //     3px
-    //     24px
-    //     3px
-    //     6px;
-
-    // font-size:13px;
-
-    // color:black;
-
-    appearance:none;
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    
-    padding-right: calc( var(--bw) + 3px);
-    // border:none;
-    --bw: 16px; //? button width
-
-
-    background:
+  background:
   /* =========================
      BORDER AROUND TEXT
   ========================= */
@@ -67,52 +56,8 @@
   //   top -1px left -1px,
   //   calc(100% + 2px)
   // ),
-
-  /* =========================
-     OUTER BORDER
-  ========================= */
-
-  hline(var(--dark),
-    top -2px left -2px,
-    calc(100% + 3px)
-  ),
-  vline(var(--dark),
-    top -2px left -2px,
-    calc(100% + 3px)
-  ),
-
-  hline(var(--lightest),
-    bottom -2px left -2px,
-    calc(100% + 3px)
-  ),
-  vline(var(--lightest),
-    top -2px right -2px,
-    calc(100% + 4px)
-  ),
-
-  /* =========================
-     INNER SHADOW
-  ========================= */
-
-  hline(var(--darkest),
-    top -1px left -1px,
-    calc(100% + 1px)
-  ),
-
-  vline(var(--darkest),
-    top -1px left -1px,
-    calc(100% + 1px)
-  ),
-
-  hline(var(--light),
-    bottom -1px left -1px,
-    calc(100% + 2px)
-  ),
-
-  vline(var(--light),
-    top -1px right -1px,
-    calc(100% + 2px)
-  ),
+  
+  var(--inset-depth2),
 
   /* =========================
      INNER TOP
@@ -198,7 +143,7 @@
      BUTTON FACE
   ========================= */
 
-  linear-gradient( var(--window-bg), var(--window-bg0, lime))
+  linear-gradient( var(--window-bg), var(--window-bg))
   top right /
   calc(var(--bw) ) 100% 
   no-repeat;
@@ -206,12 +151,18 @@
     // background-color:var(--base-bg);
     background-color: var(--input-bg);
 }
-
+  
+#{$multiSelects} {
+    padding: 1px;
+    background-color: var(--input-bg);
+}
+  
 #{$textInputs},
-select /*,.dropdown */ {
+  select /*,.dropdown */ {
+  background: var(--inset-depth2);
   background-color: var(--input-bg);
   color: var(--input-fg);
-  border: 2px solid var(--dark);
+  // border: 2px solid var(--dark);
   // border: 2px solid rgba(0,0,0,0.3);
   border: 2px solid transparent;
   // border-bottom-color:  var(--lightest);
@@ -240,7 +191,7 @@ select /*,.dropdown */ {
   }
 
   &:disabled, &.disabled {
-    background-color: var(--window-bg);
+    background-color: var(--window-bg) !important;
     // --base-bg: var(--window-bg);
     color: var(--dark);
     text-shadow: 1px 1px 0 var(--lightest);
@@ -249,6 +200,7 @@ select /*,.dropdown */ {
 
 #{$multiSelects} {
   padding: 1px;
+  // background: var(--inset-depth2), var(--base-bg);
 
   & > option {
     padding: 2px 6px;
