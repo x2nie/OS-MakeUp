@@ -100,12 +100,16 @@
   }
   &:active/* :not(:open) */{
     --inner-button : 
-        #{arrow-down(calc(100% - calc(var(--bw) / 2)  ), calc(50% + 1px))},
+        #{arrow-down(
+          calc(
+            100% - 
+            calc(
+              var(--bw) / 2
+            )
+          ), calc(50% + 1px))},
 
-    /* =========================
-        BUTTON FACE
-      ========================= */
-
+          
+      /* BUTTON FACE */
       linear-gradient( var(--window-bg), var(--window-bg))
         top 1px right 1px /
         calc(var(--bw) - 2px ) calc(100% - 2px)
@@ -115,9 +119,8 @@
       #{hline(var(--dark),
         top right,
         var(--bw), 100%
-      )
-    };
-    // ,
+      )}
+    ;
   }
 }
 

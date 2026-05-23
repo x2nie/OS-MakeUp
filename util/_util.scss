@@ -23,35 +23,100 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
     #{$width} #{$height}
     no-repeat;
 }
-@function arrow-down($x, $y, $size: 3px) {
-  @return 
+@function arrow-down($x, $y, $size: 4px, $color: currentColor) {
+  @return
+    /* LEFT */
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      #{$color} 50%
+    )
+    #{$x} #{$y} /
+    #{$size} #{$size}
+    no-repeat,
 
-  /* =========================
-     ARROW ▼ LEFT
-  ========================= */
+    /* RIGHT */
+    linear-gradient(
+      -45deg,
+      transparent 50%,
+      #{$color} 50%
+    )
+    calc(#{$x} + #{$size} - 1px) #{$y} /
+    #{$size} #{$size}
+    no-repeat;
+}
 
+
+@function arrow-up($x, $y, $size: 4px, $color: currentColor) {
+  @return
+
+  /* LEFT HALF */
   linear-gradient(
-    45deg,
+    135deg,
     transparent 50%,
-    black 50%
+    #{$color} 50%
   )
-  #{$x} #{$y} /
+  #{$x} calc(#{$y} + #{$size}) /
   #{$size} #{$size}
   no-repeat,
 
-  /* =========================
-     ARROW ▼ RIGHT
-  ========================= */
-
+  /* RIGHT HALF */
   linear-gradient(
-    -45deg,
+    -135deg,
     transparent 50%,
-    black 50%
+    #{$color} 50%
   )
-  calc(#{$x} + #{$size}) #{$y} /
+  calc(#{$x} + #{$size} - 1px) calc(#{$y} + #{$size}) /
   #{$size} #{$size}
   no-repeat;
+}
 
+
+@function arrow-left($x, $y, $size: 4px, $color: currentColor) {
+  @return
+    /* TOP */
+    linear-gradient(
+      135deg,
+      transparent 50%,
+      #{$color} 50%
+    )
+    #{$x} #{$y} /
+    #{$size} #{$size}
+    no-repeat,
+
+    /* BOTTOM */
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      #{$color} 50%
+    )
+    #{$x} calc(#{$y} + #{$size} - 1px) /
+    #{$size} #{$size}
+    no-repeat;
+}
+
+
+@function arrow-right($x, $y, $size: 4px, $color: currentColor) {
+  @return
+    /* TOP */
+    linear-gradient(
+      -135deg,
+      transparent 50%,
+      #{$color} 50%
+    )
+    calc(#{$x} + #{$size}) #{$y} /
+    #{$size} #{$size}
+    no-repeat,
+
+    /* BOTTOM */
+    linear-gradient(
+      -45deg,
+      transparent 50%,
+      #{$color} 50%
+    )
+    calc(#{$x} + #{$size}) calc(#{$y} + #{$size} - 1px) /
+    #{$size} #{$size}
+    no-repeat;
 }
 
 @function inset-depth() {
@@ -144,31 +209,35 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
     calc(100% - 2px)
   ),
 
-  /* =========================
-     ARROW ▼ LEFT
-  ========================= */
+  // /* =========================
+  //    ARROW ▼ LEFT
+  // ========================= */
 
-  linear-gradient(
-    45deg,
-    transparent 50%,
-    black 50%
-  )
-  right calc(var(--bw) / 2 ) center /
-  3px 3px
-  no-repeat,
+  // linear-gradient(
+  //   45deg,
+  //   transparent 50%,
+  //   currentColor 50%
+  // )
+  // right calc(var(--bw) / 2 ) center /
+  // 3px 3px
+  // no-repeat,
 
-  /* =========================
-     ARROW ▼ RIGHT
-  ========================= */
 
-  linear-gradient(
-    -45deg,
-    transparent 50%,
-    black 50%
-  )
-  right calc(var(--bw) / 2 - 3px) center /
-  3px 3px
-  no-repeat,
+  // /* =========================
+  //    ARROW ▼ RIGHT
+  // ========================= */
+
+  // linear-gradient(
+  //   -45deg,
+  //   transparent 50%,
+  //   currentColor 50%
+  // )
+  // right calc(var(--bw) / 2 - 3px) center /
+  // 3px 3px
+  // no-repeat,
+
+  arrow-down(calc(100% - calc(var(--bw) / 2)), center, 4px, var(--input-fg)),
+
 
   /* =========================
      button DARK
@@ -189,9 +258,9 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
   ),
   
   
-  /* =========================
-     BUTTON FACE
-  ========================= */
+  // =========================
+  //    BUTTON FACE
+  // =========================
 
   linear-gradient( var(--window-bg), var(--window-bg))
   top right /

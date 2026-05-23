@@ -1,3 +1,5 @@
+@use '../../util/util' as *;
+
 .horizontal-scrollbar,
 .vertical-scrollbar {
   display: flex;
@@ -127,7 +129,13 @@
 
 ::-webkit-scrollbar-button:single-button {
   display: block;
+  // color: blue;
 }
+:disabled::-webkit-scrollbar-button:single-button {
+  color: var(--dark);
+  // color: red;
+}
+
 
 ::-webkit-scrollbar-button:active {
   border: 1px solid var(--dark);
@@ -135,41 +143,70 @@
 }
 
 ::-webkit-scrollbar-button:vertical:decrement {
-  background-image: url(arrow-up.svg);
-  background-position: 3px 5px;
-  background-repeat: no-repeat;
+  // background-image: url(arrow-up.svg);
+  // background-position: 3px 5px;
+  // background-repeat: no-repeat;
+  --ox : 3px;
+  --oy: 1px;
+  background: arrow-up(var(--ox), var(--oy)), var(--button-bg);
 
   &:active {
-    background-position: 4px 6px;
+    // background-position: 4px 6px;
+    --ox : 4px;
+    --oy: 2px;
   }
 }
 
 ::-webkit-scrollbar-button:vertical:increment {
-  background-image: url(arrow-down.svg);
-  background-position: 3px 5px;
-  background-repeat: no-repeat;
+  // background-image: url(arrow-down.svg);
+  // background-position: 3px 5px;
+  // background-repeat: no-repeat;
+  --ox : 3px;
+  --oy: 5px;
+  background: arrow-down(var(--ox), var(--oy)), var(--button-bg);
 
   &:active {
-    background-position: 4px 6px;
+    // background-position: 4px 6px;
+    --ox : 4px;
+    --oy: 6px;
   }
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement {
-  background-image: url(arrow-left.svg);
-  background-position: 4px 3px;
-  background-repeat: no-repeat;
+  // background-image: url(arrow-left.svg);
+  // background-position: 4px 3px;
+  // background-repeat: no-repeat;
+
+  // &:active {
+  //   background-position: 5px 4px;
+  // }
+  --ox : 4px;
+  --oy: 4px;
+  background: arrow-left(var(--ox), var(--oy)), var(--button-bg);
 
   &:active {
-    background-position: 5px 4px;
+    // background-position: 4px 6px;
+    --ox : 5px;
+    --oy: 5px;
   }
 }
 
 ::-webkit-scrollbar-button:horizontal:increment {
-  background-image: url(arrow-right.svg);
-  background-position: 5px 3px;
-  background-repeat: no-repeat;
+  // background-image: url(arrow-right.svg);
+  // background-position: 5px 3px;
+  // background-repeat: no-repeat;
+
+  // &:active {
+  //   background-position: 6px 4px;
+  // }
+  --ox : 2px;
+  --oy: 4px;
+  background: arrow-right(var(--ox), var(--oy)), var(--button-bg);
 
   &:active {
-    background-position: 6px 4px;
+    // background-position: 4px 6px;
+    --ox : 3px;
+    --oy: 5px;
   }
+
 }
