@@ -38,50 +38,101 @@
   flex-direction: row;
   padding: 2px;
   align-items: center;
+
+  button {
+    flex-shrink: 0;
+    width: 20px;
+    height: 18px;
+    min-width: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: 3px 3px;
+    font-weight: normal;
+    font-size: 14px;
+    outline: none;
+    
+    &:not(:disabled):active {
+      outline: none;
+      background-position: 4px 4px;
+      box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--dark);
+      border: 1px solid var(--lightest);
+      border-top: 1px solid var(--darkest);
+      border-left: 1px solid var(--darkest);
+      padding: 0;
+    }
+    
+    &:not(:active):focus {
+      border: 1px solid var(--darkest);
+      border-top: 1px solid var(--lightest);
+      border-left: 1px solid var(--lightest);
+      box-shadow: inset -1px -1px 0 var(--dark);
+    }
+
+    &[data-close],&[data-minimize],&[data-maximize] {
+      display: flex;
+      // text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      &:after{
+        // background: red;
+        // display: inline-block;
+        // height: 1ch;
+        // margin-top: -1px;
+        vertical-align: middle;
+      }
+      &:not(:disabled):active::after{
+        margin-top: 2px;
+        margin-left: 1px;
+      }
+      
+    }
+    &[data-close] {
+      // background-image: url(close.svg);
+      margin-left: 2px;
+
+      &::after{
+        // content: "\1F5D9";
+        content: "\274C";
+        content: "\2715";
+        font-size: large;
+      }
+    }
+    
+    &[data-minimize]::after {
+      // background-image: url(minimize.svg);
+      content: "\1F5D5";
+      vertical-align: bottom;
+      height: 1ch;
+    }
+    
+    &[data-maximize]::after {
+      content: "\1F5D6";
+      // background-image: url(maximize.svg);
+    }
+    
+    .maximized &[data-maximize]::after {
+      // background-image: url(restore.svg);
+      content: "\1F5D7";
+    }
+    }
 }
 
-.title-bar-buttons button {
-  flex-shrink: 0;
-  width: 20px;
-  height: 18px;
-  min-width: 0;
-  padding: 0;
-  background-repeat: no-repeat;
-  background-position: 3px 3px;
-}
+.window.tool-window{
+  .title-bar-text{
+    font-size: 12px;
+    line-height: 1;
+  }
+  .title-bar-buttons button{
+    width: 11px;
+    height: 11px;
+    background-size: 7px 7px;
+    background-position: 1px 1px;
 
-.title-bar-buttons button:active {
-  outline: none;
-  background-position: 4px 4px;
-  box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--dark);
-  border: 1px solid var(--lightest);
-  border-top: 1px solid var(--darkest);
-  border-left: 1px solid var(--darkest);
-  padding: 0;
-}
-
-.title-bar-buttons button:not(:active):focus {
-  border: 1px solid var(--darkest);
-  border-top: 1px solid var(--lightest);
-  border-left: 1px solid var(--lightest);
-  box-shadow: inset -1px -1px 0 var(--dark);
-}
-
-.title-bar-buttons button[data-close] {
-  background-image: url(close.svg);
-  margin-left: 2px;
-}
-
-.title-bar-buttons button[data-minimize] {
-  background-image: url(minimize.svg);
-}
-
-.title-bar-buttons button[data-maximize] {
-  background-image: url(maximize.svg);
-}
-
-.maximized .title-bar-buttons button[data-maximize] {
-  background-image: url(restore.svg);
+    &::after {
+      font-size: x-small;
+    }
+  }
 }
 
 .window-body,
