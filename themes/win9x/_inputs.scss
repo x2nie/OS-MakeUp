@@ -1,65 +1,10 @@
 @use '../../util/util';
 
-#{util.$textInputs},
-select,
-.dropdown {
-  background-color: var(--input-bg);
-  color: var(--input-fg);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
-  padding: 2px 6px;
-  font-family: inherit;
-  font-size: inherit;
-  outline: none;
 
-  &::selection {
-    background-color: var(--selection-bg);
-    color: var(--selection-fg);
-  }
-
-  &[readonly], &.readonly {
-    background: var(--window-bg);
-  }
-
-  &:disabled, &.disabled {
-    background: var(--window-bg);
-    color: var(--dark);
-    text-shadow: 1px 1px 0 var(--lightest);
-  }
-}
-
-#{util.$multiSelects} {
-  padding: 1px;
-
-  & > option {
-    padding: 2px 6px;
-
-    &:checked {
-      background-color: var(--window-bg);
-      color: var(--window-fg);
-    }
-  }
-
-  &:focus > option:checked {
-    outline: 1px dotted var(--selection-inverse);
-    background-color: var(--selection-bg);
-    color: var(--selection-fg);
-  }
-}
-
-#{util.$singleSelects}:not(:active):focus {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light),
-    inset 2px 2px 0 var(--input-bg), inset -2px -2px 0 var(--input-bg);
-}
-
-
-select{
+#{util.$singleSelects}{
 
     // width:220px;
+
 
     // padding:
     //     3px
@@ -74,10 +19,32 @@ select{
     appearance:none;
     -webkit-appearance:none;
     -moz-appearance:none;
-
+    
+    padding-right: calc( var(--bw) + 3px);
     // border:none;
+    --bw: 16px; //? button width
+
 
     background:
+      // border around text
+      linear-gradient(to right, var(--focus-outline),var(--focus-outline))
+        top 1px left 1px /
+        calc(100% - var(--bw) - 2px) 1px
+        no-repeat,
+
+      linear-gradient(to right, var(--focus-outline),var(--focus-outline))
+        bottom 1px left 1px /
+        calc(100% - var(--bw) - 2px) 1px
+        no-repeat,
+
+      linear-gradient(to right, var(--focus-outline),var(--focus-outline))
+        top 1px left 1px /
+        1px calc(100% - 2px)
+        no-repeat,
+      linear-gradient(to right, var(--focus-outline),var(--focus-outline))
+        top 2px right calc(var(--bw) + 1px) /
+        1px calc(100% - 4px)
+        no-repeat,
 
         /* INNER TOP */
         linear-gradient(to right, var(--lightest),var(--lightest))
@@ -91,7 +58,7 @@ select{
             var(--darkest)
         )
         bottom 1px right 0px /
-        16px 1px
+        calc(var(--bw) + 1px) 1px
         no-repeat
         ,
         /* outer BOTTOM */
@@ -100,7 +67,7 @@ select{
             var(--dark)
         )
         bottom 2px right 2px /
-        12px 1px
+        calc(var(--bw) - 2px) 1px
         no-repeat
         ,
         /* outer rgiht */
@@ -154,7 +121,7 @@ select{
             var(--lightest),
             var(--lightest)
         )
-        top 2px right 14px /
+        top 2px right calc(var(--bw) - 1px ) /
         1px calc(100% - 4px)
         no-repeat
         ,
@@ -168,7 +135,7 @@ select{
             var(--window-bg)
         )
         top 1px right 2px /
-        14px calc(100% - 2px)
+        calc(var(--bw) - 1px) calc(100% - 2px)
         no-repeat
 
 
@@ -179,8 +146,77 @@ select{
 
         ;
 
-    background-color:var(--input-bg);
+    // background-color:var(--base-bg);
+    background-color: var(--input-bg);
 }
+
+#{util.$textInputs},
+select /*,.dropdown */ {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--darkest);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  --focus-outline: transparent;
+  // --base-bg: var(--input-bg);
+  //html {
+  // --webkit-scrollbar-buttons: true;
+  //}
+  // &::-webkit-scrollbar-button:single-button {
+  //   display: block;
+  // }
+
+  &::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  &[readonly], &.readonly {
+    background-color: var(--window-bg);
+  }
+
+  &:disabled, &.disabled {
+    background-color: var(--window-bg);
+    // --base-bg: var(--window-bg);
+    color: var(--dark);
+    text-shadow: 1px 1px 0 var(--lightest);
+  }
+}
+
+#{util.$multiSelects} {
+  padding: 1px;
+
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+  }
+
+  &:focus > option:checked {
+    outline: 1px dotted var(--selection-inverse);
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+}
+
+#{util.$singleSelects}:not(:active):focus {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+  --focus-outline: var(--lightest);
+  // box-shadow: inset -1px -1px 0 var(--light0, red),
+  //             inset 2px 2px 0 var(--input-bg0, lime), 
+  //             inset -2px -2px 0 var(--input-bg0, blue);
+}
+
+
 
 .dropdown {
   display: inline-grid;

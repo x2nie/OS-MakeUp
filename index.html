@@ -97,24 +97,24 @@
               <h2>Selects</h2>
               <div>
                 <div class="example">
-                  <div class="dropdown">
+                  <!-- <div class="dropdown"> -->
                     <select size=1>
                       <option>Foo</option>
                       <option>Bar</option>
                       <option>Baz</option>
                     </select>
-                    <div class="dropdown-button"></div>
-                  </div>
+                    <!-- <div class="dropdown-button"></div> -->
+                  <!-- </div> -->
                 </div>
                 <div class="example">
-                  <div class="dropdown">
+                  <!-- <div class="dropdown"> -->
                     <select size=1 disabled>
                       <option>Foo</option>
                       <option>Bar</option>
                       <option>Baz</option>
                     </select>
-                    <div class="dropdown-button"></div>
-                  </div>
+                    <!-- <div class="dropdown-button"></div> -->
+                  <!-- </div> -->
                 </div>
                 <div class="example">
                   <select size=4>
@@ -939,12 +939,31 @@
                         Inactive Window Title
                       </div>
                       <div class="title-bar-buttons">
+                        <button data-minimize></button>
+                        <button data-maximize disabled></button>
                         <button data-close></button>
                       </div>
                     </div>
                     <div class="window-body">
                       <div class="padding">
                         Inactive window body
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="window tool-window acti" style="max-width: 400px;" tabindex=0>
+                    <div class="title-bar">
+                      <div class="title-bar-text">
+                        Tool Window
+                      </div>
+                      <div class="title-bar-buttons">
+                        <button data-close></button>
+                      </div>
+                    </div>
+                    <div class="window-body">
+                      <div class="padding">
+                        Tool window body
                       </div>
                     </div>
                   </div>
