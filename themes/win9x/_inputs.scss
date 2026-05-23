@@ -1,7 +1,10 @@
 @use '../../util/util' as *;
 
 :scope{
+  --bw: 16px; //? button width
   --inset-depth2: #{inset-depth()};
+  --inner-button: #{inner-button()};
+  --inner-outline: none;
 }
 #{$singleSelects}{
 
@@ -10,146 +13,13 @@
   -moz-appearance:none;
   
   padding-right: calc( var(--bw) + 3px);
-  // border:none;
-  --bw: 16px; //? button width
-
 
   background:
-  /* =========================
-     BORDER AROUND TEXT
-  ========================= */
-
-  hline(var(--focus-outline),
-    top 1px left 1px,
-    calc(100% - var(--bw) - 2px)
-  ),
-
-  hline(var(--focus-outline),
-    bottom 1px left 1px,
-    calc(100% - var(--bw) - 2px)
-  ),
-
-  vline(var(--focus-outline),
-    top 1px left 1px,
-    calc(100% - 2px)
-  ),
-
-  vline(var(--focus-outline),
-    top 2px right calc(var(--bw) + 1px),
-    calc(100% - 4px)
-  ),
-
-  /* =========================
-     SHADOW TOP
-  ========================= */
-
-  // hline(var(--darkest),
-  //   top -1px left -1px,
-  //   calc(100% + 2px)
-  // ),
-
-  /* =========================
-     SHADOW LEFT
-  ========================= */
-
-  // vline(var(--darkest),
-  //   top -1px left -1px,
-  //   calc(100% + 2px)
-  // ),
-  
-  var(--inset-depth2),
-
-  /* =========================
-     INNER TOP
-  ========================= */
-
-  hline(var(--lightest),
-    top 1px right 2px,
-    calc(var(--bw) - 4px)
-  ),
-
-  /* =========================
-     INNER BOTTOM
-  ========================= */
-  hline(var(--dark),
-    bottom 1px right 1px,
-    calc(var(--bw) - 2px)
-  ),
-
-  /* =========================
-  OUTER BOTTOM
-  ========================= */
-  
-  hline(var(--darkest),
-    bottom right,
-    var(--bw) 
-  ),
-
-
-  /* =========================
-     OUTER RIGHT
-  ========================= */
-
-  vline(var(--dark),
-    top 2px right 1px,
-    calc(100% - 2px)
-  ),
-
-  /* =========================
-     ARROW ▼ LEFT
-  ========================= */
-
-  linear-gradient(
-    45deg,
-    transparent 50%,
-    black 50%
-  )
-  right calc(var(--bw) / 2 ) center /
-  3px 3px
-  no-repeat,
-
-  /* =========================
-     ARROW ▼ RIGHT
-  ========================= */
-
-  linear-gradient(
-    -45deg,
-    transparent 50%,
-    black 50%
-  )
-  right calc(var(--bw) / 2 - 3px) center /
-  3px 3px
-  no-repeat,
-
-  /* =========================
-     button DARK
-  ========================= */
-
-  vline(var(--darkest),
-    top right ,
-    100%
-  ),
-
-  /* =========================
-     BUTTON LIGHT
-  ========================= */
-
-  vline(var(--lightest),
-    top 1px right calc(var(--bw) - 2px),
-    calc(100% - 3px)
-  ),
-
-  /* =========================
-     BUTTON FACE
-  ========================= */
-
-  linear-gradient( var(--window-bg), var(--window-bg))
-  top right /
-  calc(var(--bw) ) 100% 
-  no-repeat;
-
-    // background-color:var(--base-bg);
-    background-color: var(--input-bg);
+    var(--inner-outline),
+    var(--inset-depth2),
+    var(--inner-button)
+  ;
+  background-color: var(--input-bg);
 }
   
 #{$multiSelects} {
@@ -218,13 +88,37 @@
   }
 }
 
-#{$singleSelects}:not(:active):focus {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-  --focus-outline: var(--lightest);
-  // box-shadow: inset -1px -1px 0 var(--light0, red),
-  //             inset 2px 2px 0 var(--input-bg0, lime), 
-  //             inset -2px -2px 0 var(--input-bg0, blue);
+#{$singleSelects}{
+  &:not(:active):focus {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+    --focus-outline: var(--lightest);
+    --inner-outline: #{inner-outline()};
+    // box-shadow: inset -1px -1px 0 var(--light0, red),
+    //             inset 2px 2px 0 var(--input-bg0, lime), 
+    //             inset -2px -2px 0 var(--input-bg0, blue);
+  }
+  &:active/* :not(:open) */{
+    --inner-button : 
+        #{arrow-down(calc(100% - calc(var(--bw) / 2)  ), calc(50% + 1px))},
+
+    /* =========================
+        BUTTON FACE
+      ========================= */
+
+      linear-gradient( var(--window-bg), var(--window-bg))
+        top 1px right 1px /
+        calc(var(--bw) - 2px ) calc(100% - 2px)
+        no-repeat,
+
+    
+      #{hline(var(--dark),
+        top right,
+        var(--bw), 100%
+      )
+    };
+    // ,
+  }
 }
 
 

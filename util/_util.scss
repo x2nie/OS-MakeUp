@@ -23,8 +23,39 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
     #{$width} #{$height}
     no-repeat;
 }
+@function arrow-down($x, $y, $size: 3px) {
+  @return 
+
+  /* =========================
+     ARROW ▼ LEFT
+  ========================= */
+
+  linear-gradient(
+    45deg,
+    transparent 50%,
+    black 50%
+  )
+  #{$x} #{$y} /
+  #{$size} #{$size}
+  no-repeat,
+
+  /* =========================
+     ARROW ▼ RIGHT
+  ========================= */
+
+  linear-gradient(
+    -45deg,
+    transparent 50%,
+    black 50%
+  )
+  calc(#{$x} + #{$size}) #{$y} /
+  #{$size} #{$size}
+  no-repeat;
+
+}
 
 @function inset-depth() {
+  //? should be used together with: //* border: 2px solid transparent;
   @return 
   /* =========================
      OUTER BORDER
@@ -72,4 +103,125 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
     calc(100% + 2px)
   )
   ;
+}
+
+@function inner-button() {
+  //? pseudo button inside <select> with down arrow
+  @return
+ /* =========================
+     INNER TOP
+  ========================= */
+
+  hline(var(--lightest),
+    top 1px right 2px,
+    calc(var(--bw) - 4px)
+  ),
+
+  /* =========================
+     INNER BOTTOM
+  ========================= */
+  hline(var(--dark),
+    bottom 1px right 1px,
+    calc(var(--bw) - 2px)
+  ),
+
+  /* =========================
+  OUTER BOTTOM
+  ========================= */
+  
+  hline(var(--darkest),
+    bottom right,
+    var(--bw) 
+  ),
+
+
+  /* =========================
+     OUTER RIGHT
+  ========================= */
+
+  vline(var(--dark),
+    top 2px right 1px,
+    calc(100% - 2px)
+  ),
+
+  /* =========================
+     ARROW ▼ LEFT
+  ========================= */
+
+  linear-gradient(
+    45deg,
+    transparent 50%,
+    black 50%
+  )
+  right calc(var(--bw) / 2 ) center /
+  3px 3px
+  no-repeat,
+
+  /* =========================
+     ARROW ▼ RIGHT
+  ========================= */
+
+  linear-gradient(
+    -45deg,
+    transparent 50%,
+    black 50%
+  )
+  right calc(var(--bw) / 2 - 3px) center /
+  3px 3px
+  no-repeat,
+
+  /* =========================
+     button DARK
+  ========================= */
+
+  vline(var(--darkest),
+    top right ,
+    100%
+  ),
+
+  /* =========================
+     BUTTON LIGHT
+  ========================= */
+
+  vline(var(--lightest),
+    top 1px right calc(var(--bw) - 2px),
+    calc(100% - 3px)
+  ),
+  
+  
+  /* =========================
+     BUTTON FACE
+  ========================= */
+
+  linear-gradient( var(--window-bg), var(--window-bg))
+  top right /
+  calc(var(--bw) ) 100% 
+  no-repeat;
+}
+
+@function inner-outline() {
+  //? should be used together with inner-button
+  @return   /* =========================
+     BORDER AROUND TEXT
+  ========================= */
+
+  hline(var(--focus-outline),
+    top 1px left 1px,
+    calc(100% - var(--bw) - 2px)
+  ),
+
+  hline(var(--focus-outline),
+    bottom 1px left 1px,
+    calc(100% - var(--bw) - 2px)
+  ),
+
+  vline(var(--focus-outline),
+    top 1px left 1px,
+    calc(100% - 2px)
+  ),
+
+  vline(var(--focus-outline),
+    top 2px right calc(var(--bw) + 1px),
+    calc(100% - 4px)
+  );
 }
