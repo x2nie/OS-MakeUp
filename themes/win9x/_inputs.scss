@@ -5,6 +5,7 @@
   --inset-depth2: #{inset-depth()};
   --inner-button: #{inner-button()};
   --inner-outline: none;
+  --inner-outline-focused: #{inner-outline()};
 }
 #{$singleSelects}{
 
@@ -33,8 +34,9 @@
     --inner-button: #{inner-button()};
     background-color: var(--selection-bg);
     color: var(--selection-fg);
-    --focus-outline: var(--lightest);
-    --inner-outline: #{inner-outline()};
+    // --focus-outline: var(--lightest);
+    // --inner-outline: #{inner-outline()};
+    --inner-outline: var(--inner-outline-focused);
     // box-shadow: inset -1px -1px 0 var(--light0, red),
     //             inset 2px 2px 0 var(--input-bg0, lime), 
     //             inset -2px -2px 0 var(--input-bg0, blue);

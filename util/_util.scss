@@ -274,23 +274,23 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
      BORDER AROUND TEXT
   ========================= */
 
-  hline(var(--focus-outline),
-    top 1px left 1px,
-    calc(100% - var(--bw) - 2px)
+  hline(var(--input-bg),
+    top left ,
+    calc(100% - var(--bw) - 1px)
   ),
 
-  hline(var(--focus-outline),
-    bottom 1px left 1px,
-    calc(100% - var(--bw) - 2px)
+  hline(var(--input-bg),
+    bottom left,
+    calc(100% - var(--bw) - 1px)
   ),
 
-  vline(var(--focus-outline),
-    top 1px left 1px,
-    calc(100% - 2px)
+  vline(var(--input-bg),
+    top left,
+    100%
   ),
 
-  vline(var(--focus-outline),
-    top 2px right calc(var(--bw) + 1px),
-    calc(100% - 4px)
+  vline(var(--input-bg),
+    top right var(--bw) ,
+    100%
   );
 }
