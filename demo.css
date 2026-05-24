@@ -42,7 +42,7 @@ details {
   margin-top: 4px;
 }
 
-details > summary {
+.example > details > summary {
   display: inline-block;
   cursor: normal;
   user-select: none;
@@ -59,6 +59,10 @@ details > summary {
     text-decoration: underline;
     opacity: 1;
   }
+
+}
+
+ details > summary {
 
 }
 
