@@ -1,3 +1,5 @@
+@use '../../util/util' as *;
+
 [role=menu],
 [role=menubar] {
   color: var(--window-fg);
@@ -145,15 +147,16 @@
         top: 0;
         bottom: 0;
         width: 4px;
-        background: currentColor;
-        -webkit-mask-image: url(arrow-right.svg);
-        -webkit-mask-size: 4px 7px;
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-position: center center;
-        mask-image: url(arrow-right.svg);
-        mask-size: 4px 7px;
-        mask-repeat: no-repeat;
-        mask-position: center center;
+        // background: currentColor;
+        // -webkit-mask-image: url(arrow-right.svg);
+        // -webkit-mask-size: 4px 7px;
+        // -webkit-mask-repeat: no-repeat;
+        // -webkit-mask-position: center center;
+        // mask-image: url(arrow-right.svg);
+        // mask-size: 4px 7px;
+        // mask-repeat: no-repeat;
+        // mask-position: center center;
+        background: arrow-right(0px, 8px);
       }
     }
   }

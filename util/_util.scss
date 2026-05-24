@@ -104,7 +104,7 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
       transparent 50%,
       #{$color} 50%
     )
-    calc(#{$x} + #{$size}) #{$y} /
+    #{$x} #{$y} /
     #{$size} #{$size}
     no-repeat,
 
@@ -114,7 +114,7 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
       transparent 50%,
       #{$color} 50%
     )
-    calc(#{$x} + #{$size}) calc(#{$y} + #{$size} - 1px) /
+    #{$x} calc(#{$y} + #{$size} - 1px) /
     #{$size} #{$size}
     no-repeat;
 }
