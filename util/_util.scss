@@ -236,7 +236,7 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
   // 3px 3px
   // no-repeat,
 
-  arrow-down(calc(100% - calc(var(--bw) / 2)), center, 4px, var(--input-fg)),
+  arrow-down(calc(100% - calc(var(--bw) / 2)), center, 4px, var(--inner-btn-fg, currentColor)),
 
 
   /* =========================

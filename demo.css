@@ -39,7 +39,7 @@ main > .window-body {
 }
 
 details {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 details > summary {
@@ -47,6 +47,19 @@ details > summary {
   cursor: normal;
   user-select: none;
   margin-bottom: 4px;
+  border:none !important;
+  box-shadow: none !important;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: small;
+  padding-left: 0 !important;
+  opacity: 0.5;
+  cursor: pointer !important;
+
+  &:hover{
+    text-decoration: underline;
+    opacity: 1;
+  }
+
 }
 
 @media screen and (min-width: 750px) {

@@ -21,6 +21,50 @@
   ;
   background-color: var(--input-bg);
 }
+
+#{$singleSelects}{
+  &:not(:active,:disabled):focus {
+    --inner-btn-fg: var(--input-fg);
+    // background:
+    //   var(--inner-outline),
+    //   var(--inset-depth2),
+    //   var(--inner-button)
+    // ;
+    --inner-button: #{inner-button()};
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+    --focus-outline: var(--lightest);
+    --inner-outline: #{inner-outline()};
+    // box-shadow: inset -1px -1px 0 var(--light0, red),
+    //             inset 2px 2px 0 var(--input-bg0, lime), 
+    //             inset -2px -2px 0 var(--input-bg0, blue);
+  }
+  &:active:not(:disabled,.disabled)/* :not(:open) */{
+    --inner-button : 
+        #{arrow-down(
+          calc(
+            100% - 
+            calc(
+              var(--bw) / 2
+            )
+          ), calc(50% + 1px))},
+
+          
+      /* BUTTON FACE */
+      linear-gradient( var(--window-bg), var(--window-bg))
+        top 1px right 1px /
+        calc(var(--bw) - 2px ) calc(100% - 2px)
+        no-repeat,
+
+    
+      #{hline(var(--dark),
+        top right,
+        var(--bw), 100%
+      )}
+    ;
+  }
+}
+
   
 #{$multiSelects} {
     padding: 1px;
@@ -64,6 +108,7 @@
     background-color: var(--window-bg) !important;
     // --base-bg: var(--window-bg);
     color: var(--dark);
+    // --input-fg: var(--dark) !important;
     text-shadow: 1px 1px 0 var(--lightest);
   }
 }
@@ -85,42 +130,6 @@
     outline: 1px dotted var(--selection-inverse);
     background-color: var(--selection-bg);
     color: var(--selection-fg);
-  }
-}
-
-#{$singleSelects}{
-  &:not(:active):focus {
-    background-color: var(--selection-bg);
-    color: var(--selection-fg);
-    --focus-outline: var(--lightest);
-    --inner-outline: #{inner-outline()};
-    // box-shadow: inset -1px -1px 0 var(--light0, red),
-    //             inset 2px 2px 0 var(--input-bg0, lime), 
-    //             inset -2px -2px 0 var(--input-bg0, blue);
-  }
-  &:active/* :not(:open) */{
-    --inner-button : 
-        #{arrow-down(
-          calc(
-            100% - 
-            calc(
-              var(--bw) / 2
-            )
-          ), calc(50% + 1px))},
-
-          
-      /* BUTTON FACE */
-      linear-gradient( var(--window-bg), var(--window-bg))
-        top 1px right 1px /
-        calc(var(--bw) - 2px ) calc(100% - 2px)
-        no-repeat,
-
-    
-      #{hline(var(--dark),
-        top right,
-        var(--bw), 100%
-      )}
-    ;
   }
 }
 
