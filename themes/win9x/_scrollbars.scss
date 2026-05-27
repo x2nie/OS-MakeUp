@@ -1,4 +1,5 @@
 @use '../../util/util' as *;
+@use 'drawing' as *;
 
 .horizontal-scrollbar,
 .vertical-scrollbar {
@@ -24,15 +25,15 @@
 
     &:focus {
       outline: none;
-      border: 1px solid var(--darkest);
+      border: 1px solid var(--ButtonDkShadow);
       border-top: 1px solid var(--light);
       border-left: 1px solid var(--light);
-      box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+      box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
     }
 
     &:not(:disabled):active {
       padding: 0;
-      border: 1px solid var(--dark);
+      border: 1px solid var(--ButtonShadow);
       box-shadow: none;
       outline: none;
 
@@ -44,19 +45,19 @@
 
   & > .scrollbar-track {
     flex-grow: 1;
-    background-color: var(--window-bg);
-    background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+    background-color: var(--ButtonFace);
+    background-image: linear-gradient(45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(-45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ButtonHilight) 75%), linear-gradient(-45deg, transparent 75%, var(--ButtonHilight) 75%);
     background-size: 2px 2px;
     background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
     position: relative;
 
     & > .scrollbar-thumb {
       position: absolute;
-      background: var(--button-bg);
-      border: 1px solid var(--darkest);
+      background: var(--ButtonFace);
+      border: 1px solid var(--ButtonDkShadow);
       border-top: 1px solid var(--light);
       border-left: 1px solid var(--light);
-      box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+      box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
     }
   }
 }
@@ -99,8 +100,8 @@
 }
 
 ::-webkit-scrollbar {
-  background-color: var(--window-bg);
-  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+  background-color: var(--ButtonFace);
+  background-image: linear-gradient(45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(-45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ButtonHilight) 75%), linear-gradient(-45deg, transparent 75%, var(--ButtonHilight) 75%);
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
   width: 16px;
@@ -108,17 +109,17 @@
 }
 
 ::-webkit-scrollbar-corner {
-  background: var(--window-bg);
+  background: var(--ButtonFace);
 }
 
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-thumb {
-  background-color: var(--button-bg);
-  color: var(--button-fg);
-  border: 1px solid var(--darkest);
+  background-color: var(--ButtonFace);
+  color: var(--ButtonText);
+  border: 1px solid var(--ButtonDkShadow);
   border-top: 1px solid var(--light);
   border-left: 1px solid var(--light);
-  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
 }
 
 ::-webkit-scrollbar-button {
@@ -132,13 +133,13 @@
   // color: blue;
 }
 :disabled::-webkit-scrollbar-button:single-button {
-  color: var(--dark);
+  color: var(--ButtonShadow);
   // color: red;
 }
 
 
 ::-webkit-scrollbar-button:active {
-  border: 1px solid var(--dark);
+  border: 1px solid var(--ButtonShadow);
   box-shadow: none;
 }
 
@@ -149,7 +150,7 @@
   // background-repeat: no-repeat;
   --ox : 3px;
   --oy: 1px;
-  background: arrow-up(var(--ox), var(--oy)), var(--button-bg);
+  background: arrow-up(var(--ox), var(--oy)), var(--ButtonFace);
 
   &:active {
     // background-position: 4px 6px;
@@ -165,7 +166,7 @@
   // background-repeat: no-repeat;
   --ox : 3px;
   --oy: 5px;
-  background: arrow-down(var(--ox), var(--oy)), var(--button-bg);
+  background: arrow-down(var(--ox), var(--oy)), var(--ButtonFace);
 
   &:active {
     // background-position: 4px 6px;
@@ -185,7 +186,7 @@
   // }
   --ox : 4px;
   --oy: 4px;
-  background: arrow-left(var(--ox), var(--oy)), var(--button-bg);
+  background: arrow-left(var(--ox), var(--oy)), var(--ButtonFace);
 
   &:active {
     // background-position: 4px 6px;
@@ -205,7 +206,7 @@
   // }
   --ox : 5px;
   --oy: 4px;
-  background: arrow-right(var(--ox), var(--oy)), var(--button-bg);
+  background: arrow-right(var(--ox), var(--oy)), var(--ButtonFace);
 
   &:active {
     // background-position: 4px 6px;

@@ -2,12 +2,12 @@
 
 [role=menu],
 [role=menubar] {
-  color: var(--window-fg);
-  background-color: var(--window-bg);
+  color: var(--ButtonText);
+  background-color: var(--ButtonFace);
   border: 1px solid var(--light);
-  border-right-color: var(--darkest);
-  border-bottom-color: var(--darkest);
-  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
+  border-right-color: var(--ButtonDkShadow);
+  border-bottom-color: var(--ButtonDkShadow);
+  box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonShadow);
   padding: 2px;
 
   li {
@@ -16,13 +16,13 @@
     }
 
     &:hover {
-      background: var(--selection-bg);
-      color: var(--selection-fg);
+      background: var(--Hilight);
+      color: var(--HilightText);
     }
 
     &[aria-disabled=true] {
-      color: var(--dark);
-      text-shadow: 1px 1px 0 var(--lightest);
+      color: var(--ButtonShadow);
+      text-shadow: 1px 1px 0 var(--ButtonHilight);
       border-color: transparent;
     }
   }
@@ -49,27 +49,27 @@
   }
 
   &:hover {
-    background: var(--window-bg);
-    color: var(--window-fg);
-    border: 1px solid var(--lightest);
-    border-right-color: var(--dark);
-    border-bottom-color: var(--dark);
+    background: var(--ButtonFace);
+    color: var(--ButtonText);
+    border: 1px solid var(--ButtonHilight);
+    border-right-color: var(--ButtonShadow);
+    border-bottom-color: var(--ButtonShadow);
   }
 
   &:focus-within {
-    background: var(--window-bg);
-    color: var(--window-fg);
-    border: 1px solid var(--dark);
-    border-right-color: var(--lightest);
-    border-bottom-color: var(--lightest);
+    background: var(--ButtonFace);
+    color: var(--ButtonText);
+    border: 1px solid var(--ButtonShadow);
+    border-right-color: var(--ButtonHilight);
+    border-bottom-color: var(--ButtonHilight);
     padding: 2px 7px 0 9px;
   }
 }
 
 [role=menu] {
   &:not(:hover) li:focus-within {
-    background: var(--selection-bg);
-    color: var(--selection-fg);
+    background: var(--Hilight);
+    color: var(--HilightText);
   }
 
   li {
@@ -99,8 +99,8 @@
 
 
     &[role=separator] {
-      border-top: 1px solid var(--dark);
-      border-bottom: 1px solid var(--lightest);
+      border-top: 1px solid var(--ButtonShadow);
+      border-bottom: 1px solid var(--ButtonHilight);
       height: 0;
       padding: 0;
     }

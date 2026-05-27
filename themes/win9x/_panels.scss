@@ -1,62 +1,62 @@
 .desktop {
-  background: var(--desktop-bg);
+  background: var(--Background);
 }
 
 .raised {
-  background: var(--window-bg);
-  border: 1px solid var(--lightest);
-  border-bottom-color: var(--dark);
-  border-right-color: var(--dark);
+  background: var(--ButtonFace);
+  border: 1px solid var(--ButtonHilight);
+  border-bottom-color: var(--ButtonShadow);
+  border-right-color: var(--ButtonShadow);
 }
 
 .lowered {
-  background: var(--window-bg);
-  border: 1px solid var(--dark);
-  border-bottom-color: var(--lightest);
-  border-right-color: var(--lightest);
+  background: var(--ButtonFace);
+  border: 1px solid var(--ButtonShadow);
+  border-bottom-color: var(--ButtonHilight);
+  border-right-color: var(--ButtonHilight);
 }
 
 .top-panel {
-  background: var(--window-bg);
-  border-bottom: 1px solid var(--darkest);
-  box-shadow: inset 0 -1px 0 var(--dark);
+  background: var(--ButtonFace);
+  border-bottom: 1px solid var(--ButtonDkShadow);
+  box-shadow: inset 0 -1px 0 var(--ButtonShadow);
 }
 
 .right-panel {
-  background: var(--window-bg);
+  background: var(--ButtonFace);
   border-left: 1px solid var(--light);
-  box-shadow: inset 1px 0 0 var(--lightest);
+  box-shadow: inset 1px 0 0 var(--ButtonHilight);
 }
 
 .bottom-panel {
-  background: var(--window-bg);
+  background: var(--ButtonFace);
   border-top: 1px solid var(--light);
-  box-shadow: inset 0 1px 0 var(--lightest);
+  box-shadow: inset 0 1px 0 var(--ButtonHilight);
 }
 
 .left-panel {
-  background: var(--window-bg);
-  border-right: 1px solid var(--darkest);
-  box-shadow: inset -1px 0 0 var(--dark);
+  background: var(--ButtonFace);
+  border-right: 1px solid var(--ButtonDkShadow);
+  box-shadow: inset -1px 0 0 var(--ButtonShadow);
 }
 
 fieldset {
-  border: 1px solid var(--dark);
-  border-bottom-color: var(--lightest);
-  border-right-color: var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
+  border: 1px solid var(--ButtonShadow);
+  border-bottom-color: var(--ButtonHilight);
+  border-right-color: var(--ButtonHilight);
+  box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonShadow);
   position: relative;
 }
 
 legend {
   text-align: left;
   padding: 0 4px;
-  background-color: var(--button-bg);
+  background-color: var(--ButtonFace);
   display: block;
 }
 
 hr {
-  border-top: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
+  border-top: 1px solid var(--ButtonShadow);
+  border-bottom: 1px solid var(--ButtonHilight);
 }
 

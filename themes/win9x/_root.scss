@@ -1,40 +1,42 @@
 :root {
   --preferred-font: 'Microsoft Sans Serif', 'Segoe UI', sans-serif;
 
-  --desktop-bg: #008080;
+  --Background: #008080;
 
-  --window-bg: #C0C0C0;
-  --window-fg: #000000;
+  --ButtonFace: #C0C0C0;
+  --ButtonText: #000000;
 
-  --lightest: #FFFFFF;
+  --ButtonHilight: #FFFFFF;
   
   --light: #DFDFDF;
-  --medium: var(--window-bg);
-  --dark: #808080;
+  --medium: var(--ButtonFace);
+  --ButtonShadow: #808080;
   
-  --darkest: #000000;
+  --ButtonDkShadow: #000000;
 
-  --button-bg: var(--window-bg);
-  --button-fg: var(--window-fg);
-  --input-bg: #FFFFFF;
-  --input-fg: #000000;
+  // --ButtonText: var(--ButtonText);
+  --Window: #FFFFFF;
+  --WindowText: #000000;
 
-  --title-bar-bg: var(--dark);
-  --title-bar-fg: var(--medium);
+  --InactiveTitle: var(--ButtonShadow);
+  --InactiveTitleText: var(--ButtonFace);
+  --GradientInactiveTitle: var(--InactiveTitle);
 
-  --title-bar-active-bg: #000080;
-  --title-bar-active-fg: #FFFFFF;
+  --ActiveTitle: #000080;
+  --GradientActiveTitle: var(--ActiveTitle);
 
-  --selection-bg: #000080;
-  --selection-fg: #FFFFFF;
+  --TitleText: #FFFFFF;
+
+  --Hilight: #000080;
+  --HilightText: #FFFFFF;
   --selection-inverse: #FFFF7F;
 
   --scroll-size: 16px;
 }
 
 body {
-  background-color: var(--window-bg);
-  color: var(--window-fg);
+  background-color: var(--ButtonFace);
+  color: var(--ButtonText);
 }
 
 *, *::before, *::after {
@@ -52,7 +54,7 @@ button, input, textarea, select {
 }
 
 a:focus {
-  outline: 1px dotted var(--darkest);
+  outline: 1px dotted var(--ButtonDkShadow);
 }
 
 code {

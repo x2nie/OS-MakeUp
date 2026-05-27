@@ -1,6 +1,6 @@
 @mixin progress-value {
-  border: 1px solid var(--button-bg);
-  background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
+  border: 1px solid var(--ButtonFace);
+  background: repeating-linear-gradient(90deg, var(--Hilight), var(--Hilight) 6px, transparent 6px, transparent 8px);
 }
 
 @mixin progress-value-indeterminate {
@@ -13,10 +13,10 @@ progress,
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: var(--button-bg);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
+  background: var(--ButtonFace);
+  border: 1px solid var(--ButtonShadow);
+  border-bottom: 1px solid var(--ButtonHilight);
+  border-right: 1px solid var(--ButtonHilight);
   height: 13px;
 }
 
@@ -41,7 +41,7 @@ progress,
 }
 
 progress::-webkit-progress-bar {
-  background: var(--button-bg);
+  background: var(--ButtonFace);
 }
 
 progress::-webkit-progress-value {

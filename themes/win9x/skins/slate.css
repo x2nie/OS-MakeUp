@@ -1,27 +1,27 @@
 :root {
-  --desktop-bg: #414141;
+  --Background: #414141;
 
-  --window-bg: #9DB9C8;
-  --window-fg: #000000;
+  --ButtonFace: #9DB9C8;
+  --ButtonText: #000000;
 
-  --lightest: #CEDCE3;
+  --ButtonHilight: #CEDCE3;
   
-  --light: var(--window-bg);
-  --medium: var(--window-bg);
-  --dark: #558097;
+  --light: var(--ButtonFace);
+  --medium: var(--ButtonFace);
+  --ButtonShadow: #558097;
   
-  --darkest: #000000;
+  --ButtonDkShadow: #000000;
 
-  --input-bg: #FFFFFF;
-  --input-fg: #000000;
+  --Window: #FFFFFF;
+  --WindowText: #000000;
 
-  --title-bar-bg: #808080;
-  --title-bar-fg: #C0C0C0;
+  --InactiveTitle: #808080;
+  --InactiveTitleText: #C0C0C0;
 
-  --title-bar-active-bg: #558097;
-  --title-bar-active-fg: #FFFFFF;
+  --ActiveTitle: #558097;
+  --TitleText: #FFFFFF;
 
-  --selection-bg: #558097;
-  --selection-fg: #FFFFFF;
+  --Hilight: #558097;
+  --HilightText: #FFFFFF;
   --selection-inverse: #AA7F68;
 }

@@ -1,28 +1,28 @@
 :root {
-  --desktop-bg: #008080;
+  --Background: #008080;
 
-  --window-bg: #C0C0C0;
-  --window-fg: #000000;
+  --ButtonFace: #C0C0C0;
+  --ButtonText: #000000;
 
-  --lightest: #FFFFFF;
+  --ButtonHilight: #FFFFFF;
   
   --light: #DFDFDF;
   --medium: #C0C0C0;
-  --dark: #808080;
+  --ButtonShadow: #808080;
   
-  --darkest: #000000;
+  --ButtonDkShadow: #000000;
 
-  --input-bg: #FFFFFF;
-  --input-fg: #000000;
+  --Window: #FFFFFF;
+  --WindowText: #000000;
 
-  --title-bar-bg: var(--dark);
-  --title-bar-fg: var(--medium);
+  --InactiveTitle: var(--ButtonShadow);
+  --InactiveTitleText: var(--medium);
 
-  --title-bar-active-bg: #000080;
-  --title-bar-active-fg: #FFFFFF;
+  --ActiveTitle: #000080;
+  --TitleText: #FFFFFF;
 
-  --selection-bg: #000080;
-  --selection-fg: #FFFFFF;
+  --Hilight: #000080;
+  --HilightText: #FFFFFF;
   --selection-inverse: #FFFF7F;
 }
 
@@ -41,8 +41,8 @@ input[type=reset]:not(:active, .active):focus,
 input[type=reset]:not(:active, .active).focus,
 .button:not(:active, .active):focus,
 .button:not(:active, .active).focus {
-  box-shadow: inset -1px -1px 0 var(--darkest), inset 1px 1px 0 var(--lightest), 
-    inset -2px -2px 0 var(--dark), inset 2px 2px 0 var(--light);
+  box-shadow: inset -1px -1px 0 var(--ButtonDkShadow), inset 1px 1px 0 var(--ButtonHilight), 
+    inset -2px -2px 0 var(--ButtonShadow), inset 2px 2px 0 var(--light);
 }
 
 button:not(:active, .active),
@@ -50,7 +50,7 @@ input[type=button]:not(:active, .active),
 input[type=submit]:not(:active, .active),
 input[type=reset]:not(:active, .active),
 .button:not(:active, .active) {
-  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--light);
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--light);
 }
 
 form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) button:not(:active, .active):default,
@@ -62,10 +62,10 @@ button:not(:active, .active).primary,
 input[type=button]:not(:active, .active).primary,
 input[type=submit]:not(:active, .active).primary,
 input[type=reset]:not(:active, .active).primary {
-  box-shadow: inset -1px -1px 0 var(--darkest), inset 1px 1px 0 var(--lightest), 
-    inset -2px -2px 0 var(--dark), inset 2px 2px 0 var(--light);
+  box-shadow: inset -1px -1px 0 var(--ButtonDkShadow), inset 1px 1px 0 var(--ButtonHilight), 
+    inset -2px -2px 0 var(--ButtonShadow), inset 2px 2px 0 var(--light);
 }
 
 .title-bar-buttons button:not(:active):focus {
-  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--light);
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--light);
 }

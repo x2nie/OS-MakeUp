@@ -8,17 +8,17 @@
       border-bottom: 0;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
-      box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--dark);
+      box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--ButtonShadow);
       min-width: 0;
       padding: 2px 10px 2px 10px;
 
       &:focus,
       &:active {
         border-bottom: 0;
-        border-right: 1px solid var(--darkest);
-        border-top: 1px solid var(--lightest);
-        border-left: 1px solid var(--lightest);
-        box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--dark);
+        border-right: 1px solid var(--ButtonDkShadow);
+        border-top: 1px solid var(--ButtonHilight);
+        border-left: 1px solid var(--ButtonHilight);
+        box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--ButtonShadow);
         padding: 2px 10px 2px 10px;
       }
 
@@ -34,10 +34,10 @@
   }
 
   & > [role="tabpanel"] {
-    border-top: 1px solid var(--lightest);
-    border-left: 1px solid var(--lightest);
-    border-bottom: 1px solid var(--darkest);
-    border-right: 1px solid var(--darkest);
-    box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--dark);
+    border-top: 1px solid var(--ButtonHilight);
+    border-left: 1px solid var(--ButtonHilight);
+    border-bottom: 1px solid var(--ButtonDkShadow);
+    border-right: 1px solid var(--ButtonDkShadow);
+    box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--ButtonShadow);
   }
 }

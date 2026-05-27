@@ -1,4 +1,5 @@
 @use '../../util/util' as *;
+@use 'drawing' as *;
 
 :scope{
   --bw: 16px; //? button width
@@ -20,26 +21,26 @@
     var(--inset-depth2),
     var(--inner-button)
   ;
-  background-color: var(--input-bg);
+  background-color: var(--Window);
 }
 
 #{$singleSelects}{
   &:not(:active,:disabled):focus {
-    --inner-btn-fg: var(--input-fg);
+    --inner-btn-fg: var(--WindowText);
     // background:
     //   var(--inner-outline),
     //   var(--inset-depth2),
     //   var(--inner-button)
     // ;
     --inner-button: #{inner-button()};
-    background-color: var(--selection-bg);
-    color: var(--selection-fg);
-    // --focus-outline: var(--lightest);
+    background-color: var(--Hilight);
+    color: var(--HilightText);
+    // --focus-outline: var(--ButtonHilight);
     // --inner-outline: #{inner-outline()};
     --inner-outline: var(--inner-outline-focused);
     // box-shadow: inset -1px -1px 0 var(--light0, red),
-    //             inset 2px 2px 0 var(--input-bg0, lime), 
-    //             inset -2px -2px 0 var(--input-bg0, blue);
+    //             inset 2px 2px 0 var(--Window0, lime), 
+    //             inset -2px -2px 0 var(--Window0, blue);
   }
   &:active:not(:disabled,.disabled)/* :not(:open) */{
     --inner-button : 
@@ -53,13 +54,13 @@
 
           
       /* BUTTON FACE */
-      linear-gradient( var(--window-bg), var(--window-bg))
+      linear-gradient( var(--ButtonFace), var(--ButtonFace))
         top 1px right 1px /
         calc(var(--bw) - 2px ) calc(100% - 2px)
         no-repeat,
 
     
-      #{hline(var(--dark),
+      #{hline(var(--ButtonShadow),
         top right,
         var(--bw), 100%
       )}
@@ -70,26 +71,26 @@
   
 #{$multiSelects} {
     padding: 1px;
-    background-color: var(--input-bg);
+    background-color: var(--Window);
 }
   
 #{$textInputs},
   select /*,.dropdown */ {
   background: var(--inset-depth2);
-  background-color: var(--input-bg);
-  color: var(--input-fg);
-  // border: 2px solid var(--dark);
+  background-color: var(--Window);
+  color: var(--WindowText);
+  // border: 2px solid var(--ButtonShadow);
   // border: 2px solid rgba(0,0,0,0.3);
   border: 2px solid transparent;
-  // border-bottom-color:  var(--lightest);
-  // border-right-color: var(--lightest);
-  // box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--darkest);
+  // border-bottom-color:  var(--ButtonHilight);
+  // border-right-color: var(--ButtonHilight);
+  // box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--ButtonDkShadow);
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
   outline: none;
   --focus-outline: transparent;
-  // --base-bg: var(--input-bg);
+  // --base-bg: var(--Window);
   //html {
   // --webkit-scrollbar-buttons: true;
   //}
@@ -98,20 +99,20 @@
   // }
 
   &::selection {
-    background-color: var(--selection-bg);
-    color: var(--selection-fg);
+    background-color: var(--Hilight);
+    color: var(--HilightText);
   }
 
   &[readonly], &.readonly {
-    background-color: var(--window-bg);
+    background-color: var(--ButtonFace);
   }
 
   &:disabled, &.disabled {
-    background-color: var(--window-bg) !important;
-    // --base-bg: var(--window-bg);
-    color: var(--dark);
-    // --input-fg: var(--dark) !important;
-    text-shadow: 1px 1px 0 var(--lightest);
+    background-color: var(--ButtonFace) !important;
+    // --base-bg: var(--ButtonFace);
+    color: var(--ButtonShadow);
+    // --WindowText: var(--ButtonShadow) !important;
+    text-shadow: 1px 1px 0 var(--ButtonHilight);
   }
 }
 
@@ -123,15 +124,15 @@
     padding: 2px 6px;
 
     &:checked {
-      background-color: var(--window-bg);
-      color: var(--window-fg);
+      background-color: var(--ButtonFace);
+      color: var(--ButtonText);
     }
   }
 
   &:focus > option:checked {
     outline: 1px dotted var(--selection-inverse);
-    background-color: var(--selection-bg);
-    color: var(--selection-fg);
+    background-color: var(--Hilight);
+    color: var(--HilightText);
   }
 }
 
@@ -148,11 +149,11 @@
     padding-right: 21px;
 
     &:not(:disabled):active {
-      background: var(--input-bg);
-      color: var(--input-fg);
+      background: var(--Window);
+      color: var(--WindowText);
 
       & + .dropdown-button {
-        border: 1px solid var(--dark);
+        border: 1px solid var(--ButtonShadow);
         box-shadow: none;
         margin: 2px 0 0 1px;
       }
@@ -160,10 +161,10 @@
 
     &:disabled {
       & + .dropdown-button {
-        box-shadow: inset -1px -1px var(--dark), inset 1px 1px var(--lightest);
+        box-shadow: inset -1px -1px var(--ButtonShadow), inset 1px 1px var(--ButtonHilight);
         &::after {
-          background: var(--dark);
-          filter: drop-shadow(1px 1px var(--lightest));
+          background: var(--ButtonShadow);
+          filter: drop-shadow(1px 1px var(--ButtonHilight));
         }
       }
     }
@@ -176,12 +177,12 @@
     justify-content: center;
     align-items: center;
     margin: 1px;
-    background-color: var(--button-bg);
-    color: var(--button-fg);
-    border: 1px solid var(--darkest);
+    background-color: var(--ButtonFace);
+    color: var(--ButtonText);
+    border: 1px solid var(--ButtonDkShadow);
     border-top: 1px solid var(--light);
     border-left: 1px solid var(--light);
-    box-shadow: inset -1px -1px var(--dark), inset 1px 1px var(--lightest), -1px 0 var(--input-bg);
+    box-shadow: inset -1px -1px var(--ButtonShadow), inset 1px 1px var(--ButtonHilight), -1px 0 var(--Window);
     width: 16px;
     pointer-events: none;
 
@@ -203,18 +204,18 @@ input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: var(--input-bg);
-  color: var(--darkest);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  background: var(--Window);
+  color: var(--ButtonDkShadow);
+  border: 1px solid var(--ButtonShadow);
+  border-bottom: 1px solid var(--ButtonHilight);
+  border-right: 1px solid var(--ButtonHilight);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
   width: 13px;
   height: 13px;
   border-radius: 0;
 
   &:active, &:disabled, &.active, &.disabled {
-    background: var(--window-bg);
+    background: var(--ButtonFace);
   }
 
   &:checked, &.checked {
@@ -235,12 +236,12 @@ input[type=checkbox] {
   }
 
   &:disabled, &.disabled {
-    color: var(--dark);
+    color: var(--ButtonShadow);
   }
 
   &:disabled + label, &.disabled + label {
-    color: var(--dark);
-    text-shadow: 1px 1px 0 var(--lightest);
+    color: var(--ButtonShadow);
+    text-shadow: 1px 1px 0 var(--ButtonHilight);
   }
 }
 
@@ -248,18 +249,18 @@ input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: var(--input-bg);
-  color: var(--darkest);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  background: var(--Window);
+  color: var(--ButtonDkShadow);
+  border: 1px solid var(--ButtonShadow);
+  border-bottom: 1px solid var(--ButtonHilight);
+  border-right: 1px solid var(--ButtonHilight);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
   width: 12px;
   height: 12px;
   border-radius: 50%;
 
   &:active, &:disabled, &.active, &.disabled {
-    background: var(--window-bg);
+    background: var(--ButtonFace);
   }
 
   &:checked::after, &.checked::after {
@@ -274,12 +275,12 @@ input[type=radio] {
   }
 
   &:disabled, &.disabled {
-    color: var(--dark);
+    color: var(--ButtonShadow);
   }
 
   &:disabled + label, &.disabled + label {
-    color: var(--dark);
-    text-shadow: 1px 1px 0 var(--lightest);
+    color: var(--ButtonShadow);
+    text-shadow: 1px 1px 0 var(--ButtonHilight);
   }
 }
 
@@ -298,7 +299,7 @@ input[type=radio] {
         left: calc(var(--spacing) - 1px);
         right: 0;
         bottom: 0;
-        border: 1px dotted var(--darkest);
+        border: 1px dotted var(--ButtonDkShadow);
         border-radius: 1px;
       }
     }
@@ -308,7 +309,7 @@ input[type=radio] {
 label > input[type=radio],
 label > input[type=checkbox] {
   &:focus, &.focus {
-    outline: 1px dotted var(--darkest);
+    outline: 1px dotted var(--ButtonDkShadow);
     outline-offset: 1px;
   }
 }
@@ -316,26 +317,26 @@ label > input[type=checkbox] {
 @mixin range-track {
   height: 2px;
   background: var(--light);
-  border: 1px solid var(--lightest);
-  border-top: 1px solid var(--dark);
-  border-left: 1px solid var(--dark);
-  box-shadow: inset 1px 1px 0 var(--darkest);
+  border: 1px solid var(--ButtonHilight);
+  border-top: 1px solid var(--ButtonShadow);
+  border-left: 1px solid var(--ButtonShadow);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow);
   margin: 0 5px;
 }
 
 @mixin range-thumb {
   border-radius: 0;
-  background: var(--button-bg);
-  border: 1px solid var(--darkest);
-  border-top: 1px solid var(--lightest);
-  border-left: 1px solid var(--lightest);
+  background: var(--ButtonFace);
+  border: 1px solid var(--ButtonDkShadow);
+  border-top: 1px solid var(--ButtonHilight);
+  border-left: 1px solid var(--ButtonHilight);
   width: 11px;
   height: 21px;
-  box-shadow: inset -1px -1px 0 var(--dark);
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow);
 
   &:active {
-    background-color: var(--window-bg);
-    background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+    background-color: var(--ButtonFace);
+    background-image: linear-gradient(45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(-45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ButtonHilight) 75%), linear-gradient(-45deg, transparent 75%, var(--ButtonHilight) 75%);
     background-size: 2px 2px;
     background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
   }
@@ -348,7 +349,7 @@ input[type=range] {
   padding: 2px;
 
   &:focus {
-    outline: 1px dotted var(--darkest);
+    outline: 1px dotted var(--ButtonDkShadow);
   }
 
   &::-moz-range-track {
