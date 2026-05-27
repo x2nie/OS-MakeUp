@@ -1,4 +1,7 @@
-:root {
+// $root: ':scope' !default;
+$root: ':root' !default;
+// :scope {
+#{$root} {
   --preferred-font: 'Microsoft Sans Serif', 'Segoe UI', sans-serif;
 
   --Background: #008080;
@@ -37,6 +40,10 @@
 body {
   background-color: var(--ButtonFace);
   color: var(--ButtonText);
+}
+
+.title-bar-sys {
+  display: none;
 }
 
 *, *::before, *::after {

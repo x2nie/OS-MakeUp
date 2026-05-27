@@ -1,0 +1,73 @@
+:root {
+    --checker: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////4MHDzIwHjhw4L+9vT0DAHAFCj6esq3FAAAAAElFTkSuQmCC");
+	
+}
+%checkerboard {
+	background: var(--checker) repeat;
+	image-rendering: pixelated;
+}
+%font {
+	font-family: 'Segoe UI', sans-serif;
+	font-size: 12px;
+}
+%button-face {
+	background-color: var(--ButtonFace);
+	color: var(--ButtonText);
+}
+%inset-shallow {
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--ButtonShadow) var(--ButtonHilight) var(--ButtonHilight) var(--ButtonShadow);
+	@extend %button-face;
+}
+%outset-shallow {
+	border-style: solid;
+	border-width: 1px;
+	border-color: var(--ButtonHilight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonHilight);
+	@extend %button-face;
+}
+%inset-deep {
+	@extend %inset-shallow; /* as fallback */
+	position: relative; /* for pseudo element(s) */
+	border-image: var(--inset-deep-border-image);
+}
+%outset-deep {
+	@extend %outset-shallow; /* as fallback */
+	position: relative; /* for pseudo element(s) */
+	border-image: var(--button-normal-border-image);
+}
+%outset-deep {
+	border-color: var(--ButtonLight) var(--ButtonShadow) var(--ButtonShadow) var(--ButtonLight);
+	border-style: solid;
+	border-width: 2px 2px;
+}
+%inset-deep {
+	border-color: var(--ButtonShadow);
+	border-style: solid;
+	border-width: 2px 2px;
+}
+
+%outset-deep-2 {
+	background-color: var(--ButtonFace);
+	border-top: 1px solid var(--ButtonFace);
+	border-left: 1px solid var(--ButtonFace);
+	border-right: 1px solid var(--ButtonDkShadow);
+	border-bottom: 1px solid var(--ButtonDkShadow);
+	box-shadow: 1px 1px 0 var(--ButtonHilight) inset, -1px -1px 0 var(--ButtonShadow) inset;
+}
+
+%has-arrow-down {}
+%has-arrow-up {}
+
+.inset-deep {
+	@extend %inset-deep;
+}
+.outset-deep {
+	@extend %outset-deep;
+}
+.inset-shallow {
+	@extend %inset-shallow;
+}
+.outset-shallow {
+	@extend %outset-shallow;
+}

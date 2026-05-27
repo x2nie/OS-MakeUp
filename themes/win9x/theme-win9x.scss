@@ -1,0 +1,27 @@
+/* @import 'root' with {
+    // $root: ':root',
+    $root: ' ' 
+}; */
+$root: '.win9x'  ;
+// .win9x {
+//     @import 'theme';
+// }
+// @import 'theme';
+@import 'root';
+@import 'drawing';
+// .win9x {
+@import 'panels';
+@import 'scrollbars';
+@import 'buttons';
+@import 'inputs';
+@import 'progress';
+@import 'windows';
+@import 'menus';
+@import 'tabs';
+@import 'lists';
+
+// @import 'theme_core' as *;
+
+// .win9x {
+//     @include theme-core;
+// }

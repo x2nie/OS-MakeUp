@@ -1,0 +1,133 @@
+
+
+// Dev Note: Please do not write --variable:rgb(); directly here,
+//           to let several theme co-exist in single html page
+//* Description: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getsyscolor
+
+//? [Control Panel\Colors]
+$ActiveTitle : #000080 !default;
+$Background : rgb(0 128 128) !default;
+$ActiveTitle : rgb(16 72 112) !default;
+$Background : rgb(33 146 220) !default;
+$Hilight : rgb(224 128 24) !default;
+$HilightText : rgb(255 255 255) !default;
+$TitleText : rgb(255 255 255) !default;
+$Window : rgb(255 255 255) !default;
+$WindowText : rgb(0 0 0) !default;
+$Scrollbar : rgb(192 192 192) !default;
+$InactiveTitle : rgb(0 64 0) !default;
+$Menu : rgb(192 192 192) !default;
+$WindowFrame : rgb(0 0 0) !default;
+$MenuText : rgb(0 0 0) !default;
+$ActiveBorder : rgb(192 192 192) !default;
+$InactiveBorder : rgb(192 192 192) !default;
+$AppWorkspace : rgb(205 162 82) !default;
+$ButtonFace : rgb(192 192 192) !default;
+$ButtonShadow : rgb(128 128 128) !default;
+$GrayText : rgb(128 128 128) !default;
+$ButtonText : rgb(0 0 0) !default;
+$InactiveTitleText : rgb(255 255 255) !default;
+$ButtonHilight : rgb(255 255 255) !default;
+$ButtonDkShadow : rgb(0 0 0) !default;
+$ButtonLight : rgb(224 224 224) !default;
+$InfoText : rgb(0 0 0) !default;
+$InfoWindow : rgb(255 255 225) !default;
+$GradientActiveTitle : rgb(32 144 216) !default;
+$GradientInactiveTitle : rgb(0 144 0) !default;
+$ButtonAlternateFace : rgb(181 181 181) !default;
+$HotTrackingColor : rgb(0 0 128) !default;
+$MenuHilight : rgb(49 106 197) !default;
+$MenuBar : rgb(236 233 216) !default;
+
+//? [Metrics].NonclientMetrics
+$BorderWidth: 1 !default;
+$ScrollHeight: 13 !default;
+$ScrollWidth: 13 !default;
+$CaptionWidth: 18 !default;
+$CaptionHeight: 18 !default;
+$SmCaptionWidth: 15 !default;
+$SmCaptionHeight: 15 !default;
+$MenuHeight: 18 !default; //menubar.height
+$MenuWidth: 18 !default;  //popup.min-width?
+
+//? [Metrics].IconMetrics
+$HorzSpacing: 43 !default;
+$VertSpacing: 75 !default;
+$TitleWrap: 1 !default;
+// $IconFont:
+
+
+//? Switch visibility between close button (right)  vs sysmenu (left)
+$display-close-button: unset !default;
+$display-sys-button: none !default;
+
+//? Borders (css: border-image: url(xxx.gif) 2 2px;
+$window-border-image: none !default;
+$button-normal-border-image: none !default;
+$button-active-border-image: none !default;
+$raised-border-image: none !default;
+$raised2-border-image: none !default;
+$sunken-border-image: none !default;
+$sunken2-border-image: none !default;
+$etched-in-border-image: none !default;
+$etched-out-border-image: none !default;
+
+
+:root {
+    --BorderWidth: #{$BorderWidth}px;
+    --ScrollHeight: #{$ScrollHeight}px;
+    --ScrollWidth: #{$ScrollWidth}px;
+    --CaptionWidth: #{$CaptionWidth}px;
+    --CaptionHeight: #{$CaptionHeight}px;
+    --SmCaptionWidth: #{$SmCaptionWidth}px;
+    --SmCaptionHeight: #{$SmCaptionHeight}px;
+    --MenuHeight: #{$MenuHeight}px;
+    --MenuWidth: #{$MenuWidth}px;
+
+    --HorzSpacing: #{$HorzSpacing};
+    --VertSpacing: #{$VertSpacing};
+
+    --ActiveTitle: #{$ActiveTitle};
+    --Background: #{$Background};
+    --Hilight: #{$Hilight};
+    --HilightText: #{$HilightText};
+    --TitleText: #{$TitleText};
+    --Window: #{$Window};
+    --WindowText: #{$WindowText};
+    --Scrollbar: #{$Scrollbar};
+    --InactiveTitle: #{$InactiveTitle};
+    --Menu: #{$Menu};
+    --WindowFrame: #{$WindowFrame};
+    --MenuText: #{$MenuText};
+    --ActiveBorder: #{$ActiveBorder};
+    --InactiveBorder: #{$InactiveBorder};
+    --AppWorkspace: #{$AppWorkspace};
+    --ButtonFace: #{$ButtonFace};
+    --ButtonShadow: #{$ButtonShadow};
+    --GrayText: #{$GrayText};
+    --ButtonText: #{$ButtonText};
+    --InactiveTitleText: #{$InactiveTitleText};
+    --ButtonHilight: #{$ButtonHilight};
+    --ButtonDkShadow: #{$ButtonDkShadow};
+    --ButtonLight: #{$ButtonLight};
+    --InfoText: #{$InfoText};
+    --InfoWindow: #{$InfoWindow};
+    --GradientActiveTitle: #{$GradientActiveTitle};
+    --GradientInactiveTitle: #{$GradientInactiveTitle};
+    --ButtonAlternateFace: #{$ButtonAlternateFace};
+    --HotTrackingColor: #{$HotTrackingColor};
+    --MenuHilight: #{$MenuHilight};
+    --MenuBar: #{$MenuBar};
+
+    --window-border-image: #{$window-border-image};
+    --button-normal-border-image: #{$button-normal-border-image};
+    --button-active-border-image: #{$button-active-border-image};
+    --raised-border-image: #{$raised-border-image};
+    --raised2-border-image: #{$raised2-border-image};
+    --sunken-border-image: #{$sunken-border-image};
+    --sunken2-border-image: #{$sunken2-border-image};
+    --etched-in-border-image: #{$etched-in-border-image};
+    --etched-out-border-image: #{$etched-out-border-image};
+
+
+}

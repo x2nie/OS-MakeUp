@@ -5,7 +5,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const entries = Object.fromEntries(
 
-  globSync('themes/**/theme.scss').map(file => {
+  globSync('themes/**/theme*.scss').map(file => {
 
     const name = file.replace(/\.scss$/, '')
 

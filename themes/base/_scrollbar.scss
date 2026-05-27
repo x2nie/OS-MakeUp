@@ -1,0 +1,174 @@
+// https://css-tricks.com/custom-scrollbars-in-webkit/
+// domo:
+// https://trac.webkit.org/export/41842/trunk/LayoutTests/scrollbars/overflow-scrollbar-combinations.html
+// https://www.webkit.org/blog/363/styling-scrollbars/
+
+// ::-webkit-scrollbar,
+// .scrollbar {
+// 	@extend %checkerboard;
+//     // width: var(--ScrollWidth);
+// }
+
+// ::-webkit-scrollbar-button,
+// .scrollbar .scrollbar-button{
+//     height: var(--ScrollWidth);
+//     width: var(--ScrollHeight);
+// 	@extend %outset-deep-2;
+// 	box-sizing: border-box;
+// }
+
+// ::-webkit-scrollbar-button:vertical,
+// .scrollbar.vertical .scrollbar-button{
+// 	width: var(--ScrollWidth);
+//     height: var(--ScrollHeight);
+// }
+
+// ::-webkit-scrollbar-button:active,
+// .scrollbar-button:active {
+// 	border: 1px solid var(--ButtonShadow);
+// 	box-shadow: none;
+// }
+
+// .scrollbar-thumb,
+// ::-webkit-scrollbar-thumb {
+// 	// @extend .scrollbar-thumb;
+// 	@extend %outset-deep-2;
+// }
+
+// .scrollbar-thumb {
+// 	@extend %outset-deep-2;
+// }
+// ::-webkit-scrollbar-track-piece:hover:active,
+// .scrollbar-track-piece:hover:active {
+// 	// @extend %checkerboard;
+// 	background-color: white;
+// 	background-blend-mode: difference;
+// 	/* background-attachment: fixed; breaks the checkered background in chrome */
+// }
+// .scrollbar-track-piece.increment {
+// 	background-position: bottom;
+// }
+// .scrollbar-corner {
+// 	background-color: var(--ButtonFace);
+// }
+
+// .scrollbar-button {
+// 	@extend %outset-deep-2;
+// 	background-image: var(--scrollbar-arrows-ButtonText);
+// 	image-rendering: pixelated;
+// 	width: var(--ScrollWidth);
+// 	height: var(--ScrollHeight);
+// 	box-sizing: border-box;
+// }
+// .scrollbar-button:not(.disabled):hover:active {
+// .scrollbar-button:active {
+// 	border: 1px solid var(--ButtonShadow);
+// 	box-shadow: none;
+// }
+// .scrollbar-button.disabled {
+// 	background-image: var(--scrollbar-arrows-GrayText), var(--scrollbar-arrows-ButtonHilight);
+// 	background-color: fuchsia;
+// }
+
+// .scrollbar-button.horizontal.decrement.disabled {
+// 	background-position: /* left arrow */
+// 		calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px,
+// 		calc(var(--scrollbar-button-inner-size) * -3 + 2px) 2px;
+// }
+// .scrollbar-button.horizontal.increment.disabled {
+// 	background-position: /* right arrow */
+// 		calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px,
+// 		calc(var(--scrollbar-button-inner-size) * -2 + 2px) 2px;
+// }
+// .scrollbar-button.vertical.decrement.disabled {
+// 	background-position: /* up arrow */
+// 		calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px,
+// 		calc(var(--scrollbar-button-inner-size) * -1 + 2px) 2px;
+// }
+// .scrollbar-button.vertical.increment.disabled {
+// 	background-position: /* down arrow */
+// 		calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px,
+// 		calc(var(--scrollbar-button-inner-size) * -0 + 2px) 2px;
+// }
+
+// .scrollbar-button.horizontal.decrement {
+// 	background-position: calc(var(--scrollbar-button-inner-size) * -3 + 1px) 1px; /* left */
+// }
+// .scrollbar-button.horizontal.increment {
+// 	background-position: calc(var(--scrollbar-button-inner-size) * -2 + 1px) 1px; /* right */
+// }
+// .scrollbar-button.vertical.decrement {
+// 	background-position: calc(var(--scrollbar-button-inner-size) * -1 + 1px) 1px; /* up */
+// }
+// .scrollbar-button.vertical.increment {
+// 	background-position: calc(var(--scrollbar-button-inner-size) * -0 + 1px) 1px; /* down */
+// }
+
+// ::-webkit-scrollbar,
+// ::-webkit-scrollbar-thumb,
+// ::-webkit-scrollbar-button {
+// 	width: var(--ScrollWidth);
+// 	height: var(--ScrollHeight);
+// }
+
+// ::-webkit-scrollbar-button{
+// 	@extend .scrollbar-button;
+// }
+// ::-webkit-scrollbar {
+// 	@extend .scrollbar;
+// }
+// ::-webkit-scrollbar-thumb {
+// 	@extend .scrollbar-thumb;
+// }
+// ::-webkit-scrollbar-corner {
+// 	@extend .scrollbar-corner;
+// }
+
+// ::-webkit-scrollbar-button {
+// 	@extend .scrollbar-button;
+// }
+// ::-webkit-scrollbar-button:hover:active {
+// 	@extend .scrollbar-button:not(.disabled):hover:active;
+// }
+// ::-webkit-scrollbar-button:disabled {
+// 	@extend .scrollbar-button, .disabled;
+// }
+
+// ::-webkit-scrollbar-button:horizontal:decrement:disabled {
+// 	@extend .scrollbar-button.horizontal.decrement.disabled;
+// }
+// ::-webkit-scrollbar-button:horizontal:increment:disabled {
+// 	@extend .scrollbar-button.horizontal.increment.disabled;
+// }
+// ::-webkit-scrollbar-button:vertical:decrement:disabled {
+// 	@extend .scrollbar-button.vertical.decrement.disabled;
+// }
+// ::-webkit-scrollbar-button:vertical:increment:disabled {
+// 	@extend .scrollbar-button.vertical.increment.disabled;
+// }
+
+// ::-webkit-scrollbar-button:horizontal:decrement {
+// 	@extend .scrollbar-button.horizontal.decrement;
+// }
+// ::-webkit-scrollbar-button:horizontal:increment {
+// 	@extend .scrollbar-button.horizontal.increment;
+// }
+// ::-webkit-scrollbar-button:vertical:decrement {
+// 	@extend .scrollbar-button.vertical.decrement;
+// }
+// ::-webkit-scrollbar-button:vertical:increment {
+// 	@extend .scrollbar-button.vertical.increment;
+// }
+
+// ::-webkit-scrollbar-track-piece {
+// 	@extend .scrollbar-track-piece;
+// }
+// ::-webkit-scrollbar-track-piece:increment {
+// 	@extend .scrollbar-track-piece.increment;
+// }
+
+/* turn off double buttons */
+// ::-webkit-scrollbar-button:start:increment,
+// ::-webkit-scrollbar-button:end:decrement {
+// 	display: none;
+// }

@@ -1,13 +1,15 @@
 @use '../../util/util' as *;
 @use 'drawing' as *;
+// @use 'root' ;
 
-:scope{
+// :scope{
+#{$root} {
   --bw: 16px; //? button width
   --inset-depth2: #{inset-depth()};
   --inner-button: #{inner-button()};
   --inner-outline: none;
   --inner-outline-focused: #{inner-outline()};
-}
+//}
 #{$singleSelects}{
 
   appearance:none;
@@ -370,4 +372,5 @@ input[type=range] {
     margin-top: -11px;
     @include range-thumb;
   }
+}
 }
