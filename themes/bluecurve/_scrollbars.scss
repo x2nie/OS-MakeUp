@@ -1,0 +1,345 @@
+@use '../../util/util' as *;
+@use 'drawing' as *;
+
+.scrollbar {
+  display: flex;
+  background:   hline(var(--scrollbar-border),
+    top left ,
+    100%
+  ),
+  vline(var(--scrollbar-border),
+    top  left ,
+    100% 
+  ),
+
+  hline(var(--scrollbar-border),
+    bottom  left ,
+    100% 
+  ),
+  vline(var(--scrollbar-border),
+    top  right,
+    100% 
+  ), 
+  var(--scrollbar-bg);
+
+  & > button {
+    display: flex;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    min-width: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   width: 7px;
+    //   height: 7px;
+    //   margin: 3px 0 0 3px;
+    //   background-repeat: no-repeat;
+    // }
+
+    &:focus {
+      outline: none;
+      border: 1px solid var(--ButtonDkShadow);
+      border-top: 1px solid var(--light);
+      border-left: 1px solid var(--light);
+      box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
+    }
+
+    &:not(:disabled):active {
+      padding: 0;
+      border: 1px solid var(--ButtonShadow);
+      box-shadow: none;
+      outline: none;
+
+      // &::after {
+      //   margin: 4px 0 0 4px;
+      // }
+    }
+  }
+
+  & > .scrollbar-track {
+    flex-grow: 1;
+    // background-color: var(--scrollbar-bg);
+    // background-image: linear-gradient(45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(-45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ButtonHilight) 75%), linear-gradient(-45deg, transparent 75%, var(--ButtonHilight) 75%);
+    // background-size: 2px 2px;
+    // background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+    position: relative;
+
+    & > .scrollbar-thumb {
+      position: absolute;
+      background-color: var(--ButtonFace);
+      background-repeat: no-repeat;
+      // min-height: 26px;
+      border: 1px solid var(--ButtonDkShadow);
+      // border-top: 1px solid var(--light);
+      // border-left: 1px solid var(--light);
+      box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
+    }
+  }
+}
+
+.horizontal.scrollbar {
+  // & > button:first-child::after {
+    // background-image: url(arrow-left.svg);
+    // background-position: 1px 0;
+  // }
+
+  // & > button:last-child::after {
+    // background-image: url(arrow-right.svg);
+    // background-position: 2px 0;
+  // }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.vertical.scrollbar {
+  flex-direction: column;
+  width: 16px;
+
+  // & > button:first-child::after {
+    // background-image: url(arrow-up.svg);
+  //   background-position: 0 2px;
+  // }
+
+  // & > button:last-child::after {
+    // background-image: url(arrow-down.svg);
+    // background-position: 0 2px;
+  // }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    left: 0;
+    right: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  // background-color: var(--scrollbar-bg);
+  // background-image: linear-gradient(45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(-45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ButtonHilight) 75%), linear-gradient(-45deg, transparent 75%, var(--ButtonHilight) 75%);
+  // background-size: 2px 2px;
+  // background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  background:   hline(var(--scrollbar-border),
+    top left ,
+    100%
+  ),
+  vline(var(--scrollbar-border),
+    top  left ,
+    100% 
+  ),
+
+  hline(var(--scrollbar-border),
+    bottom  left ,
+    100% 
+  ),
+  vline(var(--scrollbar-border),
+    top  right,
+    100% 
+  ), var(--scrollbar-bg);
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--ButtonFace);
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background-color: var(--ButtonFace);
+  color: var(--ButtonText);
+  border: 1px solid var(--ButtonDkShadow);
+  // border-top: 1px solid var(--light);
+  // border-left: 1px solid var(--light);
+  
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
+}
+.scrollbar .scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  // min-height: 26px;
+  /* background:
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% + 2px) 0 / 1px calc(50% - 10px) no-repeat, // Top overlay
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% + 1px) 0 / 1px calc(50% - 9px) no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) 50% 0 / 1px calc(50% - 8px) no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% - 1px) 0 / 1px calc(50% - 7px) no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% - 2px) 0 / 1px calc(50% - 6px) no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% - 3px) 0 / 1px calc(50% - 5px) no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% + 2px) calc(100% + 5px) / 1px 50% no-repeat, // Bottom overlay 
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% + 1px) calc(100% + 6px) / 1px 50% no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) 50% calc(100% + 7px) / 1px 50% no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% - 1px) calc(100% + 8px) / 1px 50% no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% - 2px) calc(100% + 9px) / 1px 50% no-repeat,
+		linear-gradient(@theme_bg_color, @theme_bg_color) calc(50% - 3px) calc(100% + 10px) / 1px 50% no-repeat,
+		linear-gradient(to bottom, @grab_dark_color 1px, @grab_light_color 1px, @grab_light_color 2px, transparent 2px) calc(50% + 2px) 1px / 1px 5px repeat-y,
+		linear-gradient(to bottom, @grab_dark_color 1px, @grab_light_color 1px, @grab_light_color 2px, transparent 2px) calc(50% + 1px) 2px / 1px 5px repeat-y,
+		linear-gradient(to bottom, @grab_dark_color 1px, @grab_light_color 1px, @grab_light_color 2px, transparent 2px) 50% 3px / 1px 5px repeat-y,
+		linear-gradient(to bottom, @grab_dark_color 1px, @grab_light_color 1px, @grab_light_color 2px, transparent 2px) calc(50% - 1px) 4px / 1px 5px repeat-y,
+		linear-gradient(to bottom, @grab_light_color 1px, transparent 1px, transparent 4px, @grab_dark_color 4px) calc(50% - 2px) 6px / 1px 5px repeat-y,
+		linear-gradient(to bottom, @grab_dark_color 1px, transparent 1px) calc(50% - 3px) 6px / 1px 5px repeat-y,
+		linear-gradient(@theme_bg_color, @theme_bg_color);
+    */
+    --line1: var(--scrollbar-border);
+    --line2: var(--ButtonHilight);
+   background0:
+        linear-gradient(
+            135deg,
+
+            transparent 4px,
+            var(--line1) 4px,
+            var(--line1) 5px,
+            var(--line2) 5px,
+            var(--line2) 6px,
+            transparent 6px,
+            transparent 8px,
+
+            var(--line1) 8px,
+            var(--line1) 9px,
+            var(--line2) 9px,
+            var(--line2) 10px,
+            transparent 10px,
+            transparent 12px,
+
+            var(--line1) 12px,
+            var(--line1) 13px,
+            var(--line2) 13px,
+            var(--line2) 14px,
+            transparent 14px, 
+            transparent 30px
+        ) left 4px center /  6px 18px no-repeat,
+
+        // linear-gradient(lime, yellow) left 4px center /  6px 16px no-repeat,
+        // red
+        ;
+  background1: url(img/white_stripes_tile.png) ;
+  
+  // background-origin: top right;
+  background-position: center center;
+  background-repeat: no-repeat;
+  // background-attachment: local;
+  background-color: var(--ButtonFace);
+}
+.scrollbar.vertical .scrollbar-thumb,
+::-webkit-scrollbar-thumb:vertical {
+    background-image: url(img/scrollbar-vertical-thumb.png);
+    min-height: 26px;
+    // width: 100%;
+    // background-position-x: 2px;
+    // background-size: 6px 18px;
+    // background-clip: border-box;
+    // background-color: var(--ButtonFace);
+}
+.scrollbar.horizontal .scrollbar-thumb,
+::-webkit-scrollbar-thumb:horizontal {
+    background-image: url(img/scrollbar-horizontal-thumb.png);
+    min-width: 26px;
+}
+  // &:after{
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   background: linear-gradient(lime,gold);
+  //   // background-image: url(img/scrollbar-thumb-overlay.png);
+  //   background-repeat: repeat;
+  //   background-position: center;
+  //   background-size: 6px 18px;
+  //    pointer-events: none;
+  // }
+ 
+
+::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+  // color: blue;
+}
+:disabled::-webkit-scrollbar-button:single-button {
+  color: var(--ButtonShadow);
+  // color: red;
+}
+
+
+::-webkit-scrollbar-button:active {
+  border: 1px solid var(--ButtonShadow);
+  box-shadow: none;
+}
+
+.vertical.scrollbar > button:first-child,
+::-webkit-scrollbar-button:vertical:decrement {
+  // background-image: url(arrow-up.svg);
+  // background-position: 3px 5px;
+  // background-repeat: no-repeat;
+  --ox : 3px;
+  --oy: 1px;
+  background: arrow-up(var(--ox), var(--oy)), var(--ButtonFace);
+
+  &:active {
+    // background-position: 4px 6px;
+    --ox : 4px;
+    --oy: 2px;
+  }
+}
+
+.vertical.scrollbar > button:last-child,
+::-webkit-scrollbar-button:vertical:increment {
+  // background-image: url(arrow-down.svg);
+  // background-position: 3px 5px;
+  // background-repeat: no-repeat;
+  --ox : 3px;
+  --oy: 5px;
+  background: arrow-down(var(--ox), var(--oy)), var(--ButtonFace);
+
+  &:active {
+    // background-position: 4px 6px;
+    --ox : 4px;
+    --oy: 6px;
+  }
+}
+
+.horizontal.scrollbar > button:first-child,
+::-webkit-scrollbar-button:horizontal:decrement {
+  // background-image: url(arrow-left.svg);
+  // background-position: 4px 3px;
+  // background-repeat: no-repeat;
+
+  // &:active {
+  //   background-position: 5px 4px;
+  // }
+  --ox : 4px;
+  --oy: 4px;
+  background: arrow-left(var(--ox), var(--oy)), var(--ButtonFace);
+
+  &:active {
+    // background-position: 4px 6px;
+    --ox : 5px;
+    --oy: 5px;
+  }
+}
+
+.horizontal.scrollbar > button:last-child,
+::-webkit-scrollbar-button:horizontal:increment {
+  // background-image: url(arrow-right.svg);
+  // background-position: 5px 3px;
+  // background-repeat: no-repeat;
+
+  // &:active {
+  //   background-position: 6px 4px;
+  // }
+  --ox : 5px;
+  --oy: 4px;
+  background: arrow-right(var(--ox), var(--oy)), var(--ButtonFace);
+
+  &:active {
+    // background-position: 4px 6px;
+    --ox : 3px;
+    --oy: 5px;
+  }
+
+}

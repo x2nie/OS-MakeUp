@@ -1,0 +1,160 @@
+// .window,
+// .dialog,
+.menu {
+  background: var(--ButtonFace);
+  border: 1px solid var(--light);
+  border-bottom: 1px solid var(--ButtonDkShadow);
+  border-right: 1px solid var(--ButtonDkShadow);
+  box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonShadow);
+  position: relative;
+  padding: 3px;
+}
+
+.window.maximized,
+.dialog.maximized {
+  border: none;
+  padding: 0;
+}
+
+.title-bar {
+  // background: linear-gradient(to right, var(--InactiveTitle), var(--GradientInactiveTitle));
+  color: var(--InactiveTitleText);
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+}
+
+.title-bar-text {
+  text-align: left;
+  font-weight: bold;
+  padding: 1px 4px;
+  flex-grow: 1;
+  cursor: default
+}
+
+.title-bar-sys,
+.title-bar-buttons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  align-items: center;
+
+  button {
+    flex-shrink: 0;
+    // width: 20px;
+    // height: 18px;
+    min-width: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    // background-position: 3px 3px;
+    font-weight: normal;
+    font-size: 14px;
+    outline: none;
+/*    
+    &:not(:disabled):active {
+      outline: none;
+      background-position: 4px 4px;
+      box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--ButtonShadow);
+      border: 1px solid var(--ButtonHilight);
+      border-top: 1px solid var(--ButtonDkShadow);
+      border-left: 1px solid var(--ButtonDkShadow);
+      padding: 0;
+    }
+    
+    &:not(:active):focus {
+      border: 1px solid var(--ButtonDkShadow);
+      border-top: 1px solid var(--ButtonHilight);
+      border-left: 1px solid var(--ButtonHilight);
+      box-shadow: inset -1px -1px 0 var(--ButtonShadow);
+    }
+
+    &[data-close],&[data-minimize],&[data-maximize] {
+      display: flex;
+      // text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      &:after{
+        // background: red;
+        // display: inline-block;
+        // height: 1ch;
+        // margin-top: -1px;
+        vertical-align: middle;
+      }
+      &:not(:disabled):active::after{
+        margin-top: 2px;
+        margin-left: 1px;
+      }
+      
+    }
+    &[data-close] {
+      // background-image: url(close.svg);
+      margin-left: 2px;
+
+      &::after{
+        // content: "\1F5D9";
+        content: "\274C";
+        content: "\2715";
+        font-size: large;
+      }
+    }
+    
+    &[data-minimize]::after {
+      // background-image: url(minimize.svg);
+      content: "\1F5D5";
+      vertical-align: bottom;
+      height: 1ch;
+    }
+    
+    &[data-maximize]::after {
+      content: "\1F5D6";
+      // background-image: url(maximize.svg);
+    }
+    
+    .maximized &[data-maximize]::after {
+      // background-image: url(restore.svg);
+      content: "\1F5D7";
+    }
+    */
+    }
+}
+
+.window.tool-window{
+  .title-bar-text{
+    font-size: 12px;
+    line-height: 1;
+  }
+  .title-bar-buttons button{
+    width: 11px;
+    height: 11px;
+    background-size: 7px 7px;
+    background-position: 1px 1px;
+
+    &::after {
+      font-size: x-small;
+    }
+  }
+}
+
+.window-body,
+.dialog-body {
+  background: var(--ButtonFace);
+  color: var(--ButtonText);
+  margin-top: 4px;
+}
+
+.window.active > .title-bar,
+.dialog.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog:focus-within > .title-bar,
+.title-bar.active {
+  background: linear-gradient(to right, var(--ActiveTitle), var(--GradientActiveTitle));
+  color: var(--TitleText);
+}
+
+.window-body > [role=menubar],
+.dialog-body > [role=menubar] {
+  margin-top: -3px;
+  margin-bottom: 1px;
+}

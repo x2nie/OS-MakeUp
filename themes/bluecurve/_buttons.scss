@@ -1,0 +1,55 @@
+@use '../../util/util';
+
+#{util.$buttons} {
+  background-color: var(--ButtonFace);
+  color: var(--ButtonText);
+  border: 1px solid var(--ButtonDkShadow);
+  // border-top: 1px solid var(--ButtonHilight);
+  // border-left: 1px solid var(--ButtonHilight);
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow);
+  padding: 3px 10px 6px 10px;
+  min-width: 75px;
+  text-align: center;
+  line-height: 1;
+  cursor: default;
+  user-select: none;
+
+  &:focus, &.focus {
+    border: 1px solid var(--ButtonDkShadow);
+    outline: 1px dotted var(--ButtonDkShadow);
+    box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonDkShadow),
+      inset -2px -2px 0 var(--ButtonShadow);
+    outline-offset: -4px;
+  }
+
+  &:disabled, &.disabled {
+    color: var(--ButtonShadow);
+    text-shadow: 1px 1px 0 var(--ButtonHilight);
+  }
+
+  &:not(:disabled, .disabled):active, &.active {
+    border: 1px solid var(--ButtonDkShadow);
+    box-shadow: inset 1px 1px 0 var(--ButtonShadow), inset -1px -1px 0 var(--ButtonShadow);
+    padding: 4px 9px 5px 11px;
+  }
+}
+
+@mixin primary-button {
+  border: 1px solid var(--ButtonDkShadow);
+  box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonDkShadow),
+    inset -2px -2px 0 var(--ButtonShadow);
+}
+
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) {
+  #{util.$buttons} {
+    &:default {
+      @include primary-button;
+    }
+  }
+}
+
+#{util.$buttons} {
+  &.primary {
+    @include primary-button;
+  }
+}

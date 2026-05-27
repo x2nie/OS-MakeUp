@@ -1,3 +1,4 @@
+/*
 // .bluecurve.window {
     // @import "./7.css.modified/gui/index.scss";
     // @import "./index.scss";
@@ -13,3 +14,17 @@
     // @include fo;
     // background: red;
 // }
+*/
+
+@import 'root';
+@import 'drawing';
+@import 'panels';
+@import 'scrollbars';
+@import 'buttons';
+@import 'inputs';
+@import 'progress';
+@import 'windows';
+@import 'window';
+@import 'menus';
+@import 'tabs';
+@import 'lists';

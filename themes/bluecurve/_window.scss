@@ -3,8 +3,8 @@
 
     button{
         // padding: 10px !important;
-        background: var(--ButtonFace);
-        border: 1px solid black;
+        background-color: var(--ButtonFace);
+        // border: 1px solid black;
         // border-image-source: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9"><path fill="%23ccc" d="M1,1H7V7H1Z"/><path fill="%23fff" d="M0,0V8H1V1H8V0H0Z"/><path fill="%23888" d="M7,1V7H1V8H8V1H7Z"/><path fill="%23000" d="M8,0V8H0v1h9V8V0H8Z"/></svg>');
         // border-image-source: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%229px%22%20height%3D%229px%22%20viewBox%3D%220%200%209%209%22%3E%3Cpath%20fill%3D%22%23ccc%22%20d%3D%22M1,1H7V7H1Z%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0,0V8H1V1H8V0H0Z%22%2F%3E%3Cpath%20fill%3D%22%23888%22%20d%3D%22M7,1V7H1V8H8V1H7Z%22%2F%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M8,0V8H0v1h9V8V0H8Z%22%2F%3E%3C%2Fsvg%3E");
         // border-image-slice: 3;
@@ -13,8 +13,8 @@
     }
 }
     
-.window {
-    background: $ButtonFace;
+.window, .dialog {
+    background: var(--ButtonFace);
     $borderWidth: 1px;
     border: $borderWidth solid var(--InactiveBorder);
     // border-color: #4464ac;
@@ -36,210 +36,238 @@
     //         border-top: none;
     //     }
     // }
-
-    .menubar {
-        min-height: 18px;
-        // margin: 0 -2px;
-        background: var(--MenuBar);
-    }
-
-    .title-bar {
-        position: relative;
+    &:not(.maximized) > :last-child   {
         // margin: 0 $borderWidth * -1;
-        margin: 0;
-        // border-bottom: 1px solid var(--WindowFrame);
-        color: var(--InactiveTitleText);
+        // margin: 0;
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+}
+.menubar {
+    min-height: 18px;
+    // margin: 0 -2px;
+    background: var(--MenuBar);
+}
+
+.title-bar {
+    position: relative;
+    // margin: 0 $borderWidth * -1;
+    margin: 0;
+    // border-bottom: 1px solid var(--WindowFrame);
+    color: var(--InactiveTitleText);
+    text-align: center;
+    background-color: var(--InactiveTitle);
+    // background-color: $ActiveTitle;
+    border-radius: 7px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    // border: 1px solid black;
+    // border-bottom: 0;
+    // border-top: 0;
+
+    > * {
+        // min-height: 21px;
+    }
+    
+    
+    .title-bar-text {
+        box-sizing: border-box;
+        z-index: 1;
+        // min-height: 20px;
+        line-height: 20px;
+        vertical-align: middle;
+        font-weight: bold;
         text-align: center;
-        background-color: var(--InactiveTitle);
-        // background-color: $theme_selected_bg_color;
-        border-radius: 7px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        // border: 1px solid black;
-        // border-bottom: 0;
-        // border-top: 0;
+        // box-shadow: inset 1px 1px red;
+    }
+    button {
+        box-sizing: border-box;
+        height: 16px;
+        width: 18px;
+        // min-width: auto;
+        // background: #ff00ff40;
+        border: 1px solid #bdbdbd;
+        // border: 1px solid mix($ActiveTitle, $dark-normal, 30%);
+        border-radius: 4px;
+        // margin: 0 -1px -1px 1px;
+        box-shadow: inset 1px 1px white, inset -1px -1px color-mix(in srgb, var(--ActiveTitle) 15%, var(--theme_bg_color));
+        // position: relative;
+        // background-size: 9px 9px;
+        background-color: var(--ButtonFace);
+        background-repeat: no-repeat;
+        background-position: center;
 
-        > * {
-            min-height: 21px;
-        }
+        // &::after{
+        //     // position: absolute;
+        //     // inset: 0;
+        //     vertical-align: middle;
+        //     // font-size: xx-small;
+        //     margin: 0 auto;
+        //     width: 9px;
+        //     height: 9px;
+        // }
         
-        
-        .title-bar-text {
-            box-sizing: border-box;
-            z-index: 1;
-            min-height: 20px;
-            line-height: 20px;
-            vertical-align: middle;
-            font-weight: bold;
-            
-            // box-shadow: inset 1px 1px red;
+        &[data-close]{
+            // display: none;
+            background-image: url(img/close.png);
         }
+        &[data-minimize]{
+            background-image: url(img/minimize.png);
+        }
+        &[data-maximize]{
+            background-image: url(img/maximize.png);
+        }
+    }
+
+    .title-bar-buttons, .title-bar-sys{
+        display: flex;
+        align-items: center;
+        padding: 0 3px;
+        gap: 2px;
+        flex-shrink: 1;
+
         button {
-            box-sizing: border-box;
-            height: 16px;
-            width: 18px;
-            // background: #ff00ff40;
-            border: 1px solid #bdbdbd;
-            // border: 1px solid mix($theme_selected_bg_color, $dark-normal, 30%);
-            border-radius: 4px;
-            // margin: 0 -1px -1px 1px;
-            box-shadow: inset 1px 1px white, inset -1px -1px mix($theme_selected_bg_color, $theme_bg_color, 15%);
-            // position: relative;
-            // background-size: 9px 9px;
-            background-color: var(--ButtonFace);
-            background-repeat: no-repeat;
-            background-position: center;
-
-            // &::after{
-            //     // position: absolute;
-            //     // inset: 0;
-            //     vertical-align: middle;
-            //     // font-size: xx-small;
-            //     margin: 0 auto;
-            //     width: 9px;
-            //     height: 9px;
-            // }
             
-            &[data-close]{
-                // display: none;
-                background-image: url(img/close.png);
-            }
-            &[data-minimize]{
-                background-image: url(img/minimize.png);
-            }
-            &[data-maximize]{
-                background-image: url(img/maximize.png);
-            }
-        }
-
-        .title-bar-buttons, .title-bar-sys{
-            display: flex;
-            align-items: center;
-            padding: 0 3px;
-            gap: 2px;
-        }
-        .title-bar-buttons{
-            border-top-right-radius: inherit;
-        }
-        .title-bar-sys{
-            border-top-left-radius: inherit;
-
-            button {
-                background-image: url(img/menu.png);
-                // background-repeat: no-repeat;
-                // background-position: center;
-            }
         }
     }
-
-    .window-body{
-        margin: 0 2px 2px;
-        background: var(--ButtonFace);
+    .title-bar-buttons{
+        border-top-right-radius: inherit;
     }
+    .title-bar-sys{
+        border-top-left-radius: inherit;
 
-    &.active{
-        border-color: var(--ActiveBorder);
-        
-        .title-bar {
-            color: var(--TitleText);
-            background: var(--ActiveTitle);
-            // position: relative;
+        button {
+            background-image: url(img/menu.png);
+            // background-repeat: no-repeat;
+            // background-position: center;
+        }
+    }
+}
 
+.window-body{
+    margin: 0 2px 2px;
+    background: var(--ButtonFace);
+}
+
+.window.active{
+    border-color: var(--ActiveBorder);
+    
+    .title-bar {
+        color: var(--TitleText);
+        background: var(--ActiveTitle);
+        // position: relative;
+
+        background-image: linear-gradient(
+            to bottom, // Gradien vertikal
+            color-mix(in srgb, var(--ActiveTitle) 80%, var(--light-normal)), // blend/0.8
+            color-mix(in srgb, var(--ActiveTitle) 95%, var(--light-normal)), // blend/0.95
+            color-mix(in srgb, var(--ActiveTitle) 100%, var(--light-normal)), // blend/1.0
+            color-mix(in srgb, var(--ActiveTitle) 95%, var(--light-normal)), // blend/0.95
+            color-mix(in srgb, var(--ActiveTitle) 80%, var(--light-normal)) // blend/0.8
+        );
+
+        &::before, &::after{
+            content: '';
+            position: absolute;
+            // z-index: 0;
+        }
+        &::before{
+            // inset: 1px 21px 1px;
+            inset: 2px 0px 2px;
+            background-image: // alpha="0.9:0.4:0.0:0.4:0.9"
+                linear-gradient(
+                    to right,
+                    color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
+                    color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
+                    color-mix(in srgb, var(--ActiveTitle) 100%, transparent),
+                    color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
+                    color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
+                ),
+                url(img/white_stripes_tile.png);
+            // opacity: 0.8;
+        }
+        &::after{
+            inset: 3px 2px 0;
+            background-image: url(img/title-blocker-bottom.png);
+            background-repeat: repeat-x;
+            background-position: bottom;
+        }
+
+        .title-bar-text {
+            position: relative;
+            text-shadow: 1px 1px #444;
+            border: 1px solid color-mix(in srgb, var(--ActiveTitle) 60%, black);
+            border-top: 1px solid  color-mix(in srgb, white 50%, var(--ActiveTitle) / 42%);
+            border-bottom: 1px solid  color-mix(in srgb, black 50%, var(--ActiveTitle) 90%, );
+            border-left: none;
+            border-right: none;
+
+            // background: url(img/title-blocker-left.png) repeat-y;
             background-image: linear-gradient(
-                to bottom, // Gradien vertikal
-                mix($theme_selected_bg_color, $light-normal, 80%), // blend/0.8
-                mix($theme_selected_bg_color, $light-normal, 95%), // blend/0.95
-                mix($theme_selected_bg_color, $light-normal, 100%), // blend/1.0
-                mix($theme_selected_bg_color, $light-normal, 95%), // blend/0.95
-                mix($theme_selected_bg_color, $light-normal, 80%) // blend/0.8
-            );
+                to right, // Gradien horizontal
+                color-mix(
+                    in srgb,
+                    color-mix(
+                        in srgb,
+                        var(--ActiveTitle) 50%,
+                        var(--light-normal)
+                    ) 20%,
+                    transparent
+                ),
 
-            &::before, &::after{
+                color-mix(
+                    in srgb,
+                    color-mix(
+                        in srgb,
+                        var(--ActiveTitle) 0%,
+                        var(--light-normal)
+                    ) 0%,
+                    transparent
+                )
+            );
+            background-size: 18px auto;
+            background-repeat: no-repeat;
+
+            &::after{
                 content: '';
                 position: absolute;
-                // z-index: 0;
-            }
-            &::before{
-                // inset: 1px 21px 1px;
-                inset: 2px 0px 2px;
-                background-image: // alpha="0.9:0.4:0.0:0.4:0.9"
-                    linear-gradient(
-                        to right,
-                        rgba($theme_selected_bg_color, 0.1),
-                        rgba($theme_selected_bg_color, 0.6),
-                        rgba($theme_selected_bg_color, 1.0),
-                        rgba($theme_selected_bg_color, 0.6),
-                        rgba($theme_selected_bg_color, 0.1),
-                    ),
-                    url(img/white_stripes_tile.png);
-                // opacity: 0.8;
-            }
-            &::after{
-                inset: 3px 2px 0;
-                background-image: url(img/title-blocker-bottom.png);
+                inset: 1px;
+                bottom: 0;
+                background-image: url(img/title-gradient-bottom.png);
                 background-repeat: repeat-x;
                 background-position: bottom;
+                opacity: 0.2;
+                z-index: 1;
             }
+            &::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 18px;
 
-            .title-bar-text {
-                position: relative;
-                text-shadow: 1px 1px #444;
-                border: 1px solid mix($theme_selected_bg_color, black, 60%);
-                border-top: 1px solid  rgba(lighten($theme_selected_bg_color, 50%), 0.42);
-                border-bottom: 1px solid  darken($theme_selected_bg_color, 90%);
-                border-left: none;
-                border-right: none;
-
-                // background: url(img/title-blocker-left.png) repeat-y;
                 background-image: linear-gradient(
-                    to right, // Gradien horizontal
-                    rgba(mix($theme_selected_bg_color, $light-normal, 50%), 0.2), 
-                    rgba(mix($theme_selected_bg_color, $light-normal, 0%), 0), 
+                    to left, // Gradien horizontal
+                    color-mix(in srgb, var(--ActiveTitle) 50%, transparent 20%),
+                    transparent
                 );
                 background-size: 18px auto;
                 background-repeat: no-repeat;
-
-                &::after{
-                    content: '';
-                    position: absolute;
-                    inset: 1px;
-                    bottom: 0;
-                    background-image: url(img/title-gradient-bottom.png);
-                    background-repeat: repeat-x;
-                    background-position: bottom;
-                    opacity: 0.2;
-                    z-index: 1;
-                }
-                &::before{
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    width: 18px;
-
-                    background-image: linear-gradient(
-                        to left, // Gradien horizontal
-                        rgba(mix($theme_selected_bg_color, $light-normal, 50%), 0.2), 
-                        rgba(mix($theme_selected_bg_color, $light-normal, 0%), 0), 
-                    );
-                    background-size: 18px auto;
-                    background-repeat: no-repeat;
-                }
-    
             }
 
-            .title-bar-sys,
-            .title-bar-buttons{
-                background-color: #c0c4d5;
-                border-bottom: 1px solid #7283a7;
-                z-index: 2;
+        }
 
-                button {
-                    border-color: #888ea1;
-                }
+        .title-bar-sys,
+        .title-bar-buttons{
+            background-color: #c0c4d5;
+            border-bottom: 1px solid #7283a7;
+            z-index: 2;
+
+            button {
+                border-color: #888ea1;
             }
         }
     }
-    
 }
+    

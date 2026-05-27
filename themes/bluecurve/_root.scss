@@ -1,0 +1,74 @@
+// $root: ':scope' !default;
+$root: ':root' !default;
+// :scope {
+#{$root} {
+  --preferred-font: 'Microsoft Sans Serif', 'Segoe UI', sans-serif;
+
+  --Background: #008080;
+
+  --ButtonFace: #e6e6e6;
+  --ButtonText: #000000;
+
+  --ButtonHilight: #FFFFFF;
+  
+  --light: #DFDFDF;
+  --medium: var(--ButtonFace);
+  --ButtonShadow: #cecece;
+  
+  --ButtonDkShadow: #5c5c5c;
+
+  // --ButtonText: var(--ButtonText);
+  --Window: #FFFFFF;
+  --WindowText: #000000;
+
+  --InactiveTitle: var(--ButtonShadow);
+  --InactiveTitleText: var(--ButtonFace);
+  --GradientInactiveTitle: var(--InactiveTitle);
+  --InactiveBorder: black;
+
+  --ActiveTitle: #4464ac;
+  --GradientActiveTitle: var(--ActiveTitle);
+
+  --TitleText: #FFFFFF;
+
+  --Hilight: #000080;
+  --HilightText: #FFFFFF;
+  --selection-inverse: #FFFF7F;
+
+  --scroll-size: 16px;
+  --scrollbar-bg: #c4c4c4;
+  --scrollbar-border: #999999;
+}
+
+body {
+  background-color: var(--ButtonFace);
+  color: var(--ButtonText);
+}
+
+.title-bar-sys {
+  display: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button::-moz-focus-inner {
+  border: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+a:focus {
+  outline: 1px dotted var(--ButtonDkShadow);
+}
+
+code {
+  font-family: monospace;
+}
+
+

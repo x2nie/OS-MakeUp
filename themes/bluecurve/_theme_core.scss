@@ -1,0 +1,14 @@
+// $root: ':root' !default;
+// @mixin theme-core {
+@use 'root';
+@use 'drawing';
+@use 'panels';
+@use 'scrollbars';
+@use 'buttons';
+@use 'inputs';
+@use 'progress';
+@use 'windows';
+@use 'menus';
+@use 'tabs';
+@use 'lists';
+// }

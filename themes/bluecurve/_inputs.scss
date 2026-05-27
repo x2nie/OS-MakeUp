@@ -1,0 +1,376 @@
+@use '../../util/util' as *;
+@use 'drawing' as *;
+// @use 'root' ;
+
+// :scope{
+#{$root} {
+  --bw: 16px; //? button width
+  --inset-depth2: #{inset-depth()};
+  --inner-button: #{inner-button()};
+  --inner-outline: none;
+  --inner-outline-focused: #{inner-outline()};
+//}
+#{$singleSelects}{
+
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  
+  padding-right: calc( var(--bw) + 3px);
+
+  background:
+    var(--inner-outline),
+    var(--inset-depth2),
+    var(--inner-button)
+  ;
+  background-color: var(--Window);
+}
+
+#{$singleSelects}{
+  &:not(:active,:disabled):focus {
+    --inner-btn-fg: var(--WindowText);
+    // background:
+    //   var(--inner-outline),
+    //   var(--inset-depth2),
+    //   var(--inner-button)
+    // ;
+    --inner-button: #{inner-button()};
+    background-color: var(--Hilight);
+    color: var(--HilightText);
+    // --focus-outline: var(--ButtonHilight);
+    // --inner-outline: #{inner-outline()};
+    --inner-outline: var(--inner-outline-focused);
+    // box-shadow: inset -1px -1px 0 var(--light0, red),
+    //             inset 2px 2px 0 var(--Window0, lime), 
+    //             inset -2px -2px 0 var(--Window0, blue);
+  }
+  &:active:not(:disabled,.disabled)/* :not(:open) */{
+    --inner-button : 
+        #{arrow-down(
+          calc(
+            100% - 
+            calc(
+              var(--bw) / 2
+            )
+          ), calc(50% + 1px))},
+
+          
+      /* BUTTON FACE */
+      linear-gradient( var(--ButtonFace), var(--ButtonFace))
+        top 1px right 1px /
+        calc(var(--bw) - 2px ) calc(100% - 2px)
+        no-repeat,
+
+    
+      #{hline(var(--ButtonShadow),
+        top right,
+        var(--bw), 100%
+      )}
+    ;
+  }
+}
+
+  
+#{$multiSelects} {
+    padding: 1px;
+    background-color: var(--Window);
+}
+  
+#{$textInputs},
+  select /*,.dropdown */ {
+  background: var(--inset-depth2);
+  background-color: var(--Window);
+  color: var(--WindowText);
+  // border: 2px solid var(--ButtonShadow);
+  // border: 2px solid rgba(0,0,0,0.3);
+  border: 2px solid transparent;
+  // border-bottom-color:  var(--ButtonHilight);
+  // border-right-color: var(--ButtonHilight);
+  // box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--ButtonDkShadow);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  --focus-outline: transparent;
+  // --base-bg: var(--Window);
+  //html {
+  // --webkit-scrollbar-buttons: true;
+  //}
+  // &::-webkit-scrollbar-button:single-button {
+  //   display: block;
+  // }
+
+  &::selection {
+    background-color: var(--Hilight);
+    color: var(--HilightText);
+  }
+
+  &[readonly], &.readonly {
+    background-color: var(--ButtonFace);
+  }
+
+  &:disabled, &.disabled {
+    background-color: var(--ButtonFace) !important;
+    // --base-bg: var(--ButtonFace);
+    color: var(--ButtonShadow);
+    // --WindowText: var(--ButtonShadow) !important;
+    text-shadow: 1px 1px 0 var(--ButtonHilight);
+  }
+}
+
+#{$multiSelects} {
+  padding: 1px;
+  // background: var(--inset-depth2), var(--base-bg);
+
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: var(--ButtonFace);
+      color: var(--ButtonText);
+    }
+  }
+
+  &:focus > option:checked {
+    outline: 1px dotted var(--selection-inverse);
+    background-color: var(--Hilight);
+    color: var(--HilightText);
+  }
+}
+
+
+
+/* .dropdown {
+  display: inline-grid;
+  padding: 0;
+  grid-template-areas: 's';
+
+  & > select {
+    appearance: none;
+    grid-area: s;
+    padding-right: 21px;
+
+    &:not(:disabled):active {
+      background: var(--Window);
+      color: var(--WindowText);
+
+      & + .dropdown-button {
+        border: 1px solid var(--ButtonShadow);
+        box-shadow: none;
+        margin: 2px 0 0 1px;
+      }
+    }
+
+    &:disabled {
+      & + .dropdown-button {
+        box-shadow: inset -1px -1px var(--ButtonShadow), inset 1px 1px var(--ButtonHilight);
+        &::after {
+          background: var(--ButtonShadow);
+          filter: drop-shadow(1px 1px var(--ButtonHilight));
+        }
+      }
+    }
+  }
+
+  & > .dropdown-button {
+    justify-self: end;
+    grid-area: s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+    background-color: var(--ButtonFace);
+    color: var(--ButtonText);
+    border: 1px solid var(--ButtonDkShadow);
+    border-top: 1px solid var(--light);
+    border-left: 1px solid var(--light);
+    box-shadow: inset -1px -1px var(--ButtonShadow), inset 1px 1px var(--ButtonHilight), -1px 0 var(--Window);
+    width: 16px;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 4px;
+      -webkit-mask-image: url(arrow-down.svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-image: url(arrow-down.svg);
+      mask-repeat: no-repeat;
+      background: #000;
+    }
+  }
+} */
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--Window);
+  color: var(--ButtonDkShadow);
+  border: 1px solid var(--ButtonShadow);
+  border-bottom: 1px solid var(--ButtonHilight);
+  border-right: 1px solid var(--ButtonHilight);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
+  width: 13px;
+  height: 13px;
+  border-radius: 0;
+
+  &:active, &:disabled, &.active, &.disabled {
+    background: var(--ButtonFace);
+  }
+
+  &:checked, &.checked {
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      margin: 2px 0 0 2px;
+      background: currentColor;
+      -webkit-mask-image: url(checkmark.svg);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 7px 7px;
+      mask-image: url(checkmark.svg);
+      mask-repeat: no-repeat;
+      mask-size: 7px 7px;
+    }
+  }
+
+  &:disabled, &.disabled {
+    color: var(--ButtonShadow);
+  }
+
+  &:disabled + label, &.disabled + label {
+    color: var(--ButtonShadow);
+    text-shadow: 1px 1px 0 var(--ButtonHilight);
+  }
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--Window);
+  color: var(--ButtonDkShadow);
+  border: 1px solid var(--ButtonShadow);
+  border-bottom: 1px solid var(--ButtonHilight);
+  border-right: 1px solid var(--ButtonHilight);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  &:active, &:disabled, &.active, &.disabled {
+    background: var(--ButtonFace);
+  }
+
+  &:checked::after, &.checked::after {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: currentColor;
+    margin-top: 3px;
+    margin-left: 3px;
+  }
+
+  &:disabled, &.disabled {
+    color: var(--ButtonShadow);
+  }
+
+  &:disabled + label, &.disabled + label {
+    color: var(--ButtonShadow);
+    text-shadow: 1px 1px 0 var(--ButtonHilight);
+  }
+}
+
+input[type=checkbox],
+input[type=radio] {
+  &:focus, &.focus {
+    outline: none;
+
+    & + label {
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(var(--spacing) - 1px);
+        right: 0;
+        bottom: 0;
+        border: 1px dotted var(--ButtonDkShadow);
+        border-radius: 1px;
+      }
+    }
+  }
+}
+
+label > input[type=radio],
+label > input[type=checkbox] {
+  &:focus, &.focus {
+    outline: 1px dotted var(--ButtonDkShadow);
+    outline-offset: 1px;
+  }
+}
+
+@mixin range-track {
+  height: 2px;
+  background: var(--light);
+  border: 1px solid var(--ButtonHilight);
+  border-top: 1px solid var(--ButtonShadow);
+  border-left: 1px solid var(--ButtonShadow);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow);
+  margin: 0 5px;
+}
+
+@mixin range-thumb {
+  border-radius: 0;
+  background: var(--ButtonFace);
+  border: 1px solid var(--ButtonDkShadow);
+  border-top: 1px solid var(--ButtonHilight);
+  border-left: 1px solid var(--ButtonHilight);
+  width: 11px;
+  height: 21px;
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow);
+
+  &:active {
+    background-color: var(--ButtonFace);
+    background-image: linear-gradient(45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(-45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ButtonHilight) 75%), linear-gradient(-45deg, transparent 75%, var(--ButtonHilight) 75%);
+    background-size: 2px 2px;
+    background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  }
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; 
+  padding: 2px;
+
+  &:focus {
+    outline: 1px dotted var(--ButtonDkShadow);
+  }
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+    margin: 10px 5px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -11px;
+    @include range-thumb;
+  }
+}
+}
