@@ -17,10 +17,10 @@
   --Window: #FFFFFF;
   --WindowText: #000000;
 
-  --InactiveTitle: linear-gradient(to right, #808080, #C0C0C0);
+  --GradientInactiveTitle: #C0C0C0;
   --InactiveTitleText: var(--medium);
 
-  --ActiveTitle: linear-gradient(to right, #0A246A, #A6CAF0);
+  --GradientActiveTitle: #A6CAF0;
   --TitleText: #FFFFFF;
 
   --Hilight: #0A246A;

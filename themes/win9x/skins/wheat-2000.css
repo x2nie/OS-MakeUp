@@ -3,6 +3,6 @@
 :root {
   --preferred-font: 'Tahoma';
 
-  --InactiveTitle: linear-gradient(to right, #BCBC41, #B8B880);
-  --ActiveTitle: linear-gradient(to right, #808000, #C8B048);
+  --GradientInactiveTitle: #B8B880;
+  --GradientActiveTitle: #C8B048;
 }

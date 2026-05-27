@@ -1,8 +1,8 @@
 @import '95.css';
 
 :root {
-  --InactiveTitle: linear-gradient(to right, #808080, #B5B5B5);
-  --ActiveTitle: linear-gradient(to right, #000080, #1084D0);
+  --GradientInactiveTitle: #B5B5B5;
+  --GradientActiveTitle: #1084D0;
 }
 
 .menu > .title-bar {
