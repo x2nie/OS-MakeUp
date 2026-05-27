@@ -1,4 +1,5 @@
 @use '../../util/util';
+@use 'drawing' as *;
 
 #{util.$textInputs},
 select {
@@ -31,6 +32,8 @@ select > option {
 
 #{util.$multiSelects} {
   padding: 0;
+  border:none;
+  background: frame(var(--border)), var(--input-bg);
 
   & > option:checked {
     background-color: var(--selection-bg);

@@ -24,6 +24,32 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
     #{$width} #{$height}
     no-repeat;
 }
+
+@function frame($color) {
+  //? should be used together with: //* border: 2px solid transparent;
+  @return 
+  /* =========================
+     OUTER BORDER
+  ========================= */
+
+  hline($color,
+    top left,
+    100%
+  ),
+  vline($color,
+    top left ,
+    100%
+  ),
+
+  hline($color,
+    bottom left ,
+    100% 
+  ),
+  vline($color,
+    top right ,
+    100% 
+  );
+}
 @function arrow-down($x, $y, $size: 4px, $color: currentColor) {
   @return
     /* LEFT */
