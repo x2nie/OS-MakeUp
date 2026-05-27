@@ -149,7 +149,8 @@
 .window:focus-within > .title-bar,
 .dialog:focus-within > .title-bar,
 .title-bar.active {
-  background: linear-gradient(to right, var(--ActiveTitle), var(--GradientActiveTitle));
+  // background: linear-gradient(to right, var(--ActiveTitle), var(--GradientActiveTitle));
+  // background-color: var(--ActiveTitle);
   color: var(--TitleText);
 }
 

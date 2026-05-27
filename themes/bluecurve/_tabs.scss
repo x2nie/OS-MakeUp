@@ -5,22 +5,23 @@
     margin: 0 2px;
 
     & > button {
+      background: var(--scrollbar-bg);
       border-bottom: 0;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
+      border-top-left-radius: 1px;
+      border-top-right-radius: 1px;
       box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--ButtonShadow);
       min-width: 0;
-      padding: 2px 10px 2px 10px;
+      padding: 5px 2px;
 
-      &:focus,
-      &:active {
-        border-bottom: 0;
-        border-right: 1px solid var(--ButtonDkShadow);
-        border-top: 1px solid var(--ButtonHilight);
-        border-left: 1px solid var(--ButtonHilight);
-        box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--ButtonShadow);
-        padding: 2px 10px 2px 10px;
-      }
+      // &:focus,
+      // &:active {
+      //   border-bottom: 0;
+      //   border-right: 1px solid var(--ButtonDkShadow);
+      //   border-top: 1px solid var(--ButtonHilight);
+      //   border-left: 1px solid var(--ButtonHilight);
+      //   box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--ButtonShadow);
+      //   padding: 2px 10px 2px 10px;
+      // }
 
       &[aria-selected="true"] {
         margin-right: -2px;
@@ -28,16 +29,17 @@
         margin-top: -2px;
         margin-bottom: -2px;
         padding: 0px 12px 4px 12px;
+        background-color: var(--ButtonFace);
         z-index: 1;
       }
     }
   }
 
   & > [role="tabpanel"] {
-    border-top: 1px solid var(--ButtonHilight);
-    border-left: 1px solid var(--ButtonHilight);
-    border-bottom: 1px solid var(--ButtonDkShadow);
-    border-right: 1px solid var(--ButtonDkShadow);
-    box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--ButtonShadow);
+    // border-top: 1px solid var(--ButtonHilight);
+    // border-left: 1px solid var(--ButtonHilight);
+    // border-bottom: 1px solid var(--ButtonDkShadow);
+    border: 1px solid var(--ButtonDkShadow);
+    // box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--ButtonShadow);
   }
 }
