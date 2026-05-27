@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+    <!-- Definisi masker untuk mengganti abu-abu menjadi warna fuchsia -->
+    <defs>
+        <mask id="grayscale-mask">
+            <!-- Gambar grayscale sebagai masker -->
+            <image href="bottom_left.png" x="0" y="0" width="300" height="300" />
+            <!-- Masker solid untuk menentukan area yang akan diubah menjadi fuchsia -->
+            <rect x="0" y="0" width="300" height="300" fill="white" />
+        </mask>
+    </defs>
+
+    <!-- Menggunakan warna solid fuchsia untuk mengganti abu-abu -->
+    <rect x="0" y="0" width="300" height="300" fill="fuchsia" mask="url(#grayscale-mask)" />
+</svg>

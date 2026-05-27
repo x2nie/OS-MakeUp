@@ -1,0 +1,15 @@
+// .bluecurve.window {
+    // @import "./7.css.modified/gui/index.scss";
+    // @import "./index.scss";
+    // @import "../base/index.scss";
+    @import "variables";
+    @import "../base/index";
+    // @import "../base/window";
+    @import "window";
+
+    // background: var(--surface);
+    // --tab-bg: var(--surface);
+    // --button-face: var(--surface);
+    // @include fo;
+    // background: red;
+// }

@@ -1,0 +1,245 @@
+// https://guidebookgallery.org/screenshots/win31
+.window > .window-body{
+
+    button{
+        // padding: 10px !important;
+        background: var(--ButtonFace);
+        border: 1px solid black;
+        // border-image-source: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9"><path fill="%23ccc" d="M1,1H7V7H1Z"/><path fill="%23fff" d="M0,0V8H1V1H8V0H0Z"/><path fill="%23888" d="M7,1V7H1V8H8V1H7Z"/><path fill="%23000" d="M8,0V8H0v1h9V8V0H8Z"/></svg>');
+        // border-image-source: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%229px%22%20height%3D%229px%22%20viewBox%3D%220%200%209%209%22%3E%3Cpath%20fill%3D%22%23ccc%22%20d%3D%22M1,1H7V7H1Z%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M0,0V8H1V1H8V0H0Z%22%2F%3E%3Cpath%20fill%3D%22%23888%22%20d%3D%22M7,1V7H1V8H8V1H7Z%22%2F%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M8,0V8H0v1h9V8V0H8Z%22%2F%3E%3C%2Fsvg%3E");
+        // border-image-slice: 3;
+        // border-image-width: 1;
+        // border-image-outset: 0;
+    }
+}
+    
+.window {
+    background: $ButtonFace;
+    $borderWidth: 1px;
+    border: $borderWidth solid var(--InactiveBorder);
+    // border-color: #4464ac;
+    border-top-width:1px;
+    // background: var(--InactiveBorder);
+    // border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h256v256h-256v-256z%22%20fill%3D%22rgb(64%2C%2064%2C%2064)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22rgb(250%2C%20224%2C%20228)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h96v32h-64v64h-32v-96z%22%20fill%3D%22rgb(247%2C%20219%2C%20215)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M160%2064h32v128h-128v-32h96v-96z%22%20fill%3D%22rgb(222%2C%2069%2C%2096)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M96%2096h64v64h-64v-64z%22%20fill%3D%22rgb(244%2C%20193%2C%20202)%22%2F%3E%0A%09%09%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22256%22%20height%3D%22256%22%20stroke-width%3D%2264%22%20stroke%3D%22rgb(0%2C%200%2C%200)%22%20fill%3D%22none%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 96 / 3px;
+    // border: 30px solid;
+    // border-image: url(https://interactive-examples.mdn.mozilla.net/media/examples/border-diamonds.png) 30 round;
+    // border-image-source: url("./img/window.svg");
+    // border-image-repeat: stretch;
+    // border-image-width: 22px;
+    // border-image-slice: 22;
+    border-radius: 8px; 
+    image-rendering: pixelated;
+
+    // > * {
+    //     border: 1px solid var(--WindowFrame);
+    //     &:not(:first-child){
+    //         border-top: none;
+    //     }
+    // }
+
+    .menubar {
+        min-height: 18px;
+        // margin: 0 -2px;
+        background: var(--MenuBar);
+    }
+
+    .title-bar {
+        position: relative;
+        // margin: 0 $borderWidth * -1;
+        margin: 0;
+        // border-bottom: 1px solid var(--WindowFrame);
+        color: var(--InactiveTitleText);
+        text-align: center;
+        background-color: var(--InactiveTitle);
+        // background-color: $theme_selected_bg_color;
+        border-radius: 7px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        // border: 1px solid black;
+        // border-bottom: 0;
+        // border-top: 0;
+
+        > * {
+            min-height: 21px;
+        }
+        
+        
+        .title-bar-text {
+            box-sizing: border-box;
+            z-index: 1;
+            min-height: 20px;
+            line-height: 20px;
+            vertical-align: middle;
+            font-weight: bold;
+            
+            // box-shadow: inset 1px 1px red;
+        }
+        button {
+            box-sizing: border-box;
+            height: 16px;
+            width: 18px;
+            // background: #ff00ff40;
+            border: 1px solid #bdbdbd;
+            // border: 1px solid mix($theme_selected_bg_color, $dark-normal, 30%);
+            border-radius: 4px;
+            // margin: 0 -1px -1px 1px;
+            box-shadow: inset 1px 1px white, inset -1px -1px mix($theme_selected_bg_color, $theme_bg_color, 15%);
+            // position: relative;
+            // background-size: 9px 9px;
+            background-color: var(--ButtonFace);
+            background-repeat: no-repeat;
+            background-position: center;
+
+            // &::after{
+            //     // position: absolute;
+            //     // inset: 0;
+            //     vertical-align: middle;
+            //     // font-size: xx-small;
+            //     margin: 0 auto;
+            //     width: 9px;
+            //     height: 9px;
+            // }
+            
+            &[data-close]{
+                // display: none;
+                background-image: url(img/close.png);
+            }
+            &[data-minimize]{
+                background-image: url(img/minimize.png);
+            }
+            &[data-maximize]{
+                background-image: url(img/maximize.png);
+            }
+        }
+
+        .title-bar-buttons, .title-bar-sys{
+            display: flex;
+            align-items: center;
+            padding: 0 3px;
+            gap: 2px;
+        }
+        .title-bar-buttons{
+            border-top-right-radius: inherit;
+        }
+        .title-bar-sys{
+            border-top-left-radius: inherit;
+
+            button {
+                background-image: url(img/menu.png);
+                // background-repeat: no-repeat;
+                // background-position: center;
+            }
+        }
+    }
+
+    .window-body{
+        margin: 0 2px 2px;
+        background: var(--ButtonFace);
+    }
+
+    &.active{
+        border-color: var(--ActiveBorder);
+        
+        .title-bar {
+            color: var(--TitleText);
+            background: var(--ActiveTitle);
+            // position: relative;
+
+            background-image: linear-gradient(
+                to bottom, // Gradien vertikal
+                mix($theme_selected_bg_color, $light-normal, 80%), // blend/0.8
+                mix($theme_selected_bg_color, $light-normal, 95%), // blend/0.95
+                mix($theme_selected_bg_color, $light-normal, 100%), // blend/1.0
+                mix($theme_selected_bg_color, $light-normal, 95%), // blend/0.95
+                mix($theme_selected_bg_color, $light-normal, 80%) // blend/0.8
+            );
+
+            &::before, &::after{
+                content: '';
+                position: absolute;
+                // z-index: 0;
+            }
+            &::before{
+                // inset: 1px 21px 1px;
+                inset: 2px 0px 2px;
+                background-image: // alpha="0.9:0.4:0.0:0.4:0.9"
+                    linear-gradient(
+                        to right,
+                        rgba($theme_selected_bg_color, 0.1),
+                        rgba($theme_selected_bg_color, 0.6),
+                        rgba($theme_selected_bg_color, 1.0),
+                        rgba($theme_selected_bg_color, 0.6),
+                        rgba($theme_selected_bg_color, 0.1),
+                    ),
+                    url(img/white_stripes_tile.png);
+                // opacity: 0.8;
+            }
+            &::after{
+                inset: 3px 2px 0;
+                background-image: url(img/title-blocker-bottom.png);
+                background-repeat: repeat-x;
+                background-position: bottom;
+            }
+
+            .title-bar-text {
+                position: relative;
+                text-shadow: 1px 1px #444;
+                border: 1px solid mix($theme_selected_bg_color, black, 60%);
+                border-top: 1px solid  rgba(lighten($theme_selected_bg_color, 50%), 0.42);
+                border-bottom: 1px solid  darken($theme_selected_bg_color, 90%);
+                border-left: none;
+                border-right: none;
+
+                // background: url(img/title-blocker-left.png) repeat-y;
+                background-image: linear-gradient(
+                    to right, // Gradien horizontal
+                    rgba(mix($theme_selected_bg_color, $light-normal, 50%), 0.2), 
+                    rgba(mix($theme_selected_bg_color, $light-normal, 0%), 0), 
+                );
+                background-size: 18px auto;
+                background-repeat: no-repeat;
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    inset: 1px;
+                    bottom: 0;
+                    background-image: url(img/title-gradient-bottom.png);
+                    background-repeat: repeat-x;
+                    background-position: bottom;
+                    opacity: 0.2;
+                    z-index: 1;
+                }
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 18px;
+
+                    background-image: linear-gradient(
+                        to left, // Gradien horizontal
+                        rgba(mix($theme_selected_bg_color, $light-normal, 50%), 0.2), 
+                        rgba(mix($theme_selected_bg_color, $light-normal, 0%), 0), 
+                    );
+                    background-size: 18px auto;
+                    background-repeat: no-repeat;
+                }
+    
+            }
+
+            .title-bar-sys,
+            .title-bar-buttons{
+                background-color: #c0c4d5;
+                border-bottom: 1px solid #7283a7;
+                z-index: 2;
+
+                button {
+                    border-color: #888ea1;
+                }
+            }
+        }
+    }
+    
+}
