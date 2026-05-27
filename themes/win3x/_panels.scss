@@ -1,3 +1,5 @@
+@use 'drawing' as *;
+
 .desktop {
   background: var(--desktop-bg);
 }
@@ -8,8 +10,10 @@
 }
 
 .lowered {
-  background: var(--window-bg);
-  border: 1px solid var(--border);
+  // background: var(--window-bg);
+  // border: 1px solid var(--border);
+  background: frame(var(--border)), var(--input-bg);
+  // box-shadow: inset 1px 1px var(--border), inset -2px -2px var(--border);
 }
 
 .raised > .lowered {
