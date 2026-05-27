@@ -204,36 +204,36 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
      INNER TOP
   ========================= */
 
-  hline(var(--ButtonHilight),
-    top 1px right 2px,
-    calc(var(--bw) - 4px)
+  hline(var(--button-light),
+    top right ,
+    calc(var(--bw) - 1px)
   ),
 
   /* =========================
      INNER BOTTOM
   ========================= */
-  hline(var(--ButtonShadow),
-    bottom 1px right 1px,
-    calc(var(--bw) - 2px)
+  hline(var(--button-dark),
+    bottom  right 1px,
+    calc(var(--bw) - 2px), 2px
   ),
 
   /* =========================
   OUTER BOTTOM
   ========================= */
   
-  hline(var(--ButtonDkShadow),
-    bottom right,
-    var(--bw) 
-  ),
+  // hline(var(--border),
+  //   bottom right,
+  //   var(--bw) 
+  // ),
 
 
   /* =========================
      OUTER RIGHT
   ========================= */
 
-  vline(var(--ButtonShadow),
-    top 2px right 1px,
-    calc(100% - 2px)
+  vline(var(--button-dark),
+    top 1px right ,
+    calc(100% - 0px), 2px
   ),
 
   // /* =========================
@@ -263,25 +263,40 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
   // 3px 3px
   // no-repeat,
 
-  arrow-down(calc(100% - calc(var(--bw) / 2)), center, 4px, var(--inner-btn-fg, currentColor)),
+  arrow-down(calc(100% - calc(var(--bw) / 2)), calc(50% + 1px), 4px, var(--border, currentColor)),
 
+  
+   hline(var(--border),
+    top calc(50% + 5px) right calc(var(--bw) / 2 - 3px),
+    7px 
+  ),
+
+   hline(var(--border),
+    top calc(50% - 2px) right calc(var(--bw) / 2 - 1px),
+    3px, 4px 
+  ),
 
   /* =========================
-     button ButtonShadow
+     button button-dark
   ========================= */
 
-  vline(var(--ButtonDkShadow),
-    top right ,
-    100%
-  ),
+  // vline(var(--border),
+  //   top right ,
+  //   100%
+  // ),
 
   /* =========================
      BUTTON LIGHT
   ========================= */
 
-  vline(var(--ButtonHilight),
+  vline(var(--button-light),
     top 1px right calc(var(--bw) - 2px),
     calc(100% - 3px)
+  ),
+  
+  vline(var(--border),
+    top 0px right calc(var(--bw) - 1px),
+    calc(100% - 0px)
   ),
   
   
@@ -289,35 +304,8 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
   //    BUTTON FACE
   // =========================
 
-  linear-gradient( var(--ButtonFace), var(--ButtonFace))
+  linear-gradient( var(--button-bg), var(--button-bg))
   top right /
   calc(var(--bw) ) 100% 
   no-repeat;
-}
-
-@function inner-outline() {
-  //? should be used together with inner-button
-  @return   /* =========================
-     BORDER AROUND TEXT
-  ========================= */
-
-  hline(var(--Window),
-    top left ,
-    calc(100% - var(--bw) - 1px)
-  ),
-
-  hline(var(--Window),
-    bottom left,
-    calc(100% - var(--bw) - 1px)
-  ),
-
-  vline(var(--Window),
-    top left,
-    100%
-  ),
-
-  vline(var(--Window),
-    top right var(--bw) ,
-    100%
-  );
 }
