@@ -54,6 +54,10 @@
   display: flex;
   flex-direction: row;
   align-items: stretch;
+
+  [data-close]{
+    display: none;
+  }
 }
 
 .title-bar-buttons button {
@@ -98,6 +102,21 @@
 
 .maximized .title-bar-buttons button[data-maximize] {
   background-image: url(restore.svg);
+}
+
+.title-bar-buttons.sys {
+  border-right: 1px solid var(--border);
+  button {
+    border: none;
+    box-shadow: none;
+    background: 
+      linear-gradient(var(--button-light), var(--button-light)) 6px 10px / 11px 1px no-repeat,
+      linear-gradient(var(--border), var(--border)) 5px 9px / 13px 3px no-repeat,
+      linear-gradient(var(--button-dark), var(--button-dark)) 6px 10px / 13px 3px no-repeat,
+
+      var(--button-bg)
+      ;
+  }
 }
 
 .window-body,

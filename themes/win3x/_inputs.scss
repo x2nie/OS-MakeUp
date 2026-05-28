@@ -1,4 +1,19 @@
 @use '../../util/util';
+@use 'drawing' as *;
+
+#{util.$singleSelects}{
+  --bw: 15px; //? button width
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  
+  padding-right: calc( var(--bw) + 3px);
+
+  background:
+    inner-button()
+  ;
+  background-color: var(--Window);
+}
 
 #{util.$textInputs},
 select {
@@ -31,6 +46,8 @@ select > option {
 
 #{util.$multiSelects} {
   padding: 0;
+  border:none;
+  background: frame(var(--border)), var(--input-bg);
 
   & > option:checked {
     background-color: var(--selection-bg);
