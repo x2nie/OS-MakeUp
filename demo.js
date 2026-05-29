@@ -28,7 +28,9 @@ const skins = {
 
     'black', 'black-white', 'white', 'white-black',
   ],
-  bluecurve: [],
+  bluecurve: [
+    'default', 'tangerine'
+  ],
   win9x: [
     '95', '98', '2000',
 

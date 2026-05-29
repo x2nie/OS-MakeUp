@@ -1,0 +1,27 @@
+:root {
+
+  --Background: #008080;
+
+  --ButtonFace: #dcd5d0;
+  --ButtonText: #000000;
+
+  --ButtonHilight: #FFFFFF;
+  
+  --light: #DFDFDF;
+  --medium: var(--ButtonFace);
+  --ButtonShadow: #cecece;
+  
+  --ButtonDkShadow: #5c5c5c;
+
+  --Window: #FFFFFF;
+  --WindowText: #000000;
+
+  --InactiveTitle: #cabfb8; /* bg[INSENSITIVE] */
+  --InactiveTitleText: #777777;
+  --GradientInactiveTitle: var(--InactiveTitle);
+  --InactiveBorder: black;
+
+  --ActiveTitle: #df7501; /* bg[SELECTED] */
+  --GradientActiveTitle: var(--ActiveTitle);
+
+}

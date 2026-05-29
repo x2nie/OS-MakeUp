@@ -160,24 +160,47 @@
 :focus-within > .title-bar, 
 .title-bar.active {
     color: var(--TitleText);
-    background: var(--ActiveTitle);
+    background-color: var(--ActiveTitle);
     // position: relative;
 
-    background-image: linear-gradient(
+    /* background-image0: linear-gradient(
         to bottom, // Gradien vertikal
         color-mix(in srgb, var(--ActiveTitle) 80%, var(--light-normal)), // blend/0.8
         color-mix(in srgb, var(--ActiveTitle) 95%, var(--light-normal)), // blend/0.95
         color-mix(in srgb, var(--ActiveTitle) 100%, var(--light-normal)), // blend/1.0
         color-mix(in srgb, var(--ActiveTitle) 95%, var(--light-normal)), // blend/0.95
         color-mix(in srgb, var(--ActiveTitle) 80%, var(--light-normal)) // blend/0.8
-    );
+    ); */
+
+    background:
+        linear-gradient(to bottom,
+            var(--headerbar_active_top) 0,
+            var(--headerbar_active_top) 1px,
+            var(--headerbar_active_1) 1px,
+            var(--headerbar_active_1) 2px,
+            transparent 2px,
+            transparent calc(100% - 2px),
+            var(--headerbar_active_1) calc(100% - 2px),
+            var(--headerbar_active_1) calc(100% - 1px),
+            var(--ActiveBorder) calc(100% - 1px),
+            var(--ActiveBorder)
+        ),
+		url("img/csd_stripes.png") repeat,
+		linear-gradient(to bottom,
+            var(--headerbar_active_1),
+            var(--headerbar_active_2) 25%,
+            var(--headerbar_active_3) 50%,
+            var(--headerbar_active_2) 75%,
+            var(--headerbar_active_1)),
+		var(--ActiveTitle);
 
     &::before, &::after{
-        content: '';
+        // content: '';
         position: absolute;
         // z-index: 0;
     }
     &::before{
+        // content: '';
         // inset: 1px 21px 1px;
         inset: 2px 0px 2px;
         background-image: // alpha="0.9:0.4:0.0:0.4:0.9"
@@ -188,8 +211,9 @@
                 color-mix(in srgb, var(--ActiveTitle) 100%, transparent),
                 color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
                 color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
-            ),
-            url(img/white_stripes_tile.png);
+            )
+            // ,
+            // url(img/white_stripes_tile.png);
         // opacity: 0.8;
     }
     &::after{
@@ -200,6 +224,7 @@
     }
 
     .title-bar-text {
+        opacity: 0;
         // position: relative;
         text-shadow: 1px 1px #444;
         border: 1px solid color-mix(in srgb, var(--ActiveTitle) 60%, black);
@@ -209,7 +234,7 @@
         border-right: none;
 
         // background: url(img/title-blocker-left.png) repeat-y;
-        background-image: linear-gradient(
+        background-image0: linear-gradient(
             to right, // Gradien horizontal
             color-mix(
                 in srgb,
@@ -233,9 +258,10 @@
         );
         background-size: 18px auto;
         background-repeat: no-repeat;
+        
 
         &::after{
-            content: '';
+            // content: '';
             position: absolute;
             inset: 1px;
             bottom: 0;
@@ -246,7 +272,7 @@
             z-index: 1;
         }
         &::before{
-            content: '';
+            // content: '';
             position: absolute;
             top: 0;
             right: 0;
