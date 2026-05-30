@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueCurve Metacity - title_gradient (dengan PNG asli)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #2a2a2a;
+            background: #e3e3e3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .demo-container {
+            /* background: #3a3a3a; */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .info {
+            background: #1e1e1e;
+            color: #0f0;
+            font-family: monospace;
+            font-size: 12px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .info h3 {
+            color: #ffcc00;
+            margin-bottom: 5px;
+        }
+
+        .layer-indicator {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .layer-badge {
+            background: #2a2a2a;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            border-left: 3px solid;
+        }
+
+
+
+
+
+
+
+
+
+
+        .titlebar-simulation {
+            position: relative;
+            width: 600px;
+            height: 21px;
+            background: transparent;
+            border: 1px solid #555;
+            border-bottom: none;
+            border-radius:7px ;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            /* overflow: hidden; */
+            /* image-rendering: pixelated; */
+        }
+
+        /* Semua layer pakai posisi absolut */
+        .titlebar-simulation > * {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            border-radius: inherit;
+            image-rendering: pixelated;
+        }
+
+        /* === LAYER 1: Base gradient (PERTAMA / PALING BAWAH) === */
+        .layer-base-gradient {
+            width: 100%;
+            height: 100%;
+            /* Simulasi gradient vertical 5 stop seperti di XML */
+            /* background: linear-gradient(
+                to bottom,
+                #3a6ca3,
+                #4f7db3,
+                #5a88bd,
+                #4f7db3,
+                #3a6ca3
+            ); */
+            background: linear-gradient(to bottom, #6982bc, #4d6bb0 25%, #4464ac 50%, #4d6bb0 75%, #6982bc), #4464ac;
+        }
+
+        /* === LAYER 2: Stripes (white_stripes_tile.png) === */
+        .layer-stripes {
+            width: 100%;
+            height: calc(100% - 4px);
+            top: 2px;
+            left: 1px;
+            /* PAKAI PNG ASLI */
+            background-image: url('./white_stripes_tile.png');
+            background-repeat: repeat;
+            background-position: top left;
+            /* Alpha gradient: 0.9:0.4:0.0:0.4:0.9 */
+            mask-image: linear-gradient(
+                to right,
+                rgba(0,0,0,0.9),
+                rgba(0,0,0,0.4),
+                rgba(0,0,0,0.0),
+                rgba(0,0,0,0.4),
+                rgba(0,0,0,0.9)
+            );
+            -webkit-mask-image0: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.9) 0%,
+                rgba(0,0,0,0.4) 20%,
+                rgba(0,0,0,0.0) 50%,
+                rgba(0,0,0,0.4) 80%,
+                rgba(0,0,0,0.9) 100%
+            );
+        }
+
+        /* === LAYER 3: Bottom Blocker (title-blocker-bottom.png) === */
+        .layer-bottom-blocker {
+            bottom: 0;
+            top: auto;
+            width: 100%;
+            height: 12px;  /* asumsi object_height */
+            /* PAKAI PNG ASLI */
+            background-image: url('./title-blocker-bottom.png');
+            background-repeat: repeat-x;
+            background-position: bottom;
+            background: 
+            linear-gradient(to bottom, #6982bc, #6982bc),
+                url('./title-blocker-bottom.png') bottom repeat-x, 
+                ;
+            /* colorize = blend/gtk:light[NORMAL]/gtk:bg[SELECTED]/0.9 */
+            /* pakai mix-blend-mode + background-color overlay */
+            /* background-color: rgba(70, 110, 150, 0.9); */
+            /* background-blend-mode: overlay; */
+            mix-blend-mode: overlay;
+        }
+
+        /* === LAYER 4: Left Blocker (title-blocker-left.png) === */
+        .layer-left-blocker {
+            width: 18px;
+            height: 100%;
+            left: 1px;
+            background-image: url('./title-blocker-left.png');
+            background-repeat: repeat-y;
+            background-position: left;
+            /* background-color: rgba(70, 110, 150, 0.9); */
+            /* background-blend-mode: overlay; */
+        }
+
+        /* === LAYER 5: Right Blocker (title-blocker-right.png) === */
+        .layer-right-blocker {
+            width: 18px;
+            height: 100%;
+            right: 0;
+            left: auto;
+            background-image: url('./title-blocker-right.png');
+            background-repeat: repeat-y;
+            background-position: right;
+            /* background-color: rgba(70, 110, 150, 0.9); */
+            mix-blend-mode: overlay;
+        }
+
+        /* === LAYER 6: Top Shine 1 (gradient pertama) === */
+        .layer-top-shine-1 {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
+            opacity: 0.2;
+        }
+
+        /* === LAYER 7: Top Shine 2 (gradient kedua) === */
+        .layer-top-shine-2 {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0));
+            opacity: 0.4;
+        }
+
+        /* === LAYER 8: Bottom Shine (title-gradient-bottom.png) === */
+        .layer-bottom-shine {
+            bottom: 0;
+            top: auto;
+            width: 100%;
+            height: 9px;
+            background-image: url('./title-gradient-bottom.png');
+            background-repeat: repeat-x;
+            background-position: bottom;
+            background-color: rgba(255, 255, 255, 0.3);
+            /* background-blend-mode: overlay; */
+            mix-blend-mode: overlay;
+            opacity: 0.2;
+        }
+
+        /* === LAYER 9: Separator line (PALING ATAS / TERAKHIR) === */
+        .layer-separator {
+            bottom: 0;
+            top: auto;
+            width: 100%;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Teks title bar (hiasan) */
+        .title-text {
+            position: absolute;
+            /* left: 10px; */
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            transform: translateY(-50%);
+            font-size: 10px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+            font-family: 'Segoe UI', 'DejaVu Sans', sans-serif;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .window-buttons {
+            position: absolute;
+            left: auto;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 6px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .win-btn {
+            width: 18px;
+            height: 18px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+        }
+
+        .layer-order-legend {
+            margin-top: 20px;
+            background: #1e1e1e;
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 11px;
+            font-family: monospace;
+            color: #ccc;
+        }
+
+        .layer-order-legend span {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .layer-order-legend .layer-num {
+            background: #3d6ea6;
+            color: white;
+            border-radius: 3px;
+            padding: 0 4px;
+        }
+
+        .file-list {
+            background: #252525;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 11px;
+            color: #ffaa66;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="demo-container">
+        <div class="info">
+            <h3>🎨 BlueCurve Metacity - title_gradient (Native PNG)</h3>
+            <div>Urutan rendering: Layer 1 (bawah) → Layer 9 (atas) | <strong style="color:#ffaa00">Kebalikan dari CSS background</strong></div>
+            <div class="layer-indicator">
+                <div class="layer-badge" style="border-left-color:#3d6ea6">1: Gradient</div>
+                <div class="layer-badge" style="border-left-color:#aaa">2: white_stripes_tile.png</div>
+                <div class="layer-badge" style="border-left-color:#555">3: title-blocker-bottom.png</div>
+                <div class="layer-badge" style="border-left-color:#555">4: title-blocker-left.png</div>
+                <div class="layer-badge" style="border-left-color:#555">5: title-blocker-right.png</div>
+                <div class="layer-badge" style="border-left-color:#ffcc88">6: Top Shine 1</div>
+                <div class="layer-badge" style="border-left-color:#ffcc88">7: Top Shine 2</div>
+                <div class="layer-badge" style="border-left-color:#88ccff">8: title-gradient-bottom.png</div>
+                <div class="layer-badge" style="border-left-color:#000">9: Separator</div>
+            </div>
+        </div>
+
+        <!-- TITLEBAR SIMULATION -->
+        <div class="titlebar-simulation">
+            <!-- Layer 1: Base gradient (paling bawah) -->
+            <div class="layer-base-gradient"></div>
+
+            <!-- Layer 2: Stripes PNG -->
+            <div class="layer-stripes"></div>
+
+            <!-- Layer 3: Bottom Blocker PNG -->
+            <div class="layer-bottom-blocker"></div>
+
+            <!-- Layer 4: Left Blocker PNG -->
+            <div class="layer-left-blocker"></div>
+
+            <!-- Layer 5: Right Blocker PNG -->
+            <div class="layer-right-blocker"></div>
+
+            <!-- Layer 6: Top shine pertama -->
+            <div class="layer-top-shine-1"></div>
+
+            <!-- Layer 7: Top shine kedua -->
+            <div class="layer-top-shine-2"></div>
+
+            <!-- Layer 8: Bottom shine PNG -->
+            <div class="layer-bottom-shine"></div>
+
+            <!-- Layer 9: Separator line (paling atas) -->
+            <div class="layer-separator"></div>
+
+            <!-- Teks & tombol (hiasan) -->
+            <div class="title-text">start-here://</div>
+            <!-- 
+            <div class="window-buttons">
+                <div class="win-btn"></div>
+                <div class="win-btn"></div>
+                <div class="win-btn"></div>
+            </div> 
+            -->
+        </div>
+
+        <!-- Daftar file PNG yang diperlukan -->
+        <div class="file-list">
+            📋 <strong>File PNG yang harus ada di folder yang sama:</strong><br>
+            ├── ./white_stripes_tile.png<br>
+            ├── ./title-blocker-bottom.png<br>
+            ├── ./title-blocker-left.png<br>
+            ├── ./title-blocker-right.png<br>
+            └── ./title-gradient-bottom.png<br>
+            <span style="color:#88ff88;">✓</span> Jika file tidak ada, background akan menggunakan fallback warna / transparan.
+        </div>
+
+        <!-- Penjelasan teknis -->
+        <div class="layer-order-legend">
+            <strong>🧠 Urutan rendering Metacity (dari bawah ke atas):</strong><br>
+            <span class="layer-num">1</span> Base gradient (vertical, 5 warna)<br>
+            <span class="layer-num">2</span> <code>white_stripes_tile.png</code> + alpha mask 0.9→0.4→0.0→0.4→0.9<br>
+            <span class="layer-num">3</span> <code>title-blocker-bottom.png</code> + colorize blend<br>
+            <span class="layer-num">4</span> <code>title-blocker-left.png</code> + colorize blend<br>
+            <span class="layer-num">5</span> <code>title-blocker-right.png</code> + colorize blend<br>
+            <span class="layer-num">6</span> Top shine gradient (alpha 0.2)<br>
+            <span class="layer-num">7</span> Top shine gradient (alpha 0.4)<br>
+            <span class="layer-num">8</span> <code>title-gradient-bottom.png</code> + alpha 0.2 + colorize<br>
+            <span class="layer-num">9</span> Bottom separator line (1px hitam + shadow putih)<br>
+            <span style="display:inline-block; margin-top:8px;">💡 <strong>Catatan:</strong> Metacity menggambar node XML <strong>PERTAMA</strong> duluan (paling bawah), node <strong>TERAKHIR</strong> paling atas. Kebalikan dari CSS <code>background-image</code> multiple.</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
