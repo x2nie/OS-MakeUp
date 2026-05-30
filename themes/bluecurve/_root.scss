@@ -3,8 +3,9 @@ $root: ':root' !default;
 // :scope {
 #{$root} {
   --preferred-font: 'Microsoft Sans Serif', 'Segoe UI', sans-serif;
-
-  --Background: #008080;
+  
+  // --Background: #008080;
+  --Background: var(--ActiveTitle);
 
   --ButtonFace: #e6e6e6;
   --ButtonText: #000000;

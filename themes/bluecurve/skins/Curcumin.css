@@ -1,0 +1,71 @@
+:root {
+
+  /* --Background: #008080; */
+
+  --ButtonFace: #f1ede4;
+  /* --ButtonText: #000000; */
+
+  /* --ButtonHilight: #FFFFFF; */
+  
+  /* --light: #DFDFDF; */
+  /* --medium: var(--ButtonFace); */
+  --ButtonShadow: #cecece;
+  
+  --ButtonDkShadow: #5c5c5c;
+
+  --Window: #FFFFFF;
+  --WindowText: #000000;
+
+  --InactiveTitle: #cabfb8; /* bg[INSENSITIVE] */
+  --InactiveTitleText: #777777;
+  /* --GradientInactiveTitle: var(--InactiveTitle); */
+  /* --InactiveBorder: black; */
+
+  /* --ActiveTitle: #ac725e; */
+  --ActiveTitle: #e8a606; /* bg[SELECTED] */
+  /* --GradientActiveTitle: var(--ActiveTitle); */
+
+  /* --ActiveBorder : black; */
+/* 
+    --theme_light_normal: rgb(
+        from var(--ButtonFace)
+        calc(r * 1.3)
+        calc(g * 1.3)
+        calc(b * 1.3)
+    );
+    --theme_light_selected: rgb(
+        from var(--ActiveTitle)
+        calc(r * 1.3)
+        calc(g * 1.3)
+        calc(b * 1.3)
+    );
+
+    --headerbar_active_top: color-mix(
+        in srgb,
+        var(--theme_light_normal) 25%,
+        var(--theme_light_selected)
+    );
+    --headerbar_active_bottom: color-mix(
+        in srgb-linear,
+        var(--ActiveTitle) 90%,
+        white
+    );
+
+    --headerbar_active_1: color-mix(
+        in srgb,
+        var(--theme_light_normal) 20%,
+        var(--ActiveTitle) 80%
+    );
+    --headerbar_active_2: color-mix(
+        in srgb,
+        var(--theme_light_normal) 5%,
+        var(--ActiveTitle) 95%
+    );
+    --headerbar_active_3: color-mix(
+        in srgb,
+        var(--theme_light_normal) 0%,
+        var(--ActiveTitle) 100%
+    ); */
+
+
+}
