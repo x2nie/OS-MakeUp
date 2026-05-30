@@ -7,8 +7,8 @@
 
   --ButtonHilight: #FFFFFF;
   
-  --light: #DFDFDF;
-  --medium: var(--ButtonFace);
+  /* --light: #DFDFDF; */
+  /* --medium: var(--ButtonFace); */
   --ButtonShadow: #cecece;
   
   --ButtonDkShadow: #5c5c5c;
@@ -19,12 +19,12 @@
   --InactiveTitle: #cabfb8; /* bg[INSENSITIVE] */
   --InactiveTitleText: #777777;
   /* --GradientInactiveTitle: var(--InactiveTitle); */
-  --InactiveBorder: black;
+  /* --InactiveBorder: black; */
 
   --ActiveTitle: #df7501; /* bg[SELECTED] */
   /* --GradientActiveTitle: var(--ActiveTitle); */
 
-  --ActiveBorder : black;
+  /* --ActiveBorder : black; */
 /* 
     --theme_light_normal: rgb(
         from var(--ButtonFace)

@@ -20,13 +20,14 @@ $root: ':root' !default;
   // --ButtonText: var(--ButtonText);
   --Window: #FFFFFF;
   --WindowText: #000000;
-
+  
   --InactiveTitle: #d9d9d9;
   --InactiveTitleText: #777777;
-  --GradientInactiveTitle: var(--InactiveTitle);
   --InactiveBorder: black;
-
+  --GradientInactiveTitle: var(--InactiveTitle);
+  
   --ActiveTitle: #4464ac;
+  --ActiveBorder : black;
   --GradientActiveTitle: var(--ActiveTitle);
 
   --TitleText: #FFFFFF;

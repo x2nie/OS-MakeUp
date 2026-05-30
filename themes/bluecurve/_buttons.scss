@@ -30,7 +30,7 @@
   &:not(:disabled, .disabled):active, &.active {
     border: 1px solid var(--ButtonDkShadow);
     box-shadow: inset 1px 1px 0 var(--ButtonShadow), inset -1px -1px 0 var(--ButtonShadow);
-    padding: 4px 9px 5px 11px;
+    // padding: 4px 9px 5px 11px;
   }
 }
 
