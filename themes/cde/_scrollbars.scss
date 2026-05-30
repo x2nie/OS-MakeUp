@@ -1,5 +1,4 @@
-.horizontal-scrollbar,
-.vertical-scrollbar {
+.scrollbar {
   display: flex;
   background: var(--button-active-bg);
   border: 1px solid var(--button-dark);
@@ -48,7 +47,7 @@
   }
 }
 
-.horizontal-scrollbar {
+.horizontal.scrollbar {
   & > button:first-child {
     background-image: url(scroll-left.svg);
   }
@@ -63,7 +62,7 @@
   }
 }
 
-.vertical-scrollbar {
+.vertical.scrollbar {
   flex-direction: column;
   width: 13px;
 

@@ -73,68 +73,68 @@ button.primary::after, input[type=button].primary::after, input[type=submit].pri
   box-shadow: inset 0 -1px #90C154, inset 0 1px #B1CB80;
 }
 
-.horizontal-scrollbar > button,
-.vertical-scrollbar > button {
+.scrollbar.horizontal > button,
+.scrollbar.vertical > button {
   border-color: #FAFAFA;
   background: linear-gradient(to bottom, #A2B38D, #95A775);
   box-shadow: 0 1px #83AB5A, 1px 0 #9BB181, inset 0 1px #CBD7BA, inset 1px 0 #B6C7A2, inset -1px 0 #B6C7A2, inset 0 2px #B6C4A1;
 }
-.horizontal-scrollbar > button::after, .horizontal-scrollbar > button:active::after, .horizontal-scrollbar > button:hover::after,
-.vertical-scrollbar > button::after,
-.vertical-scrollbar > button:active::after,
-.vertical-scrollbar > button:hover::after {
+.scrollbar.horizontal > button::after, .scrollbar.horizontal > button:active::after, .scrollbar.horizontal > button:hover::after,
+.scrollbar.vertical > button::after,
+.scrollbar.vertical > button:active::after,
+.scrollbar.vertical > button:hover::after {
   background: #FFFFFF;
   border: 0;
   box-shadow: none;
 }
-.horizontal-scrollbar > button:not(:disabled, .disabled):hover, .horizontal-scrollbar > button.hover,
-.vertical-scrollbar > button:not(:disabled, .disabled):hover,
-.vertical-scrollbar > button.hover {
+.scrollbar.horizontal > button:not(:disabled, .disabled):hover, .scrollbar.horizontal > button.hover,
+.scrollbar.vertical > button:not(:disabled, .disabled):hover,
+.scrollbar.vertical > button.hover {
   background: linear-gradient(to bottom, #C9D5AA, #C3D096);
   box-shadow: 0 1px #83AB5A, 1px 0 #9BB181, inset 0 1px #DAE8B9, inset 1px 0 #DAE8B9, inset -1px 0 #DAE8B9;
 }
-.horizontal-scrollbar > button:not(:disabled, .disabled):active,
-.vertical-scrollbar > button:not(:disabled, .disabled):active {
+.scrollbar.horizontal > button:not(:disabled, .disabled):active,
+.scrollbar.vertical > button:not(:disabled, .disabled):active {
   background-color: #99AC7C;
   background-image: linear-gradient(to right, #879770, transparent 3px), linear-gradient(to bottom, #879770, transparent 3px), linear-gradient(to left, #879770, transparent 3px);
   box-shadow: 0 1px #83AB5A, 1px 0 #9BB181, inset 0 -1px #FFFFFF, inset 0 -1px 0 1px #768361, inset 0 1px #768361;
 }
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb {
   box-shadow: 0 1px #8B9377, 1px 0 #829061, inset 1px 1px #8C9D73, inset -1px -1px #8C9D73, inset 2px 0 #ADBB9A;
 }
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:hover,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:hover {
   box-shadow: 0 1px #8B9377, 1px 0 #829061, inset 1px 1px #BCC797, inset -1px -1px #BCC797, inset 2px 0 #D2DBB5;
 }
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:active,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:active {
   box-shadow: 0 1px #8B9377, 1px 0 #829061, inset -1px -1px #90A476, inset 1px 1px #7B8B65, inset 2px 2px #879571, inset 3px 3px #92A478;
 }
 
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb {
   background: linear-gradient(to bottom, #A4B48B, #95A775);
 }
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #C8D5AA, #C3D096);
 }
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:active {
   background: linear-gradient(to bottom, #9BAD82, #94A972);
 }
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb::after {
   background: repeating-linear-gradient(to right, #D0DFAC, #D0DFAC 1px, #8C9D73 1px, #8C9D73 2px);
 }
 
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb {
   background: linear-gradient(to right, #A4B48B, #95A775);
 }
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:hover {
   background: linear-gradient(to right, #C8D5AA, #C3D096);
 }
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:active {
   background: linear-gradient(to right, #9BAD82, #94A972);
 }
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb::after {
   background: repeating-linear-gradient(to bottom, #D0DFAC, #D0DFAC 1px, #8C9D73 1px, #8C9D73 2px);
 }
 

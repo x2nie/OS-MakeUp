@@ -1,5 +1,4 @@
-.horizontal-scrollbar,
-.vertical-scrollbar {
+.scrollbar {
   display: flex;
   background: #EEEDE5;
 
@@ -82,7 +81,7 @@
   }
 }
 
-.horizontal-scrollbar {
+.horizontal.scrollbar {
   padding: 1px 0;
 
   & > button {
@@ -133,7 +132,7 @@
   }
 }
 
-.vertical-scrollbar {
+.vertical.scrollbar {
   flex-direction: column;
   width: 17px;
   padding: 0 1px;

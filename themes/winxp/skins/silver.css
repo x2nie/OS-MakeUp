@@ -81,73 +81,73 @@ button.primary::after, input[type=button].primary::after, input[type=submit].pri
   box-shadow: inset 0 -1px #89ADE4, inset 0 1px #BCD4F6, inset 1px 0 #fff, inset -1px 0 #fff;
 }
 
-.horizontal-scrollbar,
-.vertical-scrollbar {
+.scrollbar.horizontal,
+.scrollbar.vertical {
   background: #E5E6EE;
 }
-.horizontal-scrollbar > button, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
-.vertical-scrollbar > button,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+.scrollbar.horizontal > button, .scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb,
+.scrollbar.vertical > button,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb {
   background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
   border-color: #9495A2;
   border-top-color: #B4B4BD;
   border-bottom-color: #9D9EAB;
   box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
 }
-.horizontal-scrollbar > button::after, .horizontal-scrollbar > button:active::after, .horizontal-scrollbar > button:hover::after, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover::after,
-.vertical-scrollbar > button::after,
-.vertical-scrollbar > button:active::after,
-.vertical-scrollbar > button:hover::after,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover::after {
+.scrollbar.horizontal > button::after, .scrollbar.horizontal > button:active::after, .scrollbar.horizontal > button:hover::after, .scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb::after, .scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:active::after, .scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:hover::after,
+.scrollbar.vertical > button::after,
+.scrollbar.vertical > button:active::after,
+.scrollbar.vertical > button:hover::after,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb::after,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:active::after,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:hover::after {
   border: 0;
   box-shadow: none;
 }
-.horizontal-scrollbar > button:not(:disabled, .disabled):hover, .horizontal-scrollbar > button.hover, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb.hover,
-.vertical-scrollbar > button:not(:disabled, .disabled):hover,
-.vertical-scrollbar > button.hover,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb.hover {
+.scrollbar.horizontal > button:not(:disabled, .disabled):hover, .scrollbar.horizontal > button.hover, .scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover, .scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb.hover,
+.scrollbar.vertical > button:not(:disabled, .disabled):hover,
+.scrollbar.vertical > button.hover,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb.hover {
   background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
   border-color: #5B6665;
   box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
 }
-.horizontal-scrollbar > button:not(:disabled, .disabled):active, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active,
-.vertical-scrollbar > button:not(:disabled, .disabled):active,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
+.scrollbar.horizontal > button:not(:disabled, .disabled):active, .scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active,
+.scrollbar.vertical > button:not(:disabled, .disabled):active,
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
   background: linear-gradient(to bottom, #BFC2DB, #FFFFFF 30%, #FFFFFF);
   border-color: #434848;
   box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #A0B5CD;
 }
-.horizontal-scrollbar > button::after,
-.vertical-scrollbar > button::after {
+.scrollbar.horizontal > button::after,
+.scrollbar.vertical > button::after {
   background: #3F3D3D;
 }
 
-.horizontal-scrollbar > .scrollbar-track {
+.scrollbar.horizontal > .scrollbar-track {
   background: linear-gradient(to bottom, #ECEEF3, #FBFBFE);
 }
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb::after {
   background: repeating-linear-gradient(to right, #FFFFFF, #FFFFFF 1px, #8E95A2 1px, #8E95A2 2px);
 }
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
+.scrollbar.horizontal > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
   background: linear-gradient(to top, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
 }
 
-.vertical-scrollbar > .scrollbar-track {
+.scrollbar.vertical > .scrollbar-track {
   background: linear-gradient(to right, #ECEEF3, #FBFBFE);
 }
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb {
   background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
 }
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb::after {
   background: repeating-linear-gradient(to bottom, #FFFFFF, #FFFFFF 1px, #8E95A2 1px, #8E95A2 2px);
 }
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover, .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb.hover {
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover, .scrollbar.vertical > .scrollbar-track > .scrollbar-thumb.hover {
   background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
 }
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
+.scrollbar.vertical > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
   background: linear-gradient(to left, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
 }
 

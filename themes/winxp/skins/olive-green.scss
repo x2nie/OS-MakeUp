@@ -94,8 +94,7 @@ form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=su
 }
 
 
-.horizontal-scrollbar,
-.vertical-scrollbar {
+.scrollbar {
   & > button {
     border-color: #FAFAFA;
     background: linear-gradient(to bottom, #A2B38D, #95A775);
@@ -132,7 +131,7 @@ form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=su
   }
 }
 
-.horizontal-scrollbar {
+.horizontal.scrollbar {
   & > .scrollbar-track > .scrollbar-thumb {
     background: linear-gradient(to bottom, #A4B48B, #95A775);
 
@@ -150,7 +149,7 @@ form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=su
   }
 }
 
-.vertical-scrollbar {
+.vertical.scrollbar {
   & > .scrollbar-track > .scrollbar-thumb {
     background: linear-gradient(to right, #A4B48B, #95A775);
 

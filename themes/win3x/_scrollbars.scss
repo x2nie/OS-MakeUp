@@ -1,5 +1,4 @@
-.horizontal-scrollbar,
-.vertical-scrollbar {
+.scrollbar {
   display: flex;
 
   & > button {
@@ -55,7 +54,7 @@
   }
 }
 
-.horizontal-scrollbar {
+.horizontal.scrollbar {
   & > button:first-child::after {
     background-image: url(scroll-left.svg);
   }
@@ -77,7 +76,7 @@
   }
 }
 
-.vertical-scrollbar {
+.vertical.scrollbar {
   flex-direction: column;
   width: 16px;
 
