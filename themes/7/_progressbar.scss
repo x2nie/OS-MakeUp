@@ -4,7 +4,51 @@
   --w7-pg-bg-error: #ef0000;
 }
 
+@mixin progress-value {
+  // border: 1px solid var(--ButtonFace);
+  // background: repeating-linear-gradient(90deg, var(--Hilight, orange), var(--Hilight, fuchsia) 6px, transparent 6px, transparent 8px);
+     box-shadow: inset 0 0 0 1px #ffffff1f;
+    background-color: var(--w7-pg-bg);
+    background-image: linear-gradient(
+        to bottom,
+        #f3f3f3af,
+        #fcfcfcaf 3px,
+        #dbdbdbaf 6px,
+        transparent 6px
+      ),
+      radial-gradient(circle at 0 50%, #0000002f 10px, transparent 30px),
+      radial-gradient(circle at 100% 50%, #0000002f 10px, transparent 30px),
+      linear-gradient(to bottom, transparent 65%, #ffffff55),
+      linear-gradient(to bottom, transparent 6px, #cacaca33 6px, #d5d5d533);
+}
+
+@mixin progress-value-indeterminate {
+  width: 100%;
+  // animation: 3s infinite linear progressbar;
+  animation: 3s infinite linear indeterminate;
+  // animation: progressbar 3s linear infinite;
+    display: block;
+    height: 100%;
+    // background: linear-gradient(
+    //   to right,
+    //   transparent,
+    //   #ffffff80,
+    //   transparent 40%
+    // );
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--w7-pg-bg),
+      transparent 35%
+    );
+}
+
+progress,
+.progress-bar,
 [role="progressbar"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   height: 15px;
   border: 1px solid var(--w7-el-bd);
   border-radius: var(--w7-el-bdr);
@@ -40,6 +84,7 @@
       linear-gradient(to bottom, transparent 65%, #ffffff55),
       linear-gradient(to bottom, transparent 6px, #cacaca33 6px, #d5d5d533);
   }
+  
 
   &.paused > div {
     background-color: var(--w7-pg-bg-paused);
@@ -74,6 +119,50 @@
   }
 }
 
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+
+  &:not([aria-valuenow])::after,
+  & > .progress-bar-value {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    // opacity: 0.5;
+    @include progress-value;
+  }
+
+  &:not([aria-valuenow])::after {
+    opacity: 0.5;
+    @include progress-value-indeterminate;
+  }
+}
+
+
+progress::-webkit-progress-bar {
+  background: var(--ButtonFace);
+}
+
+progress::-webkit-progress-value {
+  @include progress-value;
+}
+
+progress::-moz-progress-bar {
+  @include progress-value;
+}
+
+progress:indeterminate::-moz-progress-bar {
+  @include progress-value-indeterminate;
+}
+
+progress:not([value])::-webkit-progress-value {
+  @include progress-value-indeterminate;
+}
+
 @keyframes progressbar {
   0% {
     transform: translateX(-40%);
@@ -84,5 +173,15 @@
   100% {
     /* for faking delay */
     transform: translateX(100%);
+  }
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -30px;
+  }
+
+  to {
+    margin-left: 100%;
   }
 }

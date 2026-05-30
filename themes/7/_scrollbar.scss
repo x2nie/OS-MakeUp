@@ -10,7 +10,7 @@
   --w7-sb-x: linear-gradient(to bottom, #e5e5e5, var(--w7-surface) 20%);
 }
 
-.has-scrollbar::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 16px;
 
   &:horizontal {
