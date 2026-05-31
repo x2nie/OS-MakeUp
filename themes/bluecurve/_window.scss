@@ -453,14 +453,16 @@
                     color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
                 ) top 2px center / calc(100% - 4px) calc(100% - 2px) repeat-x,
 
-            url("img/csd_stripes.png") repeat,
-		linear-gradient(to bottom,
-            var(--headerbar_active_1),
-            var(--headerbar_active_2) 25%,
-            var(--headerbar_active_3) 50%,
-            var(--headerbar_active_2) 75%,
-            var(--headerbar_active_1)),
-		var(--ActiveTitle);
+            url("img/csd_stripes.png") repeat
+            ;
+        background:
+            linear-gradient(to bottom,
+                var(--headerbar_active_1),
+                var(--headerbar_active_2) 25%,
+                var(--headerbar_active_3) 50%,
+                var(--headerbar_active_2) 75%,
+                var(--headerbar_active_1)),
+            var(--ActiveTitle);
                 /*,
         linear-gradient(to bottom,
             var(--headerbar_active_top) 0,
@@ -514,23 +516,102 @@
         //     background-repeat: no-repeat;
         // }
         &::before{
-            // content: '';
+            content: '';
             position: absolute;
             // inset: 1px 21px 1px;
-            inset: 1px 0px 0px;
-            background-image: // alpha="0.9:0.4:0.0:0.4:0.9"
-                linear-gradient(
-                    to right,
-                    color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
-                    color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
-                    color-mix(in srgb, var(--ActiveTitle) 100%, transparent),
-                    color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
-                    color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
-                )
+            inset: 2px 0px;
+            // alpha="0.9:0.4:0.0:0.4:0.9"
+            background: 
+                // url('img/white_stripes_tile.png'),
+                linear-gradient(to right,
+                    rgb(from silver calc(r * 0.8)    calc(g * 0.8)   calc(b * 0.8)),
+                    rgb(from silver calc(r * 0.95)   calc(g * 0.95)  calc(b * 0.95)),
+                    rgb(from silver calc(r * 1.0)    calc(g * 1.0)   calc(b * 1.0)),
+                    rgb(from silver calc(r * 0.95)   calc(g * 0.95)  calc(b * 0.95)),
+                    rgb(from silver calc(r * 0.8)    calc(g * 0.8)   calc(b * 0.8))
+                ),
+                // linear-gradient(to right,
+                //     rgb(from white r g b / 0.8),
+                //     rgb(from white r g b / 0.95),
+                //     rgb(from white r g b / 1.0),
+                //     rgb(from white r g b / 0.95),
+                //     rgb(from white r g b / 0.8)
+                // ),
+                url('img/white_stripes_tile.png'),
+                ;
+                // linear-gradient(
+                //     to right,
+                //     color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
+                //     color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
+                //     color-mix(in srgb, var(--ActiveTitle) 100%, transparent),
+                //     color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
+                //     color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
+                // )
                 // ,
                 // url(img/white_stripes_tile.png);
+            // background-blend-mode: screen;
+            mask-image: linear-gradient(
+                to right,
+                rgba(0,0,0,0.9),
+                rgba(0,0,0,0.4),
+                rgba(0,0,0,0.0),
+                rgba(0,0,0,0.4),
+                rgba(0,0,0,0.9)
+            );    
             // opacity: 0.8;
+
+             /* Gradient alpha channel via luminance */
+             background-color: transparent;
+            background: 
+                url('img/white_stripes_tile.png'),
+                // linear-gradient(
+                //     to right,
+                //     black,
+                //     black 22%,
+                //     white 27%,
+                //     white 47%,
+                //     rgba(255,255,255,0) 52%,
+                //     rgba(255,255,255,0) 72%,
+                //     rgba(0,0,0,0) 77%,
+                // ),
+                // // url('img/white_stripes_tile.png')
+
+                // transparent
+                ;
+        // -webkit-background-clip: text, border-box;
+          background-clip:  border-box;
+            // background-repeat: repeat, no-repeat;
+            // background-blend-mode: luminosity;  /* Atau use luminosity untuk alpha effect */
+            // background-size: auto, 100% 100%;
+            // mix-blend-mode: color;
+            // background-blend-mode: color;
+            // mix-blend-mode: lighten;
         }
+
+//         &::before {
+//     content: '';
+//     position: absolute;
+//     inset: 1px 0px;
+//     background: url('img/white_stripes_tile.png');
+//     background-repeat: repeat;
+//     pointer-events: none;
+// }
+
+// &::after {
+//     content: '';
+//     position: absolute;
+//     inset: 1px 0px;
+//     background: linear-gradient(
+//         to right,
+//         rgba(0, 0, 0, 0.0) 0%,    /* kiri: transparan, stripes terlihat */
+//         rgba(0, 0, 0, 1.0) 30%,   /* mulai menutup */
+//         rgba(0, 0, 0, 1.0) 70%,   /* tengah: hitam pekat, stripes tertutup */
+//         rgba(0, 0, 0, 0.0) 100%   /* kanan: transparan, stripes terlihat */
+//     );
+//     mix-blend-mode: multiply;  /* hitam menutupi stripes */
+//     pointer-events: none;
+// }
+        
 
     }
 
