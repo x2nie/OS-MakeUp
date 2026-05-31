@@ -38,11 +38,10 @@
   --w7-wct-bd: #0000004d;
   --w7-wct-bdr: 5px;
   --w7-wct-sd: inset 0 0 0 1px #fffa;
-  --w7-wct-bg: linear-gradient(#ffffff80, #ffffff4d 45%, #0000001a 50%, #0000001a 75%, #ffffff80);
-  --w7-wct-bg-h: radial-gradient(circle at bottom, #2aceda, transparent 65%), linear-gradient(#b6d9ee 50%, #1a6ca1 50%);
-  --w7-wct-bg-a: radial-gradient(circle at bottom, #0bfdfa, transparent 65%), linear-gradient(#86a7bc 50%, #092747 50%);
-  --w7-wct_close-bg: radial-gradient(circle at -60% 50%, #0007 5% 10%, #0000 50%), radial-gradient(circle at 160% 50%, #0007 5% 10%, #0000 50%),
-    linear-gradient(#e0a197e5, #cf796a 25% 50%, #d54f36 50%);
+  --w7-wct-bg: none;
+  --w7-wct-bg-h: none;
+  --w7-wct-bg-a: none;
+  --w7-wct_close-bg: none;
 }
 
 .window {
@@ -262,6 +261,7 @@
 
       &::before {
         content: "";
+        --icon: none
         position: absolute;
         top: 0;
         bottom: 0;
@@ -288,8 +288,10 @@
       &[aria-label="Maximize"],
       &[data-maximize],
       &.is-maximize {
+        --icon: url("./icon/maximize.png");
         &::before {
-          background: url("./icon/maximize.png") no-repeat center;
+          --icon: url("./icon/maximize.png");
+          background: var(--icon) no-repeat center;
         }
       }
 
@@ -303,6 +305,7 @@
 
       &[aria-label="Restore"],
       &[data-restore],
+      .maximized > .title-bar &[data-maximize],
       &.is-restore {
         &::before {
           background: url("./icon/restore.png") no-repeat center;
@@ -343,6 +346,12 @@
     .title-bar-buttons {
       border-color: var(--w7-w-bd);
 
+      --w7-wct-bg: linear-gradient(#ffffff80, #ffffff4d 45%, #0000001a 50%, #0000001a 75%, #ffffff80);
+      --w7-wct-bg-h: radial-gradient(circle at bottom, #2aceda, transparent 65%), linear-gradient(#b6d9ee 50%, #1a6ca1 50%);
+      --w7-wct-bg-a: radial-gradient(circle at bottom, #0bfdfa, transparent 65%), linear-gradient(#86a7bc 50%, #092747 50%);
+      --w7-wct_close-bg: radial-gradient(circle at -60% 50%, #0007 5% 10%, #0000 50%), radial-gradient(circle at 160% 50%, #0007 5% 10%, #0000 50%),
+        linear-gradient(#e0a197e5, #cf796a 25% 50%, #d54f36 50%);
+
       button {
         border-color: var(--w7-w-bd);
         box-shadow: var(--w7-wct-sd);
@@ -379,12 +388,12 @@
         &[aria-label="Maximize"],
         &[data-maximize],
         &.is-maximize {
-          background: url("./icon/maximize.png") no-repeat center, var(--w7-wct-bg);
+          background: var(--icon) no-repeat center, var(--w7-wct-bg);
 
           &::before {
             content: "";
             box-shadow: 0 0 7px 3px #5dc4f0, var(--w7-wct-sd);
-            background: url("./icon/maximize.png") no-repeat center, var(--w7-wct-bg-h);
+            background: var(--icon) no-repeat center, var(--w7-wct-bg-h);
             opacity: 0;
             transition: opacity 0.3s linear;
           }
@@ -396,7 +405,7 @@
           }
 
           &:active::before {
-            background: url("./icon/maximize.png") no-repeat center, var(--w7-wct-bg-a);
+            background: var(--icon) no-repeat center, var(--w7-wct-bg-a);
           }
         }
 
@@ -425,6 +434,7 @@
         }
 
         &[aria-label="Restore"],
+        
         &[data-restore],
         &.is-restore {
           background: url("./icon/restore.png") no-repeat center, var(--w7-wct-bg);
@@ -496,7 +506,7 @@
 
             &::before {
               content: "";
-              background: url("./icon/maximize.png") no-repeat center;
+              background: var(--icon) no-repeat center;
               opacity: 0.4;
               box-shadow: none;
             }
@@ -519,6 +529,20 @@
       }
     }
   }
+
+  .maximized > & {
+    .title-bar-buttons button[data-maximize]{
+      --icon: url("./icon/restore.png");
+      &::before{
+        --icon: url("./icon/restore.png");
+      }
+    }
+    // &.active, .active > & {
+    //   .title-bar-buttons button[data-maximize]{
+    //       background: url("./icon/restore.png") no-repeat center, var(--w7-wct-bg);
+    //   }
+    // }
+  } 
 }
 
 .status-bar {
