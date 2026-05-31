@@ -1,4 +1,4 @@
-select:not([multiple]),select[size]:not([size="1"]) {
+select:not([multiple], [size]),select[size="1"] {
   font: var(--w7-font);
   padding: 2px 3px;
   border: 1px solid var(--w7-el-bd);
