@@ -488,15 +488,69 @@
         */
         
 
+        // &::after{
+        //     content: '';
+        //     position: absolute;
+        //     inset: 1px;
+        //     bottom: 0;
+        //     background-image: url(img/title-gradient-bottom.png);
+        //     background-repeat: repeat-x;
+        //     background-position-y: bottom 1px;
+        //     opacity: 0.3;
+        //     // z-index: 1;
+        // }
         &::after{
             content: '';
             position: absolute;
-            inset: 1px;
-            bottom: 0;
-            background-image: url(img/title-gradient-bottom.png);
-            background-repeat: repeat-x;
-            background-position-y: bottom 1px;
-            opacity: 0.3;
+            inset: 0;
+            background: 
+                // * trick to remove the first and last row of the stripes 
+                linear-gradient(to bottom,
+                    var(--headerbar_active_top) 0,
+                    var(--headerbar_active_top) 1px,
+                    var(--headerbar_active_1) 1px,
+                    var(--headerbar_active_1) 2px,
+                    transparent 2px,
+                    transparent calc(100% - 2px),
+                    var(--headerbar_active_1) calc(100% - 2px),
+                    var(--headerbar_active_1) calc(100% - 1px),
+                    var(--ActiveBorder) calc(100% - 1px),
+                    var(--ActiveBorder)
+                ),
+                linear-gradient(to bottom,
+                    /* rgb(from var(--ActiveTitle) calc(calc(227 / 255) * r) ,calc(calc(227 / 255) * g), calc(calc(227 / 255) * b)  / calc(9 / 255 * 0.2)),
+                    rgb(from var(--ActiveTitle) calc(calc(245 / 255) * r) ,calc(calc(245 / 255) * g), calc(calc(245 / 255) * b)  / calc(26 / 255 * 0.2)),
+                    rgb(from var(--ActiveTitle) calc(calc(239 / 255) * r) ,calc(calc(239 / 255) * g), calc(calc(239 / 255) * b)  / calc(48 / 255 * 0.2)),
+                    rgb(from var(--ActiveTitle) calc(calc(240 / 255) * r) ,calc(calc(240 / 255) * g), calc(calc(240 / 255) * b)  / calc(69 / 255 * 0.2)),
+                    rgb(from var(--ActiveTitle) calc(calc(238 / 255) * r) ,calc(calc(238 / 255) * g), calc(calc(238 / 255) * b)  / calc(88 / 255 * 0.2)),
+                    rgb(from var(--ActiveTitle) calc(calc(238 / 255) * r) ,calc(calc(238 / 255) * g), calc(calc(238 / 255) * b)  / calc(107 / 255 * 0.2)),
+                    rgb(from var(--ActiveTitle) calc(calc(239 / 255) * r) ,calc(calc(239 / 255) * g), calc(calc(239 / 255) * b)  / calc(125 / 255 * 0.2)),
+                    rgb(from var(--ActiveTitle) calc(calc(240 / 255) * r) ,calc(calc(240 / 255) * g), calc(calc(240 / 255) * b)  / calc(138 / 255 * 0.2)),
+                    rgb(from var(--ActiveTitle) calc(calc(183 / 255) * r) ,calc(calc(183 / 255) * g), calc(calc(183 / 255) * b)  / calc(74 / 255 * 0.2)), */
+
+                    /* rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(9 / 255)),
+                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(26 / 255)),
+                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(48 / 255)),
+                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(69 / 255)),
+                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(88 / 255)),
+                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(107 / 255)),
+                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(125 / 255)),
+                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(138 / 255)),
+                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(74 / 255)), */
+
+                    rgba(227,227,227, calc(9 / 255 * 0.3)),
+                    rgba(245,245,245, calc(26 / 255 * 0.3)),
+                    rgba(239,239,239, calc(48 / 255 * 0.3)),
+                    rgba(240,240,240, calc(69 / 255 * 0.3)),
+                    rgba(238,238,238, calc(88 / 255 * 0.3)),
+                    rgba(238,238,238, calc(107 / 255 * 0.3)),
+                    rgba(239,239,239, calc(125 / 255 * 0.3)),
+                    rgba(240,240,240, calc(138 / 255 * 0.3)),
+                    rgba(183,183,183, calc(74 / 255 * 0.3)),
+                ) bottom left 0px / 19px 50% repeat-x;
+            // background-repeat: repeat-x;
+            // background-position-y: bottom 1px;
+            // opacity: 0.3;
             // z-index: 1;
         }
         // &::before{
