@@ -56,7 +56,7 @@ const skins = {
   winxp: [
     'default', 'olive-green', 'silver',
   ],
-  '7': [],
+  win7: [],
   macos9: [
     'default', 'bubbles', 'convergence', 'golden-poppy', 'gray-space',
     'lollipop', 'lollipop-2', 'lollipop-3', 'lollipop-4', 'lollipop-5',
@@ -86,9 +86,11 @@ const themeExt =
 function setTheme(theme) {
   activeTheme = theme;
   activeSkin = null;
-  themeLink.href = 'themes/' + theme + `/theme.${themeExt}`;
+  // themeLink.href = 'themes/' + theme + `/theme.${themeExt}`;
+  themeLink.setAttribute('href', 'themes/' + theme + `/theme.${themeExt}`);
   themeSelect.value = theme;
   skinSelect.innerHTML = '';
+  clearSkin();
   if (skins.hasOwnProperty(theme)) {
     skinSelect.disabled = false;
     for (let skin of skins[theme]) {
@@ -99,11 +101,11 @@ function setTheme(theme) {
     if (skins[theme].length) {
       setSkin(skins[theme][0]);
     } else {
-      clearSkin();
+      // clearSkin();
     }
   } else {
     skinSelect.disabled = true;
-    clearSkin();
+    // clearSkin();
   }
 }
 
@@ -113,6 +115,7 @@ function clearSkin() {
 
 function setSkin(skin) {
   if (!skins.hasOwnProperty(activeTheme)) {
+    clearSkin();
     return;
   }
   if (skins[activeTheme].indexOf(skin) < 0) {

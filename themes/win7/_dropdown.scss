@@ -1,4 +1,4 @@
-select:not([multiple]) {
+select:not([multiple]),select[size]:not([size="1"]) {
   font: var(--w7-font);
   padding: 2px 3px;
   border: 1px solid var(--w7-el-bd);
@@ -14,6 +14,7 @@ select:not([multiple]) {
   background: url("./icon/dropdown-arrow.svg"), var(--w7-el-grad);
   background-position: center right;
   background-repeat: no-repeat;
+  // background: red;
 
   &:not(:disabled) {
     &:hover {

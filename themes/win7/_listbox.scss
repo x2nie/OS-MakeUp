@@ -1,5 +1,5 @@
 [role="listbox"],
-select[multiple] {
+select[multiple], select[size]:not([size="1"]){
   background: #fff;
   border: 1px solid #c0c1cd;
   display: block;
@@ -25,7 +25,7 @@ select[multiple] {
   option {
     padding: 2px;
 
-    &[aria-selected],
+    &[aria-selected]:not([aria-selected="false"]),
     &:focus {
       background-color: #2a90ff;
       color: #fff;
