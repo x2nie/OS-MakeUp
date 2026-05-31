@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Drop Image</title>
+<style>
+html, body {
+    margin: 0;
+    height: 100%;
+    background: #222;
+    color: white;
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+.bars {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    margin-top: 0.5em;
+    align-items: end;
+}
+.bar {
+    display: inline-block;
+    font-size: 0.75em;
+    padding: 0.1em 0.5em;
+    border: 1px solid gray;
+    color: yellow
+    border-top-color: lime;
+}
+textarea {
+    width: 50%;
+    height: 300px;
+    background: transparent;
+    color: white;
+    border: none;
+    resize: none;
+    font-family: monospace;
+    padding: 0.5em;
+}
+#dropzone {
+    width: 50%;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px dashed #555;
+    box-sizing: border-box;
+    overflow: auto;
+    float: left;
+}
+
+#dropzone.drag {
+    border-color: #0af;
+    background: #2a2a2a;
+}
+
+.color-strips {
+    /* position: absolute; */
+    float: left;
+    display: flex;
+    max-height: 50%;
+    width: 50%;
+    /* pointer-events: none; */
+    border: 1px solid lime;
+    min-height: 1em;
+}
+.color-strips > *{
+    min-width: 16px;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: crosshair;
+    transform: scale(16);
+    image-rendering: pixelated;
+}
+</style>
+</head>
+<body>
+
+<div id="dropzone">
+    Drop image here
+</div>
+
+<div class="color-strips" id="horizontalColors"></div>
+<div class="color-strips" id="verticalColors"></div>
+
+<script>
+const dropzone = document.getElementById("dropzone");
+
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d", { willReadFrequently: true });
+
+let currentImg = null;
+
+["dragenter", "dragover"].forEach(evt => {
+    document.addEventListener(evt, e => {
+        e.preventDefault();
+        dropzone.classList.add("drag");
+    });
+});
+
+["dragleave", "drop"].forEach(evt => {
+    document.addEventListener(evt, e => {
+        e.preventDefault();
+        dropzone.classList.remove("drag");
+    });
+});
+
+document.addEventListener("drop", e => {
+    const file = e.dataTransfer.files[0];
+    if (!file || !file.type.startsWith("image/")) {
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+        const img = new Image();
+
+        img.onload = () => {
+            currentImg = img;
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0);
+            buildColorStrips();
+
+            dropzone.innerHTML = "";
+            dropzone.appendChild(img);
+
+            document.title = file.name;
+        };
+
+        img.src = reader.result;
+    };
+
+    reader.readAsDataURL(file);
+});
+
+dropzone.addEventListener("mousemove", e => {
+    const img = currentImg;
+    if (!img) return;
+
+    const rect = img.getBoundingClientRect();
+
+    if (
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+    ) {
+        return;
+    }
+
+    const scaleX = img.naturalWidth / rect.width;
+    const scaleY = img.naturalHeight / rect.height;
+
+    const x = Math.floor((e.clientX - rect.left) * scaleX);
+    const y = Math.floor((e.clientY - rect.top) * scaleY);
+
+    const p = ctx.getImageData(x, y, 1, 1).data;
+
+    const rgb =
+        "#" +
+        p[0].toString(16).padStart(2, "0") +
+        p[1].toString(16).padStart(2, "0") +
+        p[2].toString(16).padStart(2, "0");
+
+    const alpha = p[3].toString(16).padStart(2, "0");
+
+    document.title = `${rgb} ${alpha}`;
+});
+
+
+function buildColorStrips() {
+    horizontalColors.innerHTML = "";
+    verticalColors.innerHTML = "";
+
+    //
+    // TOP ROW
+    //
+    const topRow = ctx.getImageData(
+        0,
+        0,
+        canvas.width,
+        1
+    ).data;
+
+    let s = "";
+    let h = [];
+
+    for (let x = 0; x < canvas.width; x++) {
+        const i = x * 4;
+
+        const r = topRow[i];
+        const g = topRow[i + 1];
+        const b = topRow[i + 2];
+        const a = topRow[i + 3] ;
+
+        const div = document.createElement("div");
+        div.className = "color-cell";
+        div.style.backgroundColor =
+            `rgba(${r},${g},${b},${a/255})`;
+
+        s +=
+            `\nrgba(${r},${g},${b},${a})`;
+
+        h.push(`<span class="bar" style="background-color: rgba(${r},${g},${b},${a/255}); height: ${a * 3}px">${a}</span>`);
+
+        horizontalColors.appendChild(div);
+    }
+    horizontalColors.innerHTML += `horizontal:\n<textarea readonly>${s}</textarea>` +
+        `<div class="bars">${h.join("")}</div>`;
+
+    //
+    // LEFT COLUMN
+    //
+    const leftCol = ctx.getImageData(
+        0,
+        0,
+        1,
+        canvas.height
+    ).data;
+
+    s = "";
+    h = []
+
+    for (let y = 0; y < canvas.height; y++) {
+        const i = y * 4;
+
+        const r = leftCol[i];
+        const g = leftCol[i + 1];
+        const b = leftCol[i + 2];
+        const a = leftCol[i + 3] ;
+        // h.push(a);
+
+        const div = document.createElement("div");
+        div.className = "color-cell";
+        div.style.backgroundColor =
+            `rgba(${r},${g},${b},${a/255})`;
+
+        s +=
+            `\nrgba(${r},${g},${b},${a})`;
+
+        h.push(`<span class="bar" style="background-color: rgba(${r},${g},${b},${a/255}); height: ${a * 3}px">${a}</span>`);
+
+        verticalColors.appendChild(div);
+    }
+    verticalColors.innerHTML += `vertical:\n<textarea readonly>${s}</textarea>`+
+        `<div class="bars">${h.join("")}</div>`;
+}
+</script>
+
+</body>
+</html>
