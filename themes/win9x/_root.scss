@@ -34,7 +34,11 @@ $root: ':root' !default;
   --HilightText: #FFFFFF;
   --selection-inverse: #FFFF7F;
 
-  --scroll-size: 16px;
+  --ScrollWidth: 26px;
+  --ArrowSize: calc(var(--ScrollWidth) * 0.5 );
+  // --ArrowHalf: calc(var(--ScrollWidth) * 0.25 + 1px);
+  --ox: 0px;
+  --oy: 0px;
 }
 
 body {

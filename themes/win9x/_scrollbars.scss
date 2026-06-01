@@ -7,8 +7,8 @@
   & > button {
     display: flex;
     flex-shrink: 0;
-    width: 16px;
-    height: 16px;
+    width: var(--ScrollWidth);
+    height: var(--ScrollWidth);
     min-width: 0;
     padding: 0;
     background-repeat: no-repeat;
@@ -80,7 +80,7 @@
 
 .vertical.scrollbar {
   flex-direction: column;
-  width: 16px;
+  width: var(--ScrollWidth);
 
   // & > button:first-child::after {
     // background-image: url(arrow-up.svg);
@@ -103,8 +103,8 @@
   background-image: linear-gradient(45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(-45deg, var(--ButtonHilight) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ButtonHilight) 75%), linear-gradient(-45deg, transparent 75%, var(--ButtonHilight) 75%);
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
-  width: 16px;
-  height: 16px;
+  width: var(--ScrollWidth);
+  height: var(--ScrollWidth);
 }
 
 ::-webkit-scrollbar-corner {
@@ -121,15 +121,25 @@
   box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
 }
 
+.scrollbar button,
 ::-webkit-scrollbar-button {
-  width: 16px;
-  height: 16px;
-  display: none;
+  width: var(--ScrollWidth);
+  height: var(--ScrollWidth);
+  
+
+
+  &:active{
+    --ox: 1px;
+    --oy: 1px;
+  }
 }
 
-::-webkit-scrollbar-button:single-button {
-  display: block;
-  // color: blue;
+::-webkit-scrollbar-button{
+  display: none;
+  
+  &:single-button {
+    display: block;
+  }
 }
 :disabled::-webkit-scrollbar-button:single-button {
   color: var(--ButtonShadow);
@@ -147,15 +157,36 @@
   // background-image: url(arrow-up.svg);
   // background-position: 3px 5px;
   // background-repeat: no-repeat;
-  --ox : 3px;
-  --oy: 1px;
-  background: arrow-up(var(--ox), var(--oy)), var(--ButtonFace);
+  // --ox : 3px;
+  // --oy: 1px;
+  // background: arrow-up(var(--ox), var(--oy)), var(--ButtonFace);
+  background: 
+    conic-gradient(
+      at 0 calc(80% - 1px + var(--oy)) ,
+      transparent 90deg,
+      var(--ButtonFace) 90deg,
+    ) center
+    / var(--ArrowSize) var(--ArrowSize) no-repeat,
 
-  &:active {
-    // background-position: 4px 6px;
-    --ox : 4px;
-    --oy: 2px;
-  }
+    conic-gradient(
+      from 135deg at calc(50% + var(--ox)) calc(20% + var(--oy)),
+      var(--ButtonText) 0 25%,
+      transparent 0 100%
+    )
+    center / var(--ArrowSize) var(--ArrowSize) no-repeat,
+
+    var(--ButtonFace)
+    // linear-gradient( yellow)
+    // center
+    // / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    // var(--ButtonFace)
+    ;
+
+  // &:active {
+  //   // background-position: 4px 6px;
+  //   --ox : 4px;
+  //   --oy: 2px;
+  // }
 }
 
 .vertical.scrollbar > button:last-child,
@@ -163,15 +194,36 @@
   // background-image: url(arrow-down.svg);
   // background-position: 3px 5px;
   // background-repeat: no-repeat;
-  --ox : 3px;
-  --oy: 5px;
-  background: arrow-down(var(--ox), var(--oy)), var(--ButtonFace);
+  // --ox : 3px;
+  // --oy: 5px;
+  // background: arrow-down(var(--ox), var(--oy)), var(--ButtonFace);
+  background:
+    conic-gradient(
+      at 0 calc(20% + 1px + var(--oy)) ,
+      var(--ButtonFace) 90deg,
+      transparent 90deg,
+    ) center
+    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    
+    conic-gradient(
+      from 45deg at calc(50% + var(--ox)) calc(80% + var(--oy)),
+      transparent 0 75%,
+      var(--ButtonText) 0 25%,
+    ) center
+    / var(--ArrowSize) var(--ArrowSize) no-repeat,
 
-  &:active {
-    // background-position: 4px 6px;
-    --ox : 4px;
-    --oy: 6px;
-  }
+    var(--ButtonFace)
+    // linear-gradient( lime,lime)
+    // right 10% center
+    // / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    // var(--ButtonFace)
+    ;
+
+  // &:active {
+  //   // background-position: 4px 6px;
+  //   --ox : 4px;
+  //   --oy: 6px;
+  // }
 }
 
 .horizontal.scrollbar > button:first-child,
@@ -183,15 +235,36 @@
   // &:active {
   //   background-position: 5px 4px;
   // }
-  --ox : 4px;
-  --oy: 4px;
-  background: arrow-left(var(--ox), var(--oy)), var(--ButtonFace);
+  // --ox : 4px;
+  // --oy: 4px;
+  // background: arrow-left(var(--ox), var(--oy)), var(--ButtonFace);
+  background: conic-gradient(
+      at calc(80% - 1px + var(--ox)) 100% ,
+      var(--ButtonFace) 180deg,
+      transparent 180deg
+    )
+    center
+    / var(--ArrowSize) var(--ArrowSize) no-repeat,
 
-  &:active {
-    // background-position: 4px 6px;
-    --ox : 5px;
-    --oy: 5px;
-  }
+    conic-gradient(
+      from 45deg at calc(20% + var(--ox)) calc(50% + var(--oy)),
+      var(--ButtonText) 0 25%,
+      transparent 0 100%
+    )
+    center / var(--ArrowSize) var(--ArrowSize) no-repeat,
+
+    var(--ButtonFace)
+    // linear-gradient( yellow)
+    // center
+    // / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    // var(--ButtonFace)
+    ;
+
+  // &:active {
+  //   // background-position: 4px 6px;
+  //   --ox : 5px;
+  //   --oy: 5px;
+  // }
 }
 
 .horizontal.scrollbar > button:last-child,
@@ -203,14 +276,34 @@
   // &:active {
   //   background-position: 6px 4px;
   // }
-  --ox : 5px;
-  --oy: 4px;
-  background: arrow-right(var(--ox), var(--oy)), var(--ButtonFace);
+  // --ox : 5px;
+  // --oy: 4px;
+  // background: arrow-right(var(--ox), var(--oy)), var(--ButtonFace);
+  background:
+    conic-gradient(
+      at calc(20% + 1px + var(--ox)) 100% ,
+      transparent 180deg,
+      var(--ButtonFace) 180deg
+    ) center
+    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    
+    conic-gradient(
+      from -135deg at calc(80% + var(--ox)) calc(50% + var(--oy)),
+      var(--ButtonText) 0 25%,
+      transparent 0 100%
+    ) center
+    / var(--ArrowSize) var(--ArrowSize) no-repeat,
 
-  &:active {
-    // background-position: 4px 6px;
-    --ox : 3px;
-    --oy: 5px;
-  }
+    var(--ButtonFace)
+    /* linear-gradient( lime,lime)
+    right 10% center
+    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    var(--ButtonFace) */;
+
+  // &:active {
+  //   // background-position: 4px 6px;
+  //   --ox : 3px;
+  //   --oy: 5px;
+  // }
 
 }
