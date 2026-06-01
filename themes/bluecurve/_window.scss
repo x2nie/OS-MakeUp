@@ -308,24 +308,24 @@
     background-color: var(--ActiveTitle);
     // position: relative;
 
-    /* background-image0: linear-gradient(
-        to bottom, // Gradien vertikal
-        color-mix(in srgb, var(--ActiveTitle) 80%, var(--light-normal)), // blend/0.8
-        color-mix(in srgb, var(--ActiveTitle) 95%, var(--light-normal)), // blend/0.95
-        color-mix(in srgb, var(--ActiveTitle) 100%, var(--light-normal)), // blend/1.0
-        color-mix(in srgb, var(--ActiveTitle) 95%, var(--light-normal)), // blend/0.95
-        color-mix(in srgb, var(--ActiveTitle) 80%, var(--light-normal)) // blend/0.8
-    ); */
+    // background-image0: linear-gradient(
+    //     to bottom, // Gradien vertikal
+    //     color-mix(in srgb, var(--ActiveTitle) 80%, var(--light-normal)), // blend/0.8
+    //     color-mix(in srgb, var(--ActiveTitle) 95%, var(--light-normal)), // blend/0.95
+    //     color-mix(in srgb, var(--ActiveTitle) 100%, var(--light-normal)), // blend/1.0
+    //     color-mix(in srgb, var(--ActiveTitle) 95%, var(--light-normal)), // blend/0.95
+    //     color-mix(in srgb, var(--ActiveTitle) 80%, var(--light-normal)) // blend/0.8
+    // );
 
     // background0:
-        /* linear-gradient(
-                    to right,
-                    color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
-                    color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
-                    color-mix(in srgb, var(--ActiveTitle) 100%, transparent),
-                    color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
-                    color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
-                ) top 1px center repeat-x, */
+        // linear-gradient(
+        //             to right,
+        //             color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
+        //             color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
+        //             color-mix(in srgb, var(--ActiveTitle) 100%, transparent),
+        //             color-mix(in srgb, var(--ActiveTitle) 60%, transparent),
+        //             color-mix(in srgb, var(--ActiveTitle) 10%, transparent),
+        //         ) top 1px center repeat-x,
 
         // // * trick to remove the first and last row of the stripes 
         // linear-gradient(to bottom,
@@ -463,29 +463,29 @@
                 var(--headerbar_active_2) 75%,
                 var(--headerbar_active_1)),
             var(--ActiveTitle);
-                /*,
-        linear-gradient(to bottom,
-            var(--headerbar_active_top) 0,
-            var(--headerbar_active_top) 1px,
-            var(--headerbar_active_1) 1px,
-            var(--headerbar_active_1) 2px,
-            transparent 2px,
-            transparent calc(100% - 2px),
-            var(--headerbar_active_1) calc(100% - 2px),
-            var(--headerbar_active_1) calc(100% - 1px),
-            var(--ActiveBorder) calc(100% - 1px),
-            var(--ActiveBorder)
-        ),
-		url("img/csd_stripes.png") repeat,
-		linear-gradient(to bottom,
-            var(--headerbar_active_1),
-            var(--headerbar_active_2) 25%,
-            var(--headerbar_active_3) 50%,
-            var(--headerbar_active_2) 75%,
-            var(--headerbar_active_1)),
-		var(--ActiveTitle)
-        ;
-        */
+        //         ,
+        // linear-gradient(to bottom,
+        //     var(--headerbar_active_top) 0,
+        //     var(--headerbar_active_top) 1px,
+        //     var(--headerbar_active_1) 1px,
+        //     var(--headerbar_active_1) 2px,
+        //     transparent 2px,
+        //     transparent calc(100% - 2px),
+        //     var(--headerbar_active_1) calc(100% - 2px),
+        //     var(--headerbar_active_1) calc(100% - 1px),
+        //     var(--ActiveBorder) calc(100% - 1px),
+        //     var(--ActiveBorder)
+        // ),
+		// url("img/csd_stripes.png") repeat,
+		// linear-gradient(to bottom,
+        //     var(--headerbar_active_1),
+        //     var(--headerbar_active_2) 25%,
+        //     var(--headerbar_active_3) 50%,
+        //     var(--headerbar_active_2) 75%,
+        //     var(--headerbar_active_1)),
+		// var(--ActiveTitle)
+        // ;
+       
         
 
         // &::after{
@@ -517,26 +517,26 @@
                     var(--ActiveBorder) calc(100% - 1px),
                     var(--ActiveBorder)
                 ),
-                linear-gradient(to bottom,
-                    /* rgb(from var(--ActiveTitle) calc(calc(227 / 255) * r) ,calc(calc(227 / 255) * g), calc(calc(227 / 255) * b)  / calc(9 / 255 * 0.2)),
-                    rgb(from var(--ActiveTitle) calc(calc(245 / 255) * r) ,calc(calc(245 / 255) * g), calc(calc(245 / 255) * b)  / calc(26 / 255 * 0.2)),
-                    rgb(from var(--ActiveTitle) calc(calc(239 / 255) * r) ,calc(calc(239 / 255) * g), calc(calc(239 / 255) * b)  / calc(48 / 255 * 0.2)),
-                    rgb(from var(--ActiveTitle) calc(calc(240 / 255) * r) ,calc(calc(240 / 255) * g), calc(calc(240 / 255) * b)  / calc(69 / 255 * 0.2)),
-                    rgb(from var(--ActiveTitle) calc(calc(238 / 255) * r) ,calc(calc(238 / 255) * g), calc(calc(238 / 255) * b)  / calc(88 / 255 * 0.2)),
-                    rgb(from var(--ActiveTitle) calc(calc(238 / 255) * r) ,calc(calc(238 / 255) * g), calc(calc(238 / 255) * b)  / calc(107 / 255 * 0.2)),
-                    rgb(from var(--ActiveTitle) calc(calc(239 / 255) * r) ,calc(calc(239 / 255) * g), calc(calc(239 / 255) * b)  / calc(125 / 255 * 0.2)),
-                    rgb(from var(--ActiveTitle) calc(calc(240 / 255) * r) ,calc(calc(240 / 255) * g), calc(calc(240 / 255) * b)  / calc(138 / 255 * 0.2)),
-                    rgb(from var(--ActiveTitle) calc(calc(183 / 255) * r) ,calc(calc(183 / 255) * g), calc(calc(183 / 255) * b)  / calc(74 / 255 * 0.2)), */
+                // rgb(from var(--ActiveTitle) calc(calc(227 / 255) * r) ,calc(calc(227 / 255) * g), calc(calc(227 / 255) * b)  / calc(9 / 255 * 0.2)),
+                // rgb(from var(--ActiveTitle) calc(calc(245 / 255) * r) ,calc(calc(245 / 255) * g), calc(calc(245 / 255) * b)  / calc(26 / 255 * 0.2)),
+                // rgb(from var(--ActiveTitle) calc(calc(239 / 255) * r) ,calc(calc(239 / 255) * g), calc(calc(239 / 255) * b)  / calc(48 / 255 * 0.2)),
+                // rgb(from var(--ActiveTitle) calc(calc(240 / 255) * r) ,calc(calc(240 / 255) * g), calc(calc(240 / 255) * b)  / calc(69 / 255 * 0.2)),
+                // rgb(from var(--ActiveTitle) calc(calc(238 / 255) * r) ,calc(calc(238 / 255) * g), calc(calc(238 / 255) * b)  / calc(88 / 255 * 0.2)),
+                // rgb(from var(--ActiveTitle) calc(calc(238 / 255) * r) ,calc(calc(238 / 255) * g), calc(calc(238 / 255) * b)  / calc(107 / 255 * 0.2)),
+                // rgb(from var(--ActiveTitle) calc(calc(239 / 255) * r) ,calc(calc(239 / 255) * g), calc(calc(239 / 255) * b)  / calc(125 / 255 * 0.2)),
+                // rgb(from var(--ActiveTitle) calc(calc(240 / 255) * r) ,calc(calc(240 / 255) * g), calc(calc(240 / 255) * b)  / calc(138 / 255 * 0.2)),
+                // rgb(from var(--ActiveTitle) calc(calc(183 / 255) * r) ,calc(calc(183 / 255) * g), calc(calc(183 / 255) * b)  / calc(74 / 255 * 0.2)),
 
-                    /* rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(9 / 255)),
-                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(26 / 255)),
-                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(48 / 255)),
-                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(69 / 255)),
-                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(88 / 255)),
-                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(107 / 255)),
-                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(125 / 255)),
-                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(138 / 255)),
-                    rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(74 / 255)), */
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(9 / 255)),
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(26 / 255)),
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(48 / 255)),
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(69 / 255)),
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(88 / 255)),
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(107 / 255)),
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(125 / 255)),
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(138 / 255)),
+                // rgb(from var(--ActiveTitle) calc(r * 2 * 0.8) calc(g * 2 * 0.8) calc(b * 2 * 0.8)  / calc(74 / 255)),
+                linear-gradient(to bottom,
 
                     rgba(227,227,227, calc(9 / 255 * 0.3)),
                     rgba(245,245,245, calc(26 / 255 * 0.3)),

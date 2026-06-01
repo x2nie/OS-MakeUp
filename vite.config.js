@@ -3,12 +3,12 @@ import { resolve, relative } from 'path'
 import { globSync } from 'glob'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 
-const entries = Object.fromEntries(
+const entries = Object.fromEntries([
+    ...globSync('themes/**/theme*.scss'),
+    ...globSync('themes/**/skins/*.css')
+  ].map(file => {
 
-  globSync('themes/**/theme*.scss').map(file => {
-
-    const name = file.replace(/\.scss$/, '')
-
+    const name = file.replace(/\.(scss|css)$/, '')
     return [name, resolve(file)]
   })
 )
@@ -16,18 +16,18 @@ const entries = Object.fromEntries(
 export default defineConfig({
   plugins: [
 
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'themes/**/skins/*.css',
-          dest: ''
-        },
-        // {
-        //   src: 'themes/**/img/**/*',
-        //   dest: ''
-        // }
-      ]
-    })
+    // viteStaticCopy({
+    //   targets: [
+    //     {
+    //       src: 'themes/**/skins/*.css',
+    //       dest: ''
+    //     },
+    //     // {
+    //     //   src: 'themes/**/img/**/*',
+    //     //   dest: ''
+    //     // }
+    //   ]
+    // })
   ],
 
   base: './',
@@ -35,7 +35,8 @@ export default defineConfig({
 
     outDir: 'dist',
     assetsInlineLimit: 0, // 0 means no inlining, all assets will be emitted as separate files
-    cssCodeSplit: true,
+    // cssCodeSplit: true,
+    minify: false,
     rollupOptions: {
 
       input: entries,
@@ -46,7 +47,7 @@ export default defineConfig({
           if (assetInfo.name?.endsWith('.css')) {
             return assetInfo.name
           }
-          console.log('>>assetInfo', assetInfo)
+          // console.log('>>assetInfo', assetInfo)
 
           // return 'assets/[name][extname]'
           return assetInfo.originalFileName
