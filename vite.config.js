@@ -21,14 +21,20 @@ export default defineConfig({
         {
           src: 'themes/**/skins/*.css',
           dest: ''
-        }
+        },
+        // {
+        //   src: 'themes/**/img/**/*',
+        //   dest: ''
+        // }
       ]
     })
   ],
 
+  base: './',
   build: {
 
     outDir: 'dist',
+    assetsInlineLimit: 0, // 0 means no inlining, all assets will be emitted as separate files
     cssCodeSplit: true,
     rollupOptions: {
 
@@ -40,8 +46,10 @@ export default defineConfig({
           if (assetInfo.name?.endsWith('.css')) {
             return assetInfo.name
           }
+          console.log('>>assetInfo', assetInfo)
 
-          return 'assets/[name][extname]'
+          // return 'assets/[name][extname]'
+          return assetInfo.originalFileName
         }
       }
     }
