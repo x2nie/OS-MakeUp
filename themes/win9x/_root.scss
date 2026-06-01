@@ -36,9 +36,42 @@ $root: ':root' !default;
 
   --ScrollWidth: 26px;
   --ArrowSize: calc(var(--ScrollWidth) * 0.5 );
-  // --ArrowHalf: calc(var(--ScrollWidth) * 0.25 + 1px);
-  --ox: 0px;
+  --ox: 0px; // arrow offset
   --oy: 0px;
+  // --ArrowHalf: calc(var(--ScrollWidth) * 0.25 + 1px);
+
+  
+  --CaptionHeight: 29px;
+  --CaptionFont-Height: 23px;
+  --CaptionFont-Weight: 700;
+  --CaptionFont-Italic: 0;
+  --CaptionFont-Underline: 0;
+  --CaptionFont-StrikeOut: 0;
+  // --CaptionFont-CharSet: 0;
+  // --CaptionFont-OutPrecision: 0;
+  // --CaptionFont-ClipPrecision: 0;
+  // --CaptionFont-Quality: 0;
+  // --CaptionFont-PitchAndFamily: 0;
+  --CaptionFont-Name: Arial;
+
+  // --SmCaptionWidth: 21px,
+  --SmCaptionHeight: 21px;
+  // --SmCaptionFont-
+  --SmCaptionFont-Height: 16px;
+  --SmCaptionFont-Width: 0;
+  // --SmCaptionFont-Escapement: 0;
+  // --SmCaptionFont-Orientation: 0;
+  --SmCaptionFont-Weight: 700;
+  --SmCaptionFont-Italic: 0;
+  --SmCaptionFont-Underline: 0;
+  // --SmCaptionFont-StrikeOut: 0;
+  // --SmCaptionFont-CharSet: 0;
+  // --SmCaptionFont-OutPrecision: 0;
+  // --SmCaptionFont-ClipPrecision: 0;
+  // --SmCaptionFont-Quality: 0;
+  // --SmCaptionFont-PitchAndFamily: 0;
+  --SmCaptionFont-Name: "Arial";
+  
 }
 
 body {
