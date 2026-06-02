@@ -39,7 +39,10 @@ export default defineConfig({
     minify: false,
     rollupOptions: {
 
-      input: entries,
+      input: {...entries,
+        index: resolve('index.html'),
+        scooped: resolve('scooped.html'),
+      },
       output: {
 
         assetFileNames(assetInfo) {

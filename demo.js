@@ -110,7 +110,7 @@ function setTheme(theme) {
 }
 
 function clearSkin() {
-  skinLink.href = 'empty-skin.css';
+  skinLink.href = '';
 }
 
 function setSkin(skin) {
