@@ -1,7 +1,22 @@
 .desktop {
   background: var(--Background);
 }
-
+.status-bar {
+  display: flex;
+  width: 100%;
+  gap: 2px;
+  > * {
+    padding: 0 4px;
+    flex-grow: 1;
+    // flex-shrink: 1;
+    box-shadow: inset -1px -1px var(--ButtonHilight), inset 1px 1px var(--ButtonShadow);
+  }
+  // border-top: 1px solid var(--ButtonShadow);
+  // border-bottom: 1px solid var(--ButtonHilight);
+  // background: var(--ButtonFace);
+  // color: var(--ButtonText);
+  // font-size: smaller;
+}
 .raised {
   background: var(--ButtonFace);
   border: 1px solid var(--ButtonHilight);
