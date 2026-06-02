@@ -40,7 +40,7 @@ const skins = {
     'rainy-day', 'red-white-and-blue', 'rose',
     'slate', 'spruce', 'storm', 'teal', 'wheat',
 
-    'Treehouse.theme', 'Messyroom.theme', 'Horses.theme',
+    'Treehouse.theme', 'Messyroom.theme', 'Horses.theme', 'Bugs.theme',
 
     'brick-2000', 'desert-2000', 'eggplant-2000', 'lilac-2000',
     'maple-2000', 'marine-2000', 'plum-2000', 'pumpkin-2000',

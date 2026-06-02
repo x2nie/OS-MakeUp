@@ -75,6 +75,7 @@ $root: ':root' !default;
 
 .variant-large {
   --ScrollWidth: 18px;
+  --arrowSize: calc(var(--ScrollWidth) * 0.5 );
   // --ArrowHalf: calc(var(--ScrollWidth) * 0.25 + 1px);
 
   --CaptionHeight: 22px;
@@ -88,6 +89,7 @@ $root: ':root' !default;
 
 .variant-extra-large {
   --ScrollWidth: 21px;
+  --arrowSize: calc(var(--ScrollWidth) * 0.5 );
   // --ArrowHalf: calc(var(--ScrollWidth) * 0.25 + 1px);
 
   
