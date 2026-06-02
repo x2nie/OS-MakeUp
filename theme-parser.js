@@ -16,11 +16,12 @@ export async function parseTheme(theme) {
     result.push(`  --ScrollWidth: ${nc.ScrollWidth}px;`);
     result.push(`  --arrowSize: calc(var(--ScrollWidth) * 0.5 );`);
     result.push(`  --CaptionHeight: ${nc.CaptionHeight}px;`);
+    // result.push(`  --CaptionFont-Height: ${Math.abs(nc.CaptionFont.Height)}px;`);
     result.push(`  --CaptionFont-Height: ${nc.CaptionFont.Height}px;`);
     result.push(`  --CaptionFont-Weight: ${nc.CaptionFont.Weight}px;`);
     result.push(`  --CaptionFont-Name: '${nc.CaptionFont.Name}';`);
     result.push(`  --SmCaptionHeight: ${nc.SmCaptionHeight}px;`);
-    result.push(`  --SmCaptionFont-Height: ${nc.SmCaptionFont.Height}px;`);
+    result.push(`  --SmCaptionFont-Height: ${Math.abs(nc.SmCaptionFont.Height)}pt;`);
     result.push(`  --SmCaptionFont-Weight: ${nc.SmCaptionFont.Weight}px;`);
     result.push(`  --SmCaptionFont-Name: '${nc.SmCaptionFont.Name}';`);
     result.push('}');

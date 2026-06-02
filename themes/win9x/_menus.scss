@@ -175,6 +175,7 @@
 .menu > .title-bar {
   writing-mode: vertical-lr;
   transform: rotate(180deg);
+  --titlebar-gradient-direction: to top;
 }
 
 .menu > .title-bar > .title-bar-text {

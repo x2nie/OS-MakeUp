@@ -17,12 +17,19 @@
 }
 
 .title-bar {
-  height: var(--CaptionHeight);
-  background: linear-gradient(to right, var(--InactiveTitle), var(--GradientInactiveTitle));
+  --titlebar-gradient-direction: to right;
+  // height: var(--CaptionHeight);
+  background: linear-gradient(var(--titlebar-gradient-direction), var(--InactiveTitle), var(--GradientInactiveTitle));
   color: var(--InactiveTitleText);
   display: flex;
   flex-direction: row;
   font-weight: bold;
+  
+  .alt_caption > & {
+    --titlebar-gradient-direction: to top;
+    // --titlebar-gradient-direction: to bottom;
+    // background: linear-gradient(to top, var(--InactiveTitle), var(--GradientInactiveTitle));
+  }
 }
 
 .title-bar-text {
@@ -30,6 +37,7 @@
   font-size: var(--CaptionFont-Height);
   text-align: left;
   font-weight: var(--CaptionFont-Weight);
+  height: var(--CaptionHeight);
   // padding: 1px 4px;
   padding-block: 0;
   padding-inline: 4px;
@@ -41,6 +49,7 @@
 
 .title-bar-buttons {
   flex-shrink: 0;
+  font-size: var(--CaptionFont-Height);
   display: flex;
   flex-direction: row;
   padding: 2px;
@@ -98,7 +107,7 @@
     }
     &[data-close] {
       // background-image: url(close.svg);
-      margin-left: 2px;
+      // margin-left: 2px;
 
       &::after{
         // content: "\1F5D9";
@@ -106,6 +115,9 @@
         content: "\2715";
         font-size: large;
       }
+    }
+    button + [data-close] {
+      margin-left: 2px;
     }
     
     &[data-minimize]::after {
@@ -150,6 +162,25 @@
     }
   }
 }
+.window.tool-window.alt_caption {
+  flex-direction: row;
+  .title-bar{
+    // writing-mode: vertical-lr;
+    // transform: rotate(180deg);
+    height: auto;
+    width: var(--SmCaptionHeight);
+    flex-direction: column-reverse;
+
+    &-text {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+    }
+
+    // button[data-close] {
+    //   transform: rotate(90deg);
+    // }
+  }
+}
 
 .window-body,
 .dialog-body {
@@ -163,7 +194,7 @@
 .window:focus-within > .title-bar,
 .dialog:focus-within > .title-bar,
 .title-bar.active {
-  background: linear-gradient(to right, var(--ActiveTitle), var(--GradientActiveTitle));
+  background: linear-gradient(var(--titlebar-gradient-direction), var(--ActiveTitle), var(--GradientActiveTitle));
   color: var(--TitleText);
 }
 
