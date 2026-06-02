@@ -53,6 +53,7 @@
   border-bottom: 1px solid var(--title-bar-dark);
   border-right: 1px solid var(--title-bar-dark);
   width: 26px;
+  height: 26px;
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -66,8 +67,12 @@
   outline: none;
 }
 
+.title-bar-buttons.sys button {
+  background-image: url(sys.svg);
+}
 .title-bar-buttons button[data-close] {
   background-image: url(close.svg);
+  display: none; // CDE doesn't show close button on tool windows
 }
 
 .title-bar-buttons button[data-minimize] {
@@ -80,6 +85,19 @@
 
 .maximized .title-bar-buttons button[data-maximize] {
   background-image: url(restore.svg);
+}
+
+.window.alt_caption {
+  flex-direction: row;
+  .title-bar {
+    flex-direction: column-reverse;
+  }
+  .title-bar-text{
+    font-size: 0;
+  }
+  .title-bar-buttons.sys {
+    order: 1;
+  }
 }
 
 .window.active > .title-bar,
