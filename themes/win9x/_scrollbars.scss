@@ -166,19 +166,19 @@
       transparent 90deg,
       var(--ButtonFace) 90deg,
     ) center
-    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    / var(--arrowSize) var(--arrowSize) no-repeat,
 
     conic-gradient(
       from 135deg at calc(50% + var(--ox)) calc(20% + var(--oy)),
       var(--ButtonText) 0 25%,
       transparent 0 100%
     )
-    center / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    center / var(--arrowSize) var(--arrowSize) no-repeat,
 
     var(--ButtonFace)
     // linear-gradient( yellow)
     // center
-    // / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    // / var(--arrowSize) var(--arrowSize) no-repeat,
     // var(--ButtonFace)
     ;
 
@@ -203,19 +203,19 @@
       var(--ButtonFace) 90deg,
       transparent 90deg,
     ) center
-    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    / var(--arrowSize) var(--arrowSize) no-repeat,
     
     conic-gradient(
       from 45deg at calc(50% + var(--ox)) calc(80% + var(--oy)),
       transparent 0 75%,
       var(--ButtonText) 0 25%,
     ) center
-    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    / var(--arrowSize) var(--arrowSize) no-repeat,
 
     var(--ButtonFace)
     // linear-gradient( lime,lime)
     // right 10% center
-    // / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    // / var(--arrowSize) var(--arrowSize) no-repeat,
     // var(--ButtonFace)
     ;
 
@@ -244,19 +244,19 @@
       transparent 180deg
     )
     center
-    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    / var(--arrowSize) var(--arrowSize) no-repeat,
 
     conic-gradient(
       from 45deg at calc(20% + var(--ox)) calc(50% + var(--oy)),
       var(--ButtonText) 0 25%,
       transparent 0 100%
     )
-    center / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    center / var(--arrowSize) var(--arrowSize) no-repeat,
 
     var(--ButtonFace)
     // linear-gradient( yellow)
     // center
-    // / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    // / var(--arrowSize) var(--arrowSize) no-repeat,
     // var(--ButtonFace)
     ;
 
@@ -285,19 +285,19 @@
       transparent 180deg,
       var(--ButtonFace) 180deg
     ) center
-    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    / var(--arrowSize) var(--arrowSize) no-repeat,
     
     conic-gradient(
       from -135deg at calc(80% + var(--ox)) calc(50% + var(--oy)),
       var(--ButtonText) 0 25%,
       transparent 0 100%
     ) center
-    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    / var(--arrowSize) var(--arrowSize) no-repeat,
 
     var(--ButtonFace)
     /* linear-gradient( lime,lime)
     right 10% center
-    / var(--ArrowSize) var(--ArrowSize) no-repeat,
+    / var(--arrowSize) var(--arrowSize) no-repeat,
     var(--ButtonFace) */;
 
   // &:active {

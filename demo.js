@@ -1,3 +1,4 @@
+import {parseTheme} from './theme-parser.js';
 const skins = {
   cde: [
     'default',
@@ -39,6 +40,8 @@ const skins = {
     'rainy-day', 'red-white-and-blue', 'rose',
     'slate', 'spruce', 'storm', 'teal', 'wheat',
 
+    'Treehouse.theme', 'Messyroom.theme', 'Horses.theme',
+
     'brick-2000', 'desert-2000', 'eggplant-2000', 'lilac-2000',
     'maple-2000', 'marine-2000', 'plum-2000', 'pumpkin-2000',
     'rainy-day-2000', 'red-white-and-blue-2000', 'rose-2000',
@@ -70,14 +73,17 @@ const skins = {
 
 const themeLink = document.getElementById('theme-link');
 const skinLink = document.getElementById('skin-link');
+const skinTheme = document.getElementById('skin-theme');
 const themeSelect = document.getElementById('theme-select');
 const skinSelect = document.getElementById('skin-select');
+const variantSelect = document.getElementById('variant-select');
 const usePreferredFont = document.getElementById('use-preferred-font');
 
 let defaultTheme = 'cde';
 let defaultSkin = 'crimson-4';
 let activeTheme = defaultTheme;
 let activeSkin = defaultSkin;
+let variants = {};
 const themeExt =
   import.meta.env.DEV
     ? 'scss'
@@ -91,6 +97,9 @@ function setTheme(theme) {
   themeSelect.value = theme;
   skinSelect.innerHTML = '';
   clearSkin();
+  setTimeout(() => {
+    updateVariant();
+  }, 500);
   if (skins.hasOwnProperty(theme)) {
     skinSelect.disabled = false;
     for (let skin of skins[theme]) {
@@ -109,11 +118,22 @@ function setTheme(theme) {
   }
 }
 
+function updateVariant() {
+  variantSelect.innerHTML = '';
+  variants = JSON.parse(getComputedStyle(document.body).getPropertyValue('--variant-classes') || '{}');
+  for (const [opt, label] of Object.entries(variants)) {
+    const option = document.createElement('option');
+    option.textContent = label;
+    option.value = opt;
+    variantSelect.add(option);
+    if(opt) document.body.classList.remove(opt);
+  }
+}
 function clearSkin() {
   skinLink.href = '';
 }
 
-function setSkin(skin) {
+async function setSkin(skin) {
   if (!skins.hasOwnProperty(activeTheme)) {
     clearSkin();
     return;
@@ -123,7 +143,14 @@ function setSkin(skin) {
   }
   activeSkin = skin;
   skinSelect.value = activeSkin;
-  skinLink.href = 'themes/' + activeTheme + '/skins/' + activeSkin + '.css';
+  if (activeSkin.endsWith('.theme')) {
+    skinTheme.textContent = await parseTheme('themes/' + activeTheme + '/skins/' + activeSkin);
+    skinLink.href = '';
+    return;
+  } else {
+    skinTheme.textContent = '';
+    skinLink.href = 'themes/' + activeTheme + '/skins/' + activeSkin + '.css';
+  }
 }
 
 function pushState() {
@@ -166,6 +193,16 @@ skinSelect.addEventListener('change', () => {
   if (skinSelect.value) {
     setSkin(skinSelect.value);
     pushState();
+  }
+});
+variantSelect.addEventListener('change', () => {
+  for (const opt of Object.keys(variants)) {
+    if(opt) document.body.classList.remove(opt);
+  }
+  // document.body.classList.remove(...);
+  if (variantSelect.value) {
+    document.body.classList.add(variantSelect.value);
+    // pushState();
   }
 });
 

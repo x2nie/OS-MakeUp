@@ -2,3 +2,4 @@ build
 dist
 themes/cde/palettes
 node_modules/
+.vscode/settings.json
