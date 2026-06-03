@@ -2,12 +2,15 @@
 
 [role=menu],
 [role=menubar] {
-  color: var(--ButtonText);
-  background-color: var(--ButtonFace);
+  color: var(--MenuText);
+  background-color: var(--Menu);
   border: 1px solid var(--light);
   border-right-color: var(--ButtonDkShadow);
   border-bottom-color: var(--ButtonDkShadow);
   box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonShadow);
+  font-size: var(--MenuFont-Height);
+  font-weight: var(--MenuFont-Weight);
+  font-family: var(--MenuFont-Name), 'Segoe UI', Tahoma, Geneval, inherit;
   padding: 2px;
 
   li {
@@ -37,7 +40,8 @@
 
 [role=menubar] > li {
   border: 1px solid transparent;
-  padding: 1px 8px;
+  // padding: 1px 8px;
+  padding-inline: 6px;
 
   & > ul,
   & > .menu {

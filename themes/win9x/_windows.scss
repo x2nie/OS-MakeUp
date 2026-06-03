@@ -116,7 +116,7 @@
         // font-size: large;
       }
     }
-    button + [data-close] {
+    & + [data-close] {
       margin-left: 2px;
     }
     
@@ -187,7 +187,7 @@
 .dialog-body {
   background: var(--ButtonFace);
   color: var(--ButtonText);
-  margin-top: 4px;
+  // margin-top: 4px;
 }
 
 .window.active > .title-bar,
@@ -201,6 +201,6 @@
 
 .window-body > [role=menubar],
 .dialog-body > [role=menubar] {
-  margin-top: -3px;
+  // margin-top: -3px;
   margin-bottom: 1px;
 }

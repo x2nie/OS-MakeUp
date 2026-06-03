@@ -20,10 +20,16 @@ export async function parseTheme(theme) {
     result.push(`  --CaptionFont-Height: ${nc.CaptionFont.Height}px;`);
     result.push(`  --CaptionFont-Weight: ${nc.CaptionFont.Weight}px;`);
     result.push(`  --CaptionFont-Name: '${nc.CaptionFont.Name}';`);
+
     result.push(`  --SmCaptionHeight: ${nc.SmCaptionHeight}px;`);
-    result.push(`  --SmCaptionFont-Height: ${Math.abs(nc.SmCaptionFont.Height)}pt;`);
+    result.push(`  --SmCaptionFont-Height: ${nc.SmCaptionFont.Height}px;`);
     result.push(`  --SmCaptionFont-Weight: ${nc.SmCaptionFont.Weight}px;`);
     result.push(`  --SmCaptionFont-Name: '${nc.SmCaptionFont.Name}';`);
+    
+    result.push(`  --MenuHeight: ${nc.MenuHeight}px;`);
+    result.push(`  --MenuFont-Height: ${nc.MenuFont.Height}px;`);
+    result.push(`  --MenuFont-Weight: ${nc.MenuFont.Weight}px;`);
+    result.push(`  --MenuFont-Name: '${nc.MenuFont.Name}';`);
     result.push('}');
     return result.join('\n');
 }
@@ -111,7 +117,7 @@ function parseLOGFONTA(dv,o){
 
     return {
 
-        Height: i32(dv,o + 0),
+        Height: i32(dv,o + 0) * -1,
         Width: i32(dv,o + 4),
         Escapement: i32(dv,o + 8),
         Orientation: i32(dv,o + 12),

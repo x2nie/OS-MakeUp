@@ -14,9 +14,10 @@ $root: ':root' !default;
   --light: #DFDFDF;
   --medium: var(--ButtonFace);
   --ButtonShadow: #808080;
-  
   --ButtonDkShadow: #000000;
-
+  
+  --Menu: var(--ButtonFace);
+  --MenuText: var(--ButtonText);
   // --ButtonText: var(--ButtonText);
   --Window: #FFFFFF;
   --WindowText: #000000;
@@ -58,19 +59,19 @@ $root: ':root' !default;
 
   --SmCaptionHeight: 15px;
   --SmCaptionFont-Height: 8px;
-  // --SmCaptionFont-Width: 0;
-  // --SmCaptionFont-Escapement: 0;
-  // --SmCaptionFont-Orientation: 0;
   --SmCaptionFont-Weight: var(--CaptionFont-Weight);
   --SmCaptionFont-Italic: var(--CaptionFont-Italic);
   --SmCaptionFont-Underline: var(--CaptionFont-Underline);
   --SmCaptionFont-StrikeOut: var(--CaptionFont-StrikeOut);
-  // --SmCaptionFont-CharSet: 0;
-  // --SmCaptionFont-OutPrecision: 0;
-  // --SmCaptionFont-ClipPrecision: 0;
-  // --SmCaptionFont-Quality: 0;
-  // --SmCaptionFont-PitchAndFamily: 0;
   --SmCaptionFont-Name: var(--CaptionFont-Name);
+
+  --MenuHeight: 17px;
+  --MenuFont-Height: 11px;
+  --MenuFont-Weight: 400;
+  --MenuFont-Italic: normal;
+  --MenuFont-Underline: 0;
+  --MenuFont-StrikeOut: 0;
+  --MenuFont-Name: 'Ms Sans Serif';
 }
 
 .variant-large {
