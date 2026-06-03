@@ -1,0 +1,44 @@
+:root {
+  --IconMetrics: invalid;
+  --NonclientMetrics: invalid;
+  --ActiveTitle: #C0C0C0;
+  --Background: #667293;
+  --Hilight: #C8F8A8;
+  --HilightText: #000000;
+  --TitleText: #000000;
+  --Window: #FFFFFF;
+  --WindowText: #000000;
+  --Scrollbar: #C8C8D0;
+  --InactiveTitle: #585878;
+  --Menu: #8888A8;
+  --WindowFrame: #000000;
+  --MenuText: #000000;
+  --ActiveBorder: #8888A8;
+  --InactiveBorder: #8888A8;
+  --AppWorkspace: #555575;
+  --ButtonFace: #8888A8;
+  --ButtonShadow: #585878;
+  --GrayText: #585878;
+  --ButtonText: #000000;
+  --InactiveTitleText: #000000;
+  --ButtonHilight: #C8C8D0;
+  --ButtonDkShadow: #000000;
+  --ButtonLight: #8888A8;
+  --InfoText: #000000;
+  --InfoWindow: #FFFFFF;
+  --ScrollWidth: 15px;
+  --arrowSize: calc(var(--ScrollWidth) * 0.5 );
+  --CaptionHeight: 20px;
+  --CaptionFont-Height: -11px;
+  --CaptionFont-Weight: 400px;
+  --CaptionFont-Name: 'Viner Hand ITC';
+  --SmCaptionHeight: 15px;
+  --SmCaptionFont-Height: 9pt;
+  --SmCaptionFont-Weight: 400px;
+  --SmCaptionFont-Name: 'MS Sans Serif';
+    --MenuHeight: 18px;
+  --MenuFont-Height: 11pt;
+  --MenuFont-Weight: 400px;
+  --MenuFont-Name: 'MS Sans Serif';
+
+}

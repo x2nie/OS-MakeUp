@@ -19,17 +19,17 @@ export async function parseTheme(theme) {
     // result.push(`  --CaptionFont-Height: ${Math.abs(nc.CaptionFont.Height)}px;`);
     result.push(`  --CaptionFont-Height: ${nc.CaptionFont.Height}px;`);
     result.push(`  --CaptionFont-Weight: ${nc.CaptionFont.Weight}px;`);
-    result.push(`  --CaptionFont-Name: '${nc.CaptionFont.Name}';`);
+    result.push(`  --CaptionFont-Name: ${nc.CaptionFont.Name};`);
 
     result.push(`  --SmCaptionHeight: ${nc.SmCaptionHeight}px;`);
     result.push(`  --SmCaptionFont-Height: ${nc.SmCaptionFont.Height}px;`);
     result.push(`  --SmCaptionFont-Weight: ${nc.SmCaptionFont.Weight}px;`);
-    result.push(`  --SmCaptionFont-Name: '${nc.SmCaptionFont.Name}';`);
+    result.push(`  --SmCaptionFont-Name: ${nc.SmCaptionFont.Name};`);
     
     result.push(`  --MenuHeight: ${nc.MenuHeight}px;`);
     result.push(`  --MenuFont-Height: ${nc.MenuFont.Height}px;`);
     result.push(`  --MenuFont-Weight: ${nc.MenuFont.Weight}px;`);
-    result.push(`  --MenuFont-Name: '${nc.MenuFont.Name}';`);
+    result.push(`  --MenuFont-Name: ${nc.MenuFont.Name};`);
     result.push('}');
     return result.join('\n');
 }
@@ -101,6 +101,10 @@ function u32(dv,o){
     return dv.getUint32(o,true);
 }
 
+function safeSize(size){
+    return Math.round(size * 12/11);
+}
+
 function parseLOGFONTA(dv,o){
 
     let face = "";
@@ -117,8 +121,8 @@ function parseLOGFONTA(dv,o){
 
     return {
 
-        Height: i32(dv,o + 0) * -1,
-        Width: i32(dv,o + 4),
+        Height: safeSize(i32(dv,o + 0) * -1),
+        Width: safeSize(i32(dv,o + 4)),
         Escapement: i32(dv,o + 8),
         Orientation: i32(dv,o + 12),
         Weight: i32(dv,o + 16),
@@ -130,8 +134,20 @@ function parseLOGFONTA(dv,o){
         ClipPrecision: dv.getUint8(o + 25),
         Quality: dv.getUint8(o + 26),
         PitchAndFamily: dv.getUint8(o + 27),
-        Name: face
+        Name: safeFontName(face)
     };
+}
+
+
+function safeFontName(name) {
+    switch(name) {
+        case 'MS Sans Serif':
+            return `'${name}', 'DejaVu Sans', sans-serif`;
+        // case 'MS Shell Dlg':
+        //     return `'${name}'`;
+        default:
+            return `'${name}'`;
+    }
 }
 
 function parseNONCLIENTMETRICS_raw(text){
@@ -146,23 +162,21 @@ function parseNONCLIENTMETRICS_raw(text){
 
         cbSize: u32(dv,o),
         BorderWidth: i32(dv,o += 4),
-        ScrollWidth: i32(dv,o += 4),
-        ScrollHeight: i32(dv,o += 4),
-        CaptionWidth: i32(dv,o += 4),
-        CaptionHeight: i32(dv,o += 4)
+        ScrollWidth: safeSize(i32(dv,o += 4)),
+        ScrollHeight: safeSize(i32(dv,o += 4)),
+        CaptionWidth: safeSize(i32(dv,o += 4)),
+        CaptionHeight: safeSize(i32(dv,o += 4))
     };
 
     o += 4;
 
     out.CaptionFont = parseLOGFONTA(dv,o);
-
     o += 60;
 
-    out.SmCaptionWidth = i32(dv,o);
-
+    out.SmCaptionWidth = safeSize(i32(dv,o));
     o += 4;
 
-    out.SmCaptionHeight = i32(dv,o);
+    out.SmCaptionHeight = safeSize(i32(dv,o));
 
     o += 4;
 
@@ -170,11 +184,11 @@ function parseNONCLIENTMETRICS_raw(text){
 
     o += 60;
 
-    out.MenuWidth = i32(dv,o);
+    out.MenuWidth = safeSize(i32(dv,o));
 
     o += 4;
 
-    out.MenuHeight = i32(dv,o);
+    out.MenuHeight = safeSize(i32(dv,o));
 
     o += 4;
 

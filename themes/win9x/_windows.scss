@@ -113,7 +113,6 @@
         // content: "\1F5D9";
         content: "\274C";
         content: "\2715";
-        // font-size: large;
       }
     }
     & + [data-close] {
@@ -125,10 +124,12 @@
       content: "\1F5D5";
       vertical-align: bottom;
       height: 1ch;
+      font-size: smaller;
     }
     
     &[data-maximize]::after {
       content: "\1F5D6";
+      font-size: smaller;
       // background-image: url(maximize.svg);
     }
     
