@@ -2,7 +2,13 @@
 
 #{util.$buttons} {
   background-color: var(--ButtonFace);
-  color: var(--ButtonText);
+  // color: var(--ButtonText);
+
+  // The text is made transparent and given a shadow of the text color to create an embossed effect.
+  // This is because in the active state, the text color changes to the highlight color, and the shadow creates a "pressed" effect.
+  // idea taken from xp.css
+  color: transparent;
+  text-shadow: 0 0 0 var(--ButtonText);
   border: 1px solid var(--ButtonDkShadow);
   border-top: 1px solid var(--ButtonHilight);
   border-left: 1px solid var(--ButtonHilight);
@@ -30,7 +36,8 @@
   &:not(:disabled, .disabled):active, &.active {
     border: 1px solid var(--ButtonDkShadow);
     box-shadow: inset 1px 1px 0 var(--ButtonShadow), inset -1px -1px 0 var(--ButtonShadow);
-    padding: 4px 9px 2px 11px;
+    // padding: 4px 9px 2px 11px;
+    text-shadow: 1px 1px 0 var(--ButtonText);
   }
 }
 
