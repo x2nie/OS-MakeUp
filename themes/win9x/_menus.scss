@@ -14,6 +14,12 @@
   padding: 2px;
 
   li {
+    // The text is colorized by text-shadow,
+    // for easy transform text position while clicking.
+    // idea taken from xp.css
+    color: transparent;
+    text-shadow: 0 0 0 var(--MenuText);
+
     &:focus {
       outline: none;
     }
@@ -24,12 +30,14 @@
     }
 
     &[aria-disabled=true] {
-      color: var(--ButtonShadow);
-      text-shadow: 1px 1px 0 var(--ButtonHilight);
+      color: var(--ButtonShadow)!important;
+      text-shadow: 1px 1px 0 var(--ButtonHilight)!important;
       border-color: transparent;
     }
   }
 }
+
+
 
 [role=menubar],
 .menu > [role=menu] {
@@ -42,6 +50,7 @@
   border: 1px solid transparent;
   // padding: 1px 8px;
   padding-inline: 6px;
+  border: 1px solid transparent;
 
   & > ul,
   & > .menu {
@@ -54,7 +63,7 @@
 
   &:hover {
     background: var(--ButtonFace);
-    color: var(--ButtonText);
+    // color: var(--ButtonText);
     border: 1px solid var(--ButtonHilight);
     border-right-color: var(--ButtonShadow);
     border-bottom-color: var(--ButtonShadow);
@@ -62,11 +71,12 @@
 
   &:focus-within {
     background: var(--ButtonFace);
-    color: var(--ButtonText);
+    // color: var(--ButtonText);
     border: 1px solid var(--ButtonShadow);
     border-right-color: var(--ButtonHilight);
     border-bottom-color: var(--ButtonHilight);
-    padding: 2px 7px 0 9px;
+    // padding: 2px 7px 0 9px;
+    text-shadow: 1px 1px 0 var(--MenuText);
   }
 }
 

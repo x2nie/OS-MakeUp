@@ -4,8 +4,8 @@
   background-color: var(--ButtonFace);
   // color: var(--ButtonText);
 
-  // The text is made transparent and given a shadow of the text color to create an embossed effect.
-  // This is because in the active state, the text color changes to the highlight color, and the shadow creates a "pressed" effect.
+  // The text is colorized by text-shadow,
+  // for easy transform text position while clicking.
   // idea taken from xp.css
   color: transparent;
   text-shadow: 0 0 0 var(--ButtonText);

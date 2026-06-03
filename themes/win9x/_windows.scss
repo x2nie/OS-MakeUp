@@ -76,7 +76,7 @@
       border: 1px solid var(--ButtonHilight);
       border-top: 1px solid var(--ButtonDkShadow);
       border-left: 1px solid var(--ButtonDkShadow);
-      padding: 0;
+      // padding: 0;
     }
     
     &:not(:active):focus {
@@ -99,10 +99,10 @@
         // margin-top: -1px;
         vertical-align: middle;
       }
-      &:not(:disabled):active::after{
-        margin-top: 2px;
-        margin-left: 1px;
-      }
+      // &:not(:disabled):active::after{
+      //   margin-top: 2px;
+      //   margin-left: 1px;
+      // }
       
     }
     &[data-close] {
