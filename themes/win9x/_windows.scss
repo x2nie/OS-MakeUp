@@ -187,7 +187,8 @@
 .window-body,
 .dialog-body {
   background: var(--ButtonFace);
-  color: var(--ButtonText);
+  // color: var(--ButtonText);
+  color: var(--WindowText);
   // margin-top: 4px;
 }
 

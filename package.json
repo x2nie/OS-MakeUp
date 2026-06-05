@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "old-build": "make all",
     "build": "vite build"
   },

@@ -1,0 +1,52 @@
+|---------------------------------------------------------------------|
+|                 Batman:The Animated Series Theme                    |
+|		  designed for MS Plus! Installed                     |
+|               Created by Joshua "Spidey" Bentley                    |
+|	   webslinger@thethemepark.net - www.thethemepark.net	      |
+|              All Contents (c)1993 by Warner Bros.                   |
+|        except that "Windows '95", "Plus!", and probably even the    |
+|       words "Theme Pack" are of course (c)1996-2001 by Microsoft    |
+|---------------------------------------------------------------------|
+*Updated 02.02.01
+
+------------
+UPDATE INFO
+------------
+I recently went through and updated all of my themes to make them Win9x/2k/NT compatible.  This includes cleaning up some code, adding gradient colors, updating graphics, improving cursors where necessary, etc.  I hope you enjoy the changes!
+; source: https://archive.org/details/batmanta
+
+
+[Control Panel\Colors]
+ActiveTitle=112 124 224
+Background=0 0 0
+Hilight=112 124 224
+HilightText=255 255 255
+TitleText=0 0 0
+Window=255 255 255
+WindowText=0 0 0
+Scrollbar=184 188 184
+InactiveTitle=147 113 23
+Menu=112 116 112
+WindowFrame=0 0 0
+MenuText=0 0 0
+ActiveBorder=112 124 224
+InactiveBorder=130 139 227
+AppWorkspace=74 77 74
+ButtonFace=112 116 112
+ButtonShadow=72 76 72
+GrayText=72 76 72
+ButtonText=0 0 0
+InactiveTitleText=255 255 255
+ButtonHilight=184 188 184
+ButtonDkShadow=0 0 0
+ButtonLight=112 116 112
+InfoText=0 0 0
+InfoWindow=255 255 255
+ButtonAlternateFace=112 116 112
+GradientActiveTitle=127 127 127
+GradientInactiveTitle=224 180 64
+HotTrackingColor=112 124 224 
+
+[Metrics]
+IconMetrics=76 0 0 0 75 0 0 0 75 0 0 0 1 0 0 0 243 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 72 97 109 109 101 114 32 84 104 105 110 0 101 99 121 99 108 101 32 66 105 110 46 119 97 118 0 66 105 110 46 119
+NonclientMetrics=84 1 0 0 1 0 0 0 13 0 0 0 13 0 0 0 26 0 0 0 26 0 0 0 237 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 0 0 0 0 0 65 118 97 108 111 110 32 81 117 101 115 116 0 109 97 110 45 32 84 65 83 92 66 97 116 109 97 110 45 84 65 83 15 0 0 0 15 0 0 0 247 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 0 0 0 0 0 67 97 108 105 115 116 111 32 77 84 0 116 0 109 97 110 45 32 84 65 83 92 66 97 116 109 97 110 45 84 65 83 18 0 0 0 18 0 0 0 243 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 188 2 0 0 0 0 0 0 0 0 0 0 72 97 109 109 101 114 32 84 104 105 110 0 0 109 97 110 45 32 84 65 83 92 66 97 116 109 97 110 45 84 65 83 245 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 3 2 0 34 86 101 114 100 97 110 97 0 114 105 115 0 0 109 97 110 45 32 84 65 83 92 66 97 116 109 97 110 45 84 65 83 237 255 255 255 0 0 0 0 0 0 0 0 0 0 0 0 144 1 0 0 0 0 0 0 0 0 0 0 65 118 97 108 111 110 32 81 117 101 115 116 0 109 97 110 45 32 84 65 83 92 66 97 116 109 97 110 45 84 65 83

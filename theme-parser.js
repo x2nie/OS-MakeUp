@@ -30,6 +30,16 @@ export async function parseTheme(theme) {
     result.push(`  --MenuFont-Height: ${nc.MenuFont.Height}px;`);
     result.push(`  --MenuFont-Weight: ${nc.MenuFont.Weight}px;`);
     result.push(`  --MenuFont-Name: ${nc.MenuFont.Name};`);
+
+    // result.push(`  --StatusHeight: ${nc.StatusHeight}px;`);
+    result.push(`  --StatusFont-Height: ${nc.StatusFont.Height}px;`);
+    result.push(`  --StatusFont-Weight: ${nc.StatusFont.Weight}px;`);
+    result.push(`  --StatusFont-Name: ${nc.StatusFont.Name};`);
+
+    // result.push(`  --MenuHeight: ${nc.MenuHeight}px;`);
+    result.push(`  --MessageFont-Height: ${nc.MessageFont.Height}px;`);
+    result.push(`  --MessageFont-Weight: ${nc.MessageFont.Weight}px;`);
+    result.push(`  --MessageFont-Name: ${nc.MessageFont.Name};`);
     result.push('}');
     return result.join('\n');
 }

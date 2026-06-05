@@ -1,4 +1,4 @@
-
+import {parseTheme} from './theme-parser.js';
 const skins = {
   cde: [
     'default',
@@ -65,9 +65,25 @@ const skins = {
   ],
 };
 
-
-const themeLink = document.getElementById('theme-link');
-const skinLink = document.getElementById('skin-link');
+function createLinkStyleSheet(id){
+  const res = document.createElement('link')
+  res.id = id;
+  res.rel="stylesheet" 
+  // res.type="text/css"
+  document.head.append(res);
+  return res;
+}
+function createStyleSheet(id){
+  const res = document.createElement('style')
+  res.id = id;
+  // res.rel="stylesheet" 
+  res.type="text/css"
+  document.head.append(res);
+  return res;
+}
+// const themeLink = document.getElementById('theme-link');
+const themeLink = createLinkStyleSheet('theme-link');
+const skinLink = createStyleSheet('skin-link');
 const themeSelect = document.getElementById('theme-select');
 const skinSelect = document.getElementById('skin-select');
 const usePreferredFont = document.getElementById('use-preferred-font');
@@ -135,7 +151,12 @@ async function setSkin(skin) {
 
 async function readSkin(file_css) {
   // 1. Wait for the server to respond with headers
-  const response = await fetch('themes/' + activeTheme + '/skins/' + file_css );
+  const response = await fetch('themes/' + activeTheme + '/skins/' + file_css, {
+    headers: {
+      // "Content-Type": "text/css"
+      "Accept": "text/css"
+    }
+  });
   
   // 2. Wait for the full response body to be parsed (e.g., as JSON)
   let css = await response.text();
@@ -195,7 +216,7 @@ if (params.has('theme')) {
 }
 if (usePreferredFont) {
   if (params.has('font') && params.get('font') === 'system') {
-    document.body.classList.remove('use-preferred-font');
+    desktop.classList.remove('use-preferred-font');
     usePreferredFont.checked = false;
   } else {
     usePreferredFont.checked = true;
@@ -221,9 +242,9 @@ skinSelect.addEventListener('change', () => {
 if (usePreferredFont) {
   usePreferredFont.addEventListener('change', () => {
     if (usePreferredFont.checked) {
-      document.body.classList.add('use-preferred-font');
+      desktop.classList.add('use-preferred-font');
     } else {
-      document.body.classList.remove('use-preferred-font');
+      desktop.classList.remove('use-preferred-font');
     }
     pushState();
   });
@@ -252,7 +273,7 @@ for (let example of examples) {
   pre.className = 'input readonly';
   pre.appendChild(code);
   summary.textContent = 'Show Code';
-  summary.className = 'button';
+  // summary.className = 'button';
   details.appendChild(summary);
   details.appendChild(pre);
   let source = example.innerHTML;

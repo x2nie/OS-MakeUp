@@ -7,6 +7,7 @@ body {
 
 body.use-preferred-font {
   font-family: var(--preferred-font), system-ui;
+  font-size: 12px;
 }
 
 #toolbar {

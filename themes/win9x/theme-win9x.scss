@@ -7,9 +7,10 @@ $root: '.win9x'  ;
 //     @import 'theme';
 // }
 // @import 'theme';
+$root: '&'  ;
+.win9x {
 @import 'root';
 @import 'drawing';
-// .win9x {
 @import 'panels';
 @import 'scrollbars';
 @import 'buttons';
@@ -19,7 +20,7 @@ $root: '.win9x'  ;
 @import 'menus';
 @import 'tabs';
 @import 'lists';
-
+}
 // @import 'theme_core' as *;
 
 // .win9x {
