@@ -80,6 +80,9 @@ $root: ':root' !default;
   --MenuFont-Underline: 0;
   --MenuFont-StrikeOut: 0;
   // --MenuFont-Name: 'Ms Sans Serif';
+  
+  --StatusFont-Height: 11px;
+
 }
 
 .variant-normal {
@@ -94,6 +97,10 @@ $root: ':root' !default;
   // --SmCaptionWidth: 21px,
   --SmCaptionHeight: 15px;
   --SmCaptionFont-Height: 8px;
+
+  --StatusFont-Height: 11px;
+  --MenuHeight: 18px;
+  --MenuFont-Height: 11px;
 }
 .variant-large {
   --ScrollWidth: 18px;
@@ -107,6 +114,11 @@ $root: ':root' !default;
   // --SmCaptionWidth: 21px,
   --SmCaptionHeight: 18px;
   --SmCaptionFont-Height: 13px;
+
+  --StatusFont-Height: 13px;
+  --MenuHeight: 18px;
+  --MenuFont-Height: 13px;
+  
 }
 
 .variant-extra-large {
@@ -119,6 +131,9 @@ $root: ':root' !default;
   --CaptionFont-Height: 19px;
   --CaptionFont-Weight: 700;
   // --CaptionFont-Italic: normal;
+  --StatusFont-Height: 13px;
+  --MenuHeight: 21px;
+  --MenuFont-Height: 16px;
 }
 
 body {

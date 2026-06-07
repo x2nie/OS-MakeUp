@@ -5,11 +5,15 @@
   display: flex;
   width: 100%;
   gap: 2px;
+  font-size: var(--StatusFont-Height);
   > * {
-    padding: 0 4px;
+    padding: 2px 4px;
     flex-grow: 1;
     flex-shrink: 1;
     box-shadow: inset -1px -1px var(--ButtonHilight), inset 1px 1px var(--ButtonShadow);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   // border-top: 1px solid var(--ButtonShadow);
   // border-bottom: 1px solid var(--ButtonHilight);
