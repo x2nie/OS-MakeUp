@@ -46,8 +46,10 @@
   padding-inline: 4px;
   vertical-align: middle;
   line-height: var(--CaptionHeight);
-  line-height: var(--CaptionFont-Height);
-  height: auto;
+  height: var(--CaptionHeight);
+  // line-height: var(--CaptionFont-Height);
+  // height: auto;
+  
 
 
   flex-grow: 1;
@@ -66,7 +68,12 @@
   --btn-height: calc(var(--CaptionFont-Height) - 1px);
   // --btn-height: var(--CaptionFont-Height) ;
 
-  &.sys > button { display: none;}
+  &.sys {
+    padding: 0;
+    // &:empty{}
+    > img { margin-left: 2px; }
+    > button { display: none;}
+  }
   
   button {
     flex-shrink: 0;
@@ -203,8 +210,8 @@
   .title-bar{
     // writing-mode: vertical-lr;
     // transform: rotate(180deg);
-    height: auto;
-    width: var(--SmCaptionHeight);
+    // height: auto;
+    // width: var(--SmCaptionHeight);
     flex-direction: column-reverse;
 
     &-text {
