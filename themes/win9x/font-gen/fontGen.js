@@ -33,11 +33,12 @@ async function generateFont() {
       // startUnicode: 0xE000,
       startUnicode: 0x1F5D5,
       verbose: true,
-      fontHeight: 1000,     // kanvas virtual 1000 unit
-      normalize: true,      // otomatis atur ukuran & posisi glyph
+      fontHeight: 1100,     // kanvas virtual 1000 unit
+      // fontHeight: 2048,     // kanvas virtual 1000 unit
+      // normalize: true,      // otomatis atur ukuran & posisi glyph
       // center: true,         // pusatkan glyph di kanvas [citation:8]
       center: false,
-      descent: 150,          // ruang bawah (opsional, biarkan default)
+      descent: 0,          // ruang bawah (opsional, biarkan default)
       fixedWidth: true,
       sort: false
     });
