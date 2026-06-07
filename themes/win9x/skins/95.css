@@ -6,8 +6,7 @@
 
   --ButtonHilight: #FFFFFF;
   
-  --light: #DFDFDF;
-  --medium: #C0C0C0;
+  --ButtonLight: rgb(223, 223, 223);
   --ButtonShadow: #808080;
   
   --ButtonDkShadow: #000000;
@@ -16,7 +15,7 @@
   --WindowText: #000000;
 
   --InactiveTitle: var(--ButtonShadow);
-  --InactiveTitleText: var(--medium);
+  --InactiveTitleText: var(--ButtonFace);
 
   --ActiveTitle: #000080;
   --TitleText: #FFFFFF;
@@ -42,7 +41,7 @@ input[type=reset]:not(:active, .active).focus,
 .button:not(:active, .active):focus,
 .button:not(:active, .active).focus {
   box-shadow: inset -1px -1px 0 var(--ButtonDkShadow), inset 1px 1px 0 var(--ButtonHilight), 
-    inset -2px -2px 0 var(--ButtonShadow), inset 2px 2px 0 var(--light);
+    inset -2px -2px 0 var(--ButtonShadow), inset 2px 2px 0 var(--ButtonLight);
 }
 
 button:not(:active, .active),
@@ -50,7 +49,7 @@ input[type=button]:not(:active, .active),
 input[type=submit]:not(:active, .active),
 input[type=reset]:not(:active, .active),
 .button:not(:active, .active) {
-  box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--light);
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonLight);
 }
 
 form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) button:not(:active, .active):default,
@@ -63,9 +62,9 @@ input[type=button]:not(:active, .active).primary,
 input[type=submit]:not(:active, .active).primary,
 input[type=reset]:not(:active, .active).primary {
   box-shadow: inset -1px -1px 0 var(--ButtonDkShadow), inset 1px 1px 0 var(--ButtonHilight), 
-    inset -2px -2px 0 var(--ButtonShadow), inset 2px 2px 0 var(--light);
+    inset -2px -2px 0 var(--ButtonShadow), inset 2px 2px 0 var(--ButtonLight);
 }
 
 .title-bar-buttons button:not(:active):focus {
-  box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--light);
+  box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonLight);
 }

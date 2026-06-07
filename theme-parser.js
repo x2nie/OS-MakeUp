@@ -13,6 +13,7 @@ export async function parseTheme(theme) {
 
     const nc = parseNonclientMetrics(txt);
     console.log(nc);
+    if(nc){
     result.push(`  --ScrollWidth: ${nc.ScrollWidth}px;`);
     result.push(`  --arrowSize: calc(var(--ScrollWidth) * 0.5 );`);
     result.push(`  --CaptionHeight: ${nc.CaptionHeight}px;`);
@@ -40,6 +41,7 @@ export async function parseTheme(theme) {
     result.push(`  --MessageFont-Height: ${nc.MessageFont.Height}px;`);
     result.push(`  --MessageFont-Weight: ${nc.MessageFont.Weight}px;`);
     result.push(`  --MessageFont-Name: ${nc.MessageFont.Name};`);
+    }
     result.push('}');
     return result.join('\n');
 }
@@ -84,7 +86,8 @@ export async function parseTheme(theme) {
         NONCLIENTMETRICS_PATTERN.lastIndex = 0;
         const match = NONCLIENTMETRICS_PATTERN.exec(text);
         if (!match) {
-            throw new Error("NonclientMetrics not found in theme file");
+            // throw new Error("NonclientMetrics not found in theme file");
+            return null;
         }
         const dataStr = match[1];
         return parseNONCLIENTMETRICS_raw(dataStr);

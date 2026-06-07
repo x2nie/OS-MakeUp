@@ -6,8 +6,8 @@
 
   --ButtonHilight: #C0CCD8;
   
-  --light: var(--ButtonFace);
-  --medium: var(--ButtonFace);
+  --ButtonLight: var(--ButtonFace);
+  
   --ButtonShadow: #4E657C;
   
   --ButtonDkShadow: #000000;

@@ -1,0 +1,33 @@
+;https://www.deviantart.com/tpenguinltg/art/Ash-575566643
+
+ActiveBorder=96 96 96
+ActiveTitle=0 0 0
+AppWorkspace=32 32 32
+Background=0 0 0
+ButtonAlternateFace=0 0 0
+ButtonDkShadow=0 0 0
+ButtonFace=96 96 96
+ButtonHilight=175 175 175
+ButtonLight=96 96 96
+ButtonShadow=63 63 63
+ButtonText=0 0 0
+GradientActiveTitle=0 0 0
+GradientInactiveTitle=0 0 0
+GrayText=128 128 128
+Hilight=0 0 0
+HilightText=255 255 255
+HotTrackingColor=192 192 192
+InactiveBorder=96 96 96
+InactiveTitle=63 63 63
+InactiveTitleText=128 128 128
+InfoText=192 192 192
+InfoWindow=0 0 0
+Menu=96 96 96
+MenuBar=0 0 0
+MenuHilight=0 0 0
+MenuText=0 0 0
+Scrollbar=175 175 175
+TitleText=255 255 255
+Window=64 64 64
+WindowFrame=0 0 0
+WindowText=0 0 0

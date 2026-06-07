@@ -86,7 +86,7 @@
   border: 2px solid transparent;
   // border-bottom-color:  var(--ButtonHilight);
   // border-right-color: var(--ButtonHilight);
-  // box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--ButtonDkShadow);
+  // box-shadow: inset -1px -1px 0 var(--ButtonLight), inset 1px 1px 0 var(--ButtonDkShadow);
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
@@ -182,8 +182,8 @@
     background-color: var(--ButtonFace);
     color: var(--ButtonText);
     border: 1px solid var(--ButtonDkShadow);
-    border-top: 1px solid var(--light);
-    border-left: 1px solid var(--light);
+    border-top: 1px solid var(--ButtonLight);
+    border-left: 1px solid var(--ButtonLight);
     box-shadow: inset -1px -1px var(--ButtonShadow), inset 1px 1px var(--ButtonHilight), -1px 0 var(--Window);
     width: 16px;
     pointer-events: none;
@@ -211,7 +211,7 @@ input[type=checkbox] {
   border: 1px solid var(--ButtonShadow);
   border-bottom: 1px solid var(--ButtonHilight);
   border-right: 1px solid var(--ButtonHilight);
-  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--ButtonLight);
   width: 13px;
   height: 13px;
   border-radius: 0;
@@ -256,7 +256,7 @@ input[type=radio] {
   border: 1px solid var(--ButtonShadow);
   border-bottom: 1px solid var(--ButtonHilight);
   border-right: 1px solid var(--ButtonHilight);
-  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--ButtonLight);
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -318,7 +318,7 @@ label > input[type=checkbox] {
 
 @mixin range-track {
   height: 2px;
-  background: var(--light);
+  background: var(--ButtonLight);
   border: 1px solid var(--ButtonHilight);
   border-top: 1px solid var(--ButtonShadow);
   border-left: 1px solid var(--ButtonShadow);

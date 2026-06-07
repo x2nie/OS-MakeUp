@@ -5,17 +5,17 @@
   --ButtonText: #000000;
   --ButtonHilight: #FFFFFF;
   
-  --light: #DFDFDF;
-  --medium: var(--ButtonFace);
+  --ButtonLight: #DFDFDF;
+  
   --ButtonShadow: #808080;
   
   --ButtonDkShadow: #000000;
-  --ButtonFace: var(--ButtonFace);
+  
   --ButtonText: var(--ButtonText);
   --Window: #FFFFFF;
   --WindowText: #000000;
   --InactiveTitle: var(--ButtonShadow);
-  --InactiveTitleText: var(--medium);
+  --InactiveTitleText: var(--ButtonFace);
   --ActiveTitle: #000080;
   --TitleText: #FFFFFF;
   --Hilight: #000080;
@@ -76,13 +76,13 @@ code {
 
 .right-panel {
   background: var(--ButtonFace);
-  border-left: 1px solid var(--light);
+  border-left: 1px solid var(--ButtonLight);
   box-shadow: inset 1px 0 0 var(--ButtonHilight);
 }
 
 .bottom-panel {
   background: var(--ButtonFace);
-  border-top: 1px solid var(--light);
+  border-top: 1px solid var(--ButtonLight);
   box-shadow: inset 0 1px 0 var(--ButtonHilight);
 }
 
@@ -139,8 +139,8 @@ hr {
 .vertical-scrollbar > button:focus {
   outline: none;
   border: 1px solid var(--ButtonDkShadow);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
+  border-top: 1px solid var(--ButtonLight);
+  border-left: 1px solid var(--ButtonLight);
   box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
 }
 .horizontal-scrollbar > button:not(:disabled):active,
@@ -168,8 +168,8 @@ hr {
   position: absolute;
   background: var(--ButtonFace);
   border: 1px solid var(--ButtonDkShadow);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
+  border-top: 1px solid var(--ButtonLight);
+  border-left: 1px solid var(--ButtonLight);
   box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
 }
 
@@ -221,8 +221,8 @@ hr {
   background-color: var(--ButtonFace);
   color: var(--ButtonText);
   border: 1px solid var(--ButtonDkShadow);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
+  border-top: 1px solid var(--ButtonLight);
+  border-left: 1px solid var(--ButtonLight);
   box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
 }
 
@@ -325,7 +325,7 @@ select,
   border: 1px solid var(--ButtonShadow);
   border-bottom: 1px solid var(--ButtonHilight);
   border-right: 1px solid var(--ButtonHilight);
-  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--ButtonLight);
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
@@ -373,7 +373,7 @@ select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > op
 select:not([size], [multiple]), select[size="1"]:not(:active):focus {
   background-color: var(--Hilight);
   color: var(--HilightText);
-  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light), inset 2px 2px 0 var(--Window), inset -2px -2px 0 var(--Window);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--ButtonLight), inset 2px 2px 0 var(--Window), inset -2px -2px 0 var(--Window);
 }
 
 
@@ -464,8 +464,8 @@ select{
         ========================= */
 
         linear-gradient(
-            var(--light),
-            var(--light)
+            var(--ButtonLight),
+            var(--ButtonLight)
         )
         top 2px right 19px /
         1px calc(100% - 4px)
@@ -526,8 +526,8 @@ select{
   background-color: var(--ButtonFace);
   color: var(--ButtonText);
   border: 1px solid var(--ButtonDkShadow);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
+  border-top: 1px solid var(--ButtonLight);
+  border-left: 1px solid var(--ButtonLight);
   box-shadow: inset -1px -1px var(--ButtonShadow), inset 1px 1px var(--ButtonHilight), -1px 0 var(--Window);
   width: 16px;
   pointer-events: none;
@@ -553,7 +553,7 @@ input[type=checkbox] {
   border: 1px solid var(--ButtonShadow);
   border-bottom: 1px solid var(--ButtonHilight);
   border-right: 1px solid var(--ButtonHilight);
-  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--ButtonLight);
   width: 13px;
   height: 13px;
   border-radius: 0;
@@ -592,7 +592,7 @@ input[type=radio] {
   border: 1px solid var(--ButtonShadow);
   border-bottom: 1px solid var(--ButtonHilight);
   border-right: 1px solid var(--ButtonHilight);
-  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--ButtonLight);
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -660,7 +660,7 @@ input[type=range]:focus {
 }
 input[type=range]::-moz-range-track {
   height: 2px;
-  background: var(--light);
+  background: var(--ButtonLight);
   border: 1px solid var(--ButtonHilight);
   border-top: 1px solid var(--ButtonShadow);
   border-left: 1px solid var(--ButtonShadow);
@@ -685,7 +685,7 @@ input[type=range]::-moz-range-thumb:active {
 }
 input[type=range]::-webkit-slider-runnable-track {
   height: 2px;
-  background: var(--light);
+  background: var(--ButtonLight);
   border: 1px solid var(--ButtonHilight);
   border-top: 1px solid var(--ButtonShadow);
   border-left: 1px solid var(--ButtonShadow);
@@ -779,7 +779,7 @@ progress:not([value])::-webkit-progress-value {
 .dialog,
 .menu {
   background: var(--ButtonFace);
-  border: 1px solid var(--light);
+  border: 1px solid var(--ButtonLight);
   border-bottom: 1px solid var(--ButtonDkShadow);
   border-right: 1px solid var(--ButtonDkShadow);
   box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonShadow);
@@ -830,7 +830,7 @@ progress:not([value])::-webkit-progress-value {
 .title-bar-buttons button:active {
   outline: none;
   background-position: 4px 4px;
-  box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--ButtonShadow);
+  box-shadow: inset -1px -1px 0 var(--ButtonLight), inset 1px 1px 0 var(--ButtonShadow);
   border: 1px solid var(--ButtonHilight);
   border-top: 1px solid var(--ButtonDkShadow);
   border-left: 1px solid var(--ButtonDkShadow);
@@ -887,7 +887,7 @@ progress:not([value])::-webkit-progress-value {
 [role=menubar] {
   color: var(--ButtonText);
   background-color: var(--ButtonFace);
-  border: 1px solid var(--light);
+  border: 1px solid var(--ButtonLight);
   border-right-color: var(--ButtonDkShadow);
   border-bottom-color: var(--ButtonDkShadow);
   box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonShadow);
@@ -1052,7 +1052,7 @@ progress:not([value])::-webkit-progress-value {
   border-bottom: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--ButtonShadow);
+  box-shadow: inset 1px 1px 0 var(--ButtonLight), inset -1px 0 0 var(--ButtonShadow);
   min-width: 0;
   padding: 2px 10px 2px 10px;
 }
@@ -1061,7 +1061,7 @@ progress:not([value])::-webkit-progress-value {
   border-right: 1px solid var(--ButtonDkShadow);
   border-top: 1px solid var(--ButtonHilight);
   border-left: 1px solid var(--ButtonHilight);
-  box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--ButtonShadow);
+  box-shadow: inset 1px 1px 0 var(--ButtonLight), inset -1px 0 0 var(--ButtonShadow);
   padding: 2px 10px 2px 10px;
 }
 .tabs > menu > button[aria-selected=true] {
@@ -1077,7 +1077,7 @@ progress:not([value])::-webkit-progress-value {
   border-left: 1px solid var(--ButtonHilight);
   border-bottom: 1px solid var(--ButtonDkShadow);
   border-right: 1px solid var(--ButtonDkShadow);
-  box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--ButtonShadow);
+  box-shadow: inset 1px 1px 0 var(--ButtonLight), inset -1px -1px 0 var(--ButtonShadow);
 }
 
 .list {
@@ -1086,7 +1086,7 @@ progress:not([value])::-webkit-progress-value {
   border: 1px solid var(--ButtonShadow);
   border-bottom: 1px solid var(--ButtonHilight);
   border-right: 1px solid var(--ButtonHilight);
-  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--light);
+  box-shadow: inset 1px 1px 0 var(--ButtonDkShadow), inset -1px -1px 0 var(--ButtonLight);
   padding: 1px;
   overflow: auto;
   cursor: default;

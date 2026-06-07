@@ -39,6 +39,8 @@ const skins = {
     'maple', 'marine', 'plum', 'pumpkin',
     'rainy-day', 'red-white-and-blue', 'rose',
     'slate', 'spruce', 'storm', 'teal', 'wheat',
+    'Vista-esque-Midnight',
+    'Ash.theme',
 
     'Treehouse.theme', 'Messyroom.theme', 'Horses.theme', 'Bugs.theme',
     'Batman-TAS.theme', 

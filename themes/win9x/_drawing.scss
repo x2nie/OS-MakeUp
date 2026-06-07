@@ -159,12 +159,12 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
     calc(100% + 1px)
   ),
 
-  hline(var(--light),
+  hline(var(--ButtonLight),
     bottom -1px left -1px,
     calc(100% + 2px)
   ),
 
-  vline(var(--light),
+  vline(var(--ButtonLight),
     top -1px right -1px,
     calc(100% + 2px)
   )

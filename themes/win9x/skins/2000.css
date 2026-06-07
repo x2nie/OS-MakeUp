@@ -8,8 +8,7 @@
 
   --ButtonHilight: #FFFFFF;
   
-  --light: var(--ButtonFace);
-  --medium: #C0C0C0;
+  --ButtonLight: var(--ButtonFace);
   --ButtonShadow: #808080;
   
   --ButtonDkShadow: #000000;
@@ -18,7 +17,7 @@
   --WindowText: #000000;
 
   --GradientInactiveTitle: #C0C0C0;
-  --InactiveTitleText: var(--medium);
+  --InactiveTitleText: var(--ButtonFace);
 
   --GradientActiveTitle: #A6CAF0;
   --TitleText: #FFFFFF;

@@ -2,7 +2,7 @@
 .dialog,
 .menu {
   background: var(--ButtonFace);
-  border: 1px solid var(--light);
+  border: 1px solid var(--ButtonLight);
   border-bottom: 1px solid var(--ButtonDkShadow);
   border-right: 1px solid var(--ButtonDkShadow);
   box-shadow: inset 1px 1px 0 var(--ButtonHilight), inset -1px -1px 0 var(--ButtonShadow);
@@ -93,7 +93,7 @@
     &:not(:disabled):active {
       outline: none;
       background-position: 4px 4px;
-      box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--ButtonShadow);
+      box-shadow: inset -1px -1px 0 var(--ButtonLight), inset 1px 1px 0 var(--ButtonShadow);
       border: 1px solid var(--ButtonHilight);
       border-top: 1px solid var(--ButtonDkShadow);
       border-left: 1px solid var(--ButtonDkShadow);

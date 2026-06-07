@@ -25,8 +25,8 @@
     &:focus {
       outline: none;
       border: 1px solid var(--ButtonDkShadow);
-      border-top: 1px solid var(--light);
-      border-left: 1px solid var(--light);
+      border-top: 1px solid var(--ButtonLight);
+      border-left: 1px solid var(--ButtonLight);
       box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
     }
 
@@ -54,8 +54,8 @@
       position: absolute;
       background: var(--ButtonFace);
       border: 1px solid var(--ButtonDkShadow);
-      border-top: 1px solid var(--light);
-      border-left: 1px solid var(--light);
+      border-top: 1px solid var(--ButtonLight);
+      border-left: 1px solid var(--ButtonLight);
       box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
     }
   }
@@ -116,8 +116,8 @@
   background-color: var(--ButtonFace);
   color: var(--ButtonText);
   border: 1px solid var(--ButtonDkShadow);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
+  border-top: 1px solid var(--ButtonLight);
+  border-left: 1px solid var(--ButtonLight);
   box-shadow: inset -1px -1px 0 var(--ButtonShadow), inset 1px 1px 0 var(--ButtonHilight);
 }
 
