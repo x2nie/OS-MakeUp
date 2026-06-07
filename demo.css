@@ -84,3 +84,69 @@ a {
   color: #00c;
   text-decoration: underline;
 }
+
+.question{
+    /* width:40vmin; */
+    aspect-ratio:1;
+    background:
+
+
+        /* titik bawah */
+        radial-gradient(
+            ellipse 14% 12% at 50% 88%,
+            #ddd 99%,
+            transparent 100%
+        ),
+
+        /* batang */
+        linear-gradient(#ddd 0 0)
+        50% 62% / 16% 24% no-repeat,
+
+        /* badan utama */
+        radial-gradient(
+            ellipse 34% 28% at 52% 26%,
+            transparent 0 55%,
+            #ddd 56% 82%,
+            transparent 83%
+        ),
+
+        /* potong kiri */
+        linear-gradient(#000 0 0)
+        0 0 / 40% 52% no-repeat,
+
+        /* lubang dalam */
+        radial-gradient(
+            ellipse 15% 13% at 50% 26%,
+            #000 98%,
+            transparent 100%
+        ),
+
+        /* lekukan bawah */
+        radial-gradient(
+            ellipse 20% 18% at 58% 48%,
+            #000 99%,
+            transparent 100%
+        );
+
+    background-color:#000;
+    width: 13px;
+    height: 11px;
+    background-color: orange;
+}
+
+.marlet{
+  font-family: Marlett;
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+.marlet li {
+  background-color: silver;
+  border: 1px solid #333;
+  padding: 1px 2px;
+  list-style: none;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: auto;
+  line-height: 1;
+  font-size: 9;
+}

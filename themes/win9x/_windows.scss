@@ -24,6 +24,7 @@
   display: flex;
   flex-direction: row;
   font-weight: bold;
+  align-items: center;
   
   .alt_caption > & {
     --titlebar-gradient-direction: to top;
@@ -37,14 +38,19 @@
   font-size: var(--CaptionFont-Height);
   text-align: left;
   font-weight: var(--CaptionFont-Weight);
-  height: var(--CaptionHeight);
+  // height: var(--CaptionHeight);
   // padding: 1px 4px;
   padding-block: 0;
   padding-inline: 4px;
   vertical-align: middle;
   line-height: var(--CaptionHeight);
+  line-height: var(--CaptionFont-Height);
+  height: auto;
+
+
   flex-grow: 1;
-  cursor: default
+  cursor: default;
+  background: yellow;
 }
 
 .title-bar-buttons {
@@ -54,13 +60,17 @@
   flex-direction: row;
   padding: 2px;
   align-items: center;
-
+  font-family: 'titlebar-ui';
+  --btn-height: calc(var(--CaptionFont-Height) - 0px);
+  // --btn-height: var(--CaptionFont-Height) ;
+  
   button {
     flex-shrink: 0;
     // width: 20px;
     // height: 18px;
     width: calc(var(--CaptionHeight) - 2px);
     height: calc(var(--CaptionHeight) - 4px);
+    box-sizing: border-box;
     min-width: 0;
     padding: 0;
     background-repeat: no-repeat;
@@ -87,17 +97,29 @@
     }
 
     &[data-close],&[data-minimize],&[data-maximize] {
-      display: flex;
-      // text-align: center;
-      justify-content: center;
-      align-items: center;
+    //   display: flex;
+    //   // text-align: center;
+    //   justify-content: center;
+    //   align-items: center;
+    // vertical-align: middle;
+    // background-color: fuchsia;
+    
 
       &:after{
         // background: red;
-        // display: inline-block;
+        display: inline-block;
         // height: 1ch;
         // margin-top: -1px;
-        vertical-align: middle;
+        display: block;
+        margin: 0 auto;
+        
+        // font-size: var(--CaptionFont-Height);
+        font-size: var(--btn-height);
+        line-height: var(--btn-height);
+        // text-align: left;
+        // font-weight: var(--CaptionFont-Weight);
+        height: var(--btn-height);
+        // background-color: yellow;
       }
       // &:not(:disabled):active::after{
       //   margin-top: 2px;
@@ -110,9 +132,10 @@
       // margin-left: 2px;
 
       &::after{
-        // content: "\1F5D9";
         content: "\274C";
         content: "\2715";
+        content: "\1f7aa";
+        content: "\1F5D9";
       }
     }
     & + [data-close] {
@@ -122,9 +145,14 @@
     &[data-minimize]::after {
       // background-image: url(minimize.svg);
       content: "\1F5D5";
-      vertical-align: bottom;
-      height: 1ch;
-      font-size: smaller;
+      // vertical-align: bottom;
+      // height: 1ch;
+      // font-size: smaller;
+      // content: '';
+      // background-color:red;
+      // mask-image: url(maximize.svg);
+      // height: var(--CaptionFont-Height);
+      // width:  var(--CaptionFont-Height);;
     }
     
     &[data-maximize]::after {
@@ -151,6 +179,7 @@
     line-height: var(--SmCaptionHeight);
   }
   .title-bar-buttons button{
+    --btn-height: calc(var(--SmCaptionFont-Height) - 2px);
     // width: 11px;
     // height: 11px;
     width: calc(var(--SmCaptionHeight) - 2px);

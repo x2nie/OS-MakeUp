@@ -1,8 +1,10 @@
+@import './fonts/sserife.css';
+@import './fonts/titlebar-ui.css';
 // $root: ':scope' !default;
 $root: ':root' !default;
 // :scope {
 #{$root} {
-  --preferred-font: 'Microsoft Sans Serif', 'Segoe UI', sans-serif;
+  --preferred-font: 'Microsoft Sans Serif', sserife, 'Segoe UI', sans-serif;
 
   --Background: #008080;
 
@@ -55,7 +57,13 @@ $root: ':root' !default;
   // --CaptionFont-ClipPrecision: 0;
   // --CaptionFont-Quality: 0;
   // --CaptionFont-PitchAndFamily: 0;
-  --CaptionFont-Name: 'Arial';
+  --CaptionFont-Name: var(--preferred-font, 'Arial');
+  // -webkit-font-smoothing: none;
+  // -moz-osx-font-smoothing: unset;
+  // font-smoothing: unset;
+  // font-smooth: never;
+  --pixel-font-filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="f"><feComponentTransfer><feFuncA type="discrete" tableValues="0 0 0.5 0.9 1 1" /></feComponentTransfer></filter></svg>#f');
+  // filter: var(--pixel-font-filter);
 
   --SmCaptionHeight: 16px;
   --SmCaptionFont-Height: 9px;
@@ -71,7 +79,7 @@ $root: ':root' !default;
   --MenuFont-Italic: normal;
   --MenuFont-Underline: 0;
   --MenuFont-StrikeOut: 0;
-  --MenuFont-Name: 'Ms Sans Serif';
+  // --MenuFont-Name: 'Ms Sans Serif';
 }
 
 .variant-normal {

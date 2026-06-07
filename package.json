@@ -22,13 +22,14 @@
     "dev": "vite",
     "preview": "vite preview",
     "old-build": "make all",
-    "build": "vite build"
+    "build": "vite build",
+    "w9font": "node ./themes/win9x/font-gen/fontGen.js"
   },
   "dependencies": {},
   "devDependencies": {
     "glob": "^13.0.6",
     "sass": "^1.99.0",
     "vite": "^8.0.13",
-    "vite-plugin-static-copy": "^4.1.0"
+    "webfont": "^11.2.26"
   }
 }

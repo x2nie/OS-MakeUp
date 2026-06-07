@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import { resolve, relative } from 'path'
 import { globSync } from 'glob'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
+// import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const entries = Object.fromEntries([
     ...globSync('themes/**/theme*.scss'),

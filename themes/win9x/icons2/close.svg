@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   class="ui-picto__image"
+   viewBox="0 0 10 11"
+   width="10"
+   height="11"
+   aria-hidden="true"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="close.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="true"
+     inkscape:zoom="56.568542"
+     inkscape:cx="7.1506173"
+     inkscape:cy="5.4889164"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="-3"
+       originy="-2"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="8"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <path
+     fill="currentColor"
+     d="M 3.321432,5.5 0.5,2.6785681 V 1.5 H 1.6785679 L 4.4999999,4.321432 7.3571438,1.5 H 8.5 V 2.6785681 L 5.678568,5.5 8.5,8.321432 V 9.5 H 7.3571438 L 4.4999999,6.678568 1.6785679,9.5 H 0.5 V 8.3571441 Z"
+     id="path1-3"
+     style="stroke-width:0.00595238" />
+</svg>
