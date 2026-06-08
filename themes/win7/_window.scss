@@ -213,13 +213,17 @@
   align-items: center;
   background: var(--w7-w-grad);
   background-color: var(--w7-w-bg);
+  --w7-t-space: var(--w7-w-space);
 
   &-text {
     color: #000;
     letter-spacing: 0;
     line-height: 15px;
-    padding-top: var(--w7-w-space);
-    padding-inline: 5px;
+    // padding-top: var(--w7-w-space);
+    padding: var(--w7-t-space) var(--w7-w-space);
+    margin-left: calc(-1 * var(--w7-w-space));
+    margin-bottom: calc(-1 * var(--w7-t-space));
+    // padding-inline: 5px;
     text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff;
   }
 
@@ -556,16 +560,17 @@
 
 .window.tool-window {
   border-radius: 2px;
-  --w7-w-space: 4px;
+  --w7-w-space: 3px;
   --w7-w-bdr: 1px;
   --w7-wct-bdr: 1px;
-
   
-
+  
+  
   .title-bar{
     // padding-bottom: 3px;
     // border-radius: 0;
     font-size: smaller;
+    --w7-t-space: 3px;
   }
 
   .title-bar-buttons {
@@ -603,7 +608,7 @@
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       flex-grow: 1;
-      height: 16px;
+      height: 14px;
       // min-height: 16px;
       // height: unset;
     }
