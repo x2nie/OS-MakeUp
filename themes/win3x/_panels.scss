@@ -4,6 +4,22 @@
   background: var(--desktop-bg);
 }
 
+.status-bar {
+  display: flex;
+  width: 100%;
+  gap: 2px;
+  font-size: var(--StatusFont-Height);
+  background: var(--button-bg);
+  > * {
+    padding: 2px 4px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    box-shadow: inset -1px -1px var(--ButtonHilight), inset 1px 1px var(--ButtonShadow);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
 .raised {
   background: var(--window-bg);
   border: 1px solid var(--border);

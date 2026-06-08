@@ -7,6 +7,8 @@
    * <state> is the state of the component (d = disabled, h = hovered, a = active, hl = highlighted, etc.)
    */
 
+  --variant-classes: {"": "Default","variant-glass": "Glass"};
+
   --w7-font: 9pt "Segoe UI", "SegoeUI", "Noto Sans", sans-serif;
   --w7-surface: #f0f0f0;
 

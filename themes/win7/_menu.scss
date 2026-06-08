@@ -41,6 +41,10 @@ ul {
         }
       }
     }
+
+    .window > & {
+      margin-inline: var(--w7-w-space);
+    }
   }
 
   &[role="menu"] {
