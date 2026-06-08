@@ -69,7 +69,9 @@ const skins = {
   winxp: [
     'default', 'olive-green', 'silver',
   ],
-  win7: [],
+  win7: [
+    'default', 'Fire', 'Orange', 'Sky', 'Sea', 'Twilight', 'Violet', 'Ruby'
+  ],
   macos9: [
     'default', 'bubbles', 'convergence', 'golden-poppy', 'gray-space',
     'lollipop', 'lollipop-2', 'lollipop-3', 'lollipop-4', 'lollipop-5',
