@@ -1,5 +1,6 @@
+@use 'drawing' as *;
 .window,
-.dialog,
+// .dialog,
 .menu {
   background: var(--InactiveBorder);
   border: 1px solid var(--border);
@@ -7,8 +8,7 @@
   padding: 2px;
 }
 
-.window.maximized,
-.dialog.maximized {
+.window.maximized {
   border: none;
   padding: 0;
 }
@@ -18,14 +18,14 @@
   background-color: var(--ActiveBorder);
 }
 
-.dialog {
-  background: var(--InactiveTitle);
-}
+// .dialog {
+//   background: var(--InactiveTitle);
+// }
 
-.dialog.active,
-.dialog:focus-within {
-  background-color: var(--ActiveTitle);
-}
+// .dialog.active,
+// .dialog:focus-within {
+//   background-color: var(--ActiveTitle);
+// }
 
 .title-bar {
   background: var(--InactiveTitle);
@@ -33,13 +33,13 @@
   display: flex;
   flex-direction: row;
   font-weight: bold;
-  border: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.dialog > .title-bar {
-  border: 1px solid var(--Window);
-  border-bottom-color: var(--border)
-}
+// .dialog > .title-bar {
+//   border: 1px solid var(--Window);
+//   border-bottom-color: var(--border)
+// }
 
 .title-bar-text {
   text-align: center;
@@ -129,25 +129,118 @@
   img {display: none;} //win 31 doesn't support icon
 }
 
-.window-body,
-.dialog-body {
+// .dialog-body,
+.window-body {
   background: var(--Window);
   color: var(--WindowText);
-  border: 1px solid var(--border);
+  // border: 1px solid var(--border);
   border-top: 0;
 }
 
-.dialog-body {
-  border-color: var(--Window);
+// .dialog-body {
+//   border-color: var(--Window);
+// }
+.window {
+  padding: 0;
+  border: calc(var(--borderWidth) + 1px) solid transparent;
+  background-clip: content-box;
+  --edge: calc(-1 * var(--borderWidth) - 1px);
+  --full: calc(100% + var(--borderWidth) + var(--borderWidth) + 1px);
+  
+
+  --frameColor: var(--InactiveBorder);
+  --innerFrameColor: var(--border);
+  background:
+
+    /* =========================
+     OUTERBOX
+    ========================= */
+
+  hline(var(--border),
+    top var(--edge) left var(--edge),
+    var(--full)
+  ),
+
+  vline(var(--border),
+    top var(--edge) left var(--edge),
+    var(--full)
+  ),
+
+  hline(var(--border),
+    bottom var(--edge) left var(--edge),
+    var(--full)
+  ),
+
+  vline(var(--border),
+    top var(--edge) right var(--edge),
+    var(--full)
+  ),
+  // hline(var(--innerFrameColor0, gold),
+  //   top var(--edge) left var(--edge),
+  //   calc(100% + 2px)
+  // ),
+  // hline(var(--innerFrameColor0, red),
+  //   top -1px left -1px,
+  //   calc(100% + 2px)
+  // ),
+  /* =========================
+     INNER BOX
+  ========================= */
+
+  hline(var(--innerFrameColor),
+    top -1px left -1px,
+    calc(100% + 1px)
+  ),
+
+  vline(var(--innerFrameColor),
+    top -1px left -1px,
+    calc(100% + 1px)
+  ),
+
+  hline(var(--innerFrameColor),
+    bottom -1px left -1px,
+    calc(100% + 2px)
+  ),
+
+  vline(var(--innerFrameColor),
+    top -1px right -1px,
+    calc(100% + 2px)
+  ),
+
+  var(--frameColor)
+  ;
+
+
+  
+  &.dialog{
+    --frameColor: var(--InactiveTitle);
+    --innerFrameColor: var(--Window);    
+
+    
+  }
 }
 
-.window.active > .title-bar,
-.window:focus-within > .title-bar,
-.dialog.active > .title-bar,
-.dialog:focus-within > .title-bar,
+.window.active ,
+.window:focus-within {
+  --frameColor: var(--ActiveTitle);
+
+  &.dialog{
+    background-color: var(--ActiveTitle);
+
+  }
+  
+  > .title-bar
+  // .dialog.active > .title-bar,
+  // .dialog:focus-within > .title-bar,
+  {
+    background-color: var(--ActiveTitle);
+    color: var(--TitleText);
+
+  }
+}
 .menu > .title-bar,
 .title-bar.active {
-  background: var(--ActiveTitle);
+  background-color: var(--ActiveTitle);
   color: var(--TitleText);
 }
 
