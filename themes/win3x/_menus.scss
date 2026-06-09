@@ -75,7 +75,7 @@
 [role=menubar] {
   color: var(--MenuText);
   background-color: var(--MenuBar);
-  border-inline: 1px solid black;
+  border-inline: none;
 
   & > li {
     padding: 1px 8px;
