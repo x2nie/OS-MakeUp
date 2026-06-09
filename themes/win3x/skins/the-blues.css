@@ -1,24 +1,24 @@
 :root {
-  --desktop-bg: #004080;
+  --Background: #004080;
 
-  --workspace-bg: #C0C0C0;
+  --AppWorkspace: #C0C0C0;
 
-  --window-bg: #FFFFFF;
-  --window-fg: #000000;
+  --Window: #FFFFFF;
+  --WindowText: #000000;
 
-  --window-frame: #C0C0C0;
-  --window-frame-active: #C0C0C0;
+  --InactiveBorder: #C0C0C0;
+  --ActiveBorder: #C0C0C0;
 
-  --menu-bg: #FFFFFF;
-  --menu-fg: #000000;
+  --MenuBar: #FFFFFF;
+  --MenuText: #000000;
 
-  --title-bar-bg: #C0C0C0;
-  --title-bar-fg: #000000;
+  --InactiveTitle: #C0C0C0;
+  --InactiveTitleText: #000000;
 
-  --title-bar-active-bg: #000080;
-  --title-bar-active-fg: #FFFFFF;
+  --ActiveTitle: #000080;
+  --TitleText: #FFFFFF;
 
-  --selection-bg: #000080;
-  --selection-fg: #FFFFFF;
+  --Hilight: #000080;
+  --HilightText: #FFFFFF;
   --selection-inverse: #FFFF7F;
 }

@@ -1,7 +1,7 @@
 .window,
 .dialog,
 .menu {
-  background: var(--window-frame);
+  background: var(--InactiveBorder);
   border: 1px solid var(--border);
   position: relative;
   padding: 2px;
@@ -15,21 +15,21 @@
 
 .window.active,
 .window:focus-within {
-  background-color: var(--window-frame-active);
+  background-color: var(--ActiveBorder);
 }
 
 .dialog {
-  background: var(--title-bar-bg);
+  background: var(--InactiveTitle);
 }
 
 .dialog.active,
 .dialog:focus-within {
-  background-color: var(--title-bar-active-bg);
+  background-color: var(--ActiveTitle);
 }
 
 .title-bar {
-  background: var(--title-bar-bg);
-  color: var(--title-bar-fg);
+  background: var(--InactiveTitle);
+  color: var(--InactiveTitleText);
   display: flex;
   flex-direction: row;
   font-weight: bold;
@@ -37,7 +37,7 @@
 }
 
 .dialog > .title-bar {
-  border: 1px solid var(--window-bg);
+  border: 1px solid var(--Window);
   border-bottom-color: var(--border)
 }
 
@@ -53,7 +53,7 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  // align-items: stretch;
 
   [data-close]{
     display: none;
@@ -62,15 +62,23 @@
 
 .title-bar-buttons button {
   flex-shrink: 0;
-  width: 24px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
   min-width: 0;
   padding: 0;
   border: 0;
   border-left: 1px solid var(--border);
   border-radius: 0;
-  background-color: var(--button-bg);
+  background-color: var(--ButttonFace);
   background-repeat: no-repeat;
-  background-position: 7px 8px;
+  background-position: 4px 4px;
+
+  &:not(:active){
+    box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), 
+    inset -2px -2px 0 var(--button-dark), inset 1px 1px 0 var(--button-light);
+
+  }
 }
 
 .title-bar-buttons button::after {
@@ -110,25 +118,27 @@
     border: none;
     box-shadow: none;
     background: 
-      linear-gradient(var(--button-light), var(--button-light)) 6px 10px / 11px 1px no-repeat,
-      linear-gradient(var(--border), var(--border)) 5px 9px / 13px 3px no-repeat,
-      linear-gradient(var(--button-dark), var(--button-dark)) 6px 10px / 13px 3px no-repeat,
+      linear-gradient(var(--button-light), var(--button-light)) 4px 9px / 10px 1px no-repeat,
+      linear-gradient(var(--border), var(--border)) 3px 8px / 12px 3px no-repeat,
+      linear-gradient(var(--button-dark), var(--button-dark)) 4px 9px / 12px 3px no-repeat,
 
-      var(--button-bg)
+      var(--ButttonFace)
       ;
   }
+
+  img {display: none;} //win 31 doesn't support icon
 }
 
 .window-body,
 .dialog-body {
-  background: var(--window-bg);
-  color: var(--window-fg);
+  background: var(--Window);
+  color: var(--WindowText);
   border: 1px solid var(--border);
   border-top: 0;
 }
 
 .dialog-body {
-  border-color: var(--window-bg);
+  border-color: var(--Window);
 }
 
 .window.active > .title-bar,
@@ -137,8 +147,8 @@
 .dialog:focus-within > .title-bar,
 .menu > .title-bar,
 .title-bar.active {
-  background: var(--title-bar-active-bg);
-  color: var(--title-bar-active-fg);
+  background: var(--ActiveTitle);
+  color: var(--TitleText);
 }
 
 .window-body > * + *,

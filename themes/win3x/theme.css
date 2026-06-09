@@ -1,34 +1,34 @@
 :root {
   --preferred-font: "Microsoft Sans Serif";
-  --desktop-bg: #C0C0C0;
-  --workspace-bg: #FFFFFF;
-  --window-bg: #FFFFFF;
-  --window-fg: #000000;
-  --button-bg: #C0C0C0;
+  --Background: #C0C0C0;
+  --AppWorkspace: #FFFFFF;
+  --Window: #FFFFFF;
+  --WindowText: #000000;
+  --ButttonFace: #C0C0C0;
   --button-fg: #000000;
   --button-dark: #808080;
   --button-light: #FFFFFF;
-  --input-bg: var(--window-bg);
-  --input-fg: var(--window-fg);
+  --input-bg: var(--Window);
+  --input-fg: var(--WindowText);
   --border: #000000;
   --disabled: #808080;
-  --window-frame: #C0C0C0;
-  --window-frame-active: var(--window-frame);
-  --menu-bg: #FFFFFF;
-  --menu-fg: #000000;
-  --title-bar-bg: #FFFFFF;
-  --title-bar-fg: #000000;
-  --title-bar-active-bg: #0000C0;
-  --title-bar-active-fg: #FFFFFF;
-  --selection-bg: #0000C0;
-  --selection-fg: #FFFFFF;
+  --InactiveBorder: #C0C0C0;
+  --ActiveBorder: var(--InactiveBorder);
+  --MenuBar: #FFFFFF;
+  --MenuText: #000000;
+  --InactiveTitle: #FFFFFF;
+  --InactiveTitleText: #000000;
+  --ActiveTitle: #0000C0;
+  --TitleText: #FFFFFF;
+  --Hilight: #0000C0;
+  --HilightText: #FFFFFF;
   --selection-inverse: #FFFF3F;
   --scrollbar-bg: #C0C0C0;
 }
 
 body {
-  background-color: var(--window-bg);
-  color: var(--window-fg);
+  background-color: var(--Window);
+  color: var(--WindowText);
   font-family: system-ui;
 }
 
@@ -54,16 +54,16 @@ code {
 }
 
 .desktop {
-  background: var(--desktop-bg);
+  background: var(--Background);
 }
 
 .raised {
-  background: var(--window-bg);
+  background: var(--Window);
   border: 1px solid var(--border);
 }
 
 .lowered {
-  background: var(--window-bg);
+  background: var(--Window);
   border: 1px solid var(--border);
 }
 
@@ -80,22 +80,22 @@ code {
 }
 
 .top-panel {
-  background: var(--window-bg);
+  background: var(--Window);
   border-bottom: 1px solid var(--border);
 }
 
 .right-panel {
-  background: var(--window-bg);
+  background: var(--Window);
   border-left: 1px solid var(--border);
 }
 
 .bottom-panel {
-  background: var(--window-bg);
+  background: var(--Window);
   border-top: 1px solid var(--border);
 }
 
 .left-panel {
-  background: var(--window-bg);
+  background: var(--Window);
   border-right: 1px solid var(--border);
 }
 
@@ -167,7 +167,7 @@ hr {
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
   position: absolute;
-  background: var(--button-bg);
+  background: var(--ButttonFace);
   border: 1px solid var(--border);
   box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
 }
@@ -222,7 +222,7 @@ hr {
 
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-thumb {
-  background-color: var(--button-bg);
+  background-color: var(--ButttonFace);
   color: var(--button-fg);
   border: 1px solid var(--border);
   box-shadow: inset 1px 1px 0 var(--button-light), inset -2px -2px var(--button-dark);
@@ -273,7 +273,7 @@ hr {
 }
 
 button, input[type=button], input[type=submit], input[type=reset], .button {
-  background-color: var(--button-bg);
+  background-color: var(--ButttonFace);
   color: var(--button-fg);
   border: 1px solid var(--border);
   border-radius: 2.5px;
@@ -308,7 +308,7 @@ button:disabled::after, button.disabled::after, input[type=button]:disabled::aft
   left: 3px;
   right: 3px;
   bottom: 3px;
-  background-image: linear-gradient(45deg, var(--button-bg) 25%, transparent 25%), linear-gradient(-45deg, var(--button-bg) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--button-bg) 75%), linear-gradient(-45deg, transparent 75%, var(--button-bg) 75%);
+  background-image: linear-gradient(45deg, var(--ButttonFace) 25%, transparent 25%), linear-gradient(-45deg, var(--ButttonFace) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--ButttonFace) 75%), linear-gradient(-45deg, transparent 75%, var(--ButttonFace) 75%);
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
 }
@@ -343,8 +343,8 @@ select {
 }
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection,
 select::selection {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
 }
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled,
 select:disabled,
@@ -356,16 +356,16 @@ select > option {
   padding: 2px 6px;
 }
 select > option:checked {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
 }
 
 select[multiple], select[size]:not([size="1"]) {
   padding: 0;
 }
 select[multiple] > option:checked, select[size]:not([size="1"]) > option:checked {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
 }
 select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > option:checked {
   outline: 1px dotted var(--selection-inverse);
@@ -373,8 +373,8 @@ select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > op
 
 select:not([size]):not(:active):focus,
 select[size="1"]:not(:active):focus {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
   box-shadow: inset 1px 1px 0 var(--input-bg), inset -1px -1px 0 var(--input-bg);
 }
 
@@ -408,7 +408,7 @@ select[size="1"]:not(:active):focus {
   justify-content: center;
   align-items: center;
   margin: 1px;
-  background-color: var(--button-bg);
+  background-color: var(--ButttonFace);
   color: var(--button-fg);
   border-left: 1px solid var(--border);
   box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark), -1px 0 var(--input-bg);
@@ -456,7 +456,7 @@ input[type=radio]:disabled + label::after {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(45deg, var(--window-bg) 25%, transparent 25%), linear-gradient(-45deg, var(--window-bg) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--window-bg) 75%), linear-gradient(-45deg, transparent 75%, var(--window-bg) 75%);
+  background-image: linear-gradient(45deg, var(--Window) 25%, transparent 25%), linear-gradient(-45deg, var(--Window) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--Window) 75%), linear-gradient(-45deg, transparent 75%, var(--Window) 75%);
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
 }
@@ -533,7 +533,7 @@ input[type=range]::-moz-range-thumb {
   border-radius: 0;
   height: 16px;
   width: 32px;
-  background: var(--button-bg);
+  background: var(--ButttonFace);
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
   border: 1px solid var(--border);
@@ -551,7 +551,7 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 0;
   height: 16px;
   width: 32px;
-  background: var(--button-bg);
+  background: var(--ButttonFace);
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
   border: 1px solid var(--border);
@@ -587,7 +587,7 @@ progress,
   top: 0;
   bottom: 0;
   left: 0;
-  background: var(--selection-bg);
+  background: var(--Hilight);
 }
 .progress-bar:not([aria-valuenow])::after {
   width: 50%;
@@ -599,11 +599,11 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: var(--selection-bg);
+  background: var(--Hilight);
 }
 
 progress::-moz-progress-bar {
-  background: var(--selection-bg);
+  background: var(--Hilight);
 }
 
 progress:indeterminate::-moz-progress-bar {
@@ -627,7 +627,7 @@ progress:not([value])::-webkit-progress-value {
 .window,
 .dialog,
 .menu {
-  background: var(--window-frame);
+  background: var(--InactiveBorder);
   border: 1px solid var(--border);
   position: relative;
   padding: 2px;
@@ -641,21 +641,21 @@ progress:not([value])::-webkit-progress-value {
 
 .window.active,
 .window:focus-within {
-  background-color: var(--window-frame-active);
+  background-color: var(--ActiveBorder);
 }
 
 .dialog {
-  background: var(--title-bar-bg);
+  background: var(--InactiveTitle);
 }
 
 .dialog.active,
 .dialog:focus-within {
-  background-color: var(--title-bar-active-bg);
+  background-color: var(--ActiveTitle);
 }
 
 .title-bar {
-  background: var(--title-bar-bg);
-  color: var(--title-bar-fg);
+  background: var(--InactiveTitle);
+  color: var(--InactiveTitleText);
   display: flex;
   flex-direction: row;
   font-weight: bold;
@@ -663,7 +663,7 @@ progress:not([value])::-webkit-progress-value {
 }
 
 .dialog > .title-bar {
-  border: 1px solid var(--window-bg);
+  border: 1px solid var(--Window);
   border-bottom-color: var(--border);
 }
 
@@ -690,7 +690,7 @@ progress:not([value])::-webkit-progress-value {
   border: 0;
   border-left: 1px solid var(--border);
   border-radius: 0;
-  background-color: var(--button-bg);
+  background-color: var(--ButttonFace);
   background-repeat: no-repeat;
   background-position: 7px 8px;
 }
@@ -728,14 +728,14 @@ progress:not([value])::-webkit-progress-value {
 
 .window-body,
 .dialog-body {
-  background: var(--window-bg);
-  color: var(--window-fg);
+  background: var(--Window);
+  color: var(--WindowText);
   border: 1px solid var(--border);
   border-top: 0;
 }
 
 .dialog-body {
-  border-color: var(--window-bg);
+  border-color: var(--Window);
 }
 
 .window.active > .title-bar,
@@ -744,8 +744,8 @@ progress:not([value])::-webkit-progress-value {
 .dialog:focus-within > .title-bar,
 .menu > .title-bar,
 .title-bar.active {
-  background: var(--title-bar-active-bg);
-  color: var(--title-bar-active-fg);
+  background: var(--ActiveTitle);
+  color: var(--TitleText);
 }
 
 .window-body > * + *,
@@ -755,8 +755,8 @@ progress:not([value])::-webkit-progress-value {
 }
 
 [role=menu] {
-  color: var(--menu-fg);
-  background-color: var(--menu-bg);
+  color: var(--MenuText);
+  background-color: var(--MenuBar);
   border: 1px solid var(--border);
 }
 [role=menu] li {
@@ -820,8 +820,8 @@ progress:not([value])::-webkit-progress-value {
 }
 
 [role=menubar] {
-  color: var(--menu-fg);
-  background-color: var(--menu-bg);
+  color: var(--MenuText);
+  background-color: var(--MenuBar);
 }
 [role=menubar] > li {
   padding: 1px 8px;
@@ -842,8 +842,8 @@ progress:not([value])::-webkit-progress-value {
 }
 [role=menu] li:focus-within,
 [role=menubar] li:focus-within {
-  background: var(--selection-bg);
-  color: var(--selection-fg);
+  background: var(--Hilight);
+  color: var(--HilightText);
 }
 [role=menu] li[aria-disabled],
 [role=menubar] li[aria-disabled] {
@@ -882,8 +882,8 @@ progress:not([value])::-webkit-progress-value {
   margin-top: -2px;
   margin-bottom: -1px;
   padding: 0px 12px 4px 12px;
-  background-color: var(--window-bg);
-  color: var(--window-fg);
+  background-color: var(--Window);
+  color: var(--WindowText);
   box-shadow: none;
   z-index: 1;
 }
@@ -893,8 +893,8 @@ progress:not([value])::-webkit-progress-value {
 }
 
 .list {
-  background: var(--window-bg);
-  color: var(--window-fg);
+  background: var(--Window);
+  color: var(--WindowText);
   border: 1px solid var(--border);
   overflow: auto;
   cursor: default;
@@ -906,8 +906,8 @@ progress:not([value])::-webkit-progress-value {
 }
 
 .list > [role=option][aria-selected=true] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
 }
 
 .list > [role=option]:focus {
@@ -949,12 +949,12 @@ progress:not([value])::-webkit-progress-value {
 }
 
 .icon-grid > .icon[aria-selected=true] > .icon-label {
-  outline: 1px solid var(--selection-bg);
+  outline: 1px solid var(--Hilight);
 }
 
 .icon-grid:focus-within > .icon[aria-selected=true] > .icon-label {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
   outline: none;
 }
 
@@ -974,7 +974,7 @@ progress:not([value])::-webkit-progress-value {
   white-space: nowrap;
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
-  background: var(--button-bg);
+  background: var(--ButttonFace);
   color: var(--button-fg);
 }
 .detailed th:last-child {
@@ -1002,8 +1002,8 @@ progress:not([value])::-webkit-progress-value {
 }
 
 .detailed tr[aria-selected=true] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
 }
 
 .detailed tr[aria-selected=true]:focus {
@@ -1016,12 +1016,12 @@ progress:not([value])::-webkit-progress-value {
 }
 
 .detailed .icon[aria-selected=true] {
-  outline: 1px solid var(--selection-bg);
+  outline: 1px solid var(--Hilight);
 }
 
 .detailed:focus-within .icon[aria-selected=true] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
   outline: none;
 }
 
@@ -1114,7 +1114,7 @@ progress:not([value])::-webkit-progress-value {
   outline-offset: -1px;
 }
 .list ul[role=tree] [role=treeitem][aria-selected=true] {
-  outline: 1px solid var(--selection-bg);
+  outline: 1px solid var(--Hilight);
 }
 .list ul[role=tree] [role=treeitem][aria-selected=true]:focus {
   outline: 1px dotted var(--selection-inverse);
@@ -1123,8 +1123,8 @@ progress:not([value])::-webkit-progress-value {
   padding-left: 16px;
 }
 .list ul[role=tree]:focus-within [role=treeitem][aria-selected=true] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
 }
 .list ul[role=tree] ul {
   margin-left: 8px;

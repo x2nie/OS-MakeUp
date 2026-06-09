@@ -47,7 +47,7 @@
 
     & > .scrollbar-thumb {
       position: absolute;
-      background: var(--button-bg);
+      background: var(--ButttonFace);
       border: 1px solid var(--border);
       box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
     }
@@ -114,7 +114,7 @@
 
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-thumb {
-  background-color: var(--button-bg);
+  background-color: var(--ButttonFace);
   color: var(--button-fg);
   border: 1px solid var(--border);
   box-shadow: inset 1px 1px 0 var(--button-light), inset -2px -2px var(--button-dark);

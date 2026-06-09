@@ -304,7 +304,7 @@ $multiSelects: 'select[multiple], select[size]:not([size="1"])';
   //    BUTTON FACE
   // =========================
 
-  linear-gradient( var(--button-bg), var(--button-bg))
+  linear-gradient( var(--ButttonFace), var(--ButttonFace))
   top right /
   calc(var(--bw) ) 100% 
   no-repeat;

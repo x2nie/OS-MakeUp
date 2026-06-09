@@ -1,7 +1,7 @@
 @use 'drawing' as *;
 
 .desktop {
-  background: var(--desktop-bg);
+  background: var(--Background);
 }
 
 .status-bar {
@@ -9,7 +9,7 @@
   width: 100%;
   gap: 2px;
   font-size: var(--StatusFont-Height);
-  background: var(--button-bg);
+  background: var(--ButttonFace);
   > * {
     padding: 2px 4px;
     flex-grow: 1;
@@ -21,12 +21,12 @@
   }
 }
 .raised {
-  background: var(--window-bg);
+  background: var(--Window);
   border: 1px solid var(--border);
 }
 
 .lowered {
-  // background: var(--window-bg);
+  // background: var(--Window);
   // border: 1px solid var(--border);
   background: frame(var(--border)), var(--input-bg);
   // box-shadow: inset 1px 1px var(--border), inset -2px -2px var(--border);
@@ -45,22 +45,22 @@
 }
 
 .top-panel {
-  background: var(--window-bg);
+  background: var(--Window);
   border-bottom: 1px solid var(--border);
 }
 
 .right-panel {
-  background: var(--window-bg);
+  background: var(--Window);
   border-left: 1px solid var(--border);
 }
 
 .bottom-panel {
-  background: var(--window-bg);
+  background: var(--Window);
   border-top: 1px solid var(--border);
 }
 
 .left-panel {
-  background: var(--window-bg);
+  background: var(--Window);
   border-right: 1px solid var(--border);
 }
 

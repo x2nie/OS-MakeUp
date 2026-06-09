@@ -1,6 +1,6 @@
 [role=menu] {
-  color: var(--menu-fg);
-  background-color: var(--menu-bg);
+  color: var(--MenuText);
+  background-color: var(--MenuBar);
   border: 1px solid var(--border);
 
   li {
@@ -73,8 +73,9 @@
 }
 
 [role=menubar] {
-  color: var(--menu-fg);
-  background-color: var(--menu-bg);
+  color: var(--MenuText);
+  background-color: var(--MenuBar);
+  border-inline: 1px solid black;
 
   & > li {
     padding: 1px 8px;
@@ -99,8 +100,8 @@
   }
 
   &:focus-within {
-    background: var(--selection-bg);
-    color: var(--selection-fg);
+    background: var(--Hilight);
+    color: var(--HilightText);
   }
 
   &[aria-disabled] {

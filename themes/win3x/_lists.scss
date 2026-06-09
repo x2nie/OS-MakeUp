@@ -1,6 +1,6 @@
 .list {
-  background: var(--window-bg);
-  color: var(--window-fg);
+  background: var(--Window);
+  color: var(--WindowText);
   // border: 1px solid var(--border);
   background: frame(var(--border)), var(--input-bg);
   box-shadow: inset 1px 1px var(--border), inset -2px -2px var(--border);
@@ -15,8 +15,8 @@
 }
 
 .list > [role="option"][aria-selected="true"] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
 }
 
 .list > [role="option"]:focus {
@@ -58,12 +58,12 @@
 }
 
 .icon-grid > .icon[aria-selected="true"] > .icon-label {
-  outline: 1px solid var(--selection-bg);
+  outline: 1px solid var(--Hilight);
 }
 
 .icon-grid:focus-within > .icon[aria-selected="true"] > .icon-label {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
   outline: none;
 }
 
@@ -83,7 +83,7 @@
   white-space: nowrap;
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
-  background: var(--button-bg);
+  background: var(--ButttonFace);
   color: var(--button-fg);
 
   &:last-child {
@@ -115,8 +115,8 @@
 }
 
 .detailed tr[aria-selected="true"] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
 }
 
 .detailed tr[aria-selected="true"]:focus {
@@ -129,12 +129,12 @@
 }
 
 .detailed .icon[aria-selected="true"] {
-  outline: 1px solid var(--selection-bg);
+  outline: 1px solid var(--Hilight);
 }
 
 .detailed:focus-within .icon[aria-selected="true"] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
+  background-color: var(--Hilight);
+  color: var(--HilightText);
   outline: none;
 }
 
@@ -239,7 +239,7 @@
     }
 
     &[aria-selected="true"] {
-      outline: 1px solid var(--selection-bg);
+      outline: 1px solid var(--Hilight);
     }
 
     &[aria-selected="true"]:focus {
@@ -252,8 +252,8 @@
   }
 
   &:focus-within [role=treeitem][aria-selected="true"] {
-    background-color: var(--selection-bg);
-    color: var(--selection-fg);
+    background-color: var(--Hilight);
+    color: var(--HilightText);
   }
 
   ul {
