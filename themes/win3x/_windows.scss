@@ -34,6 +34,10 @@
   flex-direction: row;
   font-weight: bold;
   border-bottom: 1px solid var(--border);
+
+  > * {
+    height: var(--CaptionHeight);
+  }
 }
 
 // .dialog > .title-bar {
@@ -45,6 +49,8 @@
   text-align: center;
   font-weight: bold;
   padding: 2px 4px;
+  padding-block: 2px;
+  padding-inline: 4px;
   flex-grow: 1;
   cursor: default;
 }
@@ -217,6 +223,38 @@
     --innerFrameColor: var(--Window);    
 
     
+  }
+}
+
+.window.tool-window.alt_caption {
+  flex-direction: row;
+  .title-bar{
+    // writing-mode: vertical-lr;
+    // transform: rotate(180deg);
+    // height: auto;
+    // width: var(--SmCaptionHeight);
+    // height: 16px;
+    border: none;
+    border-right: 1px solid var(--border);
+    flex-direction: column-reverse;
+
+    &-text {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      padding: 4px 2px;
+    }
+
+    // button[data-close] {
+    //   transform: rotate(90deg);
+    // }
+  }
+  .title-bar-buttons{
+    order: 1;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    height: auto;
+
+    &:not(.sys) { display: none;}
   }
 }
 
