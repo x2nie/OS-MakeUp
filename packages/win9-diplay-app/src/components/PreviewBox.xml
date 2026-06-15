@@ -150,11 +150,36 @@
 </div>
 
 <ul t-name="sample_app.menu" role="menubar" class="menubar">
-  <li role="menuitem" tabindex="0" class="no-hover" data-el="Menu">Normal</li>
-  <li role="menuitem" disabled="disabled" tabindex="0">Disabled</li>
-  <li role="menuitem" tabindex="0" class="selected" data-el="Selection">Selected</li>
+  <li role="menuitem" tabindex="0" class="no-hover" data-el="Menu"><u>N</u>ormal</li>
+  <li role="menuitem" disabled="disabled" tabindex="0"><u>D</u>isabled</li>
+  <li role="menuitem" tabindex="0" class="selected" 
+    style="background: var(--Hilight)!important; color: var(--HilightText);"
+    data-el="Selection"><u>S</u>elected</li>
 </ul>
 
+<ul t-name="sample_app.menu0" role="menubar">
+    <li tabindex="0" aria-haspopup="true">
+        <u>N</u>ormal
+    </li>
+    <li tabindex="0" aria-disabled="true">
+        <u>D</u>isabled
+    </li>
+    <li tabindex="0" style="background: var(--Hilight)!important; color: var(--HilightText);">
+        <u>S</u>elected
+    </li>
+</ul>
+
+<!-- <ul role="menubar">
+                        <li tabindex="0" aria-haspopup="true">
+                          <u>N</u>ormal
+                        </li>
+                        <li tabindex="0" aria-disabled="true">
+                          <u>D</u>isabled
+                        </li>
+                        <li tabindex="0" style="background: var(Hilight)!important; color: var(HilightText);">
+                          <u>S</u>elected
+                        </li>
+                      </ul> -->
 
 
 </templates>

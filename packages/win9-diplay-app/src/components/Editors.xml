@@ -11,7 +11,7 @@
             <option value="winxp">Win XP Style</option>
             <option value="win7">Win 7 Style</option>
             <!-- <option value="winNT">Win NT Style</option> -->
-            <option value="win31">Win 31 Style</option>
+            <option value="win3x">Win 31 Style</option>
             <option value="bluecurve">Bluecurve</option>
             <option value="nu">Norton Utilities</option>
          </select>

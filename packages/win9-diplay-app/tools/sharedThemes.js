@@ -4,11 +4,10 @@ import fs from 'fs'
 export default function vitePluginCssGtk() {
     return {
       name: 'shared-themes',
-      enforce: 'pre',
-      
+
             configureServer(server) {
-              server.middlewares.use('/themes', (req, res, next) => {
-                const base = path.resolve(__dirname, '../../os-makeup/dist/themes')
+              server.middlewares.use('/os-makeup', (req, res, next) => {
+                const base = path.resolve(__dirname, '../../os-makeup/dist')
       
                 const filePath = path.join(
                   base,

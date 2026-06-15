@@ -61,11 +61,26 @@ static template = "theme_preview";
 
     async switchTheme(theme){
         //? host tell to switch of theme.css
-        const styleElement = document.getElementById('the-theme')
+        const styleElement = document.getElementById('the-theme');
+        styleElement.innerHTML = ''
+        // styleElement.setAttribute('src', '');
         // styleElement.setAttribute('src', `themes/${theme}/${theme}.css`)
         let themeInfo = {ThemeInfo:{Name:null}, Schemes:{}, Variants:[]}
         // const filePath =  `themes/${theme}/${theme}.css`
-        const filePath =  `/themes/${theme}/theme.css`
+        const filePath =  `/os-makeup/themes/${theme}/theme.css`;
+        // styleElement.setAttribute('src', filePath);
+        let link = document.getElementById('theme')
+
+        if (!link) {
+            link = document.createElement('link')
+            link.id = 'theme'
+            link.rel = 'stylesheet'
+            document.head.appendChild(link)
+        }
+        link.href = filePath;
+
+        // link.href = `/theme/themes/${name}/theme.css`
+        /*
         try {
             // Fetch CSS file content
             const response = await fetch(filePath);
@@ -94,6 +109,7 @@ static template = "theme_preview";
         } catch (error) {
             console.error(`Error loading or injecting CSS content: ${filePath}`, error);
         }
+        */
         
         //? clear last mod
         document.body.className = ''
