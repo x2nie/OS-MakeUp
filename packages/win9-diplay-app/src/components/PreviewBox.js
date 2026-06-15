@@ -15,8 +15,8 @@ static template = "theme_preview";
     setup(){
         // this.data = useState(win95_colors);
         // this.data = {...win95_colors}; // assure simple
-        // this.state = useState({
-            // theme: 'win98',
+        this.state = useState({
+            theme: 'win98',
             // item: 'Desktop',
             // size: 10,
             // font: {name:'Arial'},
@@ -25,8 +25,8 @@ static template = "theme_preview";
             // mapping: spec.Desktop,
             // fullCss : '',// this.windowStyle(),
             // color_schemes : [],
-            // color_scheme : '',
-        // })
+            color_scheme : '',
+        })
 
         // Menerima pesan dari iframe
         window.addEventListener('message', (event) => {
@@ -60,6 +60,7 @@ static template = "theme_preview";
     }
 
     async switchTheme(theme){
+        this.state.theme = theme;
         //? host tell to switch of theme.css
         const styleElement = document.getElementById('the-theme');
         styleElement.innerHTML = ''
@@ -119,11 +120,23 @@ static template = "theme_preview";
 
         window.parent.postMessage({themeInfo})
         window.requestAnimationFrame(() => {
-            this.parseCurrentTheme()
+            this.parseCurrentTheme();
+            this.parseCurrentSkins();
         });
     }
 
+    parseCurrentSkins(){
+        const style = window.getComputedStyle(document.body)
+        const skinlist = (style.getPropertyValue(`--skinlist`) ?? '').split(', ');
+        console.log('SKINS!', skinlist)
+        const themeInfo = {ThemeInfo:{Name:null}, Schemes:skinlist, Variants:[]}
+        window.parent.postMessage({themeInfo})
+        
+    }
+
     switchScheme(scheme){
+        this.applyScheme(scheme);
+        return;
         const [kind, value] = splitOnce(scheme, ':')
         console.log([kind, value])
         switch (kind) {
@@ -137,6 +150,19 @@ static template = "theme_preview";
             default:
                 break;
         }
+    }
+
+    applyScheme(scheme){
+        let link = document.getElementById('theme-skin')
+
+        if (!link) {
+            link = document.createElement('link')
+            link.id = 'theme-skin'
+            link.rel = 'stylesheet'
+            document.head.appendChild(link)
+        }
+        const filePath =  `/os-makeup/themes/${this.state.theme}/skins/${scheme}.css`;
+        link.href = filePath;
     }
 
     parseCurrentTheme(){

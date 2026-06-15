@@ -24,9 +24,9 @@
          <label for="ed-items">Color Scheme</label>
          <select id="ed-items" t-model="state.color_scheme">
             <t t-if="state.themeInfo and state.themeInfo.Schemes">
-               <t t-foreach="window.Object.keys(state.themeInfo.Schemes)" t-as="name" t-key="name">
+               <t t-foreach="state.themeInfo.Schemes" t-as="name" t-key="name">
                   <option  
-                  t-att-value="state.themeInfo.Schemes[name]" t-out="name"/>
+                  t-att-value="name" t-out="name"/>
                </t> 
             </t>
             <!-- <option t-else="" value="">Default</option> -->
