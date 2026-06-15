@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="9"
+   height="9"
+   viewBox="0 0 9 9"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (1:1.4+202410161351+e7c3feb100)"
+   sodipodi:docname="3d-object.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="68.222222"
+     inkscape:cx="4.492671"
+     inkscape:cy="4.492671"
+     inkscape:window-width="1403"
+     inkscape:window-height="881"
+     inkscape:window-x="1985"
+     inkscape:window-y="90"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     inkscape:antialias-rendering="false">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#e500b4"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="3"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#cccccc"
+       id="rect4"
+       width="6"
+       height="6"
+       x="1"
+       y="1" />
+    <rect
+       style="fill:#ffffff"
+       id="rect5"
+       width="8"
+       height="1"
+       x="0"
+       y="0" />
+    <rect
+       style="fill:#ffffff"
+       id="rect6"
+       width="1"
+       height="7"
+       x="0"
+       y="1" />
+    <rect
+       style="fill:#888888"
+       id="rect7"
+       width="1"
+       height="7"
+       x="7"
+       y="1" />
+    <rect
+       style="fill:#888888"
+       id="rect8"
+       width="6"
+       height="1"
+       x="1"
+       y="7" />
+    <rect
+       style="fill:#000000"
+       id="rect9"
+       width="1"
+       height="8"
+       x="8"
+       y="0" />
+    <rect
+       style="fill:#000000"
+       id="rect10"
+       width="9"
+       height="1"
+       x="0"
+       y="8" />
+    <rect
+       style="fill:#cccccc"
+       id="rect11"
+       width="6"
+       height="6"
+       x="1"
+       y="1" />
+  </g>
+</svg>

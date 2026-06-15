@@ -1,0 +1,132 @@
+<templates>
+
+<div t-name="Editors" id="editors-box">
+
+   <div> <!-- engine -->
+      <div class="field-row-stacked" >
+         <label for="ed-theme">Window &amp; Border</label>
+         <select id="ed-theme" t-model="state.theme">
+            <!-- <option value="win95">Win 95 Style</option> -->
+            <option value="win9x">Win 98 Style</option>
+            <option value="winxp">Win XP Style</option>
+            <option value="win7">Win 7 Style</option>
+            <!-- <option value="winNT">Win NT Style</option> -->
+            <option value="win31">Win 31 Style</option>
+            <option value="bluecurve">Bluecurve</option>
+            <option value="nu">Norton Utilities</option>
+         </select>
+      </div>
+   </div>
+   
+   
+   <div> <!-- color scheme -->
+      <div class="field-row-stacked" >
+         <label for="ed-items">Color Scheme</label>
+         <select id="ed-items" t-model="state.color_scheme">
+            <t t-if="state.themeInfo and state.themeInfo.Schemes">
+               <t t-foreach="window.Object.keys(state.themeInfo.Schemes)" t-as="name" t-key="name">
+                  <option  
+                  t-att-value="state.themeInfo.Schemes[name]" t-out="name"/>
+               </t> 
+            </t>
+            <!-- <option t-else="" value="">Default</option> -->
+            <!-- <option t-foreach="state.color_schemes" t-as="name" t-key="name" 
+               t-att-value="name" t-out="name"/> -->
+         </select>
+         <!-- <select id="ed-items" t-model="state.color_scheme">
+            <option value="">Default</option>
+            <option t-foreach="state.color_schemes" t-as="name" t-key="name" 
+               t-att-value="name" t-out="name"/>
+         </select> -->
+      </div>
+
+      <div class="field-row-stacked big-width" >
+         <label for="ed-items">Variant</label>
+         <select id="ed-items" t-model="state.variant">
+         </select>
+      </div>
+
+   </div>
+   
+   
+   <div> <!-- Item -->
+
+      <div class="field-row-stacked" >
+         <label for="ed-items">Items</label>
+         <select id="ed-items" t-model="state.item">
+            <option t-foreach="sel_items" t-as="item" t-key="item_index" t-att-value="item" t-out="sel_items[item].label"></option>
+         </select>
+      </div>
+
+      <div class="field-row-stacked small-width" >
+         <label for="ed-size">Size</label>
+         <FieldSpin disabled="!state.mapping.color2" state="state" field="'size'">
+            <input id="ed-size" t-model="state.size" type="text" t-att="{'disabled': !state.mapping.size}"/>
+         </FieldSpin>
+      </div>
+
+      <div class="field-row-stacked" >
+         <label for="ed-color">Color 1</label>
+         <FieldColor color="state.color" disabled="!state.mapping.color">
+            <input id="ed-color" t-model="state.color" type="color"/>
+         </FieldColor>
+      </div>
+
+      <div class="field-row-stacked" >
+         <label for="ed-color2">Color 2</label>
+         <!-- <input id="ed-color2" t-model="data.ActiveTitle" type="color"/> -->
+         <FieldColor color="state.color2" disabled="!state.mapping.color2">
+            <input id="ed-color2" t-model="state.color2" type="color"/>
+         </FieldColor>
+      </div>
+
+   </div>
+   
+   
+
+   <div> <!-- Font -->
+
+      <div class="field-row-stacked" >
+         <label for="ed-font-name">Font</label>
+         <select id="ed-font-name" t-model="state.font.name" t-att="{'disabled': !state.mapping.font}">
+            <option value="Tahoma">Tahoma</option>
+            <option value="Arial">Arial</option>
+            <option value="sans-serif">Sans Serif</option>
+            <option value="monospace">Monospace</option>
+            <option value="winXP">Times New Roman</option>
+            <option value="win7">Win 7</option>
+         </select>
+      </div>
+
+      <div class="field-row-stacked small-width" >
+         <label for="ed-font-size">Size</label>
+         <select id="ed-font-size" t-model="state.font_size" t-att="{'disabled': !state.mapping.font}">
+            <option t-foreach="[8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]" t-as="fs" t-key="fs" t-att-value="fs" t-out="fs"/>
+         </select>
+      </div>
+
+      <div class="field-row-stacked" >
+         <label for="ed-font-color">Color</label>
+         <div class="button-group" >
+         <!-- <input id="ed-font-color" t-model="data.ActiveTitle" type="color"/> -->
+         <!-- <FieldColor id="ed-font-color" model="data.ActiveTitle"/> -->
+         <FieldColor id="ed-font-color" color="state.text" disabled="!state.mapping.text and !state.mapping.font">
+            <input id="ed-font-color2" t-model="state.text" type="color"/>
+         </FieldColor>
+         <!-- <input id="ed-font-color2" t-model="data.ActiveTitle" type="text"/> -->
+         <i style="width:10px"/>
+         <button t-on-click="toggleBold" t-attf-class="speed bold {{state.font and state.font.Weight gte 600 ?'active':''}}" t-att="{'disabled': !state.mapping.font}">B</button>
+         <button t-on-click="toggleItalic" t-attf-class="speed {{state.font and state.font.italic?'active':''}}" t-att="{'disabled': !state.mapping.font}">/</button>
+         <!-- <input t-model="data.ActiveTitle" type="color"/> -->
+         </div>
+      </div>
+
+   </div>
+   
+   
+
+
+
+</div>
+
+</templates>

@@ -1,0 +1,21 @@
+#desktop-theme-form {
+    left: 25px ;
+    top: 25px ;
+    // width: 600px;
+    width: 460px;
+
+    .preview-box{
+        // background: teal;
+        // margin: 15px 25px;
+        min-height: 300px;
+        // overflow-y: scroll;
+        
+        box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+    }
+
+    .neck{
+        display: flex;
+        padding: 15px 25px;
+        gap: 25px;
+    }
+}

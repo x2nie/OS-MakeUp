@@ -1,0 +1,72 @@
+#editors-box{
+    // position: absolute;
+    > div {
+        .field-row-stacked {
+            display: inline-flex;
+            margin-left: 10px;
+            margin-bottom: 6px;
+            --grouped-element-spacing: 3px; // editor margin-top
+            --big-width: 195px;
+            --small-width: 65px;
+            
+            .button-group > * {
+                float: left;
+            }
+
+            &.big-width{
+                width: var(--big-width);
+            }
+            &.small-width{
+                width: var(--small-width);
+            }
+            
+            &:first-child {
+                margin-left: 0;
+                // background: red;
+                width: var(--big-width);
+            }
+
+
+            button.speed {
+                min-width: 23px;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+}
+
+
+.field-row {
+    display: flex;
+    align-items: center;
+    > * {
+        + {
+            * {
+                margin-left: var(--grouped-element-spacing);
+            }
+        }
+    }
+}
+[class^="field-row"] {
+    + {
+        [class^="field-row"] {
+            margin-top: var(--grouped-element-spacing);
+        }
+    }
+}
+.field-row-stacked {
+    display: flex;
+    flex-direction: column;
+    * {
+        + {
+            * {
+                margin-top: var(--grouped-element-spacing);
+            }
+        }
+    }
+}

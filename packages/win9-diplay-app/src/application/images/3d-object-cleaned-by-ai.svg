@@ -1,0 +1,6 @@
+<svg viewBox="0 0 9 9">
+  <path fill="#ccc" d="M1,1H7V7H1Z"/>
+  <path fill="#fff" d="M0,0V8H1V1H8V0H0Z"/>
+  <path fill="#888" d="M7,1V7H1V8H8V1H7Z"/>
+  <path fill="#000" d="M8,0V8H0v1h9V8V0H8Z"/>
+</svg>

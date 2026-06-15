@@ -1,0 +1,28 @@
+.FieldSpin{
+    position: relative;
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        position: absolute !important;
+        right: 3px;
+        padding: 0;
+        padding: 0 !important;
+        min-width: 17px !important;
+        min-height: 9px !important;
+        border-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+
+        &:last-child{
+            top:9px;
+        }
+    
+        .win98.window & {
+            padding: 0;
+            min-width: 17px;
+            min-height: 9px;
+        }
+    }
+}

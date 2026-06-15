@@ -1,0 +1,77 @@
+.win98.window button.btn-color {
+    min-width: 49px;
+    padding: 0;
+}
+.btn-color {
+    padding: 0 4px !important;
+    min-width: 30px !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+    // padding: 0 4px;
+    // gap: 4px;
+
+    // preview
+    i {
+        margin-left: 1px;
+        position: relative;
+        display: block;
+        // left: 5px;
+        // top: 4px;
+        width: 22px;
+        min-height: 13px;
+        max-height: 13px;
+        border: 1px solid black;
+        box-sizing: border-box;
+    }
+    
+    // separator
+    s{
+        position: relative;
+        margin: 0 1px 0 3px !important;
+        line-height: 1;
+        // left: 34px;
+        // top: 4px;
+        height: 14px;
+        border-left: 1px solid grey;
+        border-right: 1px solid white;
+    }
+
+    // arrow down
+    b{
+        transform: translateY(2px);
+        // position: absolute;
+        content: '';
+        // left: 38px;
+        // top: 10px;
+        max-height: 4px;
+        border: 3px solid transparent;
+        border-top-color: black;
+    }
+
+    input {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        // max-height: 1px;
+    }
+
+    &[disabled]{
+        input { display: none;}
+        i { opacity: 0;}
+        // &::before{
+        //     position: absolute;
+        //     // content: '';
+        //     left: 39px;
+        //     top: 11px;
+        //     height: 4px;
+        //     border-top: 3px solid white;
+        //     border-left: 3px solid transparent;
+        //     border-right: 3px solid transparent;
+        // }
+        b {
+            border-top-color: grey;
+            filter: drop-shadow(1px 1px white);
+        }
+    }
+}

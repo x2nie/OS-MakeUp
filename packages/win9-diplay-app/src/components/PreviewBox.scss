@@ -1,0 +1,210 @@
+.preview-box {
+    position: relative;
+    width:400px;
+    height: 340px;
+
+    &,#wallpaper-holder{
+        // width: 100%;
+        // height: 100%;
+        background: var(--wallpaper, var(--Background));
+        // background-size: contain;
+        background-size: 100% 100%;
+    }
+
+    .window {
+        position: absolute;
+    }
+    .tool-window{
+        right: 245px;
+        top: 247px;
+    }
+    .sample_app{
+        #window-and-scrollbar {
+            // box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+            border-image: var(--sunken2-border-image);
+            position: relative;
+            
+            #scrollable {
+                border: 2px solid transparent;
+                width: 25px;
+                position: absolute;
+                inset: 0;
+                left: auto;
+                overflow-y: scroll;
+                // background: yellowgreen;
+                // pointer-events: none;
+
+                &::before{
+                    content: '';
+                    height: 200%;
+                    display: block;
+                }
+            }
+        }
+        &:not(.active){
+            // inactive
+            // left: 161px;
+            right: 45px;
+            top: 127px;
+            // bottom: 200px;
+            width: 200px;
+            // height: 147px;
+
+            #window-and-scrollbar{
+                height: 140px;
+                // overflow-y: scroll;
+
+                // &::before{
+                //     content: '';
+                //     display: block;
+                //     height: 160px;
+                // }
+            }
+        }
+
+        &.active {
+            // left: 106px;
+            right: 25px;
+            // top: 182px;
+            bottom: 30px;
+            width: 248px;
+            // height: 122px;
+            // .window-body{
+            //     height: 122px;
+            // }
+        }
+
+        &.active #window-and-scrollbar {
+            // box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+            padding:2px;
+            height: 100px;
+            display: flex;
+            flex-direction: row;
+            background: var(--Window);
+            color: var(--WindowText);
+
+            .scrollbar.vertical {
+                display: flex;
+                flex-direction: column;
+
+                .scrollbar-track{
+                    flex-grow: 1;
+
+                    .scrollbar-thumb{
+                        min-height: 75%;
+                        position: relative;
+                        top:5px;
+                    }
+                }
+            }
+
+            // > div {
+            //     // overflow-y: scroll;
+            //     // overflow: hidden;
+            //     overflow-y: scroll;
+            //     pointer-events: none;
+            //     // max-height: 64px;
+            //     height: 100%;
+
+            //     &::before,
+            //     &::after{
+            //         content: '';
+            //         display: block;
+            //         height: 10px;
+            //     }
+
+                textarea{
+                    pointer-events: all;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    resize: none;
+
+                    // overflow-y: scroll;
+                    // overflow: visible;
+                    padding: 0;
+                }
+            // }
+        }
+    }
+
+    .message-box{
+        // left: 175px;
+        right: 55px;
+        // top:257px;
+        bottom: 10px;
+        width: 167px;
+        
+        .window-body{
+            position: relative;
+            height: 60px;
+
+
+            button {
+                // position: absolute;
+                display: block;
+                margin:10px auto 0;
+                width: 72px;
+                // left: 45px;
+                // top: 25px;
+            }
+        }
+
+    }
+    
+}
+
+.preview-box .editors-box{
+
+    #ed-items {
+        left: 30px;
+    }
+}
+
+// colors
+.preview-box {
+    background-color: var(--Background);
+    
+    .winNT.window,.win98.window {
+        // --element-spacing:0; 
+        --surface: var(--ButtonFace);
+        --button-face: var(--ButtonFace);
+        --button-color: var(--ButtonText);
+        --dialog-blue: var(--InactiveTitle); 
+        --dialog-blue-light: var(--GradientInactiveTitle); 
+        --hilight: var(--Hilight);
+        --hilight-text: var(--HilightText);
+        --menu-bar: var(--MenuBar);
+
+        .title-bar-text{color: var(--InactiveTitleText)}
+        
+        &.active{
+            --dialog-blue: var(--ActiveTitle); 
+            --dialog-blue-light: var(--GradientActiveTitle); 
+            .title-bar-text{color: var(--TitleText)}
+        }
+        
+        button{
+            color: var(--ButtonText)
+        }
+
+        textarea {
+            background: var(--Window);
+            color: var(--WindowText);
+        }
+
+        .title-bar-text{
+            font-family: var(--CaptionFont-name);
+            font-weight: var(--CaptionFont-bold);
+            font-style: var(--CaptionFont-italic);
+            // color: var(--CaptionFont-bold);
+        }
+
+        [role="menubar"] > [role="menuitem"] {
+            font-family: var(--MenuFont-name);
+            font-weight: var(--MenuFont-bold);
+            font-style: var(--MenuFont-italic);
+            color: var(--MenuText);
+        }
+    }
+}

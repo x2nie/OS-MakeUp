@@ -1,0 +1,22 @@
+// @import 'xp.css/gui/_variables.scss';
+// @import 'xp.css/gui/index.scss';
+@import 'xp.css/themes/XP/_variables.scss';
+@import 'xp.css/themes/XP/_global.scss';
+
+.coba {
+    background-image: url(./coba/msdos-16x16.png)
+}
+
+.xp {
+    // @import 'xp.css/themes/XP/index.scss';
+    @import 'xp.css/gui/index.scss';
+
+    
+    @import 'xp.css/themes/XP/_window.scss';
+    @import 'xp.css/themes/XP/_buttons.scss';
+    @import 'xp.css/themes/XP/_forms.scss';
+    @import 'xp.css/themes/XP/_groupbox.scss';
+    @import 'xp.css/themes/XP/_tabs.scss';
+    @import 'xp.css/themes/XP/_treeview.scss';
+    @import 'xp.css/themes/XP/_progressbar.scss';
+}

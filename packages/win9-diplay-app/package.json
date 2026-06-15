@@ -4,11 +4,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev0": "vite",
+    "dev1": "yarn watch:themes & yarn watch:xml & vite",
+    "dev": "yarn watch:xml & vite",
+    "build:xml": "node tools/bundle_xml/main.cjs",
+    "watch:xml": "node tools/bundle_xml/watch_xml_templates.cjs",
+    "watch:themes": "node tools/bundle_themes/scss-watcher.cjs",
+
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^8.0.12"
+    "lodash.debounce": "^4.0.8",
+    "node-watch": "^0.7.4",
+    "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "@odoo/owl": "2.3.0",
+    "sass": "^1.101.0"
   }
 }

@@ -1,0 +1,95 @@
+:root{
+    --di-my-computer: url("images/icon/my-computer-32x32.png");
+    --di-recycle-bin: url("images/icon/recycle-bin-full-32x32.png");
+    --di-my-documents: url("images/icon/MyDocsnt-JR.ico");
+    --di-network: url("images/icon/Network Neighborhood98-jR.ico");
+}
+desktop-icons{
+    display: flex;
+    flex-direction: column;
+    width: 93px;
+
+    di {
+        position: relative;
+        // max-width: 100px;
+        // background: red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: visible;
+        height: var(--VertSpacing, 43);
+
+        &::before{
+            content: '';
+            // position: absolute;
+            display: block;
+            // background: url("images/icon/my-computer-32x32.png");
+            // background: url("images/icon/my-computer-32x32.png");
+            width: 32px;
+            height: 32px;
+            image-rendering: pixelated;
+            background-size: contain; /* Pastikan gambar tidak terpotong atau di-zoom */
+            background-repeat: no-repeat; /* Hindari pengulangan gambar */
+            background-position: center; /* Pastikan gambar berada di tengah */
+        }
+        // &::after{
+        //     content: attr(label);
+        //     position: absolute;
+        //     top: 34px;
+        //     text-align: center;
+        //     padding: 0 2px;
+        //     font-family: Arial;
+        //     font-size: 12px;
+        //     width: auto;
+        //     text-wrap: nowrap;
+        //     // font-family: var(--IconFont-Name);
+        //     font-weight: var(--IconFont-Weight);
+        //     background: var(--Background);
+        // }
+        i{
+            display: block;
+            margin-top: 3px;
+            font-style: normal;
+            // background: fuchsia;
+            background: var(--Background);
+            border: 1px dotted transparent;
+        }
+        &:focus i {
+            border-color: white;
+        }
+        span{
+            // position: relative;
+            display: block;
+            text-align: center;
+            padding: 0 2px;
+            font-family: Arial;
+            font-size: 12px;
+            width: auto;
+            text-wrap: nowrap;
+            text-wrap: var(--TitleWrap, wrap);
+            // font-family: var(--IconFont-Name);
+            font-weight: var(--IconFont-Weight);
+            // color: lime;
+            background: inherit;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: invert(1) grayscale(1) contrast(9);
+            // z-index: 1;
+            
+            // &::before{
+            //     content: '';
+            //     position: absolute;
+            //     inset: 0;
+            //     // background: var(--Background);
+            //     background: fuchsia;
+            //     z-index: -1;
+            // }
+        }
+
+        &#my-computer::before {background-image: var(--di-my-computer);}
+        &#recycle-bin::before {background-image: var(--di-recycle-bin);}
+        &#my-documents::before {background-image: var(--di-my-documents);}
+        &#network::before {background-image: var(--di-network);}
+    }
+}

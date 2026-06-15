@@ -1,0 +1,26 @@
+.desktop-icon {
+    text-align: center;
+    cursor: pointer;
+    image-rendering: pixelated;
+    
+    .desktop-icon-title {
+        color: white;
+        margin-top: 5px;
+        width: 100%;
+        border: 1px dotted transparent;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    &.selected, &:focus {
+        img {
+            filter: brightness(.35) sepia(100%) hue-rotate(148deg) saturate(10);
+        }
+
+        .desktop-icon-title {
+            background-color: navy;
+            border-color: #fff;
+        }
+    }
+}
