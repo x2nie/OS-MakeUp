@@ -48,11 +48,12 @@
 .title-bar-text {
   text-align: center;
   font-weight: bold;
-  padding: 2px 4px;
-  padding-block: 2px;
+  // padding: 2px 4px;
+  // padding-block: 2px;
   padding-inline: 4px;
   flex-grow: 1;
   cursor: default;
+  line-height: var(--CaptionHeight);
 }
 
 .title-bar-buttons {
@@ -226,6 +227,9 @@
   }
 }
 
+.window.tool-window{
+  --BorderWidth: 0px;
+}
 .window.tool-window.alt_caption {
   flex-direction: row;
   .title-bar{

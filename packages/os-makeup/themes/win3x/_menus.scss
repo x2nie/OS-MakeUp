@@ -76,6 +76,7 @@
   color: var(--MenuText);
   background-color: var(--MenuBar);
   border-inline: none;
+  border-bottom: 1px solid black;
 
   & > li {
     padding: 1px 8px;

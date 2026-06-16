@@ -239,7 +239,7 @@ Window Text &amp;
 </div>
 </div>
 </div>
-<div t-name="sample_app.message-box" t-attf-class="window active message-box" data-el="Form">
+<div t-name="sample_app.message-box" t-attf-class="window dialog active message-box" data-el="Form">
 <div class="title-bar" data-el="ActiveTitle">
 <div class="title-bar-buttons sys" data-el="CaptionButton">
 <button class="sys"></button>

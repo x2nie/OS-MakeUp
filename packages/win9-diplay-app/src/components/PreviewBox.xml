@@ -119,7 +119,7 @@
         </div>
 </div>
 
-<div t-name="sample_app.message-box" t-attf-class="window active message-box" 
+<div t-name="sample_app.message-box" t-attf-class="window dialog active message-box" 
         data-el="Form"
     >
         <div class="title-bar" data-el="ActiveTitle">
