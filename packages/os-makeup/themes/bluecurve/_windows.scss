@@ -69,6 +69,12 @@
       font-size: x-small;
     }
   }
+  .title-bar-buttons.sys {
+    display: none;
+  }
+  .title-bar-text {
+    border-top-left-radius: inherit;
+  }
 }
 
 .window-body,

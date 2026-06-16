@@ -173,8 +173,10 @@ Help
 <di tabindex="0" id="my-documents">  <i><span>My Documents</span></i></di>
 <di tabindex="0" id="recycle-bin">   <i><span>Recycle Bin</span></i></di>
 </desktop-icons>
+<div class="windows-wrapper">
 <t t-call="sample_app.inactive"/>
 <t t-call="sample_app.active"/>
+</div>
 <t t-call="sample_app.tool-window"/>
 <t t-call="sample_app.message-box"/>
 </div>

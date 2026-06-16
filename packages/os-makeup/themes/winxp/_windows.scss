@@ -183,6 +183,15 @@
   mask-image: url(restore.svg);
 }
 
+.title-bar-buttons.sys {
+  &:not(:has(img)){
+    padding: 0;
+  }
+  button {
+    display: none;
+  }
+}
+
 .window-body,
 .dialog-body {
   background: var(--window-bg);
