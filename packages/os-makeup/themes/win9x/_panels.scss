@@ -27,12 +27,34 @@
   border-bottom-color: var(--ButtonShadow);
   border-right-color: var(--ButtonShadow);
 }
-
 .lowered {
   background: var(--ButtonFace);
   border: 1px solid var(--ButtonShadow);
   border-bottom-color: var(--ButtonHilight);
   border-right-color: var(--ButtonHilight);
+}
+
+// inspired by 98.css
+.inset {
+  box-shadow: 
+    inset -1px -1px var(--ButtonHilight), 
+    inset 1px 1px var(--ButtonShadow), 
+
+    inset -2px -2px var(--ButtonFace), 
+    inset 2px 2px var(--ButtonDkShadow)
+    // ,0 0 13px 11px silver
+    ;
+}
+.outset {
+  box-shadow: 
+    inset 1px 1px var(--ButtonFace), 
+    inset 2px 2px var(--ButtonHilight), 
+
+    
+    inset -1px -1px var(--ButtonDkShadow),
+    inset -2px -2px var(--ButtonShadow)
+    // ,0 0 13px -1px silver
+    ;
 }
 
 .top-panel {

@@ -68,6 +68,14 @@ export const spec = {
         color: 'InactiveBorder',
     },
 
+    Window: {
+        label: 'Window',
+        color: 'Window', 
+        text: 'WindowText', 
+        // font: 'MenuFont',
+    },
+
+
     Scrollbar: {
         label: 'Scroll Bar'
     },

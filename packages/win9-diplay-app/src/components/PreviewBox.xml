@@ -47,7 +47,7 @@
         </div>
         <div class="window-body">
             <!-- <p>There's so much room for activities!</p> -->
-            <div id="window-and-scrollbar" data-el="MDI" 
+            <div id="window-and-scrollbar" class="inset" data-el="MDI" 
                 style="background:var(--AppWorkspace, grey);">
                 
             </div>
@@ -73,9 +73,12 @@
         <t t-call="sample_app.menu"/>
         <div class="window-body">
             <!-- <p>There's so much room for activities!</p> -->
-            <div id="window-and-scrollbar"  data-el="Scrollbar">
-                <div>
-                    Text
+            <div id="window-and-scrollbar" class="inset" >
+                <div data-el="Window" class="grow">
+                    Window Text &amp; 
+                    <span 
+                        style="background: var(--Hilight)!important; color: var(--HilightText);"
+                        data-el="Selection">Selected</span>
                 <!-- <div class="has-scrollbar" t-ref="scroll10px"> -->
                     <!-- <textarea data-el="Input" 
                         style="box-shadow:none; border:none;"
@@ -91,18 +94,24 @@
 					<div class="scrollbar-button increment vertical disabled"></div>
 				</div> -->
                 <!-- </div> -->
-                    <div  id="scrollable" >
+                    <!-- <div  id="scrollable" >
                         <script>
                             var el = document.getElementById('scrollable');
                             el.scrollTop= '25'; 
                             // el.onscrollend = function(ev){console.log('#scrollable scrolled!')};
                             el.onmousedown = function(ev) {console.log('#scrollable mouse Down!')};
-                            /*
-                            */
                         </script>
-            
-                    </div>
+                    </div> -->
                 </div>
+                    <div class="scrollbar vertical" style="height: 100%" data-el="Scrollbar">
+                        <button>
+                        </button>
+                        <div class="scrollbar-track">
+                            <div class="scrollbar-thumb"></div>
+                        </div>
+                        <button>
+                        </button>
+                  </div>
             </div>
             
         </div>
@@ -120,7 +129,7 @@
                 <button data-close=""></button>
             </div>
         </div>
-        <div class="window-body" >
+        <div class="window-body" style="padding: 3px 8px;">
             <!-- <p>There's so much room for activities!</p> -->
             Message Text
             <button data-el="Surface">OK</button>
@@ -152,9 +161,7 @@
 <ul t-name="sample_app.menu" role="menubar" class="menubar">
   <li role="menuitem" tabindex="0" class="no-hover" data-el="Menu"><u>N</u>ormal</li>
   <li role="menuitem" disabled="disabled" tabindex="0"><u>D</u>isabled</li>
-  <li role="menuitem" tabindex="0" class="selected" 
-    style="background: var(--Hilight)!important; color: var(--HilightText);"
-    data-el="Selection"><u>S</u>elected</li>
+  <li role="menuitem" tabindex="0" class="selected" ><u>S</u>elected</li>
 </ul>
 
 <ul t-name="sample_app.menu0" role="menubar">

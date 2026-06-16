@@ -119,10 +119,13 @@ static template = "theme_preview";
 
 
         window.parent.postMessage({themeInfo})
-        window.requestAnimationFrame(() => {
+        // window.requestAnimationFrame(() => {
+        setTimeout(() => {
             this.parseCurrentTheme();
             this.parseCurrentSkins();
-        });
+            
+        }, 500);
+        // });
     }
 
     parseCurrentSkins(){

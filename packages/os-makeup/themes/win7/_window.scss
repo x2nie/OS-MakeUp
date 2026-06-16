@@ -216,6 +216,7 @@
   --w7-t-space: var(--w7-w-space);
 
   &-text {
+    flex-grow: 1;
     color: #000;
     letter-spacing: 0;
     line-height: 15px;
@@ -227,7 +228,7 @@
     text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff;
   }
 
-  &-buttons {
+  &-buttons:not(.sys) {
     display: flex;
     background: #fff3;
     border: 1px solid var(--w7-wct-bd);
@@ -235,9 +236,6 @@
     border-radius: 0 0 var(--w7-wct-bdr) var(--w7-wct-bdr);
     box-shadow: 0 1px 0 #fffa, 1px 0 0 #fffa, -1px 0 0 #fffa;
 
-    &.sys button {
-      display: none; // win 7 doesn't have sys button like win 3.1
-    }
 
     button {
       position: relative;
@@ -349,6 +347,10 @@
       }
     }
   }
+  &-buttons.sys button {
+    display: none; // win 7 doesn't have sys button like win 3.1
+  }
+
 
   /* Active title-bar */
   .active > &,

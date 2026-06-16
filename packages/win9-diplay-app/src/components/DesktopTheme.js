@@ -17,10 +17,10 @@ export class DesktopTheme extends Component{
         this.data = {...win95_colors}; // assure simple
         this.state = useState({
             theme: 'win7',
-            theme: 'win98',
             theme: 'nu',
             theme: 'bluecurve',
             item: 'Desktop',
+            theme: 'win9x',
             size: 10,
             font: {name:'Arial'},
             color: win95_colors.Background,//'lime',
