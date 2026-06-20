@@ -1,288 +1,2 @@
 <odoo>
-<t t-name="DesktopTheme.Form">
-<div id="desktop-theme-form" class="window win980 winNT0 win70 winXP0 glass active" style="z-index:0">
-<div class="title-bar">
-<div class="title-bar-text">Another window with contents</div>
-<div class="title-bar-buttons">
-<button data-minimize=""></button>
-<button data-maximize=""></button>
-<button data-close=""></button>
-</div>
-</div>
-<div class="neck">
-<t t-call="iframe_preview"/>
-</div>
-<div class="window-body has-space">
-<t t-call="Editors"/>
-<section class="field-row" style="justify-content: flex-end">
-<button class="default">OK</button>
-<button>Cancel</button>
-</section>
-</div>
-</div>
-</t>
-<ul t-name="sample_menu" role="menubar" class="can-hover">
-<li role="menuitem" tabindex="0" aria-haspopup="true">
-File
-<ul role="menu">
-<li role="menuitem">
-<a href="#menubar">
-Open <span>Ctrl+O</span>
-</a>
-</li>
-<li role="menuitem">
-<a href="#menubar">
-Save <span>Ctrl+S</span>
-</a>
-</li>
-<li role="menuitem" class="has-divider">
-<a href="#menubar">
-Save As... <span>Ctrl+Shift+S</span>
-</a>
-</li>
-<li role="menuitem"><a href="#menubar">Exit</a></li>
-</ul>
-</li>
-<li role="menuitem" tabindex="0" aria-haspopup="true">
-Edit
-<ul role="menu">
-<li role="menuitem"><a href="#menubar">Undo</a></li>
-<li role="menuitem"><a href="#menubar">Copy</a></li>
-<li role="menuitem"><a href="#menubar">Cut</a></li>
-<li role="menuitem" class="has-divider"><a href="#menubar">Paste</a></li>
-<li role="menuitem"><a href="#menubar">Delete</a></li>
-<li role="menuitem"><a href="#menubar">Find...</a></li>
-<li role="menuitem"><a href="#menubar">Replace...</a></li>
-<li role="menuitem"><a href="#menubar">Go to...</a></li>
-</ul>
-</li>
-<li role="menuitem" tabindex="0" aria-haspopup="true">
-View
-<ul role="menu">
-<li role="menuitem" tabindex="0" aria-haspopup="true">
-Zoom
-<ul role="menu">
-<li role="menuitem"><button>Zoom In</button></li>
-<li role="menuitem"><button>Zoom Out</button></li>
-</ul>
-</li>
-<li role="menuitem"><a href="#menubar">Status Bar</a></li>
-</ul>
-</li>
-<li role="menuitem" tabindex="0" aria-haspopup="true">
-Help
-<ul role="menu">
-<li role="menuitem"><a href="#menubar">View Help</a></li>
-<li role="menuitem"><a href="#menubar">About</a></li>
-</ul>
-</li>
-</ul>
-<iframe t-name="iframe_preview" src="preview-box.html" t-ref="client" style="width:400px; height:340px;border:none;"></iframe>
-<div t-name="Editors" id="editors-box">
-<div> <!-- engine -->
-<div class="field-row-stacked">
-<label for="ed-theme">Window &amp; Border</label>
-<select id="ed-theme" t-model="state.theme">
-<option value="win9x">Win 98 Style</option>
-<option value="winxp">Win XP Style</option>
-<option value="win7">Win 7 Style</option>
-<option value="win3x">Win 31 Style</option>
-<option value="bluecurve">Bluecurve</option>
-<option value="nu">Norton Utilities</option>
-</select>
-</div>
-</div>
-<div> <!-- color scheme -->
-<div class="field-row-stacked">
-<label for="ed-items">Color Scheme</label>
-<select id="ed-items" t-model="state.color_scheme">
-<t t-if="state.themeInfo and state.themeInfo.Schemes">
-<t t-foreach="state.themeInfo.Schemes" t-as="name" t-key="name">
-<option t-att-value="name" t-out="name"/>
-</t> 
-</t>
-</select>
-</div>
-<div class="field-row-stacked big-width">
-<label for="ed-items">Variant</label>
-<select id="ed-items" t-model="state.variant">
-</select>
-</div>
-</div>
-<div> <!-- Item -->
-<div class="field-row-stacked">
-<label for="ed-items">Items</label>
-<select id="ed-items" t-model="state.item">
-<option t-foreach="sel_items" t-as="item" t-key="item_index" t-att-value="item" t-out="sel_items[item].label"></option>
-</select>
-</div>
-<div class="field-row-stacked small-width">
-<label for="ed-size">Size</label>
-<FieldSpin disabled="!state.mapping.color2" state="state" field="'size'">
-<input id="ed-size" t-model="state.size" type="text" t-att="{'disabled': !state.mapping.size}"/>
-</FieldSpin>
-</div>
-<div class="field-row-stacked">
-<label for="ed-color">Color 1</label>
-<FieldColor color="state.color" disabled="!state.mapping.color">
-<input id="ed-color" t-model="state.color" type="color"/>
-</FieldColor>
-</div>
-<div class="field-row-stacked">
-<label for="ed-color2">Color 2</label>
-<FieldColor color="state.color2" disabled="!state.mapping.color2">
-<input id="ed-color2" t-model="state.color2" type="color"/>
-</FieldColor>
-</div>
-</div>
-<div> <!-- Font -->
-<div class="field-row-stacked">
-<label for="ed-font-name">Font</label>
-<select id="ed-font-name" t-model="state.font.name" t-att="{'disabled': !state.mapping.font}">
-<option value="Tahoma">Tahoma</option>
-<option value="Arial">Arial</option>
-<option value="sans-serif">Sans Serif</option>
-<option value="monospace">Monospace</option>
-<option value="winXP">Times New Roman</option>
-<option value="win7">Win 7</option>
-</select>
-</div>
-<div class="field-row-stacked small-width">
-<label for="ed-font-size">Size</label>
-<select id="ed-font-size" t-model="state.font_size" t-att="{'disabled': !state.mapping.font}">
-<option t-foreach="[8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]" t-as="fs" t-key="fs" t-att-value="fs" t-out="fs"/>
-</select>
-</div>
-<div class="field-row-stacked">
-<label for="ed-font-color">Color</label>
-<div class="button-group">
-<FieldColor id="ed-font-color" color="state.text" disabled="!state.mapping.text and !state.mapping.font">
-<input id="ed-font-color2" t-model="state.text" type="color"/>
-</FieldColor>
-<i style="width:10px"/>
-<button t-on-click="toggleBold" t-attf-class="speed bold {{state.font and state.font.Weight gte 600 ?'active':''}}" t-att="{'disabled': !state.mapping.font}">B</button>
-<button t-on-click="toggleItalic" t-attf-class="speed {{state.font and state.font.italic?'active':''}}" t-att="{'disabled': !state.mapping.font}">/</button>
-</div>
-</div>
-</div>
-</div>
-<div t-name="theme_preview" class="preview-box" data-el="Desktop" t-on-click="previewClick">
-<desktop-icons data-el="Icons">
-<di tabindex="0" id="my-computer">   <i><span>My Computer</span></i></di>
-<di tabindex="0" id="network">       <i><span>Network Neighborhood</span></i></di>
-<di tabindex="0" id="my-documents">  <i><span>My Documents</span></i></di>
-<di tabindex="0" id="recycle-bin">   <i><span>Recycle Bin</span></i></di>
-</desktop-icons>
-<div class="windows-wrapper">
-<t t-call="sample_app.inactive"/>
-<t t-call="sample_app.active"/>
-</div>
-<t t-call="sample_app.tool-window"/>
-<t t-call="sample_app.message-box"/>
-</div>
-<div id="scrollable0" style="z-index: 10; position: absolute; top: 20px; width: 100px; height: 100px;  background: yellow;">
-<div class="scrollbar vertical">
-<div class="scrollbar-button decrement vertical disabled"></div>
-<div class="scrollbar-track vertical">
-<div class="scrollbar-track-piece decrement vertical"></div>
-<div class="scrollbar-thumb vertical"></div>
-<div class="scrollbar-track-piece increment vertical"></div>
-</div>
-<div class="scrollbar-button increment vertical disabled"></div>
-</div>
-</div>
-<div t-name="sample_app.inactive" t-attf-class="window sample_app" data-el="BorderInactive">
-<div class="title-bar">
-<div class="title-bar-buttons sys" data-el="CaptionButton">
-<button class="sys"></button>
-</div>
-<div class="title-bar-text" data-el="InactiveTitle">Inactive Window</div>
-<div class="title-bar-buttons" data-el="CaptionButton">
-<button data-minimize=""></button>
-<button data-maximize=""></button>
-<button data-close=""></button>
-</div>
-</div>
-<div class="window-body">
-<div id="window-and-scrollbar" class="inset" data-el="MDI" style="background:var(--AppWorkspace, grey);">
-</div>
-</div>
-</div>
-<div t-name="sample_app.active" t-attf-class="window active sample_app" data-el="BorderActive">
-<div class="title-bar" data-el="ActiveTitle">
-<div class="title-bar-buttons sys" data-el="CaptionButton">
-<button class="sys"></button>
-</div>
-<div class="title-bar-text">Active Window</div>
-<div class="title-bar-buttons" data-el="CaptionButton">
-<button data-minimize=""></button>
-<button data-maximize=""></button>
-<button data-close=""></button>
-</div>
-</div>
-<t t-call="sample_app.menu"/>
-<div class="window-body">
-<div id="window-and-scrollbar" class="inset">
-<div data-el="Window" class="grow">
-Window Text &amp; 
-<span style="background: var(--Hilight)!important; color: var(--HilightText);" data-el="Selection">Selected</span>
-</div>
-<div class="scrollbar vertical" style="height: 100%" data-el="Scrollbar">
-<button>
-</button>
-<div class="scrollbar-track">
-<div class="scrollbar-thumb"></div>
-</div>
-<button>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div t-name="sample_app.message-box" t-attf-class="window dialog active message-box" data-el="Form">
-<div class="title-bar" data-el="ActiveTitle">
-<div class="title-bar-buttons sys" data-el="CaptionButton">
-<button class="sys"></button>
-</div>
-<div class="title-bar-text">Message Box</div>
-<div class="title-bar-buttons" data-el="CaptionButton">
-<button data-close=""></button>
-</div>
-</div>
-<div class="window-body" style="padding: 3px 8px;">
-Message Text
-<button data-el="Surface">OK</button>
-</div>
-</div>
-<div t-name="sample_app.tool-window" t-attf-class="window tool-window active" data-el="Form">
-<div class="title-bar" data-el="ActiveTitle">
-<div class="title-bar-buttons sys" data-el="CaptionButton">
-<button class="sys"></button>
-</div>
-<div class="title-bar-text">Tool Win</div>
-<div class="title-bar-buttons" data-el="CaptionButton">
-<button data-close=""></button>
-</div>
-</div>
-<div class="window-body">
-Icon <br/>
-Here
-</div>
-</div>
-<ul t-name="sample_app.menu" role="menubar" class="menubar">
-<li role="menuitem" tabindex="0" class="no-hover" data-el="Menu"><u>N</u>ormal</li>
-<li role="menuitem" disabled="disabled" tabindex="0"><u>D</u>isabled</li>
-<li role="menuitem" tabindex="0" class="selected"><u>S</u>elected</li>
-</ul>
-<ul t-name="sample_app.menu0" role="menubar">
-<li tabindex="0" aria-haspopup="true">
-<u>N</u>ormal
-</li>
-<li tabindex="0" aria-disabled="true">
-<u>D</u>isabled
-</li>
-<li tabindex="0" style="background: var(--Hilight)!important; color: var(--HilightText);">
-<u>S</u>elected
-</li>
-</ul>
-</odoo>
+<t t-name="DesktopTheme.Form"><div id="desktop-theme-form" class="window win980 winNT0 win70 winXP0 glass active" style="z-index:0"><div class="title-bar"><div class="title-bar-text">Another window with contents</div><div class="title-bar-buttons"><button data-minimize=""></button><button data-maximize=""></button><button data-close=""></button></div></div><div class="neck"><t t-call="iframe_preview"/></div><div class="window-body has-space"><t t-call="Editors"/><section class="field-row" style="justify-content: flex-end"><button class="default">OK</button><button>Cancel</button></section></div></div></t><ul t-name="sample_menu" role="menubar" class="can-hover"><li role="menuitem" tabindex="0" aria-haspopup="true">File<ul role="menu"><li role="menuitem"><a href="#menubar">Open <span>Ctrl+O</span></a></li><li role="menuitem"><a href="#menubar">Save <span>Ctrl+S</span></a></li><li role="menuitem" class="has-divider"><a href="#menubar">Save As... <span>Ctrl+Shift+S</span></a></li><li role="menuitem"><a href="#menubar">Exit</a></li></ul></li><li role="menuitem" tabindex="0" aria-haspopup="true">Edit<ul role="menu"><li role="menuitem"><a href="#menubar">Undo</a></li><li role="menuitem"><a href="#menubar">Copy</a></li><li role="menuitem"><a href="#menubar">Cut</a></li><li role="menuitem" class="has-divider"><a href="#menubar">Paste</a></li><li role="menuitem"><a href="#menubar">Delete</a></li><li role="menuitem"><a href="#menubar">Find...</a></li><li role="menuitem"><a href="#menubar">Replace...</a></li><li role="menuitem"><a href="#menubar">Go to...</a></li></ul></li><li role="menuitem" tabindex="0" aria-haspopup="true">View<ul role="menu"><li role="menuitem" tabindex="0" aria-haspopup="true">Zoom<ul role="menu"><li role="menuitem"><button>Zoom In</button></li><li role="menuitem"><button>Zoom Out</button></li></ul></li><li role="menuitem"><a href="#menubar">Status Bar</a></li></ul></li><li role="menuitem" tabindex="0" aria-haspopup="true">Help<ul role="menu"><li role="menuitem"><a href="#menubar">View Help</a></li><li role="menuitem"><a href="#menubar">About</a></li></ul></li></ul><iframe t-name="iframe_preview" src="preview-box.html"  t-ref="client"style="width:400px; height:310px;border:none;"></iframe><div t-name="Editors" id="editors-box"><div> <!-- engine --><div class="field-row-stacked"><label for="ed-theme">Window &amp; Border</label><select id="ed-theme" t-model="state.theme"><option value="win9x">Win 98 Style</option><option value="winxp">Win XP Style</option><option value="win7">Win 7 Style</option><option value="win3x">Win 31 Style</option><option value="bluecurve">Bluecurve</option><option value="nu">Norton Utilities</option></select></div></div><div> <!-- color scheme --><div class="field-row-stacked"><label for="ed-items">Color Scheme</label><select id="ed-items" t-model="state.color_scheme"><t t-if="state.themeInfo and state.themeInfo.Schemes"><t t-foreach="state.themeInfo.Schemes" t-as="name" t-key="name"><option  t-att-value="name" t-out="name"/></t> </t></select></div><div class="field-row-stacked big-width"><label for="ed-items">Variant</label><select id="ed-items" t-model="state.variant"></select></div></div><div> <!-- Item --><div class="field-row-stacked"><label for="ed-items">Items</label><select id="ed-items" t-model="state.item"><option t-foreach="sel_items" t-as="item" t-key="item_index" t-att-value="item" t-out="sel_items[item].label"></option></select></div><div class="field-row-stacked small-width"><label for="ed-size" t-att-class="{disabled:!state.mapping.size}">Size</label><FieldSpin disabled="!state.mapping.size" state="state" field="'size'"><input id="ed-size" t-model="state.size" type="text" t-att="{'disabled': !state.mapping.size}"/></FieldSpin></div><div class="field-row-stacked"><label for="ed-color" t-att-class="{disabled:!state.mapping.color}">Color 1</label><FieldColor color="state.color" disabled="!state.mapping.color"><input id="ed-color" t-model="state.color" type="color"/></FieldColor></div><div class="field-row-stacked"><label for="ed-color2" t-att-class="{disabled:!state.mapping.color2}">Color 2</label><FieldColor color="state.color2" disabled="!state.mapping.color2"><input id="ed-color2" t-model="state.color2" type="color"/></FieldColor></div></div><div> <!-- Font --><div class="field-row-stacked"><label for="ed-font-name" t-att-class="{disabled:!state.mapping.font}">Font</label><select id="ed-font-name" t-model="state.font.name" t-att="{'disabled': !state.mapping.font}"><option value="Tahoma">Tahoma</option><option value="Arial">Arial</option><option value="sans-serif">Sans Serif</option><option value="monospace">Monospace</option><option value="winXP">Times New Roman</option><option value="win7">Win 7</option></select></div><div class="field-row-stacked small-width"><label for="ed-font-size" t-att-class="{disabled:!state.mapping.font}">Size</label><select id="ed-font-size" t-model="state.font_size" t-att="{'disabled': !state.mapping.font}"><option t-foreach="[8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]" t-as="fs" t-key="fs" t-att-value="fs" t-out="fs"/></select></div><div class="field-row-stacked"><label for="ed-font-color" t-att-class="{disabled:!state.mapping.text and !state.mapping.font}">Color</label><div class="button-group"><FieldColor id="ed-font-color" color="state.text" disabled="!state.mapping.text and !state.mapping.font"><input id="ed-font-color2" t-model="state.text" type="color"/></FieldColor><i style="width:10px"/><button t-on-click="toggleBold" t-attf-class="speed bold {{state.font and state.font.Weight gte 600 ?'active':''}}" t-att="{'disabled': !state.mapping.font}">B</button><button t-on-click="toggleItalic" t-attf-class="speed {{state.font and state.font.italic?'active':''}}" t-att="{'disabled': !state.mapping.font}">/</button></div></div></div></div><div t-name="theme_preview" class="preview-box" data-el="Desktop"t-on-click="previewClick"><desktop-icons data-el="Icons"><di tabindex="0" id="my-computer">   <i><span>My Computer</span></i></di><di tabindex="0" id="my-documents">  <i><span>My Documents</span></i></di><di tabindex="0" id="recycle-bin">   <i><span>Recycle Bin</span></i></di></desktop-icons><div class="windows-wrapper"><t t-call="sample_app.inactive"/><t t-call="sample_app.active"/></div><t t-call="sample_app.tool-window"/><t t-call="sample_app.message-box"/></div><div id="scrollable0" style="z-index: 10; position: absolute; top: 20px; width: 100px; height: 100px;  background: yellow;"><div class="scrollbar vertical"><div class="scrollbar-button decrement vertical disabled"></div><div class="scrollbar-track vertical"><div class="scrollbar-track-piece decrement vertical"></div><div class="scrollbar-thumb vertical"></div><div class="scrollbar-track-piece increment vertical"></div></div><div class="scrollbar-button increment vertical disabled"></div></div></div><div t-name="sample_app.inactive" t-attf-class="window sample_app" data-el="BorderInactive"><div class="title-bar"><div class="title-bar-buttons sys" data-el="CaptionButton"><button class="sys"></button></div><div class="title-bar-text" data-el="InactiveTitle">Inactive Window</div><div class="title-bar-buttons" data-el="CaptionButton"><button data-minimize=""></button><button data-maximize=""></button><button data-close=""></button></div></div><div class="window-body"><div id="window-and-scrollbar" class="inset" data-el="MDI" style="background:var(--AppWorkspace, grey);"></div></div></div><div t-name="sample_app.active" t-attf-class="window active sample_app" data-el="BorderActive"><div class="title-bar" data-el="ActiveTitle"><div class="title-bar-buttons sys" data-el="CaptionButton"><button class="sys"></button></div><div class="title-bar-text">Active Window</div><div class="title-bar-buttons" data-el="CaptionButton"><button data-minimize=""></button><button data-maximize=""></button><button data-close=""></button></div></div><t t-call="sample_app.menu"/><div class="window-body"><div id="window-and-scrollbar" class="inset"><div data-el="Window" class="grow">Window Text &amp; <span style="background: var(--Hilight)!important; color: var(--HilightText);"data-el="Selection">Selected</span></div><div class="scrollbar vertical" style="height: 100%" data-el="Scrollbar"><button></button><div class="scrollbar-track"><div class="scrollbar-thumb"></div></div><button></button></div></div></div></div><div t-name="sample_app.message-box" t-attf-class="window dialog active message-box" data-el="Form"><div class="title-bar" data-el="ActiveTitle"><div class="title-bar-buttons sys" data-el="CaptionButton"><button class="sys"></button></div><div class="title-bar-text">Message Box</div><div class="title-bar-buttons" data-el="CaptionButton"><button data-close=""></button></div></div><div class="window-body" style="padding: 3px 8px;">Message Text<button data-el="Surface">OK</button></div></div><div t-name="sample_app.tool-window" t-attf-class="window tool-window active" data-el="Form"><div class="title-bar" data-el="ActiveTitle"><div class="title-bar-buttons sys" data-el="CaptionButton"><button class="sys"></button></div><div class="title-bar-text">Tool Win</div><div class="title-bar-buttons" data-el="CaptionButton"><button data-close=""></button></div></div><div class="window-body">Icon <br/>Here</div></div><ul t-name="sample_app.menu" role="menubar" class="menubar"><li role="menuitem" tabindex="0" class="no-hover" data-el="Menu"><u>N</u>ormal</li><li role="menuitem" disabled="disabled" tabindex="0"><u>D</u>isabled</li><li role="menuitem" tabindex="0" class="selected"><u>S</u>elected</li></ul></odoo>

@@ -19,6 +19,8 @@ themeFolders.forEach(themeFolder => {
     const skinFiles = fs.readdirSync(skinsDir)
       .filter(file => file.endsWith('.css'))
       .map(file => file.replace('.css', ''));
+
+    //TODO: urutkan berdasarkan: 'default' duluan
     
     // Buat string untuk skinList
     const skinList = skinFiles.join(', ');

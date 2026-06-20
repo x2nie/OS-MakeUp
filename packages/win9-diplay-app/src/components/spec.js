@@ -4,8 +4,8 @@ export const spec = {
 
     ActiveTitle: {
         label: 'Active Title Bar',
-        size: 'iCaptionWidth', //? The width of caption buttons, in pixels.
-        siz2: 'iCaptionHeight', //? The height of caption buttons, in pixels. LETS MAKE IT SAME
+        size: 'CaptionHeight', //? The width of caption buttons, in pixels.
+        siz2: 'CaptionFont-Height', //? The height of caption buttons, in pixels. LETS MAKE IT SAME
         color: 'ActiveTitle',
         color2: 'GradientActiveTitle',
         text: 'TitleText', //font
@@ -14,8 +14,8 @@ export const spec = {
 
     InactiveTitle: {
         label: 'Inactive Title Bar',
-        size: 'iCaptionWidth', //? The width of caption buttons, in pixels.
-        siz2: 'iCaptionHeight', //? The height of caption buttons, in pixels. LETS MAKE IT SAME
+        size: 'CaptionWidth', //? The width of caption buttons, in pixels.
+        siz2: 'CaptionHeight', //? The height of caption buttons, in pixels. LETS MAKE IT SAME
         color: 'InactiveTitle',
         color2: 'GradientInactiveTitle',
         text: 'InactiveTitleText', //font
@@ -24,8 +24,8 @@ export const spec = {
     
     CaptionButton: {
         label: 'Caption Buttons',
-        size: 'iCaptionWidth', //? The width of caption buttons, in pixels.
-        siz2: 'iCaptionHeight', //? The height of caption buttons, in pixels. LETS MAKE IT SAME
+        size: 'CaptionWidth', //? The width of caption buttons, in pixels.
+        siz2: 'CaptionHeight', //? The height of caption buttons, in pixels. LETS MAKE IT SAME
     },
 
     Desktop: {
@@ -77,7 +77,8 @@ export const spec = {
 
 
     Scrollbar: {
-        label: 'Scroll Bar'
+        label: 'Scroll Bar',
+        size: 'ScrollWidth',
     },
 
     // MENUS:------------- \
@@ -130,7 +131,7 @@ export const spec = {
 export const win95_colors = {
     // iFooBar: 8, //dummy for dev mode only
     BorderWidth: 1,
-    ScrollHeight: 13,
+    // ScrollHeight: 13,
     ScrollWidth: 13,
     CaptionWidth: 18,
     CaptionHeight: 18,
@@ -139,11 +140,11 @@ export const win95_colors = {
     MenuHeight: 18, //menubar.height
     MenuWidth: 18,  //popup.min-width?
 
-    CaptionFont: {name: 'sans-serif', Weight:700, Italic:true},
-    SmCaptionFont: {name: 'sans-serif', Weight:700, Italic:true},
-    MessageFont: {name: 'monospace', Italic:true},
-    MenuFont: {name: 'monospace'},
-    StatusFont: {name: 'monospace'},
+    CaptionFont: {Name: 'sans-serif', Weight:700, Italic:true},
+    SmCaptionFont: {Name: 'sans-serif', Weight:700, Italic:true},
+    MessageFont: {Name: 'monospace', Italic:true},
+    MenuFont: {Name: 'monospace'},
+    StatusFont: {Name: 'monospace'},
 
 
     HorzSpacing: 43,

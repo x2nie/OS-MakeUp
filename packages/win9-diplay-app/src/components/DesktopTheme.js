@@ -231,7 +231,7 @@ export class DesktopTheme extends Component{
                 ret += `--${k}: ${v|| 'none'};\n`;
             }
         }
-        ret += `--iCaptionHeight: ${this.data.CaptionHeight};\n` ; //without px
+        ret += `--CaptionHeight: ${this.data.CaptionHeight};\n` ; //without px
         return ret;
     }
 
@@ -253,7 +253,13 @@ export class DesktopTheme extends Component{
         this.state.mapping = scope;
         //? prepare .state
         for(const [k,v] of Object.entries(scope)){
-            this.state[k] = this.data[v]
+            // this.state[k] = this.data[v]
+            let val = this.data[v];
+            if(v.endsWith('Width') || v.endsWith('Height')){
+                val = parseInt(val);
+            }
+            console.log(`set state[${k}] <-- ${v} (${val})`)
+            this.state[k] = val;
         }
     }
     fillState(scoop){
@@ -269,7 +275,13 @@ export class DesktopTheme extends Component{
             const key = scoop[n]
             if(key != null){
                 // this.data[key] = this.state[n]
-                changes[key] = this.state[n]
+                console.log('applying',`key:${key}, n:${n}`)
+                // changes[key] = this.state[n]
+                let val = this.state[n];
+                if(key.endsWith('Height') || key.endsWith('Width')){
+                    val = `${val}px`
+                }
+                changes[key] = val;
             }
         }
         // for(const n of ['name', 'bold', 'italic']){

@@ -29,6 +29,7 @@
       color: var(--HilightText);
     }
 
+    &[disabled],
     &[aria-disabled=true] {
       color: var(--ButtonShadow)!important;
       text-shadow: 1px 1px 0 var(--ButtonHilight)!important;
@@ -106,9 +107,12 @@
       min-width: 200px;
     }
 
-    &[aria-disabled=true]:hover,
-    &[aria-disabled=true]:focus {
-      text-shadow: none;
+    &[disabled],
+    &[aria-disabled=true] {
+      &:hover,
+      &:focus {
+        text-shadow: none;
+      }
     }
 
 

@@ -6,7 +6,7 @@
 
     <desktop-icons data-el="Icons">
         <di tabindex="0" id="my-computer">   <i><span>My Computer</span></i></di>
-        <di tabindex="0" id="network">       <i><span>Network Neighborhood</span></i></di>
+        <!-- <di tabindex="0" id="network">       <i><span>Network Neighborhood</span></i></di> -->
         <di tabindex="0" id="my-documents">  <i><span>My Documents</span></i></di>
         <di tabindex="0" id="recycle-bin">   <i><span>Recycle Bin</span></i></di>
     </desktop-icons>
@@ -166,7 +166,7 @@
   <li role="menuitem" tabindex="0" class="selected" ><u>S</u>elected</li>
 </ul>
 
-<ul t-name="sample_app.menu0" role="menubar">
+<!-- <ul t-name="sample_app.menu0" role="menubar">
     <li tabindex="0" aria-haspopup="true">
         <u>N</u>ormal
     </li>
@@ -176,7 +176,7 @@
     <li tabindex="0" style="background: var(--Hilight)!important; color: var(--HilightText);">
         <u>S</u>elected
     </li>
-</ul>
+</ul> -->
 
 <!-- <ul role="menubar">
                         <li tabindex="0" aria-haspopup="true">

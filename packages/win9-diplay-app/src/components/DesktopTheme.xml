@@ -101,7 +101,7 @@
 <iframe t-name="iframe_preview" 
   src="preview-box.html"  
   t-ref="client"
-  style="width:400px; height:340px;border:none;" 
+  style="width:400px; height:310px;border:none;" 
 ></iframe>
 
 </templates>
